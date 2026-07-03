@@ -10,6 +10,8 @@ interface Props {
 
 const { component, demo: DemoComponent } = Astro.props;
 const categoryLabel = categories[component.category];
+const isPreviewOnly =
+  component.status === "in-progress" || component.status === "experimental";
 ---
 
 <article
@@ -29,15 +31,25 @@ const categoryLabel = categories[component.category];
   <div class="nb-component-card__body">
     <p class="nb-component-card__description">{component.description}</p>
 
-    {
-      DemoComponent ? (
-        <DemoComponent />
-      ) : (
-        <div class="nb-component-card__placeholder">
-          <span>Planned — no preview yet</span>
-        </div>
-      )
-    }
+    <div class="nb-component-card__preview">
+      {
+        DemoComponent ? (
+          <DemoComponent />
+        ) : (
+          <div class="nb-component-card__placeholder">
+            <span>Planned — no preview yet</span>
+          </div>
+        )
+      }
+
+      {
+        DemoComponent && isPreviewOnly && (
+          <p class="nb-component-card__preview-note">
+            Preview only — not ready for production
+          </p>
+        )
+      }
+    </div>
 
     {component.notes && <p class="nb-component-card__notes">{component.notes}</p>}
 

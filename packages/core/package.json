@@ -23,7 +23,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "echo 'Build script to be implemented'",
+    "build": "node ../../scripts/build-package.mjs core",
     "lint": "echo 'Lint script to be implemented'",
     "test": "echo 'Test script to be implemented'"
   },

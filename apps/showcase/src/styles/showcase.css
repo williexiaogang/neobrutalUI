@@ -449,6 +449,23 @@
   background: var(--nb-base-200);
 }
 
+.nb-component-card__preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nb-space-2);
+}
+
+.nb-component-card__preview-note {
+  margin: 0;
+  padding: var(--nb-space-2) var(--nb-space-3);
+  border: var(--nb-border-width) solid var(--nb-border);
+  background: var(--nb-warning);
+  color: var(--nb-warning-content);
+  font-size: var(--nb-text-xs);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .nb-component-card__notes,
 .nb-component-card__issues {
   margin: 0;
