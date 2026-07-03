@@ -1,0 +1,40 @@
+{
+  "name": "@neo-brutal-ui/core",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Core CSS styles and components for Neo-Brutal UI — zero-runtime CSS built for Tailwind CSS v4+.",
+  "type": "module",
+  "main": "./dist/index.css",
+  "module": "./dist/index.css",
+  "exports": {
+    ".": {
+      "import": "./dist/index.css",
+      "require": "./dist/index.css"
+    },
+    "./css": "./dist/index.css",
+    "./tokens": "./dist/tokens.css",
+    "./base": "./dist/base.css",
+    "./components": "./dist/components.css",
+    "./utilities": "./dist/utilities.css"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "echo 'Build script to be implemented'",
+    "lint": "echo 'Lint script to be implemented'",
+    "test": "echo 'Test script to be implemented'"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">= 4.0.0"
+  },
+  "keywords": [
+    "neo-brutal-ui",
+    "css",
+    "tailwindcss",
+    "components"
+  ],
+  "license": "MIT"
+}

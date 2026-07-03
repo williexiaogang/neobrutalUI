@@ -1,0 +1,29 @@
+{
+  "name": "neo-brutal-ui",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A Neo-Brutalism UI component library inspired by daisyUI design philosophy, featuring independent class names and Tailwind CSS v4+ integration.",
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">= 20.0.0"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.0",
+    "prettier": "^3.3.0"
+  },
+  "keywords": [
+    "neo-brutalism",
+    "ui-components",
+    "tailwindcss",
+    "css",
+    "design-system"
+  ],
+  "author": "Neo-Brutal UI Team",
+  "license": "MIT"
+}

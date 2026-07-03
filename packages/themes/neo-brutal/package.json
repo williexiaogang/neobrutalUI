@@ -1,0 +1,39 @@
+{
+  "name": "@neo-brutal-ui/theme-neo-brutal",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Default Neo-Brutalism theme for Neo-Brutal UI — OKLCH color tokens and theme configuration.",
+  "type": "module",
+  "main": "./dist/theme.css",
+  "module": "./dist/theme.css",
+  "exports": {
+    ".": {
+      "import": "./dist/theme.css",
+      "require": "./dist/theme.css"
+    },
+    "./css": "./dist/theme.css",
+    "./tokens": "./dist/tokens.css"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "echo 'Build script to be implemented'",
+    "lint": "echo 'Lint script to be implemented'",
+    "test": "echo 'Test script to be implemented'"
+  },
+  "peerDependencies": {
+    "@neo-brutal-ui/core": "workspace:*",
+    "tailwindcss": ">= 4.0.0"
+  },
+  "keywords": [
+    "neo-brutal-ui",
+    "theme",
+    "neo-brutalism",
+    "oklch",
+    "design-tokens"
+  ],
+  "license": "MIT"
+}
