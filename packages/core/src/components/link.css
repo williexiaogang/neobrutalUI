@@ -1,0 +1,21 @@
+/**
+ * Neo-Brutal UI — Link Component
+ *
+ * Brutalist underline link with accent hover background.
+ */
+
+@layer nb.components {
+  .nb-link {
+    color: var(--nb-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+    font-weight: 700;
+  }
+
+  .nb-link:hover {
+    background: var(--nb-accent);
+    color: var(--nb-accent-content);
+    text-decoration: none;
+  }
+}

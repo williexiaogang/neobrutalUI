@@ -7,7 +7,7 @@ export const site = {
   url: "https://neo-brutal-ui.github.io",
   locale: "en-US",
   lang: "en",
-  version: "v0.0.1-alpha",
+  version: "v0.0.2-alpha",
   versionLabel: "Alpha",
   packageName: "@your-scope/neo-brutal-ui",
   packageNameProvisional: true,

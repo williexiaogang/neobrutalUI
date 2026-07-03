@@ -1,0 +1,48 @@
+/**
+ * Neo-Brutal UI — Spacing & Typography Tokens
+ *
+ * Space scale, font stacks, type scale, line-heights, and border radius tokens.
+ */
+
+@layer nb.theme {
+  [data-theme="neo-brutal"],
+  [data-theme="neo-brutal"] * {
+    /* Spacing */
+    --nb-space-0: 0;
+    --nb-space-1: 0.25rem;
+    --nb-space-2: 0.5rem;
+    --nb-space-3: 0.75rem;
+    --nb-space-4: 1rem;
+    --nb-space-5: 1.25rem;
+    --nb-space-6: 1.5rem;
+    --nb-space-8: 2rem;
+    --nb-space-10: 2.5rem;
+    --nb-space-12: 3rem;
+    --nb-space-16: 4rem;
+
+    /* Typography */
+    --nb-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --nb-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+      monospace;
+    --nb-text-xs: 0.75rem;
+    --nb-text-sm: 0.875rem;
+    --nb-text-base: 1rem;
+    --nb-text-lg: 1.125rem;
+    --nb-text-xl: 1.25rem;
+    --nb-text-2xl: 1.5rem;
+    --nb-text-3xl: 2rem;
+    --nb-text-4xl: 2.5rem;
+    --nb-leading-none: 1;
+    --nb-leading-tight: 1.25;
+    --nb-leading-normal: 1.5;
+    --nb-leading-relaxed: 1.625;
+
+    /* Border & radius */
+    --nb-border-width: 2px;
+    --nb-radius-selector: 0px;
+    --nb-radius-field: 0px;
+    --nb-radius-box: 0px;
+    --nb-radius-overlay: 0px;
+  }
+}

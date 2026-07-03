@@ -1,0 +1,113 @@
+/**
+ * Neo-Brutal UI — Button Component
+ *
+ * Brutalist button with hard shadows, offset hover/active transforms,
+ * and size / color / variant modifiers.
+ */
+
+@layer nb.components {
+  .nb-btn {
+    --_bg: var(--nb-base-100);
+    --_fg: var(--nb-base-content);
+    --_border: var(--nb-border);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-2) var(--nb-space-4);
+    min-block-size: 2.5rem;
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-field);
+    background: var(--_bg);
+    color: var(--_fg);
+    font-family: inherit;
+    font-size: var(--nb-text-base);
+    font-weight: 700;
+    line-height: var(--nb-leading-none);
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(0, 0);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-btn {
+      transition: none;
+    }
+  }
+
+  .nb-btn:hover:not(:disabled) {
+    box-shadow: var(--nb-shadow-lg);
+    transform: translate(-2px, -2px);
+  }
+
+  .nb-btn:active:not(:disabled) {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(2px, 2px);
+  }
+
+  .nb-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(2px, 2px);
+  }
+
+  .nb-btn-primary {
+    --_bg: var(--nb-primary);
+    --_fg: var(--nb-primary-content);
+  }
+
+  .nb-btn-secondary {
+    --_bg: var(--nb-secondary);
+    --_fg: var(--nb-secondary-content);
+  }
+
+  .nb-btn-accent {
+    --_bg: var(--nb-accent);
+    --_fg: var(--nb-accent-content);
+  }
+
+  .nb-btn-neutral {
+    --_bg: var(--nb-neutral);
+    --_fg: var(--nb-neutral-content);
+  }
+
+  .nb-btn-outline {
+    --_bg: transparent;
+    --_fg: var(--nb-base-content);
+    border-width: calc(var(--nb-border-width) * 1.5);
+  }
+
+  .nb-btn-ghost {
+    --_bg: transparent;
+    --_fg: var(--nb-base-content);
+    box-shadow: none;
+  }
+
+  .nb-btn-ghost:hover:not(:disabled) {
+    --_bg: var(--nb-base-200);
+    box-shadow: none;
+    transform: none;
+  }
+
+  .nb-btn-sm {
+    padding: var(--nb-space-1) var(--nb-space-3);
+    min-block-size: 2rem;
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-btn-lg {
+    padding: var(--nb-space-3) var(--nb-space-6);
+    min-block-size: 3rem;
+    font-size: var(--nb-text-lg);
+  }
+
+  .nb-btn-block {
+    display: flex;
+    inline-size: 100%;
+  }
+}

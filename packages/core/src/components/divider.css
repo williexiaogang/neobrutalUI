@@ -1,0 +1,37 @@
+/**
+ * Neo-Brutal UI — Divider Component
+ *
+ * Horizontal and vertical content dividers with optional label.
+ */
+
+@layer nb.components {
+  .nb-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-3);
+    border: 0;
+    color: var(--nb-base-content-muted);
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+  }
+
+  .nb-divider::before,
+  .nb-divider::after {
+    content: "";
+    flex: 1;
+    block-size: 2px;
+    background: var(--nb-border);
+  }
+
+  .nb-divider-vertical {
+    flex-direction: column;
+    inline-size: 2px;
+    block-size: 100%;
+  }
+
+  .nb-divider-vertical::before,
+  .nb-divider-vertical::after {
+    inline-size: 2px;
+    block-size: auto;
+  }
+}

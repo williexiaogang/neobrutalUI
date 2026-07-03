@@ -1,0 +1,29 @@
+/**
+ * Neo-Brutal UI — Base Reset
+ *
+ * Minimal CSS reset, box-sizing rules, focus-visible, and text selection.
+ */
+
+@layer nb.base {
+  [data-theme="neo-brutal"] {
+    color: var(--nb-base-content);
+    font-family: var(--nb-font-sans);
+    line-height: var(--nb-leading-normal);
+  }
+
+  [data-theme="neo-brutal"] *,
+  [data-theme="neo-brutal"] *::before,
+  [data-theme="neo-brutal"] *::after {
+    box-sizing: border-box;
+  }
+
+  [data-theme="neo-brutal"] :focus-visible {
+    outline: 3px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  [data-theme="neo-brutal"] ::selection {
+    background: var(--nb-accent);
+    color: var(--nb-accent-content);
+  }
+}

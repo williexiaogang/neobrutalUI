@@ -1,0 +1,55 @@
+/**
+ * Neo-Brutal UI — Alert Component
+ *
+ * Inline alert banner with accent border, icon, title, and body.
+ */
+
+@layer nb.components {
+  .nb-alert {
+    --_accent: var(--nb-neutral);
+
+    display: flex;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-inline-start-width: 6px;
+    border-inline-start-color: var(--_accent);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-alert-info {
+    --_accent: var(--nb-info);
+  }
+
+  .nb-alert-success {
+    --_accent: var(--nb-success);
+  }
+
+  .nb-alert-warning {
+    --_accent: var(--nb-warning);
+  }
+
+  .nb-alert-error {
+    --_accent: var(--nb-error);
+  }
+
+  .nb-alert-icon {
+    flex-shrink: 0;
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+    color: var(--_accent);
+  }
+
+  .nb-alert-title {
+    margin: 0 0 var(--nb-space-1);
+    font-size: var(--nb-text-base);
+    font-weight: 700;
+  }
+
+  .nb-alert-body {
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content-muted);
+  }
+}

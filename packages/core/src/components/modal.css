@@ -1,0 +1,230 @@
+/**
+ * Neo-Brutal UI — Modal Component
+ *
+ * Dialog / modal with backdrop, header, body, footer, size variants,
+ * color variants, mobile sheet mode, reduced-motion, and forced-colors support.
+ */
+
+@layer nb.components {
+  .nb-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--nb-space-4);
+    z-index: var(--nb-z-modal);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--nb-duration-slow) var(--nb-ease-out),
+      visibility var(--nb-duration-slow) var(--nb-ease-out);
+  }
+
+  dialog.nb-modal-backdrop {
+    border: none;
+    padding: var(--nb-space-4);
+    background: none;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    inset: 0;
+  }
+
+  dialog.nb-modal-backdrop::backdrop {
+    background: var(--nb-overlay);
+    opacity: 0;
+    transition: opacity var(--nb-duration-slow) var(--nb-ease-out);
+  }
+
+  dialog.nb-modal-backdrop.is-open::backdrop,
+  dialog.nb-modal-backdrop[open]::backdrop {
+    opacity: 1;
+  }
+
+  .nb-modal-backdrop:not(dialog) {
+    background: var(--nb-overlay);
+  }
+
+  .nb-modal-backdrop.is-open,
+  dialog.nb-modal-backdrop[open] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nb-modal {
+    position: relative;
+    inline-size: 100%;
+    max-inline-size: 28rem;
+    max-block-size: calc(100vh - var(--nb-space-8));
+    overflow: auto;
+    background: var(--nb-base-100);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-overlay);
+    box-shadow: var(--nb-shadow-xl);
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    transition: opacity var(--nb-duration-slow) var(--nb-ease-out),
+      transform var(--nb-duration-slow) var(--nb-ease-out);
+  }
+
+  .nb-modal-backdrop.is-open .nb-modal,
+  dialog.nb-modal-backdrop[open] .nb-modal {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .nb-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-4);
+    border-block-end: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-200);
+  }
+
+  .nb-modal-title {
+    margin: 0;
+    font-size: var(--nb-text-lg);
+    font-weight: 700;
+    line-height: var(--nb-leading-tight);
+  }
+
+  .nb-modal-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    padding: 0;
+    background: var(--nb-base-100);
+    color: var(--nb-base-content);
+    border: var(--nb-border-width) solid var(--nb-border);
+    font-size: var(--nb-text-xl);
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: var(--nb-shadow-sm);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-modal-close:hover {
+    background: var(--nb-base-200);
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(-2px, -2px);
+  }
+
+  .nb-modal-close:active {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(2px, 2px);
+  }
+
+  .nb-modal-body {
+    padding: var(--nb-space-4);
+  }
+
+  .nb-modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-4);
+    border-block-start: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-200);
+  }
+
+  /* Modal size variants */
+  .nb-modal-xs { max-inline-size: 20rem; }
+  .nb-modal-sm { max-inline-size: 24rem; }
+  .nb-modal-md { max-inline-size: 28rem; }
+  .nb-modal-lg { max-inline-size: 32rem; }
+  .nb-modal-xl { max-inline-size: 40rem; }
+  .nb-modal-full {
+    max-inline-size: 100%;
+    min-block-size: 100vh;
+    border-radius: 0;
+  }
+
+  /* Modal color variants */
+  .nb-modal-primary .nb-modal-header {
+    background: var(--nb-primary);
+    color: var(--nb-primary-content);
+    border-block-end-color: color-mix(in oklch, var(--nb-primary-content) 20%, transparent);
+  }
+
+  .nb-modal-danger .nb-modal-header {
+    background: var(--nb-error);
+    color: var(--nb-error-content);
+    border-block-end-color: color-mix(in oklch, var(--nb-error-content) 20%, transparent);
+  }
+
+  .nb-modal-warning .nb-modal-header {
+    background: var(--nb-warning);
+    color: var(--nb-warning-content);
+    border-block-end-color: color-mix(in oklch, var(--nb-warning-content) 20%, transparent);
+  }
+
+  .nb-modal-success .nb-modal-header {
+    background: var(--nb-success);
+    color: var(--nb-success-content);
+    border-block-end-color: color-mix(in oklch, var(--nb-success-content) 20%, transparent);
+  }
+
+  /* Mobile sheet variant */
+  @media (max-width: 768px) {
+    .nb-modal-sheet {
+      max-inline-size: 100%;
+      margin-block-start: auto;
+      margin-block-end: 0;
+      border-radius: 0;
+      box-shadow: 0 -4px 0 var(--nb-border);
+    }
+
+    .nb-modal-backdrop:has(.nb-modal-sheet) {
+      align-items: flex-end;
+      padding: 0;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-modal-backdrop,
+    .nb-modal {
+      transition: none;
+      animation: none;
+      transform: none !important;
+    }
+
+    .nb-modal-backdrop.is-open .nb-modal,
+    dialog.nb-modal-backdrop[open] .nb-modal {
+      transform: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-modal {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-modal-header,
+    .nb-modal-footer {
+      border-color: CanvasText;
+    }
+
+    .nb-modal-backdrop:not(dialog) {
+      background: Canvas;
+      opacity: 0.9;
+    }
+
+    dialog.nb-modal-backdrop::backdrop {
+      background: Canvas;
+      opacity: 0.9;
+    }
+
+    .nb-modal-close {
+      border: 2px solid CanvasText;
+    }
+  }
+}

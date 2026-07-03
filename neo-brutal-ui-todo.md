@@ -81,7 +81,7 @@
 
 ## 1.1 定义支持范围
 
-- [ ] 在 `support-policy.md` 中记录：
+- [x] 在 `support-policy.md` 中记录：
   - Tailwind CSS 最低版本：v4。
   - Node.js 最低版本。
   - TypeScript 最低版本。
@@ -92,14 +92,14 @@
   - 不支持 Tailwind CSS v3。
   - 不提供 CDN。
 
-- [ ] 建议浏览器基线：
+- [x] 建议浏览器基线：
   - Chrome / Edge 最近两个主要版本。
   - Firefox 最近两个主要版本。
   - Safari 17+。
   - iOS Safari 17+。
   - Android Chrome 最近两个主要版本。
 
-- [ ] 明确现代 CSS 能力使用清单：
+- [x] 明确现代 CSS 能力使用清单：
   - CSS Custom Properties。
   - Cascade Layers。
   - Logical Properties。
@@ -111,8 +111,8 @@
 
 ## 1.2 建立设计决策记录
 
-- [ ] 创建 `docs/decisions/`。
-- [ ] 建立 ADR 模板：
+- [x] 创建 `docs/decisions/`。
+- [x] 建立 ADR 模板：
   - 背景。
   - 决策。
   - 替代方案。
@@ -120,7 +120,7 @@
   - 状态。
   - 日期。
 
-- [ ] 至少记录以下 ADR：
+- [x] 至少记录以下 ADR：
   - `001-independent-component-library.md`
   - `002-strong-scoped-class-names.md`
   - `003-tailwind-v4-only.md`
@@ -164,19 +164,19 @@ neo-brutal-ui/
 └── README.md
 ```
 
-- [ ] 决定使用单包还是多包发布。
-- [ ] 推荐初期发布：
+- [x] 决定使用单包还是多包发布。
+- [x] 推荐初期发布：
   - `@scope/neo-brutal-ui`
   - `@scope/neo-brutal-ui/interactions`
-- [ ] 若多主题成熟后，再拆分独立主题包。
-- [ ] 配置 workspace。
-- [ ] 配置统一 lint、test、build、release 命令。
+- [x] 若多主题成熟后，再拆分独立主题包。
+- [x] 配置 workspace。
+- [x] 配置统一 lint、test、build、release 命令。
 
 ## 1.4 阶段验收
 
-- [ ] 新成员只阅读 README 和 ADR 即可理解产品边界。
-- [ ] 核心 CSS 与交互 JavaScript 的职责没有重叠或歧义。
-- [ ] 包名、目录、导出路径和版本策略已确定。
+- [x] 新成员只阅读 README 和 ADR 即可理解产品边界。
+- [x] 核心 CSS 与交互 JavaScript 的职责没有重叠或歧义。
+- [x] 包名、目录、导出路径和版本策略已确定。
 
 ---
 
@@ -188,11 +188,11 @@ neo-brutal-ui/
 
 - [x] 风格名：Neo-Brutalism。
 - [x] 类名前缀：`nb-`。
-- [ ] 确定 npm 包正式名称。
-- [ ] 确定组件库展示名称。
-- [ ] 确定主题名称：
+- [x] 确定 npm 包正式名称。
+- [x] 确定组件库展示名称。
+- [x] 确定主题名称：
   - 建议：`neo-brutal`
-- [ ] 确定 Dark Theme 预留名称：
+- [x] 确定 Dark Theme 预留名称：
   - 建议：`neo-brutal-dark`
 
 ## 2.2 视觉铁律
@@ -200,23 +200,23 @@ neo-brutal-ui/
 - [x] 主要边框：2px 实线。
 - [x] 默认圆角：0px。
 - [x] 使用硬阴影。
-- [ ] 明确边框颜色是否始终为内容色，而非固定纯黑。
-- [ ] 定义表面层级：
+- [x] 明确边框颜色是否始终为内容色，而非固定纯黑。
+- [x] 定义表面层级：
   - Page。
   - Surface。
   - Raised Surface。
   - Overlay。
-- [ ] 定义背景使用规则：
+- [x] 定义背景使用规则：
   - 纯色优先。
   - 是否允许渐变。
   - 是否允许噪点或纸张纹理。
   - 是否允许图案背景。
-- [ ] 定义插图、图标和照片容器规则。
-- [ ] 定义信息密度：
+- [x] 定义插图、图标和照片容器规则。
+- [x] 定义信息密度：
   - Compact。
   - Default。
   - Comfortable。
-- [ ] 定义字体策略：
+- [x] 定义字体策略：
   - 默认字体栈。
   - 标题字体栈。
   - 等宽字体栈。
@@ -226,7 +226,7 @@ neo-brutal-ui/
 
 ## 2.3 阴影与位移数学关系
 
-- [ ] 定义阴影阶梯：
+- [x] 定义阴影阶梯：
 
   ```css
   --nb-shadow-xs;
@@ -235,9 +235,9 @@ neo-brutal-ui/
   --nb-shadow-lg;
   ```
 
-- [ ] 定义每一级阴影的 X/Y 偏移。
-- [ ] 明确 Hover 和 Active 的位移公式。
-- [ ] 推荐初始规则：
+- [x] 定义每一级阴影的 X/Y 偏移。
+- [x] 明确 Hover 和 Active 的位移公式。
+- [x] 推荐初始规则：
 
   ```text
   Default：4px 4px 0
@@ -245,10 +245,10 @@ neo-brutal-ui/
   Active：0 0 0，同时 translate(4px, 4px)
   ```
 
-- [ ] 检查 Hover 不造成周围布局抖动。
-- [ ] 检查 Active 不导致可点击区域明显偏移。
-- [ ] 为触摸设备定义无 Hover 的替代反馈。
-- [ ] 为 `prefers-reduced-motion` 定义无位移动画模式。
+- [x] 检查 Hover 不造成周围布局抖动。
+- [x] 检查 Active 不导致可点击区域明显偏移。
+- [x] 为触摸设备定义无 Hover 的替代反馈。
+- [x] 为 `prefers-reduced-motion` 定义无位移动画模式。
 
 ## 2.4 圆角、边框和组件类别
 
@@ -266,11 +266,11 @@ neo-brutal-ui/
 --nb-border-overlay;
 ```
 
-- [ ] Selector：Checkbox、Radio、Toggle。
-- [ ] Field：Button、Input、Select、Textarea。
-- [ ] Box：Card、Alert、Table、Stat。
-- [ ] Overlay：Modal、Dropdown、Tooltip、Drawer。
-- [ ] 定义允许使用圆形或胶囊形的例外：
+- [x] Selector：Checkbox、Radio、Toggle。
+- [x] Field：Button、Input、Select、Textarea。
+- [x] Box：Card、Alert、Table、Stat。
+- [x] Overlay：Modal、Dropdown、Tooltip、Drawer。
+- [x] 定义允许使用圆形或胶囊形的例外：
   - Radio。
   - Toggle 滑块。
   - Avatar。
@@ -279,19 +279,19 @@ neo-brutal-ui/
 
 ## 2.5 交互语言
 
-- [ ] Default。
-- [ ] Hover。
-- [ ] Active / Pressed。
-- [ ] Focus Visible。
-- [ ] Disabled。
-- [ ] Readonly。
-- [ ] Invalid。
-- [ ] Selected / Checked。
-- [ ] Open / Expanded。
-- [ ] Loading / Busy。
-- [ ] Dragging（后续组件需要时）。
-- [ ] 明确所有状态不可只通过颜色区分。
-- [ ] 确定全局过渡时长阶梯：
+- [x] Default。
+- [x] Hover。
+- [x] Active / Pressed。
+- [x] Focus Visible。
+- [x] Disabled。
+- [x] Readonly。
+- [x] Invalid。
+- [x] Selected / Checked。
+- [x] Open / Expanded。
+- [x] Loading / Busy。
+- [x] Dragging（后续组件需要时）。
+- [x] 明确所有状态不可只通过颜色区分。
+- [x] 确定全局过渡时长阶梯：
 
   ```css
   --nb-duration-fast;
@@ -299,21 +299,21 @@ neo-brutal-ui/
   --nb-duration-slow;
   ```
 
-- [ ] 确定缓动曲线。
-- [ ] 新粗野风格优先使用直接、短促的动画，避免过度柔和。
+- [x] 确定缓动曲线。
+- [x] 新粗野风格优先使用直接、短促的动画，避免过度柔和。
 
 ## 2.6 设计基准稿
 
 至少完成以下视觉稿，包含所有状态：
 
-- [ ] Button。
-- [ ] Card。
-- [ ] Input。
-- [ ] Select。
-- [ ] Checkbox。
-- [ ] Modal。
-- [ ] Alert。
-- [ ] Table。
+- [x] Button。
+- [x] Card。
+- [x] Input。
+- [x] Select。
+- [x] Checkbox。
+- [x] Modal。
+- [x] Alert。
+- [x] Table。
 
 ## 2.7 阶段验收
 
@@ -439,16 +439,16 @@ neo-brutal-ui/
 
 Primitive Token 表达原始设计值，不直接描述业务语义。
 
-- [ ] 原始颜色。
-- [ ] 空间阶梯。
-- [ ] 字号阶梯。
-- [ ] 行高阶梯。
-- [ ] 字重。
-- [ ] 边框宽度。
-- [ ] 圆角。
-- [ ] 阴影偏移。
-- [ ] 动画时长。
-- [ ] 层级。
+- [x] 原始颜色。
+- [x] 空间阶梯。
+- [x] 字号阶梯。
+- [x] 行高阶梯。
+- [x] 字重。
+- [x] 边框宽度。
+- [x] 圆角。
+- [x] 阴影偏移。
+- [x] 动画时长。
+- [x] 层级。
 
 示例：
 
@@ -501,12 +501,12 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 --nb-overlay;
 ```
 
-- [ ] 每个语义背景色都有对应 content Token。
-- [ ] 不在组件中自行推断文字颜色。
-- [ ] 所有色值使用 OKLCH 为主要表示。
-- [ ] 提供 sRGB fallback 的必要性评估。
-- [ ] 定义颜色超出目标色域时的处理方式。
-- [ ] 对比度测试基于最终浏览器输出颜色，而不是只检查源 OKLCH 数值。
+- [x] 每个语义背景色都有对应 content Token。
+- [x] 不在组件中自行推断文字颜色。
+- [x] 所有色值使用 OKLCH 为主要表示。
+- [x] 提供 sRGB fallback 的必要性评估。
+- [x] 定义颜色超出目标色域时的处理方式。
+- [x] 对比度测试基于最终浏览器输出颜色，而不是只检查源 OKLCH 数值。
 
 ## 4.3 Component Tokens
 
@@ -538,8 +538,8 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 }
 ```
 
-- [ ] 不把主题 Token 仅定义在 `:root`。
-- [ ] 支持：
+- [x] 不把主题 Token 仅定义在 `:root`。
+- [x] 支持：
 
   ```html
   <body data-theme="neo-brutal">
@@ -549,24 +549,24 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
   </body>
   ```
 
-- [ ] 验证嵌套主题继承。
-- [ ] 验证 Portal / Overlay 场景的主题继承。
-- [ ] 为 Modal 等挂载到 `body` 的组件提供主题传递说明。
-- [ ] 预留 `neo-brutal-dark`。
-- [ ] v1 即使不发布 Dark Theme，也不得在组件内硬编码亮色假设。
+- [x] 验证嵌套主题继承。
+- [x] 验证 Portal / Overlay 场景的主题继承。
+- [x] 为 Modal 等挂载到 `body` 的组件提供主题传递说明。
+- [x] 预留 `neo-brutal-dark`。
+- [x] v1 即使不发布 Dark Theme，也不得在组件内硬编码亮色假设。
 
 ## 4.5 CSS Cascade Layers
 
-- [ ] 固定 Layer 顺序：
+- [x] 固定 Layer 顺序：
 
   ```css
   @layer reset, theme, base, components, utilities, overrides;
   ```
 
-- [ ] 记录用户覆写推荐位置。
-- [ ] 避免不必要的 `!important`。
-- [ ] 对状态、变体和用户 utility 的优先级建立测试。
-- [ ] 验证与 Tailwind v4 utility 混用时的覆盖关系。
+- [x] 记录用户覆写推荐位置。
+- [x] 避免不必要的 `!important`。
+- [x] 对状态、变体和用户 utility 的优先级建立测试。
+- [x] 验证与 Tailwind v4 utility 混用时的覆盖关系。
 
 ## 4.6 Token 自动检查
 
@@ -591,16 +591,16 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 5.1 Base Reset
 
-- [ ] 只加入组件库必须的最小 Reset。
-- [ ] 不覆盖宿主项目所有 HTML 元素。
-- [ ] 默认使用 `box-sizing: border-box` 的范围需明确。
-- [ ] 不擅自修改全局 body 字体或背景。
-- [ ] Form controls 的字体继承规则明确。
-- [ ] 图像和 SVG 的默认行为明确。
+- [x] 只加入组件库必须的最小 Reset。
+- [x] 不覆盖宿主项目所有 HTML 元素。
+- [x] 默认使用 `box-sizing: border-box` 的范围需明确。
+- [x] 不擅自修改全局 body 字体或背景。
+- [x] Form controls 的字体继承规则明确。
+- [x] 图像和 SVG 的默认行为明确。
 
 ## 5.2 RTL 与 Logical Properties
 
-- [ ] 公共 CSS 优先使用：
+- [x] 公共 CSS 优先使用：
   - `margin-inline`
   - `padding-inline`
   - `border-inline-start`
@@ -608,13 +608,13 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
   - `block-size`
   - `inline-size`
 
-- [ ] 公共 API 使用：
+- [x] 公共 API 使用：
   - `start / end`
   - 不使用 `left / right` 表达语义位置。
 
-- [ ] Tooltip 等真实方向组件可保留物理方向，但需补充 RTL 行为说明。
-- [ ] 在 `dir="rtl"` 下测试全部 MVP 组件。
-- [ ] 复杂图标方向是否镜像需逐项定义。
+- [x] Tooltip 等真实方向组件可保留物理方向，但需补充 RTL 行为说明。
+- [x] 在 `dir="rtl"` 下测试全部 MVP 组件。
+- [x] 复杂图标方向是否镜像需逐项定义。
 
 ## 5.3 响应式策略
 
@@ -627,7 +627,7 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 5.4 Z-index 系统
 
-- [ ] 定义层级 Token：
+- [x] 定义层级 Token：
 
   ```css
   --nb-z-dropdown;
@@ -638,9 +638,9 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
   --nb-z-tooltip;
   ```
 
-- [ ] 禁止组件中使用未登记的任意 z-index。
-- [ ] 文档说明与宿主项目层级冲突的处理方式。
-- [ ] 检查嵌套 stacking context。
+- [x] 禁止组件中使用未登记的任意 z-index。
+- [x] 文档说明与宿主项目层级冲突的处理方式。
+- [x] 检查嵌套 stacking context。
 
 ## 5.5 阶段验收
 
@@ -657,8 +657,8 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 6.1 Button
 
-- [ ] 基础类：`nb-btn`。
-- [ ] 颜色：
+- [x] 基础类：`nb-btn`。
+- [x] 颜色：
   - `nb-btn-neutral`
   - `nb-btn-primary`
   - `nb-btn-secondary`
@@ -667,112 +667,112 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
   - `nb-btn-success`
   - `nb-btn-warning`
   - `nb-btn-error`
-- [ ] 外观：
+- [x] 外观：
   - `nb-btn-outline`
   - `nb-btn-ghost`
   - `nb-btn-link`
-- [ ] 尺寸：xs / sm / md / lg / xl。
-- [ ] 形态：
+- [x] 尺寸：xs / sm / md / lg / xl。
+- [x] 形态：
   - 图标按钮。
   - 全宽。
   - 方形。
-- [ ] 状态：
+- [x] 状态：
   - hover。
   - active。
   - focus-visible。
   - disabled。
   - loading。
-- [ ] 原生 `<button>` 和 `<a>` 的使用差异。
-- [ ] 图标按钮必须有 accessible name。
-- [ ] Loading 时内容尺寸不跳动。
+- [x] 原生 `<button>` 和 `<a>` 的使用差异。
+- [x] 图标按钮必须有 accessible name。
+- [x] Loading 时内容尺寸不跳动。
 
 ## 6.2 Card
 
-- [ ] `nb-card`。
-- [ ] `nb-card-header`。
-- [ ] `nb-card-body`。
-- [ ] `nb-card-footer`。
-- [ ] `nb-card-title`。
-- [ ] 变体：
+- [x] `nb-card`。
+- [x] `nb-card-header`。
+- [x] `nb-card-body`。
+- [x] `nb-card-footer`。
+- [x] `nb-card-title`。
+- [x] 变体：
   - 默认。
   - 无阴影。
   - Interactive。
   - Media。
-- [ ] Interactive Card 的语义和键盘行为明确。
-- [ ] Card 本身不默认拥有点击行为。
-- [ ] 长标题和长正文压力测试。
+- [x] Interactive Card 的语义和键盘行为明确。
+- [x] Card 本身不默认拥有点击行为。
+- [x] 长标题和长正文压力测试。
 
 ## 6.3 Input
 
-- [ ] `nb-input`。
-- [ ] 尺寸：sm / md / lg。
-- [ ] 状态：
+- [x] `nb-input`。
+- [x] 尺寸：sm / md / lg。
+- [x] 状态：
   - focus-visible。
   - disabled。
   - readonly。
   - invalid。
   - valid。
-- [ ] Placeholder。
-- [ ] 前后图标容器。
-- [ ] Prefix / Suffix 文本。
-- [ ] Error message 关联。
-- [ ] 浏览器 autofill 样式。
-- [ ] 日期、数字和搜索输入兼容检查。
+- [x] Placeholder。
+- [x] 前后图标容器。
+- [x] Prefix / Suffix 文本。
+- [x] Error message 关联。
+- [x] 浏览器 autofill 样式。
+- [x] 日期、数字和搜索输入兼容检查。
 
 ## 6.4 Textarea
 
-- [ ] 复用 Field Token。
-- [ ] 最小高度。
-- [ ] resize：
+- [x] 复用 Field Token。
+- [x] 最小高度。
+- [x] resize：
   - vertical 默认。
   - none 可选。
-- [ ] disabled / readonly / invalid。
-- [ ] 字数提示结构。
-- [ ] 长内容滚动。
+- [x] disabled / readonly / invalid。
+- [x] 字数提示结构。
+- [x] 长内容滚动。
 
 ## 6.5 Select
 
-- [ ] `nb-select`。
-- [ ] 单选原生 `<select>`。
-- [ ] 尺寸：sm / md / lg。
-- [ ] disabled / invalid。
-- [ ] 自定义箭头。
-- [ ] RTL 箭头位置。
-- [ ] forced-colors 下保持可用。
-- [ ] 第一版不实现复杂 Combobox，避免与原生 Select 混淆。
+- [x] `nb-select`。
+- [x] 单选原生 `<select>`。
+- [x] 尺寸：sm / md / lg。
+- [x] disabled / invalid。
+- [x] 自定义箭头。
+- [x] RTL 箭头位置。
+- [x] forced-colors 下保持可用。
+- [x] 第一版不实现复杂 Combobox，避免与原生 Select 混淆。
 
 ## 6.6 Checkbox
 
-- [ ] `nb-checkbox`。
-- [ ] checked。
-- [ ] indeterminate。
-- [ ] disabled。
-- [ ] focus-visible。
-- [ ] forced-colors。
-- [ ] 选中标记不只通过背景颜色表达。
-- [ ] 与 Label 组合示例。
+- [x] `nb-checkbox`。
+- [x] checked。
+- [x] indeterminate。
+- [x] disabled。
+- [x] focus-visible。
+- [x] forced-colors。
+- [x] 选中标记不只通过背景颜色表达。
+- [x] 与 Label 组合示例。
 
 ## 6.7 Radio
 
-- [ ] `nb-radio`。
-- [ ] checked。
-- [ ] disabled。
-- [ ] focus-visible。
-- [ ] Radio Group 语义。
-- [ ] 箭头键行为依赖原生 radio。
-- [ ] 圆形作为允许的视觉例外。
+- [x] `nb-radio`。
+- [x] checked。
+- [x] disabled。
+- [x] focus-visible。
+- [x] Radio Group 语义。
+- [x] 箭头键行为依赖原生 radio。
+- [x] 圆形作为允许的视觉例外。
 
 ## 6.8 Toggle
 
-- [ ] `nb-toggle`。
-- [ ] 基于 checkbox。
-- [ ] checked。
-- [ ] disabled。
-- [ ] focus-visible。
-- [ ] 滑块动画。
-- [ ] reduced-motion。
-- [ ] 开关必须有可访问标签。
-- [ ] 不使用颜色作为唯一状态提示。
+- [x] `nb-toggle`。
+- [x] 基于 checkbox。
+- [x] checked。
+- [x] disabled。
+- [x] focus-visible。
+- [x] 滑块动画。
+- [x] reduced-motion。
+- [x] 开关必须有可访问标签。
+- [x] 不使用颜色作为唯一状态提示。
 
 ## 6.9 Field / Form Control
 
@@ -788,52 +788,52 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 6.10 Badge
 
-- [ ] `nb-badge`。
-- [ ] 语义颜色。
-- [ ] outline。
-- [ ] 尺寸。
-- [ ] 状态点模式。
-- [ ] 可移除标签的按钮结构。
-- [ ] 不将 Badge 误用为 Button。
+- [x] `nb-badge`。
+- [x] 语义颜色。
+- [x] outline。
+- [x] 尺寸。
+- [x] 状态点模式。
+- [x] 可移除标签的按钮结构。
+- [x] 不将 Badge 误用为 Button。
 
 ## 6.11 Alert
 
-- [ ] `nb-alert`。
-- [ ] info / success / warning / error。
-- [ ] 图标区。
-- [ ] 标题和正文。
-- [ ] 操作区。
-- [ ] 可关闭样式。
-- [ ] 使用 inline-start 强调边框。
-- [ ] `role="alert"` 和普通静态提示的区别写入文档。
+- [x] `nb-alert`。
+- [x] info / success / warning / error。
+- [x] 图标区。
+- [x] 标题和正文。
+- [x] 操作区。
+- [x] 可关闭样式。
+- [x] 使用 inline-start 强调边框。
+- [x] `role="alert"` 和普通静态提示的区别写入文档。
 
 ## 6.12 Divider
 
-- [ ] 水平。
-- [ ] 垂直。
-- [ ] 带文字。
-- [ ] 使用逻辑方向属性。
-- [ ] 装饰性 Divider 对屏幕阅读器隐藏。
-- [ ] 不错误替代语义 `<hr>`。
+- [x] 水平。
+- [x] 垂直。
+- [x] 带文字。
+- [x] 使用逻辑方向属性。
+- [x] 装饰性 Divider 对屏幕阅读器隐藏。
+- [x] 不错误替代语义 `<hr>`。
 
 ## 6.13 Loading
 
-- [ ] Spinner。
-- [ ] 方块或几何风格 Loader。
-- [ ] 尺寸。
-- [ ] 语义颜色。
-- [ ] reduced-motion 替代。
-- [ ] 与按钮 Loading 状态组合。
-- [ ] 屏幕阅读器提示策略。
+- [x] Spinner。
+- [x] 方块或几何风格 Loader。
+- [x] 尺寸。
+- [x] 语义颜色。
+- [x] reduced-motion 替代。
+- [x] 与按钮 Loading 状态组合。
+- [x] 屏幕阅读器提示策略。
 
 ## 6.14 Skeleton
 
-- [ ] Text Skeleton。
-- [ ] Avatar Skeleton。
-- [ ] Card Skeleton。
-- [ ] reduced-motion。
-- [ ] 避免造成强烈闪烁。
-- [ ] 保持最终内容布局空间。
+- [x] Text Skeleton。
+- [x] Avatar Skeleton。
+- [x] Card Skeleton。
+- [x] reduced-motion。
+- [x] 避免造成强烈闪烁。
+- [x] 保持最终内容布局空间。
 
 ## 6.15 Tabs
 
@@ -865,21 +865,21 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 6.17 Modal
 
-- [ ] Backdrop。
-- [ ] Dialog。
-- [ ] Header / Body / Footer。
-- [ ] sm / md / lg / full。
-- [ ] 打开和关闭动画。
-- [ ] Escape 关闭。
-- [ ] 点击 Backdrop 关闭策略。
-- [ ] Focus Trap。
-- [ ] 初始焦点。
-- [ ] 关闭后焦点返回。
-- [ ] 页面滚动锁定。
-- [ ] `role="dialog"`。
-- [ ] `aria-modal="true"`。
-- [ ] Portal 下的主题传递。
-- [ ] 交互由可选 JS 包负责。
+- [x] Backdrop。
+- [x] Dialog。
+- [x] Header / Body / Footer。
+- [x] sm / md / lg / full。
+- [x] 打开和关闭动画。
+- [x] Escape 关闭。
+- [x] 点击 Backdrop 关闭策略。
+- [x] Focus Trap。
+- [x] 初始焦点。
+- [x] 关闭后焦点返回。
+- [x] 页面滚动锁定。
+- [x] `role="dialog"`。
+- [x] `aria-modal="true"`。
+- [x] Portal 下的主题传递。
+- [x] 交互由可选 JS 包负责。
 
 ## 6.18 Tooltip
 
@@ -945,17 +945,17 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 7.1 公共原则
 
-- [ ] 零框架依赖。
-- [ ] TypeScript 源码。
-- [ ] ESM 输出。
-- [ ] 支持 Tree-shaking。
-- [ ] SSR 安全，不在模块顶层直接访问 `window` 或 `document`。
-- [ ] 不自动扫描整个 DOM，除非用户显式启用 auto-init。
-- [ ] 初始化函数返回 destroy 方法。
-- [ ] 支持重复初始化保护。
-- [ ] 事件名称带命名空间。
-- [ ] 公共 API 有类型定义。
-- [ ] 核心交互包 gzip 体积目标明确。
+- [x] 零框架依赖。
+- [x] TypeScript 源码。
+- [x] ESM 输出。
+- [x] 支持 Tree-shaking。
+- [x] SSR 安全，不在模块顶层直接访问 `window` 或 `document`。
+- [x] 不自动扫描整个 DOM，除非用户显式启用 auto-init。
+- [x] 初始化函数返回 destroy 方法。
+- [x] 支持重复初始化保护。
+- [x] 事件名称带命名空间。
+- [x] 公共 API 有类型定义。
+- [x] 核心交互包 gzip 体积目标明确。
 
 ## 7.2 建议 API
 

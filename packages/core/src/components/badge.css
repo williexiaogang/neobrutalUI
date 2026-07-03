@@ -1,0 +1,68 @@
+/**
+ * Neo-Brutal UI — Badge Component
+ *
+ * Small status / label pill with color variants.
+ */
+
+@layer nb.components {
+  .nb-badge {
+    --_bg: var(--nb-base-200);
+    --_fg: var(--nb-base-content);
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nb-space-1);
+    padding: var(--nb-space-1) var(--nb-space-2);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: 9999px;
+    background: var(--nb-base-200);
+    color: var(--nb-base-content);
+    font-size: var(--nb-text-xs);
+    font-weight: 700;
+    line-height: var(--nb-leading-none);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+
+  .nb-badge-primary {
+    --_bg: var(--nb-primary);
+    --_fg: var(--nb-primary-content);
+    background: var(--nb-primary);
+    color: var(--nb-primary-content);
+  }
+
+  .nb-badge-secondary {
+    background: var(--nb-secondary);
+    color: var(--nb-secondary-content);
+  }
+
+  .nb-badge-accent {
+    background: var(--nb-accent);
+    color: var(--nb-accent-content);
+  }
+
+  .nb-badge-info {
+    background: var(--nb-info);
+    color: var(--nb-info-content);
+  }
+
+  .nb-badge-success {
+    background: var(--nb-success);
+    color: var(--nb-success-content);
+  }
+
+  .nb-badge-warning {
+    background: var(--nb-warning);
+    color: var(--nb-warning-content);
+  }
+
+  .nb-badge-error {
+    background: var(--nb-error);
+    color: var(--nb-error-content);
+  }
+
+  .nb-badge-outline {
+    background: transparent;
+    color: var(--nb-base-content);
+  }
+}

@@ -1,0 +1,37 @@
+/**
+ * Neo-Brutal UI — Card Component
+ *
+ * Bordered box with header, body, and footer sections.
+ */
+
+@layer nb.components {
+  .nb-card {
+    display: flex;
+    flex-direction: column;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-md);
+  }
+
+  .nb-card-header,
+  .nb-card-body,
+  .nb-card-footer {
+    padding: var(--nb-space-4);
+  }
+
+  .nb-card-header {
+    border-block-end: var(--nb-border-width) solid var(--nb-border);
+    font-weight: 700;
+  }
+
+  .nb-card-footer {
+    border-block-start: var(--nb-border-width) solid var(--nb-border);
+  }
+
+  .nb-card-title {
+    margin: 0;
+    font-size: var(--nb-text-xl);
+    line-height: var(--nb-leading-tight);
+  }
+}

@@ -1,0 +1,18 @@
+/**
+ * Neo-Brutal UI — Z-Index Tokens
+ *
+ * Stacking context scale for overlays, modals, dropdowns, and toasts.
+ */
+
+@layer nb.theme {
+  [data-theme="neo-brutal"],
+  [data-theme="neo-brutal"] * {
+    /* Z-index */
+    --nb-z-sticky: 100;
+    --nb-z-dropdown: 200;
+    --nb-z-drawer: 300;
+    --nb-z-modal: 400;
+    --nb-z-tooltip: 500;
+    --nb-z-toast: 600;
+  }
+}

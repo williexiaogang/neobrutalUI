@@ -1,0 +1,16 @@
+/**
+ * Neo-Brutal UI — Shadow Tokens
+ *
+ * Hard-offset shadow tokens used throughout the component library.
+ */
+
+@layer nb.theme {
+  [data-theme="neo-brutal"],
+  [data-theme="neo-brutal"] * {
+    /* Shadows */
+    --nb-shadow-xs: 1px 1px 0 var(--nb-border);
+    --nb-shadow-sm: 2px 2px 0 var(--nb-border);
+    --nb-shadow-md: 4px 4px 0 var(--nb-border);
+    --nb-shadow-lg: 6px 6px 0 var(--nb-border);
+  }
+}

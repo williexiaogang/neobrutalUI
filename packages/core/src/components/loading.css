@@ -1,0 +1,61 @@
+/**
+ * Neo-Brutal UI — Loading & Skeleton Components
+ *
+ * Spinner and skeleton shimmer / pulse placeholders.
+ */
+
+@layer nb.components {
+  .nb-loading {
+    display: inline-block;
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+    border: 3px solid var(--nb-base-300);
+    border-block-start-color: var(--nb-primary);
+    border-radius: 50%;
+    animation: nb-spin 0.8s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-loading {
+      animation: none;
+      border: 3px dashed var(--nb-primary);
+    }
+  }
+
+  @keyframes nb-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .nb-skeleton {
+    display: block;
+    inline-size: 100%;
+    block-size: 1em;
+    border-radius: var(--nb-radius-field);
+    background: linear-gradient(
+      90deg,
+      var(--nb-base-200) 25%,
+      var(--nb-base-300) 50%,
+      var(--nb-base-200) 75%
+    );
+    background-size: 200% 100%;
+    animation: nb-skeleton-pulse 1.5s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-skeleton {
+      animation: none;
+      background: var(--nb-base-200);
+    }
+  }
+
+  @keyframes nb-skeleton-pulse {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+}
