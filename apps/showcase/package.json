@@ -1,0 +1,26 @@
+{
+  "name": "@neo-brutal-ui/showcase",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Showcase site for Neo-Brutal UI — a preview of components and development progress.",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "@neo-brutal-ui/core": "workspace:*",
+    "astro": "^7.0.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@types/node": "^26.1.0",
+    "typescript": "^5.9.3"
+  }
+}

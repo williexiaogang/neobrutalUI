@@ -1,0 +1,67 @@
+---
+import type { ShowcaseComponent } from "@/types/component";
+import StatusBadge from "./StatusBadge.astro";
+import { categories } from "@data/components";
+
+interface Props {
+  component: ShowcaseComponent;
+  demo?: any;
+}
+
+const { component, demo: DemoComponent } = Astro.props;
+const categoryLabel = categories[component.category];
+---
+
+<article
+  class="nb-component-card"
+  data-component-card
+  data-status={component.status}
+  data-category={component.category}
+>
+  <div class="nb-component-card__header">
+    <div>
+      <h3 class="nb-component-card__title">{component.name}</h3>
+      <span class="nb-component-card__category">{categoryLabel}</span>
+    </div>
+    <StatusBadge status={component.status} />
+  </div>
+
+  <div class="nb-component-card__body">
+    <p class="nb-component-card__description">{component.description}</p>
+
+    {
+      DemoComponent ? (
+        <DemoComponent />
+      ) : (
+        <div class="nb-component-card__placeholder">
+          <span>Planned — no preview yet</span>
+        </div>
+      )
+    }
+
+    {component.notes && <p class="nb-component-card__notes">{component.notes}</p>}
+
+    {
+      component.knownIssues && component.knownIssues.length > 0 && (
+        <div>
+          <p class="nb-component-card__issues-title">Known issues</p>
+          <ul class="nb-component-card__issues">
+            {component.knownIssues.map((issue) => (
+              <li>{issue}</li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </div>
+
+  <div class="nb-component-card__footer">
+    <div class="nb-cluster">
+      {
+        component.tags?.map((tag) => (
+          <span class="nb-badge nb-badge-outline">{tag}</span>
+        ))
+      }
+    </div>
+  </div>
+</article>

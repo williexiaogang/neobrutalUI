@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/layout/Header.astro";
+import Footer from "@components/layout/Footer.astro";
+import Hero from "@components/showcase/Hero.astro";
+import StatusSummary from "@components/showcase/StatusSummary.astro";
+import ComponentGallery from "@components/showcase/ComponentGallery.astro";
+import DesignPrinciples from "@components/showcase/DesignPrinciples.astro";
+import InstallBlock from "@components/showcase/InstallBlock.astro";
+import RoadmapPreview from "@components/showcase/RoadmapPreview.astro";
+---
+
+<BaseLayout>
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <DesignPrinciples />
+    <StatusSummary />
+    <ComponentGallery />
+    <InstallBlock />
+    <RoadmapPreview />
+  </main>
+  <Footer />
+</BaseLayout>

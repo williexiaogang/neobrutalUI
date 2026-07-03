@@ -1,0 +1,58 @@
+---
+import Section from "@components/layout/Section.astro";
+
+const principles = [
+  {
+    symbol: "▣",
+    title: "Hard Borders",
+    body: "Strong outlines make structure and interaction states immediately visible.",
+  },
+  {
+    symbol: "▦",
+    title: "Tactile Shadows",
+    body: "Hard shadows and press states create a physical, responsive feeling.",
+  },
+  {
+    symbol: "⌘",
+    title: "Accessible States",
+    body: "Focus, disabled, validation, and selected states remain clearly distinguishable.",
+  },
+  {
+    symbol: "④",
+    title: "Tailwind CSS v4",
+    body: "Built for modern Tailwind projects without legacy v3 compatibility.",
+  },
+  {
+    symbol: "◐",
+    title: "Theme Ready",
+    body: "Scoped data-theme tokens allow multiple visual themes on one page.",
+  },
+  {
+    symbol: "Ø",
+    title: "Zero-JS Core",
+    body: "Core visual components work without JavaScript. Complex interactions are optional.",
+  },
+];
+---
+
+<Section id="principles" ariaLabelledby="principles-title">
+  <h2 id="principles-title" class="nb-section-title">Design Principles</h2>
+
+  <div class="nb-principles-grid nb-grid nb-grid--2 nb-grid--3">
+    {
+      principles.map((principle) => (
+        <article class="nb-principle-card">
+          <span class="nb-principle-card__icon" aria-hidden="true">
+            {principle.symbol}
+          </span>
+          <h3 class="nb-principle-card__title">{principle.title}</h3>
+          <p class="nb-principle-card__body">{principle.body}</p>
+        </article>
+      ))
+    }
+  </div>
+</Section>
+
+<script>
+  // Grid class helpers are plain utility classes; no JS needed.
+</script>

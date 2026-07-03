@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neo-brutal-ui.github.io/sitemap.xml

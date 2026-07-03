@@ -1,0 +1,98 @@
+---
+import { site } from "@data/site";
+
+const navItems = [
+  { label: "Components", href: "#components" },
+  { label: "Progress", href: "#progress" },
+  { label: "Install", href: "#install" },
+  { label: "Roadmap", href: "#roadmap" },
+];
+---
+
+<header class="nb-header">
+  <div class="nb-container">
+    <div class="nb-header__inner">
+      <a class="nb-header__brand" href="#top" aria-label={`${site.name} home`}>
+        <span class="nb-header__logo" aria-hidden="true"></span>
+        <span>{site.name}</span>
+      </a>
+
+      <nav class="nb-header__nav" aria-label="Primary">
+        {
+          navItems.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))
+        }
+      </nav>
+
+      <div class="nb-header__actions">
+        <span class="nb-badge nb-badge-accent" aria-label={`Version status: ${site.versionLabel}`}>
+          {site.versionLabel}
+        </span>
+
+        <a
+          class="nb-btn nb-btn-sm nb-btn-outline"
+          href={site.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+
+        <button
+          class="nb-btn nb-btn-sm nb-header__menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Toggle navigation menu"
+          data-menu-toggle
+        >
+          Menu
+        </button>
+      </div>
+    </div>
+
+    <nav
+      id="mobile-nav"
+      class="nb-mobile-nav"
+      aria-label="Mobile"
+      data-mobile-nav
+    >
+      {
+        navItems.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))
+      }
+      <a
+        href={site.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="nb-link--external"
+      >
+        GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const mobileNav = document.querySelector<HTMLElement>("[data-mobile-nav]");
+
+  if (toggle && mobileNav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = mobileNav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      toggle.textContent = isOpen ? "Close" : "Menu";
+    });
+
+    // Close menu when a link is clicked.
+    mobileNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileNav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "Menu";
+      });
+    });
+  }
+</script>

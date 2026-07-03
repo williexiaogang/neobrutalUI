@@ -1,0 +1,41 @@
+---
+import Section from "@components/layout/Section.astro";
+import { getStatusCounts } from "@data/components";
+import { statusDescriptions, statusLabels, statusOrder } from "@data/statuses";
+
+const counts = getStatusCounts();
+---
+
+<Section id="progress" ariaLabelledby="progress-title">
+  <h2 id="progress-title" class="nb-section-title">Development Progress</h2>
+  <p class="nb-section-lead">
+    Real-time counts derived from the component catalog. Click a status to filter
+    the gallery below.
+  </p>
+
+  <div class="nb-status-grid" role="group" aria-label="Filter by status">
+    {
+      statusOrder.map((status) => (
+        <button
+          class="nb-status-card"
+          type="button"
+          data-status-filter={status}
+          aria-pressed="false"
+          aria-label={`Filter by ${statusLabels[status]}: ${counts[status]} components`}
+        >
+          <span class="nb-status-card__count" aria-hidden="true">
+            {counts[status]}
+          </span>
+          <span class="nb-status-card__label">{statusLabels[status]}</span>
+          <span class="nb-status-card__description">
+            {statusDescriptions[status]}
+          </span>
+        </button>
+      ))
+    }
+  </div>
+</Section>
+
+<script>
+  // Status summary interactions are handled by the shared component-filter script.
+</script>

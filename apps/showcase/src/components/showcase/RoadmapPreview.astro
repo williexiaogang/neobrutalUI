@@ -1,0 +1,64 @@
+---
+import Section from "@components/layout/Section.astro";
+import { getRoadmapPreview } from "@data/components";
+import { statusLabels } from "@data/statuses";
+
+const { availableNow, buildingNext, plannedPreview, plannedTotal } =
+  getRoadmapPreview();
+---
+
+<Section id="roadmap" ariaLabelledby="roadmap-title">
+  <h2 id="roadmap-title" class="nb-section-title">Roadmap Preview</h2>
+  <p class="nb-section-lead">
+    A short-term view of what is available, what is being built next, and what
+    is planned. Data is pulled directly from the component catalog.
+  </p>
+
+  <div class="nb-roadmap">
+    <div class="nb-roadmap__col">
+      <h3 class="nb-roadmap__title">Available Now</h3>
+      {
+        availableNow.length === 0 ? (
+          <p class="nb-component-card__notes">
+            No components have reached {statusLabels.ready} or {statusLabels.beta} yet.
+          </p>
+        ) : (
+          <ul class="nb-roadmap__list">
+            {availableNow.map((c) => (
+              <li>{c.name}</li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+
+    <div class="nb-roadmap__col">
+      <h3 class="nb-roadmap__title">Building Next</h3>
+      {
+        buildingNext.length === 0 ? (
+          <p class="nb-component-card__notes">Nothing in progress right now.</p>
+        ) : (
+          <ul class="nb-roadmap__list">
+            {buildingNext.slice(0, 6).map((c) => (
+              <li>{c.name}</li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+
+    <div class="nb-roadmap__col">
+      <h3 class="nb-roadmap__title">Planned</h3>
+      <ul class="nb-roadmap__list">
+        {plannedPreview.map((c) => <li>{c.name}</li>)}
+      </ul>
+      {
+        plannedTotal > plannedPreview.length && (
+          <p class="nb-roadmap__more">
+            and {plannedTotal - plannedPreview.length} more
+          </p>
+        )
+      }
+    </div>
+  </div>
+</Section>

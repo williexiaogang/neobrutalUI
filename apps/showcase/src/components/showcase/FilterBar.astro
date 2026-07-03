@@ -1,0 +1,58 @@
+---
+import { categories } from "@data/components";
+import { statusLabels, statusOrder } from "@data/statuses";
+---
+
+<div class="nb-filter-bar">
+  <div class="nb-filter-group" role="group" aria-label="Filter by status">
+    <span class="nb-filter-group__label">Status</span>
+    <button
+      class="nb-filter-btn"
+      type="button"
+      data-status-filter="all"
+      aria-pressed="true"
+    >
+      All
+    </button>
+    {
+      statusOrder.map((status) => (
+        <button
+          class="nb-filter-btn"
+          type="button"
+          data-status-filter={status}
+          aria-pressed="false"
+        >
+          {statusLabels[status]}
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="nb-filter-group" role="group" aria-label="Filter by category">
+    <span class="nb-filter-group__label">Category</span>
+    <button
+      class="nb-filter-btn"
+      type="button"
+      data-category-filter="all"
+      aria-pressed="true"
+    >
+      All
+    </button>
+    {
+      Object.entries(categories).map(([key, label]) => (
+        <button
+          class="nb-filter-btn"
+          type="button"
+          data-category-filter={key}
+          aria-pressed="false"
+        >
+          {label}
+        </button>
+      ))
+    }
+  </div>
+
+  <p class="nb-filter-result" aria-live="polite" data-filter-result>
+    Showing all components
+  </p>
+</div>

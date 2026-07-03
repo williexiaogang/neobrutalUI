@@ -1,0 +1,67 @@
+---
+import Section from "@components/layout/Section.astro";
+import FilterBar from "./FilterBar.astro";
+import ComponentCard from "./ComponentCard.astro";
+import { components } from "@data/components";
+
+import ButtonDemo from "@components/demos/ButtonDemo.astro";
+import CardDemo from "@components/demos/CardDemo.astro";
+import InputDemo from "@components/demos/InputDemo.astro";
+import TextareaDemo from "@components/demos/TextareaDemo.astro";
+import SelectDemo from "@components/demos/SelectDemo.astro";
+import CheckboxDemo from "@components/demos/CheckboxDemo.astro";
+import RadioDemo from "@components/demos/RadioDemo.astro";
+import ToggleDemo from "@components/demos/ToggleDemo.astro";
+import BadgeDemo from "@components/demos/BadgeDemo.astro";
+import AlertDemo from "@components/demos/AlertDemo.astro";
+import DividerDemo from "@components/demos/DividerDemo.astro";
+import LoadingDemo from "@components/demos/LoadingDemo.astro";
+import SkeletonDemo from "@components/demos/SkeletonDemo.astro";
+
+const demoMap: Record<string, any> = {
+  ButtonDemo,
+  CardDemo,
+  InputDemo,
+  TextareaDemo,
+  SelectDemo,
+  CheckboxDemo,
+  RadioDemo,
+  ToggleDemo,
+  BadgeDemo,
+  AlertDemo,
+  DividerDemo,
+  LoadingDemo,
+  SkeletonDemo,
+};
+---
+
+<Section id="components" ariaLabelledby="components-title">
+  <h2 id="components-title" class="nb-section-title">Component Gallery</h2>
+  <p class="nb-section-lead">
+    Browse the full catalog. Status badges reflect the current implementation
+    state. In Progress components show real visual previews; Planned components
+    show placeholders.
+  </p>
+
+  <FilterBar />
+
+  <div class="nb-gallery" data-gallery>
+    {
+      components.map((component) => (
+        <ComponentCard
+          component={component}
+          demo={component.demo ? demoMap[component.demo] : undefined}
+        />
+      ))
+    }
+  </div>
+
+  <div class="nb-empty" data-no-results hidden>
+    <h3 class="nb-empty__title">No matching components</h3>
+    <p class="nb-empty__body">
+      Try selecting a different status or category filter.
+    </p>
+  </div>
+</Section>
+
+<script src="@scripts/component-filter.ts"></script>

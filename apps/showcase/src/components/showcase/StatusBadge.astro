@@ -1,0 +1,22 @@
+---
+import type { ComponentStatus } from "@/types/component";
+import { statusLabels } from "@data/statuses";
+
+interface Props {
+  status: ComponentStatus;
+}
+
+const { status } = Astro.props;
+
+const variantMap: Record<ComponentStatus, string> = {
+  ready: "nb-badge-success",
+  beta: "nb-badge-secondary",
+  "in-progress": "nb-badge-warning",
+  planned: "nb-badge-outline",
+  experimental: "nb-badge-accent",
+};
+---
+
+<span class:list={["nb-badge", variantMap[status]]}>
+  {statusLabels[status]}
+</span>

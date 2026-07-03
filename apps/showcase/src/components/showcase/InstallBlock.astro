@@ -1,0 +1,88 @@
+---
+import Section from "@components/layout/Section.astro";
+import { site } from "@data/site";
+
+const npmCommand = `npm install ${site.packageName}`;
+const cssImport = `@import "${site.packageName}";`;
+const jsImport = `import { createDialog } from "${site.packageName}/interactions";`;
+---
+
+<Section id="install" ariaLabelledby="install-title">
+  <h2 id="install-title" class="nb-section-title">Install</h2>
+  <p class="nb-section-lead">
+    Add the package to a Tailwind CSS v4 project. The core visual components are
+    pure CSS; interactions are optional and tree-shakeable.
+  </p>
+
+  {
+    site.packageNameProvisional && (
+      <div class="nb-alert nb-alert-warning" role="alert" style="margin-block-end: var(--nb-space-6);">
+        <span class="nb-alert-icon" aria-hidden="true">⚠</span>
+        <div>
+          <p class="nb-alert-title">Package name is provisional</p>
+          <p class="nb-alert-body">
+            The final npm scope and package name have not been published yet.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  <div class="nb-install">
+    <div class="nb-install__block">
+      <span class="nb-install__label">Install with npm</span>
+      <div class="nb-code-block">
+        <code>{npmCommand}</code>
+        <button
+          class="nb-copy-btn"
+          type="button"
+          data-copy={npmCommand}
+          aria-label="Copy install command"
+        >
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M4 4v8h8V4H4zm0-1h8a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
+            <path d="M2 6h1v7a1 1 0 0 0 1 1h7v1a1 1 0 0 1-1 1H3a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nb-install__block">
+      <span class="nb-install__label">Import CSS</span>
+      <div class="nb-code-block">
+        <code>{cssImport}</code>
+        <button
+          class="nb-copy-btn"
+          type="button"
+          data-copy={cssImport}
+          aria-label="Copy CSS import"
+        >
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M4 4v8h8V4H4zm0-1h8a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
+            <path d="M2 6h1v7a1 1 0 0 0 1 1h7v1a1 1 0 0 1-1 1H3a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nb-install__block">
+      <span class="nb-install__label">Optional interactions</span>
+      <div class="nb-code-block">
+        <code>{jsImport}</code>
+        <button
+          class="nb-copy-btn"
+          type="button"
+          data-copy={jsImport}
+          aria-label="Copy interactions import"
+        >
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M4 4v8h8V4H4zm0-1h8a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
+            <path d="M2 6h1v7a1 1 0 0 0 1 1h7v1a1 1 0 0 1-1 1H3a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<script src="@scripts/copy-install.ts"></script>

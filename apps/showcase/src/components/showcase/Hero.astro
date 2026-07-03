@@ -1,0 +1,99 @@
+---
+import { site } from "@data/site";
+
+const installCommand = `npm install ${site.packageName}`;
+---
+
+<section id="top" class="nb-hero" aria-labelledby="hero-title">
+  <div class="nb-container">
+    <div class="nb-hero__inner">
+      <div class="nb-hero__content">
+        <span class="nb-hero__eyebrow">
+          <span class="nb-badge nb-badge-primary">Preview</span>
+          <span>Tailwind CSS v4</span>
+        </span>
+
+        <h1 id="hero-title" class="nb-hero__title">
+          {site.name}
+        </h1>
+
+        <p class="nb-hero__lead">
+          {site.tagline}
+        </p>
+
+        <ul class="nb-hero__features" aria-label="Key features">
+          <li>Independent component API</li>
+          <li>Hard borders</li>
+          <li>Tactile interactions</li>
+          <li>Theme-ready</li>
+        </ul>
+
+        <div class="nb-hero__actions">
+          <a class="nb-btn nb-btn-primary nb-btn-lg" href="#components">
+            View Components
+          </a>
+          <a class="nb-btn nb-btn-lg" href="#install">
+            Install
+          </a>
+          <a
+            class="nb-btn nb-btn-outline nb-btn-lg"
+            href={site.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </div>
+
+        <div class="nb-hero__install" aria-label="Install command">
+          <code>{installCommand}</code>
+          {site.packageNameProvisional && (
+            <span class="nb-badge nb-badge-outline">Provisional</span>
+          )}
+        </div>
+      </div>
+
+      <div class="nb-hero__demo">
+        <span class="nb-badge nb-hero__demo-label">Live preview</span>
+        <div class="nb-card">
+          <div class="nb-card-header">
+            <span class="nb-badge nb-badge-primary">Preview</span>
+          </div>
+          <div class="nb-card-body nb-stack">
+            <label class="nb-field">
+              <span class="nb-field-label">Project name</span>
+              <input
+                class="nb-input"
+                type="text"
+                value="Neo-Brutal App"
+                aria-describedby="project-name-help"
+              />
+              <span id="project-name-help" class="nb-field-description">
+                A name for your new project.
+              </span>
+            </label>
+
+            <label class="nb-field">
+              <span class="nb-field-label">Framework</span>
+              <select class="nb-select" aria-label="Framework">
+                <option>Astro</option>
+                <option>Vite</option>
+                <option>Next.js</option>
+              </select>
+            </label>
+
+            <label class="nb-cluster">
+              <input class="nb-toggle" type="checkbox" checked />
+              <span>Enable bold mode</span>
+            </label>
+          </div>
+          <div class="nb-card-footer">
+            <button class="nb-btn nb-btn-primary nb-btn-block" type="button">
+              Create project
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

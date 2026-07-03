@@ -1,0 +1,41 @@
+---
+import { site } from "@data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="nb-footer">
+  <div class="nb-container">
+    <div class="nb-footer__inner">
+      <div>
+        <strong>{site.name}</strong>
+        <span class="nb-badge nb-badge-outline" aria-label={`Current version ${site.version}`}>
+          {site.version}
+        </span>
+        <p class="nb-footer__copyright">
+          © {year} {site.author || "Neo-Brutal UI Team"}. {site.license} License.
+        </p>
+      </div>
+
+      <div class="nb-footer__links">
+        <a href={site.githubUrl} target="_blank" rel="noopener noreferrer" class="nb-link--external">
+          GitHub
+        </a>
+        {site.npmUrl && (
+          <a href={site.npmUrl} target="_blank" rel="noopener noreferrer" class="nb-link--external">
+            npm
+          </a>
+        )}
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .nb-footer__copyright {
+    margin: var(--nb-space-1) 0 0;
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content-muted);
+  }
+</style>
