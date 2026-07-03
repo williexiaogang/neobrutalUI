@@ -1,0 +1,54 @@
+<div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-4);">
+  <!-- Default Navbar -->
+  <div data-theme="neo-brutal">
+    <nav class="nb-navbar" aria-label="Main navigation">
+      <a href="#" class="nb-navbar-brand">NeoBrand</a>
+      <div class="nb-navbar-collapse is-open" id="navbar-collapse-demo">
+        <ul class="nb-navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+        <div class="nb-navbar-actions">
+          <button class="nb-btn nb-btn-sm" type="button">Sign In</button>
+          <button class="nb-btn nb-btn-sm nb-btn-primary" type="button">Get Started</button>
+        </div>
+      </div>
+      <button
+        class="nb-navbar-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="true"
+        aria-controls="navbar-collapse-demo"
+      >
+        <span aria-hidden="true">☰</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Collapsed Navbar (mobile preview) -->
+  <div data-theme="neo-brutal">
+    <nav class="nb-navbar" aria-label="Mobile navigation preview">
+      <a href="#" class="nb-navbar-brand">NeoBrand</a>
+      <div class="nb-navbar-collapse" id="navbar-collapse-demo-closed">
+        <ul class="nb-navbar-nav">
+          <li><a href="#">Docs</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+        <div class="nb-navbar-actions">
+          <button class="nb-btn nb-btn-sm nb-btn-primary" type="button">Download</button>
+        </div>
+      </div>
+      <button
+        class="nb-navbar-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="navbar-collapse-demo-closed"
+        style="display: inline-flex;"
+      >
+        <span aria-hidden="true">☰</span>
+      </button>
+    </nav>
+  </div>
+</div>

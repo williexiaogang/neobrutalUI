@@ -43,17 +43,13 @@ export {
 export { createDialog } from './dialog.js';
 export { createTabs } from './tabs.js';
 
+export { createTooltip } from './tooltip.js';
+
 // --------------------------------------------------------------------------
 // Placeholders (not yet implemented)
 // --------------------------------------------------------------------------
 
-export function createDropdown(): never {
-  throw new Error('[@neo-brutal-ui/interactions] createDropdown is not yet implemented.');
-}
-
-export function createTooltip(): never {
-  throw new Error('[@neo-brutal-ui/interactions] createTooltip is not yet implemented.');
-}
+export { createDropdown } from './dropdown.js';
 
 export function createDrawer(): never {
   throw new Error('[@neo-brutal-ui/interactions] createDrawer is not yet implemented.');

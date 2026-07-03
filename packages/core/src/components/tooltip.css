@@ -1,0 +1,123 @@
+/**
+ * Neo-Brutal UI — Tooltip Component
+ *
+ * Pure CSS visual layer for tooltips. Positioning is set dynamically by JS
+ * via placement modifier classes. Supports reduced-motion and forced-colors.
+ */
+
+@layer nb.components {
+  .nb-tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .nb-tooltip-content {
+    --_bg: var(--nb-neutral);
+    --_fg: var(--nb-neutral-content);
+    --_border: var(--nb-border);
+
+    position: absolute;
+    z-index: var(--nb-z-tooltip);
+    padding: var(--nb-space-2) var(--nb-space-3);
+    background: var(--_bg);
+    color: var(--_fg);
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-box);
+    font-size: var(--nb-text-sm);
+    font-weight: 600;
+    line-height: var(--nb-leading-tight);
+    max-inline-size: 20rem;
+    white-space: nowrap;
+    box-shadow: var(--nb-shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity var(--nb-duration-fast) var(--nb-ease-out),
+      visibility var(--nb-duration-fast) var(--nb-ease-out),
+      transform var(--nb-duration-fast) var(--nb-ease-out);
+    pointer-events: none;
+    display: block;
+  }
+
+  .nb-tooltip-content.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Placement variants */
+  .nb-tooltip-top .nb-tooltip-content {
+    inset-block-end: 100%;
+    inset-inline-start: 50%;
+    transform: translateX(-50%) translateY(4px);
+    margin-block-end: var(--nb-space-2);
+  }
+
+  .nb-tooltip-top .nb-tooltip-content.is-visible {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .nb-tooltip-bottom .nb-tooltip-content {
+    inset-block-start: 100%;
+    inset-inline-start: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    margin-block-start: var(--nb-space-2);
+  }
+
+  .nb-tooltip-bottom .nb-tooltip-content.is-visible {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .nb-tooltip-start .nb-tooltip-content {
+    inset-inline-end: 100%;
+    inset-block-start: 50%;
+    transform: translateY(-50%) translateX(4px);
+    margin-inline-end: var(--nb-space-2);
+  }
+
+  .nb-tooltip-start .nb-tooltip-content.is-visible {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .nb-tooltip-end .nb-tooltip-content {
+    inset-inline-start: 100%;
+    inset-block-start: 50%;
+    transform: translateY(-50%) translateX(-4px);
+    margin-inline-start: var(--nb-space-2);
+  }
+
+  .nb-tooltip-end .nb-tooltip-content.is-visible {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  /* Responsive: allow wrapping on small screens */
+  @media (max-width: 768px) {
+    .nb-tooltip-content {
+      white-space: normal;
+      max-inline-size: 16rem;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-tooltip-content {
+      transition: none;
+      transform: none !important;
+    }
+
+    .nb-tooltip-top .nb-tooltip-content.is-visible,
+    .nb-tooltip-bottom .nb-tooltip-content.is-visible,
+    .nb-tooltip-start .nb-tooltip-content.is-visible,
+    .nb-tooltip-end .nb-tooltip-content.is-visible {
+      transform: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-tooltip-content {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+  }
+}

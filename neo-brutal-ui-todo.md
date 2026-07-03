@@ -850,18 +850,18 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 6.16 Dropdown
 
-- [ ] Trigger。
-- [ ] Panel。
-- [ ] Item。
-- [ ] Divider。
-- [ ] Group label。
-- [ ] start / end 对齐。
-- [ ] 键盘导航。
-- [ ] Escape 关闭。
-- [ ] 点击外部关闭。
-- [ ] Focus 管理。
-- [ ] 区分普通 Popover 与 ARIA Menu。
-- [ ] 交互由可选 JS 包负责。
+- [x] Trigger。
+- [x] Panel。
+- [x] Item。
+- [x] Divider。
+- [x] Group label。
+- [x] start / end 对齐。
+- [x] 键盘导航。
+- [x] Escape 关闭。
+- [x] 点击外部关闭。
+- [x] Focus 管理。
+- [x] 区分普通 Popover 与 ARIA Menu。
+- [x] 交互由可选 JS 包负责。
 
 ## 6.17 Modal
 
@@ -883,14 +883,14 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 6.18 Tooltip
 
-- [ ] top / bottom / start / end。
-- [ ] hover 和 focus 均可触发。
-- [ ] `aria-describedby`。
-- [ ] 延迟显示策略。
-- [ ] 触摸设备策略。
-- [ ] 不允许 Tooltip 内放交互元素。
-- [ ] forced-colors。
-- [ ] 视口边缘碰撞处理由可选 JS 增强。
+- [x] top / bottom / start / end。
+- [x] hover 和 focus 均可触发。
+- [x] `aria-describedby`。
+- [x] 延迟显示策略。
+- [x] 触摸设备策略。
+- [x] 不允许 Tooltip 内放交互元素。
+- [x] forced-colors。
+- [x] 视口边缘碰撞处理由可选 JS 增强。
 
 ## 6.19 Table
 

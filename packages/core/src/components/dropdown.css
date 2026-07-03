@@ -1,0 +1,164 @@
+/**
+ * Neo-Brutal UI — Dropdown Component
+ *
+ * Trigger-controlled menu panel with item groups, dividers, and
+ * placement variants. Reduced-motion and forced-colors support.
+ */
+
+@layer nb.components {
+  /* Dropdown container */
+  .nb-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Trigger button wrapper */
+  .nb-dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--nb-space-2);
+    cursor: pointer;
+  }
+
+  /* Dropdown panel */
+  .nb-dropdown-panel {
+    --_bg: var(--nb-base-100);
+    --_fg: var(--nb-base-content);
+    --_border: var(--nb-border);
+
+    position: absolute;
+    inset-block-start: 100%;
+    z-index: var(--nb-z-dropdown);
+    min-inline-size: 12rem;
+    max-block-size: 60vh;
+    overflow: auto;
+    background: var(--nb-base-100);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    box-shadow: var(--nb-shadow-md);
+    padding: var(--nb-space-2) 0;
+    display: none;
+  }
+
+  .nb-dropdown-panel.is-open,
+  .nb-dropdown-trigger[aria-expanded="true"] + .nb-dropdown-panel,
+  .nb-dropdown-trigger[aria-expanded="true"] ~ .nb-dropdown-panel {
+    display: block;
+  }
+
+  /* Alignment variants */
+  .nb-dropdown-panel.nb-dropdown-start {
+    inset-inline-start: 0;
+    inset-inline-end: auto;
+  }
+
+  .nb-dropdown-panel.nb-dropdown-end {
+    inset-inline-end: 0;
+    inset-inline-start: auto;
+  }
+
+  .nb-dropdown-panel.nb-dropdown-top {
+    inset-block-start: auto;
+    inset-block-end: 100%;
+  }
+
+  .nb-dropdown-panel.nb-dropdown-bottom {
+    inset-block-start: 100%;
+    inset-block-end: auto;
+  }
+
+  /* Dropdown item */
+  .nb-dropdown-item {
+    display: block;
+    inline-size: 100%;
+    padding: var(--nb-space-2) var(--nb-space-4);
+    background: transparent;
+    color: var(--nb-base-content);
+    font-family: inherit;
+    font-size: var(--nb-text-base);
+    font-weight: 600;
+    line-height: var(--nb-leading-normal);
+    text-align: start;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-dropdown-item:hover:not(:disabled):not(.nb-dropdown-item-disabled) {
+    background: var(--nb-base-200);
+  }
+
+  .nb-dropdown-item:focus-visible {
+    outline: 2px solid var(--nb-primary);
+    outline-offset: -2px;
+    background: var(--nb-base-200);
+  }
+
+  /* Active / selected item */
+  .nb-dropdown-item-active,
+  .nb-dropdown-item[aria-selected="true"] {
+    background: var(--nb-base-200);
+    font-weight: 700;
+  }
+
+  /* Disabled item */
+  .nb-dropdown-item:disabled,
+  .nb-dropdown-item-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Divider */
+  .nb-dropdown-divider {
+    border-block-start: 1px solid var(--nb-border);
+    margin: var(--nb-space-1) 0;
+    list-style: none;
+  }
+
+  /* Group label */
+  .nb-dropdown-group-label {
+    display: block;
+    padding: var(--nb-space-2) var(--nb-space-4);
+    font-size: var(--nb-text-xs);
+    font-weight: 700;
+    line-height: var(--nb-leading-normal);
+    text-transform: uppercase;
+    color: var(--nb-base-content-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* Responsive: mobile < 768px */
+  @media (max-width: 768px) {
+    .nb-dropdown-panel {
+      min-inline-size: 100%;
+      max-inline-size: 100%;
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-dropdown-item {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-dropdown-panel {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-dropdown-divider {
+      border-block-start-color: CanvasText;
+    }
+
+    .nb-dropdown-item:focus-visible {
+      outline: 2px solid Highlight;
+    }
+  }
+}
