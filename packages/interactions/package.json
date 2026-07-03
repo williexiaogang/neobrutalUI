@@ -6,10 +6,19 @@
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/index.d.ts"
+    },
+    "./dialog": {
+      "import": "./dist/dialog.js",
+      "types": "./dist/dialog.d.ts"
+    },
+    "./tabs": {
+      "import": "./dist/tabs.js",
+      "types": "./dist/tabs.d.ts"
     }
   },
   "files": [

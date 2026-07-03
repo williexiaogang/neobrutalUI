@@ -1,0 +1,167 @@
+/**
+ * Neo-Brutal UI — Navbar Component
+ *
+ * Top navigation bar with brand, nav links, actions, and responsive
+ * mobile collapse. Collapse toggle requires optional JS.
+ */
+
+@layer nb.components {
+  .nb-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--nb-space-3) var(--nb-space-4);
+    border-block-end: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-100);
+    position: relative;
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-navbar-brand {
+    font-weight: 800;
+    font-size: var(--nb-text-xl);
+    line-height: var(--nb-leading-tight);
+    color: var(--nb-base-content);
+    text-decoration: none;
+  }
+
+  .nb-navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nb-navbar-nav a {
+    display: block;
+    padding: var(--nb-space-2) var(--nb-space-3);
+    font-weight: 600;
+    font-size: var(--nb-text-base);
+    color: var(--nb-base-content);
+    text-decoration: none;
+    transition: background var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-navbar-nav a:hover {
+    background: var(--nb-base-200);
+  }
+
+  .nb-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+  }
+
+  .nb-navbar-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    padding: 0;
+    background: var(--nb-base-100);
+    color: var(--nb-base-content);
+    border: var(--nb-border-width) solid var(--nb-border);
+    cursor: pointer;
+    box-shadow: var(--nb-shadow-sm);
+    transition: box-shadow var(--nb-duration-fast) var(--nb-ease-out),
+      transform var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-navbar-toggle:hover {
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(-2px, -2px);
+  }
+
+  .nb-navbar-toggle:active {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(2px, 2px);
+  }
+
+  .nb-navbar-collapse {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-3);
+  }
+
+  .nb-navbar-collapse.is-open {
+    display: flex;
+  }
+
+  /* Responsive: mobile < 768px */
+  @media (max-width: 768px) {
+    .nb-navbar {
+      flex-wrap: wrap;
+    }
+
+    .nb-navbar-toggle {
+      display: inline-flex;
+    }
+
+    .nb-navbar-collapse {
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      inline-size: 100%;
+      padding-block-start: var(--nb-space-3);
+      border-block-start: var(--nb-border-width) solid var(--nb-border);
+      margin-block-start: var(--nb-space-3);
+    }
+
+    .nb-navbar-collapse.is-open {
+      display: flex;
+    }
+
+    .nb-navbar-nav {
+      flex-direction: column;
+      gap: 0;
+      inline-size: 100%;
+    }
+
+    .nb-navbar-nav a {
+      padding: var(--nb-space-3) var(--nb-space-2);
+      border-block-end: 1px solid var(--nb-border);
+    }
+
+    .nb-navbar-nav a:last-child {
+      border-block-end: none;
+    }
+
+    .nb-navbar-actions {
+      flex-direction: column;
+      inline-size: 100%;
+      gap: var(--nb-space-2);
+      padding-block-start: var(--nb-space-3);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-navbar-nav a,
+    .nb-navbar-toggle {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-navbar {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-navbar-toggle {
+      border: 2px solid CanvasText;
+    }
+
+    .nb-navbar-collapse {
+      border-block-start-color: CanvasText;
+    }
+
+    .nb-navbar-nav a {
+      border-block-end-color: CanvasText;
+    }
+  }
+}

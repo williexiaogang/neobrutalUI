@@ -8,7 +8,10 @@
     "node": ">= 20.0.0"
   },
   "scripts": {
-    "build": "pnpm -r build",
+    "build": "node scripts/build-all.mjs",
+    "build:core": "node scripts/build-package.mjs core",
+    "build:interactions": "node scripts/build-package.mjs interactions",
+    "verify:css": "node scripts/verify-css.mjs",
     "lint": "pnpm -r lint",
     "test": "pnpm -r test",
     "release": "changeset publish"

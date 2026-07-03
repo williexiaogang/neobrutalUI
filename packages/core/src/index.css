@@ -28,6 +28,9 @@
 @import url("./components/loading.css");
 @import url("./components/modal.css");
 @import url("./components/link.css");
+@import url("./components/tabs.css");
+@import url("./components/table.css");
+@import url("./components/navbar.css");
 
 /* Utilities */
 @import url("./utilities/sr-only.css");

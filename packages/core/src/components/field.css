@@ -83,6 +83,7 @@
   .nb-field-label {
     font-weight: 700;
     font-size: var(--nb-text-sm);
+    cursor: default;
   }
 
   .nb-field-description {
@@ -94,5 +95,17 @@
     font-size: var(--nb-text-sm);
     color: var(--nb-error);
     font-weight: 700;
+  }
+
+  .nb-field-required .nb-field-label::after {
+    content: " *";
+    color: var(--nb-error);
+  }
+
+  .nb-field-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--nb-space-3);
   }
 }

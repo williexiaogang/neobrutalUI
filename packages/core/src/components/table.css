@@ -1,0 +1,114 @@
+/**
+ * Neo-Brutal UI — Table Component
+ *
+ * Structured data table with header, body, zebra striping, hover,
+ * compact variant, and empty state.
+ */
+
+@layer nb.components {
+  .nb-table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    color: var(--nb-base-content);
+    font-size: var(--nb-text-base);
+    line-height: var(--nb-leading-normal);
+    text-align: start;
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-table caption {
+    padding: var(--nb-space-3);
+    font-weight: 700;
+    font-size: var(--nb-text-lg);
+    text-align: start;
+    color: var(--nb-base-content);
+  }
+
+  .nb-table thead th {
+    padding: var(--nb-space-3) var(--nb-space-4);
+    border-block-end: 1px solid var(--nb-border);
+    background: var(--nb-base-200);
+    font-weight: 700;
+    text-align: start;
+  }
+
+  .nb-table tbody td {
+    padding: var(--nb-space-3) var(--nb-space-4);
+    border-block-end: 1px solid var(--nb-border);
+  }
+
+  .nb-table tbody tr:last-child td {
+    border-block-end: none;
+  }
+
+  .nb-table tbody tr {
+    transition: background var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-table tbody tr:hover {
+    background: var(--nb-base-200);
+  }
+
+  /* Zebra striping */
+  .nb-table-zebra tbody tr:nth-child(even) {
+    background: var(--nb-base-200);
+  }
+
+  .nb-table-zebra tbody tr:nth-child(even):hover {
+    background: var(--nb-base-300);
+  }
+
+  /* Compact variant */
+  .nb-table-compact thead th,
+  .nb-table-compact tbody td {
+    padding: var(--nb-space-1) var(--nb-space-2);
+  }
+
+  /* Wrapper for responsive scrolling */
+  .nb-table-wrapper {
+    overflow-x: auto;
+    inline-size: 100%;
+  }
+
+  /* Empty state */
+  .nb-table-empty,
+  .nb-table-empty td {
+    text-align: center;
+    padding: var(--nb-space-8) var(--nb-space-4);
+    color: var(--nb-base-content-muted);
+    font-style: italic;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-table tbody tr {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-table {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-table thead th,
+    .nb-table tbody td {
+      border-block-end: 1px solid CanvasText;
+    }
+
+    .nb-table-zebra tbody tr:nth-child(even) {
+      background: Canvas;
+      outline: 1px solid CanvasText;
+    }
+
+    .nb-table-empty,
+    .nb-table-empty td {
+      color: GrayText;
+    }
+  }
+}

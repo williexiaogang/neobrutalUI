@@ -343,20 +343,20 @@ neo-brutal-ui/
 | Layout | `nb-{component}-{layout}` | `nb-tabs-vertical` |
 | Placement | `nb-{component}-{placement}` | `nb-tooltip-top` |
 
-- [ ] 建立公共命名词典。
-- [ ] 禁止同义词混用，例如：
+- [x] 建立公共命名词典。
+- [x] 禁止同义词混用，例如：
   - `large` 与 `lg`。
   - `danger` 与 `error`。
   - `active` 与 `selected`。
-- [ ] 默认尺寸统一为 `md`，默认类可以省略。
-- [ ] 公共尺寸阶梯：
+- [x] 默认尺寸统一为 `md`，默认类可以省略。
+- [x] 公共尺寸阶梯：
 
   ```text
   xs / sm / md / lg / xl
   ```
 
 - [ ] 不要求每个组件实现全部尺寸，但已实现的尺寸必须使用上述名称。
-- [ ] 响应式变体遵循 Tailwind 前缀：
+- [x] 响应式变体遵循 Tailwind 前缀：
 
   ```html
   <button class="nb-btn nb-btn-sm md:nb-btn-md lg:nb-btn-lg">
@@ -366,17 +366,17 @@ neo-brutal-ui/
 
 每个组件文档必须定义：
 
-- [ ] 推荐语义元素。
-- [ ] 必需子元素。
-- [ ] 可选子元素。
-- [ ] 允许嵌套结构。
-- [ ] 不允许的结构。
-- [ ] ARIA 属性。
-- [ ] 键盘行为。
-- [ ] 数据属性。
-- [ ] JavaScript 初始化方式。
-- [ ] 服务端渲染行为。
-- [ ] 无 JavaScript 时的降级方式。
+- [x] 推荐语义元素。
+- [x] 必需子元素。
+- [x] 可选子元素。
+- [x] 允许嵌套结构。
+- [x] 不允许的结构。
+- [x] ARIA 属性。
+- [x] 键盘行为。
+- [x] 数据属性。
+- [x] JavaScript 初始化方式。
+- [x] 服务端渲染行为。
+- [x] 无 JavaScript 时的降级方式。
 
 示例：
 
@@ -403,20 +403,20 @@ neo-brutal-ui/
 | Loading | loading、busy |
 | Data | empty、partial、complete |
 
-- [ ] 为每个组件建立状态表。
-- [ ] 未适用状态标记为 N/A。
-- [ ] CSS 类状态与原生伪类优先级明确。
-- [ ] 原生属性优先，例如：
+- [x] 为每个组件建立状态表。
+- [x] 未适用状态标记为 N/A。
+- [x] CSS 类状态与原生伪类优先级明确。
+- [x] 原生属性优先，例如：
   - `disabled`
   - `checked`
   - `open`
   - `aria-expanded`
-- [ ] 只有原生状态无法表达时才增加公共状态类。
+- [x] 只有原生状态无法表达时才增加公共状态类。
 
 ## 3.4 API 稳定性
 
-- [ ] 组件类名视为公共 API。
-- [ ] Token 名称视为公共 API。
+- [x] 组件类名视为公共 API。
+- [x] Token 名称视为公共 API。
 - [ ] DOM Contract 是否属于稳定 API需要明确。
 - [ ] 发布前建立弃用机制。
 - [ ] 禁止未记录的公共类名。
@@ -837,16 +837,16 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 6.15 Tabs
 
-- [ ] `nb-tabs`。
-- [ ] `nb-tab`。
-- [ ] `nb-tab-panel`。
-- [ ] 横向 / 纵向。
-- [ ] active。
-- [ ] disabled。
-- [ ] 键盘方向键切换。
-- [ ] `role="tablist"`、`role="tab"`、`role="tabpanel"`。
-- [ ] CSS 只负责视觉，交互由可选 JS 包负责。
-- [ ] 无 JS 时提供普通链接降级方案。
+- [x] `nb-tabs`。
+- [x] `nb-tab`。
+- [x] `nb-tab-panel`。
+- [x] 横向 / 纵向。
+- [x] active。
+- [x] disabled。
+- [x] 键盘方向键切换。
+- [x] `role="tablist"`、`role="tab"`、`role="tabpanel"`。
+- [x] CSS 只负责视觉，交互由可选 JS 包负责。
+- [x] 无 JS 时提供普通链接降级方案。
 
 ## 6.16 Dropdown
 
@@ -894,29 +894,29 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 6.19 Table
 
-- [ ] 基础 Table。
-- [ ] Header。
-- [ ] Zebra。
-- [ ] Hover。
-- [ ] Compact。
-- [ ] 响应式横向滚动容器。
-- [ ] Sticky Header 可选。
-- [ ] 排序按钮结构。
-- [ ] Empty State。
-- [ ] Caption。
-- [ ] 不默认将表格转换为卡片，以免破坏语义。
+- [x] 基础 Table。
+- [x] Header。
+- [x] Zebra。
+- [x] Hover。
+- [x] Compact。
+- [x] 响应式横向滚动容器。
+- [x] Sticky Header 可选。
+- [x] 排序按钮结构。
+- [x] Empty State。
+- [x] Caption。
+- [x] 不默认将表格转换为卡片，以免破坏语义。
 
 ## 6.20 Navbar
 
-- [ ] Brand。
-- [ ] Navigation。
-- [ ] Actions。
-- [ ] Sticky 可选。
-- [ ] 移动端折叠结构。
-- [ ] 汉堡按钮 accessible name。
-- [ ] 与 Drawer 组合。
-- [ ] RTL。
-- [ ] Safe area 支持评估。
+- [x] Brand。
+- [x] Navigation。
+- [x] Actions。
+- [x] Sticky 可选。
+- [x] 移动端折叠结构。
+- [x] 汉堡按钮 accessible name。
+- [x] 与 Drawer 组合。
+- [x] RTL。
+- [x] Safe area 支持评估。
 
 ## 6.21 MVP 验收
 
@@ -968,18 +968,18 @@ createDisclosure(element, options)
 createTooltip(element, options)
 ```
 
-- [ ] 每个 API 返回：
+- [x] 每个 API 返回：
   - `open()`。
   - `close()`。
   - `toggle()`。
   - `destroy()`。
   - 当前状态读取方法。
 
-- [ ] 支持受控模式。
-- [ ] 支持非受控模式。
-- [ ] 支持生命周期事件。
-- [ ] 支持取消事件。
-- [ ] 不把动画工具和组件交互混为同一个 `toggleClass()` API。
+- [x] 支持受控模式。
+- [x] 支持非受控模式。
+- [x] 支持生命周期事件。
+- [x] 支持取消事件。
+- [x] 不把动画工具和组件交互混为同一个 `toggleClass()` API。
 
 ## 7.3 通用动画辅助
 

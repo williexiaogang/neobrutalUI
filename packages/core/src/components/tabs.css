@@ -1,0 +1,104 @@
+/**
+ * Neo-Brutal UI — Tabs Component
+ *
+ * Pure CSS visual layer for horizontal and vertical tab lists.
+ * JS tab switching is optional.
+ */
+
+@layer nb.components {
+  /* Tab list container */
+  .nb-tabs,
+  .nb-tabs[role="tablist"] {
+    display: flex;
+    flex-direction: row;
+    border-block-end: var(--nb-border-width) solid var(--nb-border);
+  }
+
+  .nb-tabs-vertical,
+  .nb-tabs-vertical[role="tablist"] {
+    flex-direction: column;
+    border-block-end: none;
+    border-inline-end: var(--nb-border-width) solid var(--nb-border);
+  }
+
+  /* Individual tab */
+  .nb-tab,
+  .nb-tabs [role="tab"] {
+    display: block;
+    padding: var(--nb-space-2) var(--nb-space-4);
+    font-weight: 700;
+    font-size: var(--nb-text-base);
+    line-height: var(--nb-leading-normal);
+    font-family: inherit;
+    cursor: pointer;
+    background: transparent;
+    color: var(--nb-base-content);
+    border: none;
+    border-block-end: var(--nb-border-width) solid transparent;
+    transition: background var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-tabs-vertical .nb-tab,
+  .nb-tabs-vertical [role="tab"] {
+    border-block-end: none;
+    border-inline-end: var(--nb-border-width) solid transparent;
+  }
+
+  .nb-tab:hover:not(:disabled):not(.nb-tab-disabled),
+  .nb-tabs [role="tab"]:hover:not(:disabled):not(.nb-tab-disabled) {
+    background: var(--nb-base-200);
+  }
+
+  .nb-tab-active,
+  .nb-tabs [role="tab"][aria-selected="true"] {
+    background: var(--nb-base-200);
+    border-block-end-color: var(--nb-primary);
+  }
+
+  .nb-tabs-vertical .nb-tab-active,
+  .nb-tabs-vertical [role="tab"][aria-selected="true"] {
+    border-block-end-color: transparent;
+    border-inline-end-color: var(--nb-primary);
+  }
+
+  .nb-tab:disabled,
+  .nb-tab-disabled,
+  .nb-tabs [role="tab"]:disabled,
+  .nb-tabs [role="tab"].nb-tab-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Tab panel */
+  .nb-tab-panel,
+  .nb-tabs [role="tabpanel"] {
+    padding: var(--nb-space-4);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-tab,
+    .nb-tabs [role="tab"] {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-tab,
+    .nb-tabs [role="tab"] {
+      border: 2px solid transparent;
+    }
+
+    .nb-tab-active,
+    .nb-tabs [role="tab"][aria-selected="true"] {
+      border-block-end-color: Highlight;
+    }
+
+    .nb-tabs-vertical .nb-tab-active,
+    .nb-tabs-vertical [role="tab"][aria-selected="true"] {
+      border-block-end-color: transparent;
+      border-inline-end-color: Highlight;
+    }
+  }
+}
