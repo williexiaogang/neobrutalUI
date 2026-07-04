@@ -13,6 +13,7 @@
 @import url("./tokens/shadows.css");
 @import url("./tokens/motion.css");
 @import url("./tokens/z-index.css");
+@import url("./tokens/component.css");
 
 /* Base */
 @import url("./base/reset.css");

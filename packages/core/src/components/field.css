@@ -2,7 +2,9 @@
  * Neo-Brutal UI — Field Component
  *
  * Input, textarea, select, and field wrapper styles including labels,
- * descriptions, and error messages.
+ * descriptions, hints, error messages, field groups, and inline layouts.
+ *
+ * Includes prefers-reduced-motion and forced-colors support.
  */
 
 @layer nb.components {
@@ -91,6 +93,12 @@
     color: var(--nb-base-content-muted);
   }
 
+  .nb-field-hint {
+    font-size: var(--nb-text-xs);
+    color: var(--nb-base-content-muted);
+    font-style: italic;
+  }
+
   .nb-field-error {
     font-size: var(--nb-text-sm);
     color: var(--nb-error);
@@ -107,5 +115,73 @@
     flex-direction: row;
     align-items: center;
     gap: var(--nb-space-3);
+  }
+
+  .nb-field-inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--nb-space-2);
+  }
+
+  .nb-field:has(.nb-field-error) .nb-field-label {
+    color: var(--nb-error);
+  }
+
+  .nb-field:has([aria-invalid="true"]) {
+    padding-inline-start: var(--nb-space-3);
+    border-inline-start: var(--nb-border-width) solid var(--nb-error);
+  }
+
+  /* Field group (fieldset-like) */
+  .nb-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-md);
+  }
+
+  .nb-field-group-legend {
+    font-weight: 800;
+    font-size: var(--nb-text-lg);
+    padding: var(--nb-space-1) var(--nb-space-3);
+    border: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-200);
+    margin-bottom: var(--nb-space-3);
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-field-group {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-field-group-legend {
+      border: 2px solid CanvasText;
+      background: Canvas;
+    }
+
+    .nb-field:has([aria-invalid="true"]) {
+      border-inline-start-color: Highlight;
+    }
+
+    .nb-input,
+    .nb-textarea,
+    .nb-select {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-input:focus,
+    .nb-textarea:focus,
+    .nb-select:focus {
+      outline: 2px solid Highlight;
+      outline-offset: -2px;
+    }
   }
 }

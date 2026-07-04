@@ -60,6 +60,19 @@ export const components: ShowcaseComponent[] = [
     ],
   },
   {
+    name: "Field",
+    slug: "field",
+    category: "forms",
+    status: "beta",
+    description: "Form field wrapper with label, description, error, and required states.",
+    available: true,
+    demo: "FieldDemo",
+    tags: ["form", "field"],
+    notes: "CSS visual layer implemented. Includes group, inline, row, and required variants.",
+    knownIssues: [],
+    css: "packages/core/src/components/field.css",
+  },
+  {
     name: "Textarea",
     slug: "textarea",
     category: "forms",
@@ -197,15 +210,6 @@ export const components: ShowcaseComponent[] = [
   /* ----------------------------------------------------------------------
    * Planned — on the roadmap but no usable implementation yet.
    * ---------------------------------------------------------------------- */
-  {
-    name: "Field",
-    slug: "field",
-    category: "forms",
-    status: "planned",
-    description: "Complete form control wrapper with label, description, and error text.",
-    available: false,
-    tags: ["form"],
-  },
   {
     name: "Tabs",
     slug: "tabs",

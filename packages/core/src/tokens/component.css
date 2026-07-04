@@ -1,0 +1,82 @@
+/**
+ * Neo-Brutal UI — Component Tokens
+ *
+ * Component Token layer (Stage 4.3).
+ * These are public, overridable entry points for per-component customization.
+ * Consumers can change these variables to theme components without overriding
+ * CSS rules.
+ *
+ * Architecture: Primitive → Semantic → Component
+ *   - Primitive: --nb-color-*, --nb-space-*, --nb-shadow-*, etc.
+ *   - Semantic: --nb-base-*, --nb-primary, --nb-border, etc.
+ *   - Component: --nb-{component}-{property} (this file)
+ */
+
+@layer nb.theme {
+  [data-theme="neo-brutal"],
+  [data-theme="neo-brutal"] * {
+    /* Button */
+    --nb-btn-border-width: var(--nb-border-width);
+    --nb-btn-shadow: var(--nb-shadow-md);
+    --nb-btn-shadow-hover: var(--nb-shadow-lg);
+    --nb-btn-shadow-active: var(--nb-shadow-xs);
+
+    /* Card */
+    --nb-card-shadow: var(--nb-shadow-md);
+    --nb-card-padding: var(--nb-space-4);
+
+    /* Field */
+    --nb-field-gap: var(--nb-space-1);
+
+    /* Input (also covers Textarea, Select) */
+    --nb-input-border-color: var(--nb-border);
+    --nb-input-shadow: var(--nb-shadow-sm);
+    --nb-input-shadow-focus: var(--nb-shadow-md);
+
+    /* Badge */
+    --nb-badge-border-radius: 9999px;
+
+    /* Alert */
+    --nb-alert-accent-width: 6px;
+
+    /* Modal */
+    --nb-modal-max-width: 28rem;
+    --nb-modal-shadow: var(--nb-shadow-xl);
+    --nb-modal-backdrop-opacity: 0.6;
+
+    /* Loading */
+    --nb-loading-size: 1.5rem;
+    --nb-loading-border-width: 3px;
+
+    /* Divider */
+    --nb-divider-thickness: 2px;
+
+    /* Dropdown */
+    --nb-dropdown-panel-min-width: 12rem;
+    --nb-dropdown-shadow: var(--nb-shadow-md);
+
+    /* Tooltip */
+    --nb-tooltip-max-width: 20rem;
+    --nb-tooltip-bg: var(--nb-neutral);
+    --nb-tooltip-fg: var(--nb-neutral-content);
+
+    /* Link */
+    --nb-link-underline-width: 2px;
+    --nb-link-hover-bg: var(--nb-accent);
+
+    /* Navbar */
+    --nb-navbar-shadow: var(--nb-shadow-sm);
+
+    /* Tabs */
+    --nb-tab-active-border-color: var(--nb-primary);
+    --nb-tab-padding: var(--nb-space-2) var(--nb-space-4);
+
+    /* Table */
+    --nb-table-shadow: var(--nb-shadow-sm);
+    --nb-table-header-bg: var(--nb-base-200);
+
+    /* Skeleton */
+    --nb-skeleton-bg: var(--nb-base-200);
+    --nb-skeleton-shimmer: var(--nb-base-300);
+  }
+}

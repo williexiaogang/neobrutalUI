@@ -317,7 +317,7 @@ neo-brutal-ui/
 
 ## 2.7 阶段验收
 
-- [ ] 两名开发者根据规范独立实现 Button，结果基本一致。
+- [ ] 根据规范独立Button
 - [ ] 阴影、位移、边框和圆角均有数值定义。
 - [ ] 所有组件例外都有记录，不依赖开发者临时判断。
 - [ ] 设计稿覆盖键盘焦点、禁用和错误状态。
@@ -417,17 +417,17 @@ neo-brutal-ui/
 
 - [x] 组件类名视为公共 API。
 - [x] Token 名称视为公共 API。
-- [ ] DOM Contract 是否属于稳定 API需要明确。
-- [ ] 发布前建立弃用机制。
-- [ ] 禁止未记录的公共类名。
-- [ ] 建立 API 快照测试。
+- [x] DOM Contract 是否属于稳定 API 需要明确。
+- [x] 发布前建立弃用机制。
+- [x] 禁止未记录的公共类名。
+- [x] 建立 API 快照测试。
 
 ## 3.5 阶段验收
 
-- [ ] 所有 MVP 组件在写 CSS 前已有 API 草案。
-- [ ] 不存在 `nb-btn-large` 与 `nb-btn-lg` 等重复表达。
-- [ ] 状态主要通过原生 HTML 属性表达。
-- [ ] 公共 API 能够被自动提取到文档。
+- [x] 所有 MVP 组件在写 CSS 前已有 API 草案。
+- [x] 不存在 `nb-btn-large` 与 `nb-btn-lg` 等重复表达。
+- [x] 状态主要通过原生 HTML 属性表达。
+- [x] 公共 API 能够被自动提取到文档。
 
 ---
 
@@ -521,10 +521,10 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 --nb-modal-max-width;
 ```
 
-- [ ] 仅暴露真正有长期定制价值的 Token。
-- [ ] 禁止把每条 CSS 声明都转换成公共 Token。
-- [ ] 内部 Token 使用清晰前缀并标记为非公共。
-- [ ] 文档区分公共 Token 与内部 Token。
+- [x] 仅暴露真正有长期定制价值的 Token。
+- [x] 禁止把每条 CSS 声明都转换成公共 Token。
+- [x] 内部 Token 使用清晰前缀并标记为非公共。
+- [x] 文档区分公共 Token 与内部 Token。
 
 ## 4.4 主题作用域
 
@@ -570,20 +570,20 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 4.6 Token 自动检查
 
-- [ ] 检查组件 CSS 中的硬编码颜色。
-- [ ] 检查未定义 Token。
-- [ ] 检查循环引用。
-- [ ] 检查不符合命名规范的 Token。
-- [ ] 检查 public/internal Token 清单。
-- [ ] 修改 `--nb-primary` 后所有相关组件自动更新。
-- [ ] 修改主题作用域只影响对应子树。
+- [x] 检查组件 CSS 中的硬编码颜色。
+- [x] 检查未定义 Token。
+- [x] 检查循环引用。
+- [x] 检查不符合命名规范的 Token。
+- [x] 检查 public/internal Token 清单。
+- [x] 修改 `--nb-primary` 后所有相关组件自动更新。
+- [x] 修改主题作用域只影响对应子树。
 
 ## 4.7 阶段验收
 
-- [ ] 组件文件不直接写 `#hex` 或未经批准的 `oklch()`。
-- [ ] 同一页面可嵌套两个主题。
-- [ ] Token 文档包含名称、层级、默认值、用途和稳定性。
-- [ ] 为未来 Dark Theme 添加主题时不需要修改组件 CSS。
+- [x] 组件文件不直接写 `#hex` 或未经批准的 `oklch()`。
+- [x] 同一页面可嵌套两个主题。
+- [x] Token 文档包含名称、层级、默认值、用途和稳定性。
+- [x] 为未来 Dark Theme 添加主题时不需要修改组件 CSS。
 
 ---
 
@@ -776,15 +776,15 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 6.9 Field / Form Control
 
-- [ ] `nb-field`。
-- [ ] `nb-field-label`。
-- [ ] `nb-field-description`。
-- [ ] `nb-field-error`。
-- [ ] Required 标识。
-- [ ] Label 与控件显式绑定。
-- [ ] Error message 使用 `aria-describedby`。
-- [ ] Fieldset 与 Legend 示例。
-- [ ] 横向和纵向布局。
+- [x] `nb-field`。
+- [x] `nb-field-label`。
+- [x] `nb-field-description`。
+- [x] `nb-field-error`。
+- [x] Required 标识。
+- [x] Label 与控件显式绑定。
+- [x] Error message 使用 `aria-describedby`。
+- [x] Fieldset 与 Legend 示例。
+- [x] 横向和纵向布局。
 
 ## 6.10 Badge
 

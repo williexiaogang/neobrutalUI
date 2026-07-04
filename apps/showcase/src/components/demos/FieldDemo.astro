@@ -1,0 +1,44 @@
+---
+---
+
+<div data-theme="neo-brutal" class="nb-component-card__demo" style="flex-direction: column;">
+  <!-- Basic field -->
+  <div class="nb-field" style="inline-size: 100%;">
+    <label class="nb-field-label">Email</label>
+    <input class="nb-input" type="email" placeholder="you@example.com" />
+    <span class="nb-field-description">We'll never share your email with anyone.</span>
+  </div>
+
+  <!-- Required field with error -->
+  <div class="nb-field nb-field-required" style="inline-size: 100%;">
+    <label class="nb-field-label">Password</label>
+    <input class="nb-input" type="password" value="short" aria-invalid="true" />
+    <span class="nb-field-error">Password must be at least 8 characters.</span>
+  </div>
+
+  <!-- Field group with inline fields -->
+  <fieldset class="nb-field-group" style="inline-size: 100%;">
+    <legend class="nb-field-group-legend">Preferences</legend>
+    <label class="nb-field-inline">
+      <input type="checkbox" class="nb-checkbox" checked />
+      <span class="nb-field-label">Enable notifications</span>
+    </label>
+    <label class="nb-field-inline">
+      <input type="checkbox" class="nb-checkbox" />
+      <span class="nb-field-label">Subscribe to newsletter</span>
+    </label>
+    <span class="nb-field-hint">You can change these settings anytime.</span>
+  </fieldset>
+
+  <!-- Row layout -->
+  <div class="nb-field-row" style="inline-size: 100%;">
+    <div class="nb-field" style="flex: 1;">
+      <label class="nb-field-label">First name</label>
+      <input class="nb-input" type="text" placeholder="Jane" />
+    </div>
+    <div class="nb-field" style="flex: 1;">
+      <label class="nb-field-label">Last name</label>
+      <input class="nb-input" type="text" placeholder="Doe" />
+    </div>
+  </div>
+</div>
