@@ -2,7 +2,20 @@
   "name": "@neo-brutal-ui/theme-neo-brutal",
   "version": "0.0.1",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Default Neo-Brutalism theme for Neo-Brutal UI — OKLCH color tokens and theme configuration.",
+  "author": "Neo-Brutal UI Team",
+  "homepage": "https://github.com/williexiaogang/neobrutalUI#readme",
+  "bugs": {
+    "url": "https://github.com/williexiaogang/neobrutalUI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williexiaogang/neobrutalUI.git",
+    "directory": "packages/themes/neo-brutal"
+  },
   "type": "module",
   "main": "./dist/theme.css",
   "module": "./dist/theme.css",

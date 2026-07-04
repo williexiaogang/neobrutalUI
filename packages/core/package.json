@@ -2,7 +2,20 @@
   "name": "@neo-brutal-ui/core",
   "version": "0.0.1",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Core CSS styles and components for Neo-Brutal UI — zero-runtime CSS built for Tailwind CSS v4+.",
+  "author": "Neo-Brutal UI Team",
+  "homepage": "https://github.com/williexiaogang/neobrutalUI#readme",
+  "bugs": {
+    "url": "https://github.com/williexiaogang/neobrutalUI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williexiaogang/neobrutalUI.git",
+    "directory": "packages/core"
+  },
   "type": "module",
   "main": "./dist/index.css",
   "module": "./dist/index.css",

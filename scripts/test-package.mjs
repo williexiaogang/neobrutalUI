@@ -144,6 +144,13 @@ assert.equal(installedInteractions.private, false);
 assert.equal(installedTheme.private, false);
 assert.equal(installedInteractions.peerDependencies["@neo-brutal-ui/core"], "0.0.1");
 assert.equal(installedTheme.peerDependencies["@neo-brutal-ui/core"], "0.0.1");
+for (const packageJson of [installedCore, installedInteractions, installedTheme]) {
+  assert.equal(packageJson.author, "Neo-Brutal UI Team");
+  assert.equal(packageJson.publishConfig.access, "public");
+  assert(packageJson.homepage.includes("github.com/williexiaogang/neobrutalUI"));
+  assert(packageJson.bugs.url.includes("github.com/williexiaogang/neobrutalUI/issues"));
+  assert(packageJson.repository.url.includes("github.com/williexiaogang/neobrutalUI.git"));
+}
 assert(coreReadme.includes("@neo-brutal-ui/core/css"));
 assert(interactionsReadme.includes("@neo-brutal-ui/interactions/dialog"));
 assert(themeReadme.includes("@neo-brutal-ui/theme-neo-brutal/css"));

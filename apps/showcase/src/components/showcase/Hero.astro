@@ -1,7 +1,7 @@
 ---
 import { site } from "@data/site";
 
-const installCommand = `npm install ${site.packageName}`;
+const installCommand = site.installCommand;
 ---
 
 <section id="top" class="nb-hero" aria-labelledby="hero-title">
@@ -47,9 +47,6 @@ const installCommand = `npm install ${site.packageName}`;
 
         <div class="nb-hero__install" aria-label="Install command">
           <code>{installCommand}</code>
-          {site.packageNameProvisional && (
-            <span class="nb-badge nb-badge-outline">Provisional</span>
-          )}
         </div>
       </div>
 

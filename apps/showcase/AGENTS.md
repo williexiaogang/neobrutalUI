@@ -27,7 +27,7 @@ pnpm preview
 
 - `src/data/components.ts` is the single source of truth for component status.
   Do not hard-code status counts anywhere else.
-- `src/data/site.ts` holds site metadata (title, package name, version, links).
+- `src/data/site.ts` holds site metadata (title, package names, version, links).
 - Components in `src/components/showcase/` map to sections on the homepage.
 - Demos in `src/components/demos/` render real Neo-Brutal UI CSS classes.
 - Interactions live in `src/scripts/` and are loaded only where needed.
@@ -38,4 +38,4 @@ pnpm preview
 - Do not fake a component status in the data file.
 - Status counts must be computed from `components.ts`.
 - Only components with an existing demo file should set `demo` in the data.
-- The package name in `site.ts` is provisional until the first npm publish.
+- Keep install/import examples in `site.ts` aligned with the publishable package names.

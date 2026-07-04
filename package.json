@@ -4,6 +4,14 @@
   "private": true,
   "description": "A Neo-Brutalism UI component library inspired by daisyUI design philosophy, featuring independent class names and Tailwind CSS v4+ integration.",
   "packageManager": "pnpm@9.0.0",
+  "homepage": "https://github.com/williexiaogang/neobrutalUI#readme",
+  "bugs": {
+    "url": "https://github.com/williexiaogang/neobrutalUI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williexiaogang/neobrutalUI.git"
+  },
   "engines": {
     "node": ">= 20.0.0"
   },
@@ -15,7 +23,9 @@
     "lint": "pnpm -r lint",
     "test": "pnpm -r test",
     "test:package": "node scripts/test-package.mjs",
-    "release": "changeset publish"
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm run test:package && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",

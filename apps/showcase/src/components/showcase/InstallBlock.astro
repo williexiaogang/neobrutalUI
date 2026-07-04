@@ -2,31 +2,17 @@
 import Section from "@components/layout/Section.astro";
 import { site } from "@data/site";
 
-const npmCommand = `npm install ${site.packageName}`;
-const cssImport = `@import "${site.packageName}";`;
-const jsImport = `import { createDialog } from "${site.packageName}/interactions";`;
+const npmCommand = site.installCommand;
+const cssImport = site.cssImport;
+const jsImport = site.jsImport;
 ---
 
 <Section id="install" ariaLabelledby="install-title">
   <h2 id="install-title" class="nb-section-title">Install</h2>
   <p class="nb-section-lead">
-    Add the package to a Tailwind CSS v4 project. The core visual components are
+    Add the packages to a Tailwind CSS v4 project. The core visual components are
     pure CSS; interactions are optional and tree-shakeable.
   </p>
-
-  {
-    site.packageNameProvisional && (
-      <div class="nb-alert nb-alert-warning" role="alert" style="margin-block-end: var(--nb-space-6);">
-        <span class="nb-alert-icon" aria-hidden="true">⚠</span>
-        <div>
-          <p class="nb-alert-title">Package name is provisional</p>
-          <p class="nb-alert-body">
-            The final npm scope and package name have not been published yet.
-          </p>
-        </div>
-      </div>
-    )
-  }
 
   <div class="nb-install">
     <div class="nb-install__block">
