@@ -6,7 +6,7 @@
 
 @layer nb.theme {
   [data-theme="neo-brutal"],
-  [data-theme="neo-brutal"] * {
+  [data-theme="neo-brutal-dark"] {
     /* Spacing */
     --nb-space-0: 0;
     --nb-space-1: 0.25rem;

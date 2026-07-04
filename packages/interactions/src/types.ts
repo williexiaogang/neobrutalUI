@@ -25,6 +25,8 @@ export interface ComponentInstance {
   destroy(): void;
   /** Read the current open state */
   get isOpen(): boolean;
+  /** Read visible state for components whose public language is visibility */
+  readonly isVisible?: boolean;
 }
 
 // --------------------------------------------------------------------------

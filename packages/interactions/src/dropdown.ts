@@ -41,16 +41,18 @@ export function createDropdown(element: HTMLElement, options: DropdownOptions = 
     onToggle,
   } = options;
 
-  const trigger = element.querySelector<HTMLElement>('.nb-dropdown-trigger');
-  const panel = element.querySelector<HTMLElement>('.nb-dropdown-panel');
+  const triggerElement = element.querySelector<HTMLElement>('.nb-dropdown-trigger');
+  const panelElement = element.querySelector<HTMLElement>('.nb-dropdown-panel');
 
-  if (!trigger) {
+  if (!triggerElement) {
     throw new Error(`[${NAMESPACE}] No .nb-dropdown-trigger found inside the provided element.`);
   }
-  if (!panel) {
+  if (!panelElement) {
     throw new Error(`[${NAMESPACE}] No .nb-dropdown-panel found inside the provided element.`);
   }
 
+  const trigger = triggerElement;
+  const panel = panelElement;
   const items = Array.from(panel.querySelectorAll<HTMLElement>('.nb-dropdown-item'));
   const events = createEventManager();
   const state = createStateManager(false);
@@ -168,7 +170,7 @@ export function createDropdown(element: HTMLElement, options: DropdownOptions = 
   // Event wiring — panel items
   // --------------------------------------------------------------------------
 
-  items.forEach((item, index) => {
+  items.forEach((item) => {
     events.add(item, 'click', (e: MouseEvent) => {
       if (item.hasAttribute('disabled') || item.classList.contains('nb-dropdown-item-disabled')) {
         e.preventDefault();

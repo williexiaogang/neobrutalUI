@@ -21,8 +21,8 @@
   ],
   "scripts": {
     "build": "node ../../../scripts/build-package.mjs theme-neo-brutal",
-    "lint": "echo 'Lint script to be implemented'",
-    "test": "echo 'Test script to be implemented'"
+    "lint": "node --test tests/*.test.mjs",
+    "test": "node --test tests/*.test.mjs"
   },
   "peerDependencies": {
     "@neo-brutal-ui/core": "workspace:*",

@@ -1,12 +1,11 @@
 # Neo-Brutal UI — Build Report
 
-**Date:** 2026-07-03T16:39:28.136Z
+**Date:** 2026-07-04T06:26:54.476Z
 
 | Package | Status | Duration |
 |---------|--------|----------|
-| core | ✅ success | 109ms |
-| interactions | ❌ failed | 1726ms |
-| theme-neo-brutal | ✅ success | 79ms |
+| core | ✅ success | 102ms |
+| interactions | ✅ success | 1232ms |
+| theme-neo-brutal | ✅ success | 80ms |
 
-## Failures
-- **interactions**: Command failed: node scripts/build-package.mjs interactions
+✅ All packages built successfully.

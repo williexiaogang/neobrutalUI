@@ -6,8 +6,7 @@
  */
 
 @layer nb.theme {
-  [data-theme="neo-brutal"],
-  [data-theme="neo-brutal"] * {
+  [data-theme="neo-brutal"] {
     /* Shadows */
     --nb-shadow-xs: 1px 1px 0 var(--nb-border);
     --nb-shadow-sm: 2px 2px 0 var(--nb-border);
@@ -16,8 +15,7 @@
     --nb-shadow-xl: 8px 8px 0 var(--nb-border);
   }
 
-  [data-theme="neo-brutal-dark"],
-  [data-theme="neo-brutal-dark"] * {
+  [data-theme="neo-brutal-dark"] {
     /* Shadows — same structure.
        In dark mode --nb-border is lighter (oklch 60%), so shadows
        remain clearly visible against the dark background. */

@@ -45,11 +45,12 @@ export function createTooltip(element: HTMLElement, options: TooltipOptions = {}
     onToggle,
   } = options;
 
-  const content = element.querySelector<HTMLElement>('.nb-tooltip-content');
-  if (!content) {
+  const contentElement = element.querySelector<HTMLElement>('.nb-tooltip-content');
+  if (!contentElement) {
     throw new Error(`[${NAMESPACE}] No .nb-tooltip-content found inside the provided element.`);
   }
 
+  const content = contentElement;
   const events = createEventManager();
   const state = createStateManager(false);
   let showTimer: ReturnType<typeof setTimeout> | null = null;
@@ -198,6 +199,9 @@ export function createTooltip(element: HTMLElement, options: TooltipOptions = {}
       hide();
     },
     toggle,
+    get isOpen(): boolean {
+      return state.value;
+    },
     destroy() {
       cancelShow();
       hide();

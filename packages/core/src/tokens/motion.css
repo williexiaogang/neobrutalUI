@@ -6,7 +6,7 @@
 
 @layer nb.theme {
   [data-theme="neo-brutal"],
-  [data-theme="neo-brutal"] * {
+  [data-theme="neo-brutal-dark"] {
     /* Motion */
     --nb-duration-fast: 120ms;
     --nb-duration-normal: 180ms;

@@ -30,18 +30,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--nb-space-4);
+  gap: var(--nb-space-2);
   min-block-size: 4rem;
+  min-inline-size: 0;
 }
 
 .nb-header__brand {
   display: inline-flex;
   align-items: center;
   gap: var(--nb-space-2);
+  min-inline-size: 0;
   font-size: var(--nb-text-lg);
   font-weight: 800;
   color: var(--nb-base-content);
   text-decoration: none;
+}
+
+.nb-header__brand span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .nb-header__brand:hover {
@@ -85,7 +93,18 @@
 .nb-header__actions {
   display: flex;
   align-items: center;
-  gap: var(--nb-space-2);
+  flex-shrink: 0;
+  gap: var(--nb-space-1);
+}
+
+.nb-header__actions > a {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .nb-header__actions > a {
+    display: inline-flex;
+  }
 }
 
 .nb-header__menu-toggle {
@@ -158,6 +177,7 @@
 
 /* Hero */
 .nb-hero {
+  overflow-x: clip;
   padding-block: var(--nb-space-12) var(--nb-space-16);
   background: var(--nb-base-100);
   border-block-end: var(--nb-border-width) solid var(--nb-border);
@@ -200,11 +220,17 @@
 
 .nb-hero__features {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--nb-space-3);
   margin-block-end: var(--nb-space-8);
   padding: 0;
   list-style: none;
+}
+
+@media (min-width: 640px) {
+  .nb-hero__features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .nb-hero__features li {
@@ -237,7 +263,7 @@
   display: flex;
   align-items: center;
   gap: var(--nb-space-2);
-  max-inline-size: max-content;
+  max-inline-size: 100%;
   padding: var(--nb-space-2) var(--nb-space-4);
   border: var(--nb-border-width) solid var(--nb-border);
   background: var(--nb-base-200);
@@ -248,6 +274,7 @@
 
 .nb-hero__demo {
   position: relative;
+  min-inline-size: 0;
 }
 
 .nb-hero__demo-label {
@@ -282,6 +309,8 @@
   padding: var(--nb-space-4);
   border: var(--nb-border-width) solid var(--nb-border);
   background: var(--nb-base-100);
+  color: var(--nb-base-content);
+  font-family: inherit;
   box-shadow: var(--nb-shadow-sm);
   cursor: pointer;
   text-align: start;
@@ -443,6 +472,8 @@
   flex-wrap: wrap;
   gap: var(--nb-space-3);
   align-items: flex-start;
+  max-inline-size: 100%;
+  overflow-x: auto;
   min-block-size: 5rem;
   padding: var(--nb-space-3);
   border: var(--nb-border-width) dashed var(--nb-border);
@@ -502,6 +533,10 @@
   gap: var(--nb-space-6);
 }
 
+.nb-install > * {
+  min-inline-size: 0;
+}
+
 @media (min-width: 768px) {
   .nb-install {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -512,6 +547,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--nb-space-3);
+  min-inline-size: 0;
 }
 
 .nb-install__label {
@@ -523,6 +559,8 @@
   display: flex;
   align-items: center;
   gap: var(--nb-space-2);
+  inline-size: 100%;
+  min-inline-size: 0;
   padding: var(--nb-space-3) var(--nb-space-4);
   border: var(--nb-border-width) solid var(--nb-border);
   background: var(--nb-base-100);
@@ -692,6 +730,7 @@
 }
 
 .nb-theme-preview__col {
+  min-inline-size: 0;
   padding: var(--nb-space-4);
   border: var(--nb-border-width) solid var(--nb-border);
   background: var(--nb-base-100);
@@ -719,5 +758,6 @@
   flex-wrap: wrap;
   gap: var(--nb-space-3);
   align-items: center;
+  min-inline-size: 0;
 }
 

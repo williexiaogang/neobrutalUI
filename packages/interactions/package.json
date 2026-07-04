@@ -19,6 +19,34 @@
     "./tabs": {
       "import": "./dist/tabs.js",
       "types": "./dist/tabs.d.ts"
+    },
+    "./dropdown": {
+      "import": "./dist/dropdown.js",
+      "types": "./dist/dropdown.d.ts"
+    },
+    "./drawer": {
+      "import": "./dist/drawer.js",
+      "types": "./dist/drawer.d.ts"
+    },
+    "./tooltip": {
+      "import": "./dist/tooltip.js",
+      "types": "./dist/tooltip.d.ts"
+    },
+    "./toast": {
+      "import": "./dist/toast.js",
+      "types": "./dist/toast.d.ts"
+    },
+    "./animations": {
+      "import": "./dist/animations.js",
+      "types": "./dist/animations.d.ts"
+    },
+    "./factory": {
+      "import": "./dist/factory.js",
+      "types": "./dist/factory.d.ts"
+    },
+    "./types": {
+      "import": "./dist/types.js",
+      "types": "./dist/types.d.ts"
     }
   },
   "files": [
@@ -28,8 +56,8 @@
   ],
   "scripts": {
     "build": "node ../../scripts/build-package.mjs interactions",
-    "lint": "echo 'Lint script to be implemented'",
-    "test": "echo 'Test script to be implemented'"
+    "lint": "node ../../node_modules/typescript/bin/tsc --noEmit",
+    "test": "node --test tests/*.test.mjs"
   },
   "peerDependencies": {
     "@neo-brutal-ui/core": "workspace:*"
