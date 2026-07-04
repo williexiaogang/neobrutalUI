@@ -49,7 +49,9 @@ const sizeClass = component.size
   </div>
 
   <div class="nb-component-card__body">
-    <p class="nb-component-card__description">{component.description}</p>
+    <p class="nb-component-card__description" title={component.description}>
+      {component.description}
+    </p>
 
     <div class="nb-component-card__preview">
       {
@@ -71,18 +73,28 @@ const sizeClass = component.size
       }
     </div>
 
-    {component.notes && <p class="nb-component-card__notes">{component.notes}</p>}
-
     {
-      component.knownIssues && component.knownIssues.length > 0 && (
-        <div>
-          <p class="nb-component-card__issues-title">Known issues</p>
-          <ul class="nb-component-card__issues">
-            {component.knownIssues.map((issue) => (
-              <li>{issue}</li>
-            ))}
-          </ul>
-        </div>
+      (component.notes || (component.knownIssues && component.knownIssues.length > 0)) && (
+        <details class="nb-component-card__details">
+          <summary class="nb-component-card__details-title">
+            More info
+            {component.knownIssues && component.knownIssues.length > 0 && (
+              <span class="nb-component-card__details-count">
+                ({component.knownIssues.length} issue{component.knownIssues.length === 1 ? "" : "s"})
+              </span>
+            )}
+          </summary>
+          {component.notes && (
+            <p class="nb-component-card__notes">{component.notes}</p>
+          )}
+          {component.knownIssues && component.knownIssues.length > 0 && (
+            <ul class="nb-component-card__issues">
+              {component.knownIssues.map((issue) => (
+                <li>{issue}</li>
+              ))}
+            </ul>
+          )}
+        </details>
       )
     }
   </div>
