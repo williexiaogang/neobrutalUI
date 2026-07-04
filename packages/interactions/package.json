@@ -1,7 +1,7 @@
 {
   "name": "@neo-brutal-ui/interactions",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "Optional native JavaScript interactions for Neo-Brutal UI components — framework-agnostic, tree-shakeable.",
   "type": "module",
   "main": "./dist/index.js",

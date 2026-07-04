@@ -1,7 +1,7 @@
 {
   "name": "@neo-brutal-ui/core",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "Core CSS styles and components for Neo-Brutal UI — zero-runtime CSS built for Tailwind CSS v4+.",
   "type": "module",
   "main": "./dist/index.css",

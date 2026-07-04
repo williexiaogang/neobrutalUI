@@ -7,6 +7,6 @@ test("theme package emits CSS entry points", async () => {
   const tokens = await readFile(new URL("../dist/tokens.css", import.meta.url), "utf8");
 
   assert.match(theme, /@neo-brutal-ui\/theme-neo-brutal/);
-  assert.match(theme, /@import "\.\.\/\.\.\/\.\.\/core\/src\/index\.css"/);
+  assert.match(theme, /@import "@neo-brutal-ui\/core\/css"/);
   assert.equal(tokens, theme);
 });
