@@ -49,6 +49,17 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url).toString();
 
     <!-- Theme color -->
     <meta name="theme-color" content="#000000" />
+
+    <!-- Theme initialization — runs before paint to avoid flash of wrong theme -->
+    <script is:inline>
+      (function () {
+        var saved = localStorage.getItem("nb-theme");
+        var html = document.documentElement;
+        if (saved === "neo-brutal-dark" || saved === "neo-brutal") {
+          html.setAttribute("data-theme", saved);
+        }
+      })();
+    </script>
   </head>
   <body>
     <slot />

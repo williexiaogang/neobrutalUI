@@ -26,6 +26,16 @@ const navItems = [
       </nav>
 
       <div class="nb-header__actions">
+        <button
+          class="nb-btn nb-btn-sm nb-header__theme-toggle"
+          type="button"
+          aria-label="Toggle dark theme"
+          aria-pressed="false"
+          data-theme-toggle
+        >
+          <span aria-hidden="true">☾</span>
+        </button>
+
         <span class="nb-badge nb-badge-accent" aria-label={`Version status: ${site.versionLabel}`}>
           {site.versionLabel}
         </span>
@@ -93,6 +103,35 @@ const navItems = [
         toggle.setAttribute("aria-expanded", "false");
         toggle.textContent = "Menu";
       });
+    });
+  }
+
+  // Theme toggle
+  const themeToggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+  if (themeToggle) {
+    const html = document.documentElement;
+    const sun = "☀";
+    const moon = "☾";
+
+    function updateThemeIcon() {
+      const current = html.getAttribute("data-theme") || "neo-brutal";
+      const isDark = current === "neo-brutal-dark";
+      themeToggle.querySelector("span")!.textContent = isDark ? sun : moon;
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.setAttribute(
+        "aria-label",
+        isDark ? "Switch to light theme" : "Switch to dark theme"
+      );
+    }
+
+    updateThemeIcon();
+
+    themeToggle.addEventListener("click", () => {
+      const current = html.getAttribute("data-theme") || "neo-brutal";
+      const next = current === "neo-brutal" ? "neo-brutal-dark" : "neo-brutal";
+      html.setAttribute("data-theme", next);
+      localStorage.setItem("nb-theme", next);
+      updateThemeIcon();
     });
   }
 </script>

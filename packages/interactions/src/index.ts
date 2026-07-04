@@ -52,15 +52,16 @@ export { createTooltip } from './tooltip.js';
 export { reveal, countUp, stagger } from './animations.js';
 export type { RevealOptions, CountUpOptions, StaggerOptions } from './animations.js';
 
+export { createToastManager } from './toast.js';
+export type { ToastOptions } from './toast.js';
+
 // --------------------------------------------------------------------------
 // Placeholders (not yet implemented)
 // --------------------------------------------------------------------------
 
 export { createDropdown } from './dropdown.js';
 
-export function createDrawer(): never {
-  throw new Error('[@neo-brutal-ui/interactions] createDrawer is not yet implemented.');
-}
+export { createDrawer } from './drawer.js';
 
 export function createDisclosure(): never {
   throw new Error('[@neo-brutal-ui/interactions] createDisclosure is not yet implemented.');

@@ -1,0 +1,86 @@
+---
+import Section from "@components/layout/Section.astro";
+---
+
+<Section id="theme" ariaLabelledby="theme-title">
+  <h2 id="theme-title" class="nb-section-title">Dark Theme</h2>
+  <p class="nb-section-lead">
+    Neo-Brutal UI supports a full dark mode via the
+    <code>data-theme="neo-brutal-dark"</code> attribute. All component tokens
+    automatically adapt — no extra classes needed.
+  </p>
+
+  <div class="nb-theme-preview">
+    <div class="nb-theme-preview__col" data-theme="neo-brutal">
+      <h3 class="nb-theme-preview__label">Light</h3>
+      <div class="nb-theme-preview__demo">
+        <div class="nb-theme-preview__row">
+          <button class="nb-btn nb-btn-primary" type="button">
+            Primary
+          </button>
+          <button class="nb-btn nb-btn-secondary" type="button">
+            Secondary
+          </button>
+          <button class="nb-btn nb-btn-neutral" type="button">
+            Neutral
+          </button>
+        </div>
+        <div class="nb-theme-preview__row">
+          <span class="nb-badge nb-badge-primary">Primary</span>
+          <span class="nb-badge nb-badge-success">Success</span>
+          <span class="nb-badge nb-badge-warning">Warning</span>
+        </div>
+        <div class="nb-alert nb-alert-info">
+          <strong>Info:</strong> Alerts preserve their semantic intent in both
+          modes.
+        </div>
+        <div class="nb-card">
+          <div class="nb-card-body">
+            <p class="nb-card__text">
+              Card content adapts automatically to the current theme.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nb-theme-preview__col" data-theme="neo-brutal-dark">
+      <h3 class="nb-theme-preview__label">Dark</h3>
+      <div class="nb-theme-preview__demo">
+        <div class="nb-theme-preview__row">
+          <button class="nb-btn nb-btn-primary" type="button">
+            Primary
+          </button>
+          <button class="nb-btn nb-btn-secondary" type="button">
+            Secondary
+          </button>
+          <button class="nb-btn nb-btn-neutral" type="button">
+            Neutral
+          </button>
+        </div>
+        <div class="nb-theme-preview__row">
+          <span class="nb-badge nb-badge-primary">Primary</span>
+          <span class="nb-badge nb-badge-success">Success</span>
+          <span class="nb-badge nb-badge-warning">Warning</span>
+        </div>
+        <div class="nb-alert nb-alert-info">
+          <strong>Info:</strong> Alerts preserve their semantic intent in both
+          modes.
+        </div>
+        <div class="nb-card">
+          <div class="nb-card-body">
+            <p class="nb-card__text">
+              Card content adapts automatically to the current theme.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .nb-card__text {
+    margin: 0;
+  }
+</style>

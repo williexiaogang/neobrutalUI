@@ -96,6 +96,10 @@ export interface DrawerOptions extends BaseOptions {
   closeOnEscape?: boolean;
   /** Close when the backdrop/overlay is clicked. Default: true */
   closeOnBackdropClick?: boolean;
+  /** Return focus to the trigger element when closing. Default: true */
+  returnFocus?: boolean;
+  /** Trap focus inside the drawer while open. Default: true */
+  focusTrap?: boolean;
 }
 
 // --------------------------------------------------------------------------

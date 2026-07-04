@@ -1,0 +1,47 @@
+<div class="nb-component-card__demo" style="display: flex; flex-direction: column; gap: var(--nb-space-4);" data-theme="neo-brutal">
+  <!-- Toast Container — Bottom Right -->
+  <div
+    class="nb-toast-container nb-toast-container-bottom-end"
+    style="position: relative; display: flex; flex-direction: column-reverse; gap: var(--nb-space-3);"
+  >
+    <!-- Success Toast -->
+    <div class="nb-toast nb-toast-success is-entering" role="status" aria-live="polite">
+      <div style="flex: 1;">
+        <div class="nb-toast-title">Success</div>
+        <div class="nb-toast-message">Your action completed successfully.</div>
+      </div>
+      <button class="nb-toast-close" type="button" aria-label="Close notification">×</button>
+    </div>
+
+    <!-- Warning Toast -->
+    <div class="nb-toast nb-toast-warning is-entering" role="alert" aria-live="assertive">
+      <div style="flex: 1;">
+        <div class="nb-toast-title">Warning</div>
+        <div class="nb-toast-message">Please review before proceeding.</div>
+      </div>
+      <button class="nb-toast-close" type="button" aria-label="Close notification">×</button>
+    </div>
+
+    <!-- Error Toast -->
+    <div class="nb-toast nb-toast-error is-entering" role="alert" aria-live="assertive">
+      <div style="flex: 1;">
+        <div class="nb-toast-title">Error</div>
+        <div class="nb-toast-message">Something went wrong. Please try again.</div>
+      </div>
+      <button class="nb-toast-close" type="button" aria-label="Close notification">×</button>
+    </div>
+
+    <!-- Info Toast with Progress Bar -->
+    <div class="nb-toast nb-toast-info is-entering" role="status" aria-live="polite">
+      <div style="flex: 1;">
+        <div class="nb-toast-title">Info</div>
+        <div class="nb-toast-message">This toast has a progress bar indicating auto-dismiss time.</div>
+      </div>
+      <div class="nb-toast-progress" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <p style="margin: 0; font-size: var(--nb-text-sm); color: var(--nb-base-content-muted);">
+    Toast notifications appear in a fixed container. Close buttons and progress bars are available via optional JavaScript.
+  </p>
+</div>

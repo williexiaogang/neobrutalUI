@@ -1,0 +1,80 @@
+<div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-4);">
+  <!-- Right Drawer (default / end) — shown open for preview -->
+  <div data-theme="neo-brutal" style="position: relative; overflow: hidden; min-block-size: 12rem;">
+    <!-- Simulated backdrop + open drawer -->
+    <div style="position: absolute; inset: 0; background: var(--nb-overlay); display: flex; justify-content: flex-end;">
+      <div
+        class="nb-drawer nb-drawer-end"
+        style="position: relative; transform: none; opacity: 1; block-size: 100%;"
+        role="dialog"
+        aria-modal="true"
+        aria-expanded="true"
+      >
+        <div class="nb-drawer-header">
+          <span class="nb-drawer-title">Right Drawer</span>
+          <button class="nb-drawer-close" type="button" aria-label="Close">×</button>
+        </div>
+        <div class="nb-drawer-body">
+          <p style="margin: 0; font-size: var(--nb-text-sm);">
+            This is the default drawer placement. It slides in from the right edge and works great with Navbar mobile menus.
+          </p>
+        </div>
+        <div class="nb-drawer-footer">
+          <button class="nb-btn nb-btn-sm" type="button">Cancel</button>
+          <button class="nb-btn nb-btn-sm nb-btn-primary" type="button">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trigger button -->
+    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+      <button
+        class="nb-btn nb-btn-sm nb-btn-primary nb-drawer-toggle"
+        type="button"
+        data-drawer-target="drawer-right"
+        style="pointer-events: auto;"
+      >
+        Open Right Drawer
+      </button>
+    </div>
+  </div>
+
+  <!-- Left Drawer (start) — shown open for preview -->
+  <div data-theme="neo-brutal" style="position: relative; overflow: hidden; min-block-size: 12rem;">
+    <!-- Simulated backdrop + open drawer -->
+    <div style="position: absolute; inset: 0; background: var(--nb-overlay); display: flex; justify-content: flex-start;">
+      <div
+        class="nb-drawer nb-drawer-start"
+        style="position: relative; transform: none; opacity: 1; block-size: 100%;"
+        role="dialog"
+        aria-modal="true"
+        aria-expanded="true"
+      >
+        <div class="nb-drawer-header">
+          <span class="nb-drawer-title">Left Drawer</span>
+          <button class="nb-drawer-close" type="button" aria-label="Close">×</button>
+        </div>
+        <div class="nb-drawer-body">
+          <p style="margin: 0; font-size: var(--nb-text-sm);">
+            Use <code style="font-family: monospace; background: var(--nb-base-200); padding: 0.125rem 0.25rem; border-radius: var(--nb-radius-sm);">.nb-drawer-start</code> to slide in from the left edge.
+          </p>
+        </div>
+        <div class="nb-drawer-footer">
+          <button class="nb-btn nb-btn-sm" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trigger button -->
+    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+      <button
+        class="nb-btn nb-btn-sm nb-drawer-toggle"
+        type="button"
+        data-drawer-target="drawer-left"
+        style="pointer-events: auto;"
+      >
+        Open Left Drawer
+      </button>
+    </div>
+  </div>
+</div>

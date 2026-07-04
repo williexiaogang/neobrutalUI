@@ -1,7 +1,7 @@
 # CSS Verification Report
 
-**Generated:** 2026-07-04T03:57:49.328Z
-**Files Scanned:** 25
+**Generated:** 2026-07-04T04:22:01.001Z
+**Files Scanned:** 27
 **Total Token Definitions:** 113
 
 ## Summary
@@ -59,6 +59,7 @@
 | packages\core\src\components\button.css | Yes | 18 | 37 |
 | packages\core\src\components\card.css | Yes | 10 | 12 |
 | packages\core\src\components\divider.css | Yes | 8 | 4 |
+| packages\core\src\components\drawer.css | Yes | 30 | 40 |
 | packages\core\src\components\dropdown.css | Yes | 31 | 29 |
 | packages\core\src\components\field.css | Yes | 45 | 52 |
 | packages\core\src\components\link.css | Yes | 5 | 4 |
@@ -68,12 +69,13 @@
 | packages\core\src\components\selector.css | Yes | 31 | 26 |
 | packages\core\src\components\table.css | Yes | 21 | 28 |
 | packages\core\src\components\tabs.css | Yes | 46 | 19 |
+| packages\core\src\components\toast.css | Yes | 27 | 57 |
 | packages\core\src\components\tooltip.css | Yes | 30 | 21 |
 | packages\core\src\index.css | Yes | 0 | 0 |
-| packages\core\src\tokens\colors.css | Yes | 0 | 2 |
+| packages\core\src\tokens\colors.css | Yes | 0 | 3 |
 | packages\core\src\tokens\component.css | Yes | 0 | 23 |
 | packages\core\src\tokens\motion.css | Yes | 0 | 0 |
-| packages\core\src\tokens\shadows.css | Yes | 0 | 5 |
+| packages\core\src\tokens\shadows.css | Yes | 0 | 10 |
 | packages\core\src\tokens\spacing.css | Yes | 0 | 0 |
 | packages\core\src\tokens\z-index.css | Yes | 0 | 0 |
 | packages\core\src\utilities\responsive.css | Yes | 11 | 6 |

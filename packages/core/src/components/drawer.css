@@ -1,0 +1,232 @@
+/**
+ * Neo-Brutal UI — Drawer Component
+ *
+ * Slide-in side panel with backdrop, directional placement (start/end/top/bottom),
+ * responsive sizing, open/close transform animations, reduced-motion,
+ * and forced-colors support.
+ */
+
+@layer nb.components {
+  /* ------------------------------------------------------------------------
+   * Backdrop
+   * ------------------------------------------------------------------------ */
+  .nb-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: var(--nb-z-drawer);
+    background: var(--nb-overlay);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity var(--nb-duration-slow) var(--nb-ease-out),
+      visibility var(--nb-duration-slow) var(--nb-ease-out);
+  }
+
+  .nb-drawer-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Drawer panel — base
+   * ------------------------------------------------------------------------ */
+  .nb-drawer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background: var(--nb-base-100);
+    border: var(--nb-border-width) solid var(--nb-border);
+    box-shadow: var(--nb-shadow-xl);
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      opacity var(--nb-duration-slow) var(--nb-ease-out),
+      transform var(--nb-duration-slow) var(--nb-ease-out);
+  }
+
+  /* Default: end (right) */
+  .nb-drawer {
+    inset-inline-end: 0;
+    inset-inline-start: auto;
+    inset-block-start: 0;
+    inset-block-end: 0;
+    inline-size: 100%;
+    max-inline-size: 20rem;
+    transform: translateX(100%);
+  }
+
+  .nb-drawer-backdrop.is-open .nb-drawer {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+
+  /* Start (left) */
+  .nb-drawer-start {
+    inset-inline-start: 0;
+    inset-inline-end: auto;
+    transform: translateX(-100%);
+  }
+
+  /* End (right) — explicit, same as default */
+  .nb-drawer-end {
+    inset-inline-end: 0;
+    inset-inline-start: auto;
+    transform: translateX(100%);
+  }
+
+  /* Top */
+  .nb-drawer-top {
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    inset-block-start: 0;
+    inset-block-end: auto;
+    inline-size: 100%;
+    block-size: auto;
+    max-block-size: 16rem;
+    transform: translateY(-100%);
+  }
+
+  /* Bottom */
+  .nb-drawer-bottom {
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    inset-block-start: auto;
+    inset-block-end: 0;
+    inline-size: 100%;
+    block-size: auto;
+    max-block-size: 16rem;
+    transform: translateY(100%);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Header
+   * ------------------------------------------------------------------------ */
+  .nb-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-4);
+    border-block-end: var(--nb-border-width) solid var(--nb-border);
+  }
+
+  .nb-drawer-title {
+    margin: 0;
+    font-size: var(--nb-text-lg);
+    font-weight: 700;
+    line-height: var(--nb-leading-tight);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Close button
+   * ------------------------------------------------------------------------ */
+  .nb-drawer-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    padding: 0;
+    background: var(--nb-base-100);
+    color: var(--nb-base-content);
+    border: var(--nb-border-width) solid var(--nb-border);
+    font-size: var(--nb-text-xl);
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: var(--nb-shadow-sm);
+    transition:
+      transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-drawer-close:hover {
+    background: var(--nb-base-200);
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(-2px, -2px);
+  }
+
+  .nb-drawer-close:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  .nb-drawer-close:active {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(2px, 2px);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Body
+   * ------------------------------------------------------------------------ */
+  .nb-drawer-body {
+    flex: 1;
+    padding: var(--nb-space-4);
+    overflow-y: auto;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Footer
+   * ------------------------------------------------------------------------ */
+  .nb-drawer-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-4);
+    border-block-start: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-200);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Responsive: mobile < 768px
+   * ------------------------------------------------------------------------ */
+  @media (max-width: 768px) {
+    .nb-drawer {
+      max-inline-size: 100%;
+    }
+
+    .nb-drawer-top,
+    .nb-drawer-bottom {
+      max-block-size: 50%;
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+   * Reduced motion
+   * ------------------------------------------------------------------------ */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-drawer-backdrop,
+    .nb-drawer {
+      transition: none;
+      transform: none !important;
+    }
+
+    .nb-drawer-backdrop.is-open .nb-drawer {
+      transform: none;
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+   * Forced colors
+   * ------------------------------------------------------------------------ */
+  @media (forced-colors: active) {
+    .nb-drawer {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-drawer-header,
+    .nb-drawer-footer {
+      border-color: CanvasText;
+    }
+
+    .nb-drawer-backdrop {
+      background: Canvas;
+      opacity: 0.9;
+    }
+
+    .nb-drawer-close {
+      border: 2px solid CanvasText;
+    }
+  }
+}

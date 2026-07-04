@@ -1,13 +1,15 @@
 @import "../../packages/core/src/index.css";
 
 /* Showcase site-specific tokens and utilities */
-[data-theme="neo-brutal"] {
+[data-theme="neo-brutal"],
+[data-theme="neo-brutal-dark"] {
   --nb-site-max-width: 75rem;
   --nb-site-padding: var(--nb-space-4);
 }
 
 @media (min-width: 768px) {
-  [data-theme="neo-brutal"] {
+  [data-theme="neo-brutal"],
+  [data-theme="neo-brutal-dark"] {
     --nb-site-padding: var(--nb-space-8);
   }
 }
