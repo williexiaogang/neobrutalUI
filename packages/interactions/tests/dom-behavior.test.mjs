@@ -4,6 +4,10 @@ import { Window } from "happy-dom";
 
 let window;
 
+function nextTick() {
+  return new Promise((resolve) => setTimeout(resolve, 0));
+}
+
 function installDom(html = "") {
   window = new Window();
   window.document.body.innerHTML = html;
@@ -16,6 +20,20 @@ function installDom(html = "") {
   globalThis.KeyboardEvent = window.KeyboardEvent;
   globalThis.MouseEvent = window.MouseEvent;
   globalThis.Event = window.Event;
+  globalThis.requestAnimationFrame = window.requestAnimationFrame.bind(window);
+  globalThis.cancelAnimationFrame = window.cancelAnimationFrame.bind(window);
+  window.matchMedia = () => ({
+    matches: true,
+    media: "(prefers-reduced-motion: reduce)",
+    onchange: null,
+    addEventListener() {},
+    removeEventListener() {},
+    addListener() {},
+    removeListener() {},
+    dispatchEvent() {
+      return false;
+    },
+  });
 }
 
 beforeEach(() => {
@@ -32,6 +50,8 @@ afterEach(() => {
   delete globalThis.KeyboardEvent;
   delete globalThis.MouseEvent;
   delete globalThis.Event;
+  delete globalThis.requestAnimationFrame;
+  delete globalThis.cancelAnimationFrame;
 });
 
 test("tabs initialize aria state and support arrow-key navigation", async () => {
@@ -144,4 +164,119 @@ test("dialog opens, traps tab focus, and restores focus on close", async () => {
   assert.equal(dialog.isOpen, false);
   assert.equal(dialogElement.open, false);
   assert.equal(document.activeElement, launcher);
+});
+
+test("drawer opens, traps focus, closes on backdrop click, and restores focus", async () => {
+  installDom(`
+    <button id="launcher" type="button">Open drawer</button>
+    <div id="backdrop" class="nb-drawer-backdrop">
+      <aside class="nb-drawer">
+        <button id="drawer-first" type="button">First</button>
+        <button id="drawer-last" type="button">Last</button>
+      </aside>
+    </div>
+  `);
+
+  const launcher = document.getElementById("launcher");
+  const backdrop = document.getElementById("backdrop");
+  const drawerElement = backdrop.querySelector(".nb-drawer");
+  const first = document.getElementById("drawer-first");
+  const last = document.getElementById("drawer-last");
+  const { createDrawer } = await import(`../dist/drawer.js?test=${Date.now()}-drawer`);
+
+  launcher.focus();
+  const drawer = createDrawer(backdrop, { placement: "start" });
+
+  assert.equal(drawerElement.classList.contains("nb-drawer-start"), true);
+  assert.equal(drawerElement.getAttribute("aria-expanded"), "false");
+
+  drawer.open();
+
+  assert.equal(drawer.isOpen, true);
+  assert.equal(backdrop.classList.contains("is-open"), true);
+  assert.equal(drawerElement.getAttribute("aria-expanded"), "true");
+  assert.equal(document.activeElement, first);
+
+  first.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab", shiftKey: true, bubbles: true }));
+  assert.equal(document.activeElement, last);
+
+  backdrop.click();
+
+  assert.equal(drawer.isOpen, false);
+  assert.equal(backdrop.classList.contains("is-open"), false);
+  assert.equal(drawerElement.getAttribute("aria-expanded"), "false");
+  assert.equal(document.activeElement, launcher);
+});
+
+test("tooltip shows and hides for focus and escape", async () => {
+  installDom(`
+    <span id="tooltip" class="nb-tooltip">
+      <button type="button">Target</button>
+      <span class="nb-tooltip-content" role="tooltip">Helpful text</span>
+    </span>
+  `);
+
+  const root = document.getElementById("tooltip");
+  const content = root.querySelector(".nb-tooltip-content");
+  const { createTooltip } = await import(`../dist/tooltip.js?test=${Date.now()}-tooltip`);
+
+  const tooltip = createTooltip(root, { placement: "bottom", trigger: "focus" });
+
+  assert.equal(root.classList.contains("nb-tooltip-bottom"), true);
+  assert.equal(tooltip.isVisible, false);
+
+  root.dispatchEvent(new Event("focusin", { bubbles: true }));
+  await nextTick();
+
+  assert.equal(tooltip.isVisible, true);
+  assert.equal(content.classList.contains("is-visible"), true);
+  assert.equal(root.getAttribute("data-nb-state"), "visible");
+
+  root.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+
+  assert.equal(tooltip.isVisible, false);
+  assert.equal(content.classList.contains("is-visible"), false);
+  assert.equal(root.getAttribute("data-nb-state"), "hidden");
+});
+
+test("toast manager creates closable toasts and cleans up containers", async () => {
+  installDom();
+  const { createToastManager } = await import(`../dist/toast.js?test=${Date.now()}-toast`);
+
+  let closeCount = 0;
+  const manager = createToastManager();
+  const forceClose = manager.show({
+    title: "Saved",
+    message: "Changes are live.",
+    type: "success",
+    duration: 0,
+    position: "top-end",
+    onClose() {
+      closeCount += 1;
+    },
+  });
+
+  const container = document.querySelector(".nb-toast-container-top-end");
+  const toast = document.querySelector(".nb-toast");
+  const closeButton = document.querySelector(".nb-toast-close");
+
+  assert.ok(container);
+  assert.ok(toast);
+  assert.equal(toast.classList.contains("nb-toast-success"), true);
+  assert.equal(toast.getAttribute("role"), "status");
+  assert.equal(closeButton.getAttribute("aria-label"), "Close notification");
+
+  closeButton.click();
+
+  assert.equal(document.querySelector(".nb-toast"), null);
+  assert.equal(document.querySelector(".nb-toast-container-top-end"), null);
+  assert.equal(closeCount, 1);
+
+  manager.show({ message: "Persistent", duration: 0, closable: false });
+  assert.ok(document.querySelector(".nb-toast"));
+
+  manager.destroy();
+
+  assert.equal(document.querySelector(".nb-toast"), null);
+  forceClose();
 });
