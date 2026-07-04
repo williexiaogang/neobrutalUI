@@ -50,8 +50,8 @@
     }
   },
   "files": [
-    "dist",
-    "src",
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
     "README.md"
   ],
   "scripts": {

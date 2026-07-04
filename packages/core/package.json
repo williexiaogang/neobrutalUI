@@ -18,8 +18,7 @@
     "./utilities": "./dist/utilities.css"
   },
   "files": [
-    "dist",
-    "src",
+    "dist/**/*.css",
     "README.md"
   ],
   "scripts": {
