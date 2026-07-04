@@ -142,8 +142,8 @@ const themeReadme = await readFile(
 assert.equal(installedCore.private, false);
 assert.equal(installedInteractions.private, false);
 assert.equal(installedTheme.private, false);
-assert.equal(installedInteractions.peerDependencies["@neo-brutal-ui/core"], "0.0.1");
-assert.equal(installedTheme.peerDependencies["@neo-brutal-ui/core"], "0.0.1");
+assert.equal(installedInteractions.peerDependencies["@neo-brutal-ui/core"], installedCore.version);
+assert.equal(installedTheme.peerDependencies["@neo-brutal-ui/core"], installedCore.version);
 for (const packageJson of [installedCore, installedInteractions, installedTheme]) {
   assert.equal(packageJson.author, "Neo-Brutal UI Team");
   assert.equal(packageJson.publishConfig.access, "public");
