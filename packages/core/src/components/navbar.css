@@ -48,6 +48,12 @@
     background: var(--nb-base-200);
   }
 
+  .nb-navbar-nav a:focus-visible,
+  .nb-navbar-toggle:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
   .nb-navbar-actions {
     display: flex;
     align-items: center;

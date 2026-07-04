@@ -41,6 +41,14 @@
     box-shadow: var(--nb-shadow-md);
   }
 
+  .nb-input:focus-visible,
+  .nb-textarea:focus-visible,
+  .nb-select:focus-visible {
+    border-color: var(--nb-focus);
+    box-shadow: var(--nb-shadow-md);
+    outline: none;
+  }
+
   .nb-input:disabled,
   .nb-textarea:disabled,
   .nb-select:disabled {

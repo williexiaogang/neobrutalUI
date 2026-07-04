@@ -114,6 +114,11 @@
     transform: translate(-2px, -2px);
   }
 
+  .nb-modal-close:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
   .nb-modal-close:active {
     box-shadow: var(--nb-shadow-xs);
     transform: translate(2px, 2px);
@@ -170,8 +175,19 @@
     border-block-end-color: color-mix(in oklch, var(--nb-success-content) 20%, transparent);
   }
 
-  /* Mobile sheet variant */
+  /* Responsive: mobile < 768px */
   @media (max-width: 768px) {
+    .nb-modal-backdrop,
+    dialog.nb-modal-backdrop {
+      padding: 0;
+    }
+
+    .nb-modal {
+      max-inline-size: 100%;
+      border-radius: 0;
+      max-block-size: 100vh;
+    }
+
     .nb-modal-sheet {
       max-inline-size: 100%;
       margin-block-start: auto;

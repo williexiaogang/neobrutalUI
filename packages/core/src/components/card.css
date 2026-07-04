@@ -34,4 +34,17 @@
     font-size: var(--nb-text-xl);
     line-height: var(--nb-leading-tight);
   }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-card {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-card-header,
+    .nb-card-footer {
+      border-color: CanvasText;
+    }
+  }
 }

@@ -52,4 +52,16 @@
     font-size: var(--nb-text-sm);
     color: var(--nb-base-content-muted);
   }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-alert {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-alert-icon {
+      color: CanvasText;
+    }
+  }
 }

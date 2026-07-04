@@ -65,4 +65,12 @@
     background: transparent;
     color: var(--nb-base-content);
   }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-badge {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+  }
 }

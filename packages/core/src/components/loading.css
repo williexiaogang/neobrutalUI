@@ -58,4 +58,16 @@
       background-position: -200% 0;
     }
   }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-loading {
+      border-color: CanvasText;
+      border-block-start-color: Highlight;
+    }
+
+    .nb-skeleton {
+      background: GrayText;
+    }
+  }
 }

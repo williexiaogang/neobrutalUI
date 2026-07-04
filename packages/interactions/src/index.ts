@@ -46,6 +46,13 @@ export { createTabs } from './tabs.js';
 export { createTooltip } from './tooltip.js';
 
 // --------------------------------------------------------------------------
+// Animation helpers
+// --------------------------------------------------------------------------
+
+export { reveal, countUp, stagger } from './animations.js';
+export type { RevealOptions, CountUpOptions, StaggerOptions } from './animations.js';
+
+// --------------------------------------------------------------------------
 // Placeholders (not yet implemented)
 // --------------------------------------------------------------------------
 

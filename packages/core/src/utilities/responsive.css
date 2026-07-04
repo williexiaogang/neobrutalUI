@@ -1,0 +1,68 @@
+/**
+ * Neo-Brutal UI — Responsive Utilities
+ *
+ * Common responsive helper classes for mobile-first layouts.
+ * All classes follow the breakpoint system defined in the responsive strategy.
+ */
+
+@layer nb.utilities {
+  /* Responsive display / hide */
+  .nb-hidden-mobile {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .nb-hidden-mobile {
+      display: initial;
+    }
+  }
+
+  .nb-hidden-desktop {
+    display: initial;
+  }
+
+  @media (min-width: 768px) {
+    .nb-hidden-desktop {
+      display: none;
+    }
+  }
+
+  /* Responsive text size */
+  .nb-text-responsive {
+    font-size: var(--nb-text-sm);
+  }
+
+  @media (min-width: 768px) {
+    .nb-text-responsive {
+      font-size: var(--nb-text-base);
+    }
+  }
+
+  /* Responsive padding */
+  .nb-p-responsive {
+    padding: var(--nb-space-3);
+  }
+
+  @media (min-width: 768px) {
+    .nb-p-responsive {
+      padding: var(--nb-space-4);
+    }
+  }
+
+  /* Responsive gap */
+  .nb-gap-responsive {
+    gap: var(--nb-space-2);
+  }
+
+  @media (min-width: 768px) {
+    .nb-gap-responsive {
+      gap: var(--nb-space-4);
+    }
+  }
+
+  /* Touch-friendly minimum sizing */
+  .nb-touch-target {
+    min-inline-size: 2.75rem;
+    min-block-size: 2.75rem;
+  }
+}

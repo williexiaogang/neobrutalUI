@@ -618,12 +618,12 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 5.3 响应式策略
 
-- [ ] 使用 Tailwind v4 响应式前缀。
-- [ ] 组件内部不写死与宿主项目冲突的断点值，或明确采用统一断点。
-- [ ] 定义移动优先原则。
-- [ ] Modal、Drawer、Navbar、Table 提供移动端行为。
-- [ ] 支持 320px 宽度。
-- [ ] 测试横屏移动设备。
+- [x] 使用 Tailwind v4 响应式前缀。
+- [x] 组件内部不写死与宿主项目冲突的断点值，或明确采用统一断点。
+- [x] 定义移动优先原则。
+- [x] Modal、Drawer、Navbar、Table 提供移动端行为。
+- [x] 支持 320px 宽度。
+- [x] 测试横屏移动设备。
 
 ## 5.4 Z-index 系统
 
@@ -922,20 +922,20 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 每个 MVP 组件必须满足：
 
-- [ ] API 文档完成。
-- [ ] HTML 示例可复制运行。
-- [ ] 无 JavaScript 核心样式可显示。
-- [ ] 适用状态齐全。
-- [ ] Keyboard 测试通过。
-- [ ] axe 自动测试无严重问题。
-- [ ] RTL 截图通过。
-- [ ] reduced-motion 通过。
-- [ ] forced-colors 基本可用。
-- [ ] 320px 移动端通过。
-- [ ] 200% 缩放通过。
-- [ ] 长文本和中文内容通过。
-- [ ] 不含未经批准的硬编码颜色。
-- [ ] 视觉回归基线已建立。
+- [x] API 文档完成。
+- [x] HTML 示例可复制运行。
+- [x] 无 JavaScript 核心样式可显示。
+- [x] 适用状态齐全。
+- [x] Keyboard 测试通过。
+- [x] axe 自动测试无严重问题。
+- [x] RTL 截图通过。
+- [x] reduced-motion 通过。
+- [x] forced-colors 基本可用。
+- [x] 320px 移动端通过。
+- [x] 200% 缩放通过。
+- [x] 长文本和中文内容通过。
+- [x] 不含未经批准的硬编码颜色。
+- [x] 视觉回归基线已建立。
 
 ---
 
@@ -985,24 +985,24 @@ createTooltip(element, options)
 
 可选提供：
 
-- [ ] `reveal()`。
-- [ ] `countUp()`。
-- [ ] `stagger()`。
+- [x] `reveal()`。
+- [x] `countUp()`。
+- [x] `stagger()`。
 
 要求：
 
-- [ ] `IntersectionObserver` 不支持时合理降级。
-- [ ] reduced-motion 时直接显示最终状态。
-- [ ] 不默认修改用户内容。
-- [ ] 不造成布局持续重算。
+- [x] `IntersectionObserver` 不支持时合理降级。
+- [x] reduced-motion 时直接显示最终状态。
+- [x] 不默认修改用户内容。
+- [x] 不造成布局持续重算。
 
 ## 7.4 阶段验收
 
-- [ ] JS 未加载时页面内容仍可访问。
-- [ ] Modal、Tabs、Dropdown 的键盘行为通过测试。
-- [ ] 初始化和销毁不会泄漏监听器。
-- [ ] 打包后可按函数 Tree-shake。
-- [ ] TypeScript 类型测试通过。
+- [x] JS 未加载时页面内容仍可访问。
+- [x] Modal、Tabs、Dropdown 的键盘行为通过测试。
+- [x] 初始化和销毁不会泄漏监听器。
+- [x] 打包后可按函数 Tree-shake。
+- [x] TypeScript 类型测试通过。
 
 ---
 

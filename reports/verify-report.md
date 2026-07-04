@@ -1,7 +1,7 @@
 # CSS Verification Report
 
-**Generated:** 2026-07-04T03:41:30.006Z
-**Files Scanned:** 24
+**Generated:** 2026-07-04T03:57:49.328Z
+**Files Scanned:** 25
 **Total Token Definitions:** 113
 
 ## Summary
@@ -54,20 +54,20 @@
 | File | Layer | Classes | Tokens Used |
 |------|-------|---------|-------------|
 | packages\core\src\base\reset.css | Yes | 0 | 6 |
-| packages\core\src\components\alert.css | Yes | 8 | 16 |
-| packages\core\src\components\badge.css | Yes | 9 | 28 |
-| packages\core\src\components\button.css | Yes | 15 | 36 |
-| packages\core\src\components\card.css | Yes | 7 | 12 |
-| packages\core\src\components\divider.css | Yes | 6 | 4 |
+| packages\core\src\components\alert.css | Yes | 10 | 16 |
+| packages\core\src\components\badge.css | Yes | 10 | 28 |
+| packages\core\src\components\button.css | Yes | 18 | 37 |
+| packages\core\src\components\card.css | Yes | 10 | 12 |
+| packages\core\src\components\divider.css | Yes | 8 | 4 |
 | packages\core\src\components\dropdown.css | Yes | 31 | 29 |
-| packages\core\src\components\field.css | Yes | 42 | 50 |
-| packages\core\src\components\link.css | Yes | 2 | 3 |
-| packages\core\src\components\loading.css | Yes | 4 | 8 |
-| packages\core\src\components\modal.css | Yes | 49 | 60 |
-| packages\core\src\components\navbar.css | Yes | 25 | 39 |
-| packages\core\src\components\selector.css | Yes | 19 | 24 |
+| packages\core\src\components\field.css | Yes | 45 | 52 |
+| packages\core\src\components\link.css | Yes | 5 | 4 |
+| packages\core\src\components\loading.css | Yes | 6 | 8 |
+| packages\core\src\components\modal.css | Yes | 53 | 61 |
+| packages\core\src\components\navbar.css | Yes | 27 | 40 |
+| packages\core\src\components\selector.css | Yes | 31 | 26 |
 | packages\core\src\components\table.css | Yes | 21 | 28 |
-| packages\core\src\components\tabs.css | Yes | 34 | 18 |
+| packages\core\src\components\tabs.css | Yes | 46 | 19 |
 | packages\core\src\components\tooltip.css | Yes | 30 | 21 |
 | packages\core\src\index.css | Yes | 0 | 0 |
 | packages\core\src\tokens\colors.css | Yes | 0 | 2 |
@@ -76,6 +76,7 @@
 | packages\core\src\tokens\shadows.css | Yes | 0 | 5 |
 | packages\core\src\tokens\spacing.css | Yes | 0 | 0 |
 | packages\core\src\tokens\z-index.css | Yes | 0 | 0 |
+| packages\core\src\utilities\responsive.css | Yes | 11 | 6 |
 | packages\core\src\utilities\sr-only.css | Yes | 1 | 0 |
 
 ## How to Fix

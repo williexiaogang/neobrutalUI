@@ -18,4 +18,22 @@
     color: var(--nb-accent-content);
     text-decoration: none;
   }
+
+  .nb-link:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-link {
+      color: LinkText;
+      text-decoration: underline;
+    }
+
+    .nb-link:hover {
+      background: Highlight;
+      color: HighlightText;
+    }
+  }
 }

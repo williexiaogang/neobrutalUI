@@ -44,6 +44,11 @@
     transform: translate(-2px, -2px);
   }
 
+  .nb-btn:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
   .nb-btn:active:not(:disabled) {
     box-shadow: var(--nb-shadow-xs);
     transform: translate(2px, 2px);
@@ -109,5 +114,17 @@
   .nb-btn-block {
     display: flex;
     inline-size: 100%;
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-btn {
+      border: 2px solid ButtonText;
+      forced-color-adjust: none;
+    }
+
+    .nb-btn:disabled {
+      border-color: GrayText;
+    }
   }
 }

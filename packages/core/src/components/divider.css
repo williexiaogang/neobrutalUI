@@ -34,4 +34,12 @@
     inline-size: 2px;
     block-size: auto;
   }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-divider::before,
+    .nb-divider::after {
+      background: CanvasText;
+    }
+  }
 }

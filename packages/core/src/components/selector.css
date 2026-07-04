@@ -27,6 +27,12 @@
     }
   }
 
+  .nb-checkbox:focus-visible,
+  .nb-radio:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
   .nb-checkbox {
     border-radius: var(--nb-radius-selector);
   }
@@ -83,6 +89,11 @@
     }
   }
 
+  .nb-toggle:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
   .nb-toggle::after {
     content: "";
     position: absolute;
@@ -112,5 +123,38 @@
   .nb-toggle:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-checkbox,
+    .nb-radio,
+    .nb-toggle {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-checkbox:checked,
+    .nb-radio:checked {
+      background: Highlight;
+      border-color: Highlight;
+    }
+
+    .nb-checkbox:checked::after {
+      border-color: HighlightText;
+    }
+
+    .nb-radio:checked::after {
+      background: HighlightText;
+    }
+
+    .nb-toggle:checked {
+      background: Highlight;
+    }
+
+    .nb-toggle::after {
+      background: ButtonFace;
+      border-color: ButtonText;
+    }
   }
 }
