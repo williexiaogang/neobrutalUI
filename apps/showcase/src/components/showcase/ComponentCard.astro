@@ -12,20 +12,40 @@ const { component, demo: DemoComponent } = Astro.props;
 const categoryLabel = categories[component.category];
 const isPreviewOnly =
   component.status === "in-progress" || component.status === "experimental";
+
+const sizeClass = component.size
+  ? `nb-component-card--${component.size}`
+  : "";
 ---
 
 <article
-  class="nb-component-card"
+  class:list={["nb-component-card", sizeClass]}
   data-component-card
   data-status={component.status}
   data-category={component.category}
+  data-size={component.size ?? "default"}
 >
   <div class="nb-component-card__header">
     <div>
       <h3 class="nb-component-card__title">{component.name}</h3>
-      <span class="nb-component-card__category">{categoryLabel}</span>
+      <button
+        class="nb-component-card__category"
+        type="button"
+        data-category-chip={component.category}
+        aria-label={`Filter by ${categoryLabel}`}
+        aria-pressed="false"
+      >
+        {categoryLabel}
+      </button>
     </div>
-    <StatusBadge status={component.status} />
+    <div class="nb-component-card__badges">
+      {component.interactive && (
+        <span class="nb-badge nb-badge-accent" title="This preview is interactive">
+          Interactive
+        </span>
+      )}
+      <StatusBadge status={component.status} />
+    </div>
   </div>
 
   <div class="nb-component-card__body">

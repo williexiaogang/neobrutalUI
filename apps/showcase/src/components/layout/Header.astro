@@ -112,13 +112,17 @@ const navItems = [
     const html = document.documentElement;
     const sun = "☀";
     const moon = "☾";
+    const toggle = themeToggle;
 
     function updateThemeIcon() {
       const current = html.getAttribute("data-theme") || "neo-brutal";
       const isDark = current === "neo-brutal-dark";
-      themeToggle.querySelector("span")!.textContent = isDark ? sun : moon;
-      themeToggle.setAttribute("aria-pressed", String(isDark));
-      themeToggle.setAttribute(
+      const iconSpan = toggle.querySelector("span");
+      if (iconSpan) {
+        iconSpan.textContent = isDark ? sun : moon;
+      }
+      toggle.setAttribute("aria-pressed", String(isDark));
+      toggle.setAttribute(
         "aria-label",
         isDark ? "Switch to light theme" : "Switch to dark theme"
       );
@@ -126,7 +130,7 @@ const navItems = [
 
     updateThemeIcon();
 
-    themeToggle.addEventListener("click", () => {
+    toggle.addEventListener("click", () => {
       const current = html.getAttribute("data-theme") || "neo-brutal";
       const next = current === "neo-brutal" ? "neo-brutal-dark" : "neo-brutal";
       html.setAttribute("data-theme", next);

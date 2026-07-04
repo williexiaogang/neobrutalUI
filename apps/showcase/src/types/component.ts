@@ -14,6 +14,8 @@ export type ComponentCategory =
   | "overlay"
   | "layout";
 
+export type ComponentSize = "default" | "wide" | "full";
+
 export interface ShowcaseComponent {
   name: string;
   slug: string;
@@ -23,6 +25,8 @@ export interface ShowcaseComponent {
   available: boolean;
   featured?: boolean;
   demo?: string;
+  size?: ComponentSize;
+  interactive?: boolean;
   notes?: string;
   knownIssues?: string[];
   tags?: string[];

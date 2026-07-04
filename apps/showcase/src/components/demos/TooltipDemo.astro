@@ -1,21 +1,37 @@
 <div class="nb-component-card__demo">
-  <span class="nb-tooltip" data-nb-tooltip="hover">
+  <span class="nb-tooltip" data-nb-tooltip>
     <button class="nb-btn nb-btn-sm" type="button">Hover me</button>
-    <span class="nb-tooltip-content" role="tooltip">This tooltip appears on hover</span>
+    <span class="nb-tooltip-content" role="tooltip">
+      This tooltip appears on hover
+    </span>
   </span>
 
-  <span class="nb-tooltip" data-nb-tooltip="focus">
+  <span class="nb-tooltip nb-tooltip-bottom" data-nb-tooltip>
     <input
       class="nb-input"
       type="text"
       placeholder="Focus me…"
       aria-label="Focus tooltip demo"
     />
-    <span class="nb-tooltip-content" role="tooltip">This tooltip appears on focus</span>
+    <span class="nb-tooltip-content" role="tooltip">
+      This tooltip appears on focus
+    </span>
   </span>
 
-  <span class="nb-tooltip nb-tooltip-bottom" data-nb-tooltip="both">
-    <button class="nb-btn nb-btn-sm nb-btn-primary" type="button">Both triggers</button>
-    <span class="nb-tooltip-content" role="tooltip">Triggered by hover or focus</span>
+  <span class="nb-tooltip nb-tooltip-bottom" data-nb-tooltip>
+    <button class="nb-btn nb-btn-sm nb-btn-primary" type="button">
+      Both triggers
+    </button>
+    <span class="nb-tooltip-content" role="tooltip">
+      Triggered by hover or focus
+    </span>
   </span>
 </div>
+
+<script>
+  import { createTooltip } from "@neo-brutal-ui/interactions/tooltip";
+
+  document.querySelectorAll<HTMLElement>("[data-nb-tooltip]").forEach((el) => {
+    createTooltip(el, { trigger: "both" });
+  });
+</script>

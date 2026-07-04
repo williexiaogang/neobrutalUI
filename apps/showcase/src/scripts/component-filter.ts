@@ -25,6 +25,34 @@ function initComponentFilter() {
     gallery.querySelectorAll<HTMLElement>("[data-component-card]")
   );
 
+  const categoryLabels: Record<string, string> = {
+    actions: "Actions",
+    forms: "Forms",
+    "data-display": "Data Display",
+    feedback: "Feedback",
+    navigation: "Navigation",
+    overlay: "Overlay",
+    layout: "Layout",
+  };
+
+  function formatFilterResult(count: number) {
+    const statusLabel =
+      activeStatus === "all"
+        ? ""
+        : activeStatus.charAt(0).toUpperCase() + activeStatus.slice(1);
+    const categoryLabel =
+      activeCategory === "all" ? "" : categoryLabels[activeCategory] ?? activeCategory;
+
+    const filters: string[] = [];
+    if (statusLabel) filters.push(statusLabel);
+    if (categoryLabel) filters.push(categoryLabel);
+
+    const filterSuffix =
+      filters.length > 0 ? ` (${filters.join(" + ")})` : "";
+
+    return `Showing ${count} component${count === 1 ? "" : "s"}${filterSuffix}`;
+  }
+
   function updateFilter() {
     let visibleCount = 0;
 
@@ -41,20 +69,27 @@ function initComponentFilter() {
     });
 
     emptyEl.hidden = visibleCount > 0;
-    resultEl.textContent = `Showing ${visibleCount} component${
-      visibleCount === 1 ? "" : "s"
-    }`;
+    resultEl.textContent = formatFilterResult(visibleCount);
 
-    // Update aria-pressed states for status buttons (filter bar + summary cards).
+    // Update aria-pressed and active class for status buttons (filter bar + summary cards).
     statusButtons.forEach((button) => {
       const isActive = button.dataset.statusFilter === activeStatus;
       button.setAttribute("aria-pressed", String(isActive));
       button.classList.toggle("is-active", isActive);
     });
 
+    // Update aria-pressed and active class for category buttons.
     categoryButtons.forEach((button) => {
       const isActive = button.dataset.categoryFilter === activeCategory;
       button.setAttribute("aria-pressed", String(isActive));
+      button.classList.toggle("is-active", isActive);
+    });
+
+    // Sync any inline category filter chips that may exist on cards.
+    document.querySelectorAll<HTMLButtonElement>("[data-category-chip]").forEach((chip) => {
+      const isActive = chip.dataset.categoryChip === activeCategory;
+      chip.setAttribute("aria-pressed", String(isActive));
+      chip.classList.toggle("is-active", isActive);
     });
   }
 
@@ -69,6 +104,20 @@ function initComponentFilter() {
     button.addEventListener("click", () => {
       activeCategory = button.dataset.categoryFilter ?? "all";
       updateFilter();
+    });
+  });
+
+  // Allow clicking category chips inside cards to filter the gallery.
+  document.querySelectorAll<HTMLButtonElement>("[data-category-chip]").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      activeCategory = chip.dataset.categoryChip ?? "all";
+      updateFilter();
+
+      // Move focus to the category filter bar for keyboard users.
+      const firstCategoryButton = document.querySelector<HTMLButtonElement>(
+        "[data-category-filter][aria-pressed='true']"
+      );
+      firstCategoryButton?.focus();
     });
   });
 
