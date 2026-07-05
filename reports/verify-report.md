@@ -1,8 +1,8 @@
 # CSS Verification Report
 
-**Generated:** 2026-07-05T14:58:25.900Z
-**Files Scanned:** 58
-**Total Token Definitions:** 214
+**Generated:** 2026-07-05T16:30:29.685Z
+**Files Scanned:** 64
+**Total Token Definitions:** 221
 
 ## Summary
 
@@ -68,6 +68,7 @@
 | packages\core\src\components\chat-bubble.css | Yes | 28 | 62 |
 | packages\core\src\components\code-block.css | Yes | 36 | 41 |
 | packages\core\src\components\collapse.css | Yes | 66 | 42 |
+| packages\core\src\components\color-picker.css | Yes | 23 | 24 |
 | packages\core\src\components\command-palette.css | Yes | 62 | 96 |
 | packages\core\src\components\date-picker.css | Yes | 55 | 69 |
 | packages\core\src\components\description-list.css | Yes | 82 | 55 |
@@ -77,8 +78,10 @@
 | packages\core\src\components\dropdown.css | Yes | 31 | 29 |
 | packages\core\src\components\empty-state.css | Yes | 17 | 23 |
 | packages\core\src\components\feature-grid.css | Yes | 39 | 39 |
-| packages\core\src\components\field.css | Yes | 45 | 52 |
+| packages\core\src\components\field.css | Yes | 51 | 59 |
+| packages\core\src\components\file-input.css | Yes | 23 | 57 |
 | packages\core\src\components\footer.css | Yes | 58 | 50 |
+| packages\core\src\components\form-summary.css | Yes | 18 | 27 |
 | packages\core\src\components\hero.css | Yes | 47 | 40 |
 | packages\core\src\components\kbd.css | Yes | 21 | 33 |
 | packages\core\src\components\link.css | Yes | 5 | 4 |
@@ -87,11 +90,14 @@
 | packages\core\src\components\menu.css | Yes | 89 | 48 |
 | packages\core\src\components\modal.css | Yes | 53 | 61 |
 | packages\core\src\components\navbar.css | Yes | 27 | 40 |
+| packages\core\src\components\otp.css | Yes | 18 | 24 |
 | packages\core\src\components\pagination.css | Yes | 48 | 34 |
 | packages\core\src\components\phone.css | Yes | 35 | 31 |
 | packages\core\src\components\pricing-card.css | Yes | 50 | 48 |
 | packages\core\src\components\progress.css | Yes | 68 | 32 |
+| packages\core\src\components\range.css | Yes | 31 | 43 |
 | packages\core\src\components\rating.css | Yes | 46 | 25 |
+| packages\core\src\components\segmented-control.css | Yes | 24 | 39 |
 | packages\core\src\components\selector.css | Yes | 31 | 26 |
 | packages\core\src\components\skeleton.css | Yes | 22 | 16 |
 | packages\core\src\components\stat.css | Yes | 54 | 36 |
@@ -104,7 +110,7 @@
 | packages\core\src\components\window.css | Yes | 36 | 45 |
 | packages\core\src\index.css | Yes | 0 | 0 |
 | packages\core\src\tokens\colors.css | Yes | 0 | 3 |
-| packages\core\src\tokens\component.css | Yes | 0 | 95 |
+| packages\core\src\tokens\component.css | Yes | 0 | 96 |
 | packages\core\src\tokens\motion.css | Yes | 0 | 0 |
 | packages\core\src\tokens\shadows.css | Yes | 0 | 10 |
 | packages\core\src\tokens\spacing.css | Yes | 0 | 0 |

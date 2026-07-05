@@ -1,0 +1,116 @@
+/**
+ * Neo-Brutal UI — Form Validation Summary
+ *
+ * Top-level form error summary with list of validation issues.
+ * Used for server-side or client-side form validation feedback.
+ */
+
+@layer nb.components {
+  .nb-form-summary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--nb-error);
+    border-inline-start-width: 6px;
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-form-summary-title {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    margin: 0;
+    font-size: var(--nb-text-base);
+    font-weight: 800;
+    color: var(--nb-error);
+  }
+
+  .nb-form-summary-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-2);
+    margin: 0;
+    padding: 0;
+    padding-inline-start: var(--nb-space-6);
+    list-style: none;
+  }
+
+  .nb-form-summary-item {
+    position: relative;
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content);
+  }
+
+  .nb-form-summary-item::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: calc(-1 * var(--nb-space-4));
+    inset-block-start: 0.5rem;
+    inline-size: 0.375rem;
+    block-size: 0.375rem;
+    background: var(--nb-error);
+    border: var(--nb-border-width) solid var(--nb-border);
+  }
+
+  .nb-form-summary-link {
+    color: var(--nb-error);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+  }
+
+  .nb-form-summary-link:hover {
+    text-decoration: none;
+  }
+
+  .nb-form-summary-link:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  /* Warning variant (for example partial validation) */
+  .nb-form-summary-warning {
+    border-color: var(--nb-warning);
+    border-inline-start-color: var(--nb-warning);
+  }
+
+  .nb-form-summary-warning .nb-form-summary-title {
+    color: var(--nb-warning);
+  }
+
+  .nb-form-summary-warning .nb-form-summary-item::before {
+    background: var(--nb-warning);
+  }
+
+  .nb-form-summary-warning .nb-form-summary-link {
+    color: var(--nb-warning);
+  }
+
+  /* Compact */
+  .nb-form-summary-compact {
+    padding: var(--nb-space-3);
+    gap: var(--nb-space-2);
+  }
+
+  @media (forced-colors: active) {
+    .nb-form-summary {
+      border: 2px solid CanvasText;
+      border-inline-start-width: 6px;
+      forced-color-adjust: none;
+    }
+
+    .nb-form-summary-item::before {
+      border: 2px solid CanvasText;
+      background: CanvasText;
+    }
+  }
+}

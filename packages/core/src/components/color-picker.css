@@ -1,0 +1,116 @@
+/**
+ * Neo-Brutal UI — Color Picker Component
+ *
+ * Styled native color input with preview swatch and brutalist borders.
+ */
+
+@layer nb.components {
+  .nb-color-picker {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-1);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-sm);
+    cursor: pointer;
+    transition: box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-color-picker:hover {
+    box-shadow: var(--nb-shadow-md);
+  }
+
+  .nb-color-picker:focus-within {
+    border-color: var(--nb-focus);
+    box-shadow: var(--nb-shadow-md);
+    outline: none;
+  }
+
+  .nb-color-picker-input {
+    appearance: none;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    padding: 0;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-selector);
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .nb-color-picker-input::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+
+  .nb-color-picker-input::-webkit-color-swatch {
+    border: none;
+    border-radius: var(--nb-radius-selector);
+  }
+
+  .nb-color-picker-input::-moz-color-swatch {
+    border: none;
+    border-radius: var(--nb-radius-selector);
+  }
+
+  .nb-color-picker-label {
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    padding-inline-end: var(--nb-space-2);
+  }
+
+  .nb-color-picker-value {
+    font-family: var(--nb-font-mono, monospace);
+    font-size: var(--nb-text-xs);
+    color: var(--nb-base-content-muted);
+    padding-inline-end: var(--nb-space-2);
+    text-transform: uppercase;
+  }
+
+  .nb-color-picker:has(.nb-color-picker-input:disabled) {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .nb-color-picker-input:disabled {
+    cursor: not-allowed;
+  }
+
+  /* Size variants */
+  .nb-color-picker-sm .nb-color-picker-input {
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+  }
+
+  .nb-color-picker-sm .nb-color-picker-label {
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-color-picker-lg .nb-color-picker-input {
+    inline-size: 3rem;
+    block-size: 3rem;
+  }
+
+  .nb-color-picker-lg .nb-color-picker-label {
+    font-size: var(--nb-text-base);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-color-picker {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .nb-color-picker {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-color-picker-input {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+  }
+}

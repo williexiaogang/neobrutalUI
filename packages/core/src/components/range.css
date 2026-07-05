@@ -1,0 +1,195 @@
+/**
+ * Neo-Brutal UI — Range Component
+ *
+ * Styled range slider with hard-shadow track and thumb.
+ * Supports vertical layout and disabled state.
+ */
+
+@layer nb.components {
+  .nb-range {
+    --_track-bg: var(--nb-base-200);
+    --_fill-bg: var(--nb-primary);
+    --_thumb-bg: var(--nb-base-100);
+    --_thumb-border: var(--nb-border);
+
+    appearance: none;
+    inline-size: 100%;
+    block-size: 1.5rem;
+    background: transparent;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+
+  .nb-range:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  /* WebKit track */
+  .nb-range::-webkit-slider-runnable-track {
+    block-size: 0.5rem;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--_track-bg);
+    box-shadow: inset var(--nb-shadow-xs);
+  }
+
+  /* WebKit thumb */
+  .nb-range::-webkit-slider-thumb {
+    appearance: none;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    margin-block-start: -0.4375rem;
+    border: var(--nb-border-width) solid var(--_thumb-border);
+    border-radius: var(--nb-radius-selector);
+    background: var(--_thumb-bg);
+    box-shadow: var(--nb-shadow-sm);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-range:hover::-webkit-slider-thumb {
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(-1px, -1px);
+  }
+
+  .nb-range:active::-webkit-slider-thumb {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(1px, 1px);
+  }
+
+  /* Firefox track */
+  .nb-range::-moz-range-track {
+    block-size: 0.5rem;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--_track-bg);
+    box-shadow: inset var(--nb-shadow-xs);
+  }
+
+  /* Firefox thumb */
+  .nb-range::-moz-range-thumb {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    border: var(--nb-border-width) solid var(--_thumb-border);
+    border-radius: var(--nb-radius-selector);
+    background: var(--_thumb-bg);
+    box-shadow: var(--nb-shadow-sm);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-range:hover::-moz-range-thumb {
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(-1px, -1px);
+  }
+
+  .nb-range:active::-moz-range-thumb {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(1px, 1px);
+  }
+
+  /* Fill (Firefox only via ::-moz-range-progress) */
+  .nb-range::-moz-range-progress {
+    block-size: 0.5rem;
+    border-radius: var(--nb-radius-field);
+    background: var(--_fill-bg);
+  }
+
+  .nb-range:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .nb-range:disabled::-webkit-slider-thumb {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .nb-range:disabled::-moz-range-thumb {
+    box-shadow: none;
+    transform: none;
+  }
+
+  /* Vertical */
+  .nb-range-vertical {
+    writing-mode: vertical-lr;
+    direction: rtl;
+    inline-size: 1.5rem;
+    block-size: 12rem;
+  }
+
+  /* Color variants */
+  .nb-range-primary {
+    --_fill-bg: var(--nb-primary);
+  }
+
+  .nb-range-secondary {
+    --_fill-bg: var(--nb-secondary);
+  }
+
+  .nb-range-accent {
+    --_fill-bg: var(--nb-accent);
+  }
+
+  .nb-range-info {
+    --_fill-bg: var(--nb-info);
+  }
+
+  .nb-range-success {
+    --_fill-bg: var(--nb-success);
+  }
+
+  .nb-range-warning {
+    --_fill-bg: var(--nb-warning);
+  }
+
+  .nb-range-error {
+    --_fill-bg: var(--nb-error);
+  }
+
+  /* Tick marks */
+  .nb-range-ticks {
+    display: flex;
+    justify-content: space-between;
+    inline-size: 100%;
+    padding-inline: 0.625rem;
+    margin-block-start: var(--nb-space-1);
+    font-size: var(--nb-text-xs);
+    color: var(--nb-base-content-muted);
+  }
+
+  /* Range group: label + input + ticks */
+  .nb-range-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-range::-webkit-slider-thumb,
+    .nb-range::-moz-range-thumb {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .nb-range::-webkit-slider-runnable-track,
+    .nb-range::-moz-range-track {
+      border: 2px solid CanvasText;
+      background: Canvas;
+      forced-color-adjust: none;
+    }
+
+    .nb-range::-webkit-slider-thumb,
+    .nb-range::-moz-range-thumb {
+      border: 2px solid CanvasText;
+      background: ButtonFace;
+      forced-color-adjust: none;
+    }
+
+    .nb-range::-moz-range-progress {
+      background: Highlight;
+    }
+  }
+}

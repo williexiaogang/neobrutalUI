@@ -110,7 +110,6 @@
     --nb-stat-value-size: var(--nb-text-3xl);
     --nb-stat-title-size: var(--nb-text-sm);
 
-
     /* Steps */
     --nb-steps-indicator-size: 2.5rem;
     --nb-steps-indicator-shadow: var(--nb-shadow-sm);
@@ -238,5 +237,22 @@
     --nb-feature-grid-item-shadow-hover: var(--nb-shadow-md);
     --nb-feature-grid-item-padding: var(--nb-space-4);
     --nb-feature-grid-icon-size: 2.5rem;
+
+    /* Range */
+    --nb-range-track-height: 0.5rem;
+    --nb-range-thumb-size: 1.25rem;
+
+    /* OTP */
+    --nb-otp-field-size: 3rem;
+    --nb-otp-field-height: 3.5rem;
+
+    /* Segmented Control */
+    --nb-segmented-padding: var(--nb-space-1);
+
+    /* Color Picker */
+    --nb-color-picker-swatch-size: 2.5rem;
+
+    /* Form Summary */
+    --nb-form-summary-accent-width: 6px;
   }
 }

@@ -1,0 +1,442 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Theme Generator" description="Generate custom Neo-Brutal UI themes from a single primary color.">
+  <main class="nb-container" style="padding: var(--nb-space-8) var(--nb-space-4); max-width: 72rem; margin: 0 auto;">
+    <header style="margin-bottom: var(--nb-space-8);">
+      <h1 class="nb-text-3xl" style="margin-bottom: var(--nb-space-2);">🎨 Theme Generator</h1>
+      <p class="nb-text-base" style="color: var(--nb-base-content-muted);">
+        Generate a complete Neo-Brutal UI theme from a single primary color.
+      </p>
+    </header>
+
+    <div class="nb-grid" style="display: grid; grid-template-columns: 1fr; gap: var(--nb-space-6);">
+      <!-- Controls Panel -->
+      <section
+        class="nb-card"
+        style="padding: var(--nb-space-6); border: var(--nb-border-width) solid var(--nb-border);"
+      >
+        <h2 class="nb-text-xl" style="margin-bottom: var(--nb-space-4);">Controls</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--nb-space-4);">
+          <!-- Primary Color -->
+          <div>
+            <label for="primary" class="nb-field-label" style="display: block; margin-bottom: var(--nb-space-1);">
+              Primary Color
+            </label>
+            <div style="display: flex; gap: var(--nb-space-2); align-items: center;">
+              <input
+                type="color"
+                id="primaryPicker"
+                value="#3498db"
+                style="width: 3rem; height: 2.5rem; padding: 0; border: var(--nb-border-width) solid var(--nb-border); cursor: pointer;"
+              />
+              <input
+                type="text"
+                id="primary"
+                value="#3498db"
+                class="nb-input"
+                style="flex: 1;"
+                placeholder="#hex, rgb(), hsl(), oklch()"
+              />
+            </div>
+          </div>
+
+          <!-- Strategy -->
+          <div>
+            <label for="strategy" class="nb-field-label" style="display: block; margin-bottom: var(--nb-space-1);">
+              Strategy
+            </label>
+            <select id="strategy" class="nb-select" style="width: 100%;">
+              <option value="analogous">Analogous</option>
+              <option value="complementary">Complementary</option>
+              <option value="split-complementary">Split-Complementary</option>
+              <option value="triadic">Triadic</option>
+              <option value="manual">Manual</option>
+            </select>
+          </div>
+
+          <!-- Intensity -->
+          <div>
+            <label for="intensity" class="nb-field-label" style="display: block; margin-bottom: var(--nb-space-1);">
+              Intensity: <span id="intensityValue">0.85</span>
+            </label>
+            <input
+              type="range"
+              id="intensity"
+              min="0"
+              max="1"
+              step="0.05"
+              value="0.85"
+              style="width: 100%;"
+            />
+          </div>
+
+          <!-- Border Contrast -->
+          <div>
+            <label for="borderContrast" class="nb-field-label" style="display: block; margin-bottom: var(--nb-space-1);">
+              Border Contrast: <span id="borderContrastValue">0.8</span>
+            </label>
+            <input
+              type="range"
+              id="borderContrast"
+              min="0"
+              max="1"
+              step="0.1"
+              value="0.8"
+              style="width: 100%;"
+            />
+          </div>
+
+          <!-- Shadow Offset -->
+          <div>
+            <label for="shadowOffset" class="nb-field-label" style="display: block; margin-bottom: var(--nb-space-1);">
+              Shadow Offset
+            </label>
+            <select id="shadowOffset" class="nb-select" style="width: 100%;">
+              <option value="xs">xs (1px)</option>
+              <option value="sm">sm (2px)</option>
+              <option value="md" selected>md (4px)</option>
+              <option value="lg">lg (6px)</option>
+              <option value="xl">xl (8px)</option>
+            </select>
+          </div>
+
+          <!-- Color Space -->
+          <div>
+            <label for="colorSpace" class="nb-field-label" style="display: block; margin-bottom: var(--nb-space-1);">
+              Color Space
+            </label>
+            <select id="colorSpace" class="nb-select" style="width: 100%;">
+              <option value="srgb" selected>sRGB</option>
+              <option value="display-p3">Display P3</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Toggles -->
+        <div style="display: flex; gap: var(--nb-space-4); margin-top: var(--nb-space-4); flex-wrap: wrap; align-items: center;">
+          <label style="display: flex; align-items: center; gap: var(--nb-space-2); cursor: pointer;">
+            <input type="checkbox" id="dark" style="width: 1.25rem; height: 1.25rem;" />
+            <span>Generate Dark Variant</span>
+          </label>
+
+          <label style="display: flex; align-items: center; gap: var(--nb-space-2); cursor: pointer;">
+            <input type="checkbox" id="previewDark" style="width: 1.25rem; height: 1.25rem;" />
+            <span>Preview in Dark Mode</span>
+          </label>
+        </div>
+
+        <!-- Actions -->
+        <div style="display: flex; gap: var(--nb-space-3); margin-top: var(--nb-space-6); flex-wrap: wrap;">
+          <button id="generateBtn" class="nb-btn nb-btn-primary">
+            Generate Theme
+          </button>
+          <button id="copyCssBtn" class="nb-btn nb-btn-secondary" disabled>
+            Copy CSS
+          </button>
+          <button id="copyJsonBtn" class="nb-btn nb-btn-accent" disabled>
+            Copy JSON
+          </button>
+        </div>
+
+        <!-- Warnings -->
+        <div id="warnings" style="margin-top: var(--nb-space-4); display: none;"></div>
+      </section>
+
+      <!-- Preview Panel -->
+      <section
+        id="previewPanel"
+        class="nb-card"
+        style="padding: var(--nb-space-6); border: var(--nb-border-width) solid var(--nb-border);"
+        data-theme="preview"
+      >
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--nb-space-4);">
+          <h2 class="nb-text-xl">Live Preview</h2>
+          <span id="previewBadge" class="nb-badge nb-badge-primary">Preview</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: var(--nb-space-4);">
+          <!-- Buttons -->
+          <div class="nb-card" style="padding: var(--nb-space-4);">
+            <h3 class="nb-text-sm" style="margin-bottom: var(--nb-space-2); color: var(--nb-base-content-muted);">Buttons</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-2);">
+              <button class="nb-btn nb-btn-primary">Primary</button>
+              <button class="nb-btn nb-btn-secondary">Secondary</button>
+              <button class="nb-btn nb-btn-accent">Accent</button>
+              <button class="nb-btn nb-btn-outline">Outline</button>
+            </div>
+          </div>
+
+          <!-- Alerts -->
+          <div class="nb-card" style="padding: var(--nb-space-4);">
+            <h3 class="nb-text-sm" style="margin-bottom: var(--nb-space-2); color: var(--nb-base-content-muted);">Alerts</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--nb-space-2);">
+              <div class="nb-alert nb-alert-info">Info message</div>
+              <div class="nb-alert nb-alert-success">Success message</div>
+              <div class="nb-alert nb-alert-warning">Warning message</div>
+              <div class="nb-alert nb-alert-error">Error message</div>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div class="nb-card" style="padding: var(--nb-space-4);">
+            <h3 class="nb-text-sm" style="margin-bottom: var(--nb-space-2); color: var(--nb-base-content-muted);">Card</h3>
+            <div class="nb-card" style="padding: var(--nb-space-3); border: var(--nb-border-width) solid var(--nb-border);">
+              <div class="nb-card-title">Card Title</div>
+              <p class="nb-text-sm">This is a sample card with generated theme colors.</p>
+            </div>
+          </div>
+
+          <!-- Inputs -->
+          <div class="nb-card" style="padding: var(--nb-space-4);">
+            <h3 class="nb-text-sm" style="margin-bottom: var(--nb-space-2); color: var(--nb-base-content-muted);">Inputs</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--nb-space-2);">
+              <input class="nb-input" type="text" placeholder="Type something…" />
+              <select class="nb-select">
+                <option>Option A</option>
+                <option>Option B</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Badges -->
+          <div class="nb-card" style="padding: var(--nb-space-4);">
+            <h3 class="nb-text-sm" style="margin-bottom: var(--nb-space-2); color: var(--nb-base-content-muted);">Badges</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-2);">
+              <span class="nb-badge nb-badge-primary">Primary</span>
+              <span class="nb-badge nb-badge-secondary">Secondary</span>
+              <span class="nb-badge nb-badge-accent">Accent</span>
+              <span class="nb-badge nb-badge-info">Info</span>
+              <span class="nb-badge nb-badge-success">Success</span>
+              <span class="nb-badge nb-badge-warning">Warning</span>
+              <span class="nb-badge nb-badge-error">Error</span>
+            </div>
+          </div>
+
+          <!-- Typography -->
+          <div class="nb-card" style="padding: var(--nb-space-4);">
+            <h3 class="nb-text-sm" style="margin-bottom: var(--nb-space-2); color: var(--nb-base-content-muted);">Typography</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--nb-space-1);">
+              <p class="nb-text-xl" style="font-weight: 700;">Heading</p>
+              <p class="nb-text-base">Regular body text</p>
+              <p class="nb-text-sm" style="color: var(--nb-base-content-muted);">Muted text</p>
+              <a href="#" class="nb-link">Link example</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CSS Output -->
+    <section
+      class="nb-card"
+      style="margin-top: var(--nb-space-6); padding: var(--nb-space-6); border: var(--nb-border-width) solid var(--nb-border);"
+    >
+      <h2 class="nb-text-xl" style="margin-bottom: var(--nb-space-4);">Generated CSS</h2>
+      <pre id="cssOutput" class="nb-code-block" style="overflow: auto; max-height: 24rem; padding: var(--nb-space-4); background: var(--nb-base-200); border: var(--nb-border-width) solid var(--nb-border);"><code>/* Generate a theme to see CSS output */</code></pre>
+    </section>
+  </main>
+
+  <script>
+    // ── Inline OKLCH math for client-side preview ─────────────────────────────
+    const XYZ_TO_LMS = [[0.8189,0.3619,-0.1289],[0.0330,0.9293,0.0361],[0.0482,0.2644,0.6339]];
+    const LMS_TO_XYZ = [[1.2270,-0.5578,0.2813],[-0.0406,1.1123,-0.0717],[-0.0764,-0.4215,1.5862]];
+    const LMS_TO_LAB = [[0.2105,0.7936,-0.0041],[1.9780,-2.4286,0.4506],[0.0259,0.7828,-0.8087]];
+    const LAB_TO_LMS = [[1,0.3963,0.2158],[1,-0.1056,-0.0639],[1,-0.0895,-1.2915]];
+    const SRGB_TO_XYZ = [[0.4124,0.3576,0.1805],[0.2127,0.7152,0.0722],[0.0193,0.1192,0.9505]];
+    const XYZ_TO_SRGB = [[3.2410,-1.5374,-0.4986],[-0.9692,1.8760,0.0416],[0.0556,-0.2040,1.0570]];
+    function mul(m,v){return[m[0][0]*v[0]+m[0][1]*v[1]+m[0][2]*v[2],m[1][0]*v[0]+m[1][1]*v[1]+m[1][2]*v[2],m[2][0]*v[0]+m[2][1]*v[1]+m[2][2]*v[2]];}
+    function cbrt(x){return Math.cbrt(x);}
+    function toLinear(c){return c<=0.04045?c/12.92:Math.pow((c+0.055)/1.055,2.4);}
+    function toGamma(c){return c<=0.0031308?c*12.92:1.055*Math.pow(c,1/2.4)-0.055;}
+    function clamp(v){return Math.max(0,Math.min(1,v));}
+    function hexToRgb(hex){const c=hex.replace('#','');if(c.length===3){return[parseInt(c[0]+c[0],16)/255,parseInt(c[1]+c[1],16)/255,parseInt(c[2]+c[2],16)/255];}return[parseInt(c.slice(0,2),16)/255,parseInt(c.slice(2,4),16)/255,parseInt(c.slice(4,6),16)/255];}
+    function rgbToOklch(r,g,b){const lin=[toLinear(r),toLinear(g),toLinear(b)];const xyz=mul(SRGB_TO_XYZ,lin);const lms=[cbrt(xyz[0]),cbrt(xyz[1]),cbrt(xyz[2])];const lab=mul(LMS_TO_LAB,lms);const C=Math.sqrt(lab[1]*lab[1]+lab[2]*lab[2]);let H=Math.atan2(lab[2],lab[1])*180/Math.PI;if(H<0)H+=360;return[lab[0],C,H];}
+    function oklchToRgb(L,C,H){const hr=H*Math.PI/180;const a=C*Math.cos(hr);const b=C*Math.sin(hr);const lms=mul(LAB_TO_LMS,[L,a,b]);const lmsL=[lms[0]**3,lms[1]**3,lms[2]**3];const xyz=mul(LMS_TO_XYZ,lmsL);const lin=mul(XYZ_TO_SRGB,xyz);return[clamp(toGamma(clamp(lin[0]))),clamp(toGamma(clamp(lin[1]))),clamp(toGamma(clamp(lin[2])))];}
+    function luminance(r,g,b){const f=(c)=>c<=0.03928?c/12.92:Math.pow((c+0.055)/1.055,2.4);return 0.2126*f(r)+0.7152*f(g)+0.0722*f(b);}
+    function contrast(lch1,lch2){const lum1=luminance(...oklchToRgb(...lch1));const lum2=luminance(...oklchToRgb(...lch2));const L=Math.max(lum1,lum2),D=Math.min(lum1,lum2);return(L+0.05)/(D+0.05);}
+    function fmt(n){return n.toFixed(3).replace(/\.?0+$/,'');}
+    function toCss(L,C,H,a){const s=`oklch(${fmt(L*100)}% ${fmt(C)} ${fmt(H)}`;return a!==undefined?s+` / ${a})`:s+')';}
+    function modHue(h){let hh=h%360;if(hh<0)hh+=360;return hh;}
+
+    function generatePreviewCSS(opts) {
+      const primary = rgbToOklch(...hexToRgb(opts.primary));
+      const [pL,pC,pH] = primary;
+      const I = clamp(opts.intensity);
+      const nh = 260;
+
+      // Strategy
+      let sH, aH;
+      switch(opts.strategy){
+        case 'analogous': sH=pH+30;aH=pH+60;break;
+        case 'complementary': sH=pH+180;aH=pH+30;break;
+        case 'split-complementary': sH=pH+150;aH=pH+60;break;
+        case 'triadic': sH=pH+120;aH=pH+240;break;
+        default: sH=pH+30;aH=pH+60;
+      }
+      sH=modHue(sH);aH=modHue(aH);
+
+      const primaryC = [pL,pC*I,pH];
+      const secondaryC = [pL,pC*0.8*I,sH];
+      const accentC = [pL,pC*0.9*I,aH];
+      const infoC = [0.68,0.18*I,255];
+      const successC = [0.72,0.20*I,145];
+      const warningC = [0.80,0.17*I,75];
+      const errorC = [0.62,0.22*I,25];
+      const neutralC = [0.25,0.03*I,nh];
+      const base100 = [1.0,0.01,pH];
+      const base200 = [0.95,0.02,pH];
+      const base300 = [0.90,0.03,pH];
+      const borderL = 0.15+(1-clamp(opts.borderContrast))*0.35;
+      const borderC = [borderL,0.03,nh];
+      const overlayC = [0.25,0.03,nh,0.6];
+
+      const content = (bg)=>bg[0]>0.68?[0.15,0.05,bg[2]]:[0.98,0.01,bg[2]];
+      const contentMuted = (bg)=>bg[0]>0.68?[0.45,0.05,bg[2]]:[0.65,0.03,bg[2]];
+      const state = (lch)=>{const d=lch[0]>0.5?-1:1;return{hover:[clamp(lch[0]+d*0.05),lch[1]*1.10*I,lch[2]],active:[clamp(lch[0]+d*0.10),lch[1]*0.85*I,lch[2]]};};
+      const sh = {xs:1,sm:2,md:4,lg:6,xl:8}[opts.shadowOffset]||4;
+      const name = opts.name;
+
+      const tokens = [
+        ['--nb-color-black','oklch(0% 0 0)'],
+        ['--nb-color-white','oklch(100% 0 0)'],
+        ['--nb-color-yellow-400',toCss(...warningC)],
+        ['--nb-color-pink-400',toCss(...primaryC)],
+        ['--nb-color-blue-400',toCss(...infoC)],
+        ['--nb-color-green-400',toCss(...successC)],
+        ['--nb-color-red-400',toCss(...errorC)],
+        ['--nb-color-orange-400',toCss(...accentC)],
+        ['--nb-color-gray-100',toCss(0.96,0.01,nh)],
+        ['--nb-color-gray-200',toCss(0.90,0.015,nh)],
+        ['--nb-color-gray-800',toCss(0.30,0.03,nh)],
+        ['--nb-base-100',toCss(...base100)],
+        ['--nb-base-200',toCss(...base200)],
+        ['--nb-base-300',toCss(...base300)],
+        ['--nb-base-content',toCss(...content(base100))],
+        ['--nb-base-content-muted',toCss(...contentMuted(base100))],
+        ['--nb-neutral',toCss(...neutralC)],
+        ['--nb-neutral-content',toCss(...content(neutralC))],
+        ['--nb-primary',toCss(...primaryC)],
+        ['--nb-primary-content',toCss(...content(primaryC))],
+        ['--nb-secondary',toCss(...secondaryC)],
+        ['--nb-secondary-content',toCss(...content(secondaryC))],
+        ['--nb-accent',toCss(...accentC)],
+        ['--nb-accent-content',toCss(...content(accentC))],
+        ['--nb-info',toCss(...infoC)],
+        ['--nb-info-content',toCss(...content(infoC))],
+        ['--nb-success',toCss(...successC)],
+        ['--nb-success-content',toCss(...content(successC))],
+        ['--nb-warning',toCss(...warningC)],
+        ['--nb-warning-content',toCss(...content(warningC))],
+        ['--nb-error',toCss(...errorC)],
+        ['--nb-error-content',toCss(...content(errorC))],
+        ['--nb-border',toCss(...borderC)],
+        ['--nb-focus',toCss(...primaryC)],
+        ['--nb-overlay',toCss(...overlayC)],
+      ];
+
+      const stateTokens = (prefix,lch)=>{const s=state(lch);return [[`--nb-${prefix}-hover`,toCss(...s.hover)],[`--nb-${prefix}-active`,toCss(...s.active)]];};
+      tokens.push(...stateTokens('primary',primaryC),...stateTokens('secondary',secondaryC),...stateTokens('accent',accentC),...stateTokens('info',infoC),...stateTokens('success',successC),...stateTokens('warning',warningC),...stateTokens('error',errorC),...stateTokens('neutral',neutralC));
+
+      // Shadow tokens
+      tokens.push(['--nb-shadow-xs',`1px 1px 0 var(--nb-border)`],['--nb-shadow-sm',`2px 2px 0 var(--nb-border)`],['--nb-shadow-md',`${sh}px ${sh}px 0 var(--nb-border)`],['--nb-shadow-lg',`${sh+2}px ${sh+2}px 0 var(--nb-border)`],['--nb-shadow-xl',`${sh+4}px ${sh+4}px 0 var(--nb-border)`]);
+
+      const lines = tokens.map(t=>`    ${t[0]}: ${t[1]};`);
+      return `@layer nb.theme {\n  [data-theme="${name}"] {\n${lines.join('\n')}\n  }\n}`;
+    }
+
+    function generateDarkPreviewCSS(opts) {
+      const css = generatePreviewCSS(opts);
+      // Naive dark invert: swap base hues, darken semantic slightly, lighten border
+      return css.replace(`[data-theme="${opts.name}"]`,`[data-theme="${opts.name}-dark"]`)
+        .replace(/--nb-base-100: oklch\([^)]+\);/,'--nb-base-100: oklch(18% 0.03 260);')
+        .replace(/--nb-base-200: oklch\([^)]+\);/,'--nb-base-200: oklch(25% 0.03 260);')
+        .replace(/--nb-base-300: oklch\([^)]+\);/,'--nb-base-300: oklch(35% 0.03 260);')
+        .replace(/--nb-base-content: oklch\([^)]+\);/,'--nb-base-content: oklch(98% 0.01 260);')
+        .replace(/--nb-base-content-muted: oklch\([^)]+\);/,'--nb-base-content-muted: oklch(65% 0.03 260);')
+        .replace(/--nb-border: oklch\([^)]+\);/,'--nb-border: oklch(78% 0.024 260);')
+        .replace(/--nb-overlay: oklch\([^)]+\);/,'--nb-overlay: oklch(0% 0 0 / 0.7);');
+    }
+
+    // ── UI wiring ─────────────────────────────────────────────────────────────
+    (function(){
+      const primaryInput = document.getElementById('primary');
+      const primaryPicker = document.getElementById('primaryPicker');
+      const strategySelect = document.getElementById('strategy');
+      const intensityInput = document.getElementById('intensity');
+      const intensityValue = document.getElementById('intensityValue');
+      const borderContrastInput = document.getElementById('borderContrast');
+      const borderContrastValue = document.getElementById('borderContrastValue');
+      const shadowOffsetSelect = document.getElementById('shadowOffset');
+      const colorSpaceSelect = document.getElementById('colorSpace');
+      const darkCheckbox = document.getElementById('dark');
+      const previewDarkCheckbox = document.getElementById('previewDark');
+      const generateBtn = document.getElementById('generateBtn');
+      const copyCssBtn = document.getElementById('copyCssBtn');
+      const copyJsonBtn = document.getElementById('copyJsonBtn');
+      const cssOutput = document.getElementById('cssOutput');
+      const warningsPanel = document.getElementById('warnings');
+      const previewPanel = document.getElementById('previewPanel');
+      const previewBadge = document.getElementById('previewBadge');
+
+      let lastCSS = '';
+      let lastJSON = '';
+
+      primaryPicker.addEventListener('input', e=>{primaryInput.value=e.target.value;generate();});
+      primaryInput.addEventListener('input', e=>{if(e.target.value.startsWith('#')&&e.target.value.length===7)primaryPicker.value=e.target.value;generate();});
+      intensityInput.addEventListener('input', e=>{intensityValue.textContent=e.target.value;generate();});
+      borderContrastInput.addEventListener('input', e=>{borderContrastValue.textContent=e.target.value;generate();});
+      strategySelect.addEventListener('change', generate);
+      shadowOffsetSelect.addEventListener('change', generate);
+      colorSpaceSelect.addEventListener('change', generate);
+      darkCheckbox.addEventListener('change', generate);
+      previewDarkCheckbox.addEventListener('change', ()=>{
+        previewPanel.setAttribute('data-theme', previewDarkCheckbox.checked ? 'preview-dark' : 'preview');
+        previewBadge.textContent = previewDarkCheckbox.checked ? 'Preview Dark' : 'Preview';
+        previewBadge.className = previewDarkCheckbox.checked ? 'nb-badge nb-badge-secondary' : 'nb-badge nb-badge-primary';
+        generate();
+      });
+
+      generateBtn.addEventListener('click', generate);
+      copyCssBtn.addEventListener('click', ()=>{navigator.clipboard.writeText(lastCSS).then(()=>{copyCssBtn.textContent='Copied!';setTimeout(()=>copyCssBtn.textContent='Copy CSS',1500);});});
+      copyJsonBtn.addEventListener('click', ()=>{navigator.clipboard.writeText(lastJSON).then(()=>{copyJsonBtn.textContent='Copied!';setTimeout(()=>copyJsonBtn.textContent='Copy JSON',1500);});});
+
+      function applyStyles(css, themeName) {
+        let style = document.getElementById('style-'+themeName);
+        if(!style){style=document.createElement('style');style.id='style-'+themeName;document.head.appendChild(style);}
+        style.textContent = css;
+      }
+
+      function generate() {
+        const opts = {
+          primary: primaryInput.value.trim() || '#3498db',
+          name: 'preview',
+          strategy: strategySelect.value,
+          intensity: parseFloat(intensityInput.value),
+          borderContrast: parseFloat(borderContrastInput.value),
+          shadowOffset: shadowOffsetSelect.value,
+          colorSpace: colorSpaceSelect.value,
+        };
+        const lightCSS = generatePreviewCSS(opts);
+        applyStyles(lightCSS, 'preview');
+        lastCSS = lightCSS;
+        lastJSON = JSON.stringify({name:opts.name,strategy:opts.strategy,tokens: Object.fromEntries(lightCSS.split('\n').filter(l=>l.includes(':')).map(l=>{const m=l.match(/(--nb-[^:]+):\s*([^;]+);?/);return m?[m[1].trim(),m[2].trim()]:null;}).filter(Boolean))},null,2);
+        cssOutput.querySelector('code').textContent = lightCSS;
+        copyCssBtn.disabled = false;
+        copyJsonBtn.disabled = false;
+
+        if(darkCheckbox.checked) {
+          const darkCSS = generateDarkPreviewCSS({...opts,name:'preview-dark'});
+          applyStyles(darkCSS, 'preview-dark');
+        } else {
+          const s = document.getElementById('style-preview-dark'); if(s) s.textContent='';
+        }
+        warningsPanel.style.display = 'none';
+      }
+
+      generate();
+    })();
+  </script>
+</BaseLayout>

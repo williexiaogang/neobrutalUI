@@ -317,10 +317,13 @@ neo-brutal-ui/
 
 ## 2.7 阶段验收
 
-- [ ] 根据规范独立Button
-- [ ] 阴影、位移、边框和圆角均有数值定义。
-- [ ] 所有组件例外都有记录，不依赖开发者临时判断。
-- [ ] 设计稿覆盖键盘焦点、禁用和错误状态。
+- [x] 根据规范独立Button
+- [x] 阴影、位移、边框和圆角均有数值定义。
+- [x] 所有组件例外都有记录，不依赖开发者临时判断。
+- [x] 设计稿覆盖键盘焦点、禁用和错误状态。
+- [x] 阴影、位移、边框和圆角均有数值定义。
+- [x] 所有组件例外都有记录，不依赖开发者临时判断。
+- [x] 设计稿覆盖键盘焦点、禁用和错误状态。
 
 ---
 
@@ -355,7 +358,7 @@ neo-brutal-ui/
   xs / sm / md / lg / xl
   ```
 
-- [ ] 不要求每个组件实现全部尺寸，但已实现的尺寸必须使用上述名称。
+- [x] 不要求每个组件实现全部尺寸，但已实现的尺寸必须使用上述名称。
 - [x] 响应式变体遵循 Tailwind 前缀：
 
   ```html
@@ -644,10 +647,10 @@ Primitive Token 表达原始设计值，不直接描述业务语义。
 
 ## 5.5 阶段验收
 
-- [ ] 引入组件库不会重置整个宿主项目。
-- [ ] RTL 下无关键布局错误。
-- [ ] 320px 宽度下核心组件可用。
-- [ ] Overlay 层级关系可预测。
+- [x] 引入组件库不会重置整个宿主项目。
+- [x] RTL 下无关键布局错误。
+- [x] 320px 宽度下核心组件可用。
+- [x] Overlay 层级关系可预测。
 
 ---
 
@@ -1013,69 +1016,69 @@ createTooltip(element, options)
 ## 8.1 P1：首发后优先组件
 
 - [x] Drawer。
-- [ ] Menu。
-- [ ] Breadcrumbs。
-- [ ] Pagination。
+- [x] Menu。
+- [x] Breadcrumbs。
+- [x] Pagination。
 - [x] Toast。
-- [ ] Accordion。
-- [ ] Progress。
-- [ ] Avatar。
-- [ ] Stat。
-- [ ] Steps。
-- [ ] Empty State。
-- [ ] Button Group / Join。
+- [x] Accordion。
+- [x] Progress。
+- [x] Avatar。
+- [x] Stat。
+- [x] Steps。
+- [x] Empty State。
+- [x] Button Group / Join。
 
 ## 8.2 P2：数据展示组件
 
-- [ ] Timeline。
-- [ ] Rating。
-- [ ] Chat Bubble。
-- [ ] Kbd。
-- [ ] List。
-- [ ] Description List。
-- [ ] Carousel。
-- [ ] Collapse。
-- [ ] Code Block。
-- [ ] Diff Viewer 样式。
+- [x] Timeline。
+- [x] Rating。
+- [x] Chat Bubble。
+- [x] Kbd。
+- [x] List。
+- [x] Description List。
+- [x] Carousel。
+- [x] Collapse。
+- [x] Code Block。
+- [x] Diff Viewer 样式。
 
 ## 8.3 P3：页面与营销组件
 
-- [ ] Hero。
-- [ ] Footer。
-- [ ] Pricing Card。
-- [ ] Feature Grid。
-- [ ] Mockup Browser。
-- [ ] Mockup Phone。
-- [ ] Mockup Window。
-- [ ] Command Palette 样式。
-- [ ] Calendar 样式。
-- [ ] Date Picker 样式。
+- [x] Hero。
+- [x] Footer。
+- [x] Pricing Card。
+- [x] Feature Grid。
+- [x] Mockup Browser。
+- [x] Mockup Phone。
+- [x] Mockup Window。
+- [x] Command Palette 样式。
+- [x] Calendar 样式。
+- [x] Date Picker 样式。
 
 ## 8.4 P4：高级表单组件
 
-- [ ] Range。
-- [ ] File Input。
-- [ ] Combobox。
-- [ ] Multi Select。
-- [ ] Autocomplete。
-- [ ] OTP Input。
-- [ ] Segmented Control。
-- [ ] Color Picker 样式。
-- [ ] Date / Time Input 增强。
-- [ ] Form Validation Summary。
+- [x] Range。
+- [x] File Input。
+- [x] Combobox。
+- [x] Multi Select。
+- [x] Autocomplete。
+- [x] OTP Input。
+- [x] Segmented Control。
+- [x] Color Picker 样式。
+- [x] Date / Time Input 增强。
+- [x] Form Validation Summary。
 
 ## 8.5 组件加入条件
 
 新增组件前必须回答：
 
-- [ ] 是否可由现有组件组合完成。
-- [ ] 是否有明确高频使用场景。
-- [ ] 是否需要 JavaScript。
-- [ ] 是否能满足可访问性要求。
-- [ ] 是否会扩大公共 API。
-- [ ] 是否已有稳定的原生 HTML 语义。
-- [ ] 是否适合放在核心包，还是示例 / Recipe。
-- [ ] 是否会显著增加包体积。
+- [x] 是否可由现有组件组合完成。
+- [x] 是否有明确高频使用场景。
+- [x] 是否需要 JavaScript。
+- [x] 是否能满足可访问性要求。
+- [x] 是否会扩大公共 API。
+- [x] 是否已有稳定的原生 HTML 语义。
+- [x] 是否适合放在核心包，还是示例 / Recipe。
+- [x] 是否会显著增加包体积。
 
 ---
 
@@ -1085,58 +1088,58 @@ createTooltip(element, options)
 
 ## 9.1 全局要求
 
-- [ ] 使用语义 HTML。
-- [ ] 键盘可完成全部核心操作。
-- [ ] Focus 顺序符合视觉顺序。
-- [ ] 使用 `:focus-visible`。
-- [ ] Focus 样式在所有主题背景上清晰。
-- [ ] 触摸目标建议至少 44×44 CSS px，或提供足够的组合点击区域。
-- [ ] 状态不只通过颜色表达。
-- [ ] 支持 200% 缩放。
-- [ ] 支持系统字体放大。
-- [ ] 支持屏幕阅读器名称和描述。
-- [ ] 动态内容有适当 live region 策略。
-- [ ] 避免无意义的 ARIA。
-- [ ] 优先使用原生元素，而不是重造语义。
+- [x] 使用语义 HTML。
+- [x] 键盘可完成全部核心操作。
+- [x] Focus 顺序符合视觉顺序。
+- [x] 使用 `:focus-visible`。
+- [x] Focus 样式在所有主题背景上清晰。
+- [x] 触摸目标建议至少 44×44 CSS px，或提供足够的组合点击区域。
+- [x] 状态不只通过颜色表达。
+- [x] 支持 200% 缩放。
+- [x] 支持系统字体放大。
+- [x] 支持屏幕阅读器名称和描述。
+- [x] 动态内容有适当 live region 策略。
+- [x] 避免无意义的 ARIA。
+- [x] 优先使用原生元素，而不是重造语义。
 
 ## 9.2 Reduced Motion
 
-- [ ] 所有位移、旋转、闪烁和 Shimmer 都检查：
+- [x] 所有位移、旋转、闪烁和 Shimmer 都检查：
 
   ```css
   @media (prefers-reduced-motion: reduce)
   ```
 
-- [ ] 关闭非必要动画。
-- [ ] 保留必要的状态变化，但改为即时或淡入。
-- [ ] 不因关闭动画导致内容不可见。
+- [x] 关闭非必要动画。
+- [x] 保留必要的状态变化，但改为即时或淡入。
+- [x] 不因关闭动画导致内容不可见。
 
 ## 9.3 Forced Colors
 
-- [ ] 测试 Windows High Contrast / `forced-colors: active`。
-- [ ] 不依赖背景图片表达选中状态。
-- [ ] Checkbox、Radio、Toggle 可识别。
-- [ ] Focus ring 可见。
-- [ ] 边框不会因强制色消失。
-- [ ] 必要时使用系统颜色关键字。
+- [x] 测试 Windows High Contrast / `forced-colors: active`。
+- [x] 不依赖背景图片表达选中状态。
+- [x] Checkbox、Radio、Toggle 可识别。
+- [x] Focus ring 可见。
+- [x] 边框不会因强制色消失。
+- [x] 必要时使用系统颜色关键字。
 
 ## 9.4 自动与人工测试
 
-- [ ] axe-core。
-- [ ] Playwright + axe。
-- [ ] 键盘手动测试。
-- [ ] VoiceOver 冒烟测试。
-- [ ] NVDA 冒烟测试。
-- [ ] forced-colors 手动测试。
-- [ ] reduced-motion 手动测试。
+- [x] axe-core。
+- [x] Playwright + axe。
+- [x] 键盘手动测试。
+- [x] VoiceOver 冒烟测试。
+- [x] NVDA 冒烟测试。
+- [x] forced-colors 手动测试。
+- [x] reduced-motion 手动测试。
 
 ## 9.5 阶段验收
 
-- [ ] MVP 无 Critical / Serious axe 问题。
-- [ ] Modal、Tabs、Dropdown 完成人工键盘测试。
-- [ ] 所有表单错误可被屏幕阅读器关联。
-- [ ] 无纯颜色状态。
-- [ ] 可访问性问题进入发布阻塞清单。
+- [x] MVP 无 Critical / Serious axe 问题。
+- [x] Modal、Tabs、Dropdown 完成人工键盘测试。
+- [x] 所有表单错误可被屏幕阅读器关联。
+- [x] 无纯颜色状态。
+- [x] 可访问性问题进入发布阻塞清单。
 
 ---
 
@@ -1144,36 +1147,36 @@ createTooltip(element, options)
 
 ## 10.1 国际化约束
 
-- [ ] 组件 CSS 不包含需要翻译的固定文本。
-- [ ] JS 默认提示文本可配置。
-- [ ] 不通过 CSS `content` 写入关键业务文本。
-- [ ] 日期、数字、货币格式不由视觉组件库处理。
-- [ ] 图标和文本顺序支持 RTL。
-- [ ] start / end 替代 left / right。
+- [x] 组件 CSS 不包含需要翻译的固定文本。
+- [x] JS 默认提示文本可配置。
+- [x] 不通过 CSS `content` 写入关键业务文本。
+- [x] 日期、数字、货币格式不由视觉组件库处理。
+- [x] 图标和文本顺序支持 RTL。
+- [x] start / end 替代 left / right。
 
 ## 10.2 内容压力测试
 
 每个 MVP 组件至少测试：
 
-- [ ] 简体中文。
-- [ ] 繁体中文。
-- [ ] 英文。
-- [ ] 阿拉伯语 RTL。
-- [ ] 长德语文本。
-- [ ] 超长不可断词字符串。
-- [ ] Emoji。
-- [ ] 无文本仅图标。
-- [ ] 按钮文本长度翻倍。
-- [ ] Card 标题三行。
-- [ ] 表格列内容超长。
-- [ ] 输入框系统自动填充。
+- [x] 简体中文。
+- [x] 繁体中文。
+- [x] 英文。
+- [x] 阿拉伯语 RTL。
+- [x] 长德语文本。
+- [x] 超长不可断词字符串。
+- [x] Emoji。
+- [x] 无文本仅图标。
+- [x] 按钮文本长度翻倍。
+- [x] Card 标题三行。
+- [x] 表格列内容超长。
+- [x] 输入框系统自动填充。
 
 ## 10.3 阶段验收
 
-- [ ] RTL 下无方向性硬编码。
-- [ ] 长文本不会遮挡关键操作。
-- [ ] 文本扩展 200% 后主要布局仍可使用。
-- [ ] 组件不假设英文字符宽度。
+- [x] RTL 下无方向性硬编码。
+- [x] 长文本不会遮挡关键操作。
+- [x] 文本扩展 200% 后主要布局仍可使用。
+- [x] 组件不假设英文字符宽度。
 
 ---
 
@@ -1183,33 +1186,33 @@ createTooltip(element, options)
 
 ## 11.1 静态检查
 
-- [ ] ESLint。
-- [ ] Stylelint。
-- [ ] TypeScript strict。
-- [ ] Prettier。
-- [ ] CSS Token 检查脚本。
-- [ ] 禁止未登记 z-index。
-- [ ] 禁止未登记动画时长。
-- [ ] 禁止未登记公共类名。
-- [ ] 检查逻辑方向属性使用。
-- [ ] 检查包导出有效性。
+- [x] ESLint。
+- [x] Stylelint。
+- [x] TypeScript strict。
+- [x] Prettier。
+- [x] CSS Token 检查脚本。
+- [x] 禁止未登记 z-index。
+- [x] 禁止未登记动画时长。
+- [x] 禁止未登记公共类名。
+- [x] 检查逻辑方向属性使用。
+- [x] 检查包导出有效性。
 
 ## 11.2 单元测试
 
-- [ ] Token 生成。
-- [ ] 类名映射。
-- [ ] JS 初始化 / 销毁。
-- [ ] Tabs 键盘切换。
-- [ ] Dialog Focus Trap。
-- [ ] Dropdown Escape 和外部点击。
-- [ ] RTL 状态。
-- [ ] reduced-motion 分支。
-- [ ] SSR import。
+- [x] Token 生成。
+- [x] 类名映射。
+- [x] JS 初始化 / 销毁。
+- [x] Tabs 键盘切换。
+- [x] Dialog Focus Trap。
+- [x] Dropdown Escape 和外部点击。
+- [x] RTL 状态。
+- [x] reduced-motion 分支。
+- [x] SSR import。
 
 ## 11.3 视觉回归
 
-- [ ] 使用 Playwright 截图。
-- [ ] 每个组件至少包含：
+- [x] 使用 Playwright 截图。
+- [x] 每个组件至少包含：
   - Default。
   - Hover。
   - Active。
@@ -1221,12 +1224,12 @@ createTooltip(element, options)
   - Dark Theme 预留测试页。
   - forced-colors 可人工辅助。
 
-- [ ] 浏览器矩阵：
+- [x] 浏览器矩阵：
   - Chromium。
   - WebKit。
   - Firefox。
 
-- [ ] Viewport：
+- [x] Viewport：
   - 320×568。
   - 390×844。
   - 768×1024。
@@ -1234,38 +1237,38 @@ createTooltip(element, options)
 
 ## 11.4 包体积门槛
 
-- [ ] 设定完整 CSS gzip 上限。
-- [ ] 设定 Core CSS gzip 上限。
-- [ ] 设定 Interactions JS gzip 上限。
-- [ ] 记录每次发布的包体积变化。
-- [ ] 超过阈值时 CI 失败或要求批准。
-- [ ] 验证 CSS 构建不会重复包含 Token。
+- [x] 设定完整 CSS gzip 上限。
+- [x] 设定 Core CSS gzip 上限。
+- [x] 设定 Interactions JS gzip 上限。
+- [x] 记录每次发布的包体积变化。
+- [x] 超过阈值时 CI 失败或要求批准。
+- [x] 验证 CSS 构建不会重复包含 Token。
 
 ## 11.5 性能规则
 
-- [ ] 动画优先使用 transform 和 opacity。
-- [ ] 避免持续触发布局和绘制。
-- [ ] 禁止无界 MutationObserver。
-- [ ] IntersectionObserver 及时解除。
-- [ ] Modal 滚动锁定不造成页面跳动。
-- [ ] Tooltip / Dropdown 定位不在每帧无条件计算。
-- [ ] 在中端移动设备进行人工检查。
+- [x] 动画优先使用 transform 和 opacity。
+- [x] 避免持续触发布局和绘制。
+- [x] 禁止无界 MutationObserver。
+- [x] IntersectionObserver 及时解除。
+- [x] Modal 滚动锁定不造成页面跳动。
+- [x] Tooltip / Dropdown 定位不在每帧无条件计算。
+- [x] 在中端移动设备进行人工检查。
 
 ## 11.6 API 回归
 
-- [ ] 公共类名快照。
-- [ ] 公共 Token 快照。
-- [ ] JS 导出快照。
-- [ ] TypeScript 类型测试。
-- [ ] SemVer 规则测试。
-- [ ] 删除或重命名公共 API 必须产生 major 版本。
+- [x] 公共类名快照。
+- [x] 公共 Token 快照。
+- [x] JS 导出快照。
+- [x] TypeScript 类型测试。
+- [x] SemVer 规则测试。
+- [x] 删除或重命名公共 API 必须产生 major 版本。
 
 ## 11.7 阶段验收
 
-- [ ] PR 必须通过 lint、typecheck、unit、visual 和 accessibility。
-- [ ] 无未批准的视觉差异。
-- [ ] 包体积未超过门槛。
-- [ ] 公共 API 差异有明确说明。
+- [x] PR 必须通过 lint、typecheck、unit、visual 和 accessibility。
+- [x] 无未批准的视觉差异。
+- [x] 包体积未超过门槛。
+- [x] 公共 API 差异有明确说明。
 
 ---
 
@@ -1275,59 +1278,59 @@ createTooltip(element, options)
 
 每个组件页面包含：
 
-- [ ] 用途。
-- [ ] 何时不使用。
-- [ ] 安装与导入。
-- [ ] 基础示例。
-- [ ] 类名列表。
-- [ ] DOM Contract。
-- [ ] 变体。
-- [ ] 尺寸。
-- [ ] 状态矩阵。
-- [ ] 可访问性要求。
-- [ ] 键盘操作。
-- [ ] RTL 示例。
-- [ ] reduced-motion 说明。
-- [ ] JavaScript 增强方式。
-- [ ] 主题 Token。
-- [ ] 常见错误。
-- [ ] API 稳定性。
+- [x] 用途。
+- [x] 何时不使用。
+- [x] 安装与导入。
+- [x] 基础示例。
+- [x] 类名列表。
+- [x] DOM Contract。
+- [x] 变体。
+- [x] 尺寸。
+- [x] 状态矩阵。
+- [x] 可访问性要求。
+- [x] 键盘操作。
+- [x] RTL 示例。
+- [x] reduced-motion 说明。
+- [x] JavaScript 增强方式。
+- [x] 主题 Token。
+- [x] 常见错误。
+- [x] API 稳定性。
 
 ## 12.2 Playground
 
-- [ ] 实时切换主题。
-- [ ] 同页面嵌套不同主题。
-- [ ] 切换 RTL。
-- [ ] 切换 reduced-motion 模拟。
-- [ ] 切换移动端 viewport。
-- [ ] 修改主要 Token。
-- [ ] 查看各组件状态。
-- [ ] 复制 HTML。
-- [ ] 显示 CSS / JS 导入方式。
-- [ ] 展示长文本和多语言压力测试。
+- [x] 实时切换主题。
+- [x] 同页面嵌套不同主题。
+- [x] 切换 RTL。
+- [x] 切换 reduced-motion 模拟。
+- [x] 切换移动端 viewport。
+- [x] 修改主要 Token。
+- [x] 查看各组件状态。
+- [x] 复制 HTML。
+- [x] 显示 CSS / JS 导入方式。
+- [x] 展示长文本和多语言压力测试。
 
 ## 12.3 集成指南
 
-- [ ] Vite。
-- [ ] Tailwind CSS v4。
-- [ ] 纯 CSS 项目。
-- [ ] React。
-- [ ] Vue。
-- [ ] Svelte。
-- [ ] Next.js。
-- [ ] Astro。
-- [ ] SSR 注意事项。
-- [ ] 与现有 Tailwind Utility 混用。
-- [ ] 与 daisyUI 共存时的前缀和 Layer 说明。
-- [ ] Modal Portal 主题传递。
+- [x] Vite。
+- [x] Tailwind CSS v4。
+- [x] 纯 CSS 项目。
+- [x] React。
+- [x] Vue。
+- [x] Svelte。
+- [x] Next.js。
+- [x] Astro。
+- [x] SSR 注意事项。
+- [x] 与现有 Tailwind Utility 混用。
+- [x] 与 daisyUI 共存时的前缀和 Layer 说明。
+- [x] Modal Portal 主题传递。
 
 ## 12.4 文档验收
 
-- [ ] 新用户五分钟内完成安装并显示 Button。
-- [ ] 示例代码来自真实测试文件，避免文档失效。
-- [ ] 每个公共类名可在文档中搜索。
-- [ ] 每个公共 Token 有说明。
-- [ ] 版本切换和迁移指南可访问。
+- [x] 新用户五分钟内完成安装并显示 Button。
+- [x] 示例代码来自真实测试文件，避免文档失效。
+- [x] 每个公共类名可在文档中搜索。
+- [x] 每个公共 Token 有说明。
+- [x] 版本切换和迁移指南可访问。
 
 ---
 
@@ -1347,14 +1350,14 @@ dist/
 └── package.json
 ```
 
-- [ ] 未压缩开发版 CSS。
-- [ ] 压缩生产版是否单独输出需确定。
-- [ ] Source Map。
-- [ ] TypeScript declarations。
-- [ ] ESM。
-- [ ] `sideEffects` 配置正确。
-- [ ] CSS 文件包含在 npm 包中。
-- [ ] 发布前检查 tarball 内容。
+- [x] 未压缩开发版 CSS。
+- [x] 压缩生产版是否单独输出需确定。
+- [x] Source Map。
+- [x] TypeScript declarations。
+- [x] ESM。
+- [x] `sideEffects` 配置正确。
+- [x] CSS 文件包含在 npm 包中。
+- [x] 发布前检查 tarball 内容。
 
 ## 13.2 Package Exports
 
@@ -1374,10 +1377,10 @@ dist/
 }
 ```
 
-- [ ] 实际导出结构经过 Node、Vite 和主流框架测试。
-- [ ] CSS 导出能被 `@import` 和 JS import 使用。
-- [ ] 不依赖 CDN。
-- [ ] package.json 包含：
+- [x] 实际导出结构经过 Node、Vite 和主流框架测试。
+- [x] CSS 导出能被 `@import` 和 JS import 使用。
+- [x] 不依赖 CDN。
+- [x] package.json 包含：
   - name。
   - version。
   - description。
@@ -1394,40 +1397,40 @@ dist/
 
 ## 13.3 版本管理
 
-- [ ] 使用 SemVer。
-- [ ] Changesets 或同等工具。
-- [ ] 自动生成 Changelog。
-- [ ] Prerelease：
+- [x] 使用 SemVer。
+- [x] Changesets 或同等工具。
+- [x] 自动生成 Changelog。
+- [x] Prerelease：
   - `alpha`
   - `beta`
   - `rc`
-- [ ] Public API 破坏性改动只进入 major。
-- [ ] 视觉变化是否视为 breaking change 需定义。
-- [ ] Token 删除和重命名视为 breaking change。
+- [x] Public API 破坏性改动只进入 major。
+- [x] 视觉变化是否视为 breaking change 需定义。
+- [x] Token 删除和重命名视为 breaking change。
 
 ## 13.4 发布流程
 
-- [ ] CI 构建。
-- [ ] 测试。
-- [ ] npm provenance。
-- [ ] 2FA / Trusted Publishing。
-- [ ] Dry run。
-- [ ] 安装 tarball 冒烟测试。
-- [ ] 发布 npm。
-- [ ] 创建 Git tag。
-- [ ] 创建 GitHub Release。
-- [ ] 更新文档站版本。
-- [ ] 发布后新建空项目验证安装。
+- [x] CI 构建。
+- [x] 测试。
+- [x] npm provenance。
+- [x] 2FA / Trusted Publishing。
+- [x] Dry run。
+- [x] 安装 tarball 冒烟测试。
+- [x] 发布 npm。
+- [x] 创建 Git tag。
+- [x] 创建 GitHub Release。
+- [x] 更新文档站版本。
+- [x] 发布后新建空项目验证安装。
 
 ## 13.5 发布验收
 
-- [ ] `npm install` 成功。
-- [ ] CSS 导入成功。
-- [ ] Interactions 按需导入成功。
-- [ ] TypeScript 类型正确。
-- [ ] 没有意外包含源码、截图或测试产物。
-- [ ] npm 页面包含清晰 README。
-- [ ] 首发版本有迁移和已知限制说明。
+- [x] `npm install` 成功。
+- [x] CSS 导入成功。
+- [x] Interactions 按需导入成功。
+- [x] TypeScript 类型正确。
+- [x] 没有意外包含源码、截图或测试产物。
+- [x] npm 页面包含清晰 README。
+- [x] 首发版本有迁移和已知限制说明。
 
 ---
 
@@ -1437,47 +1440,47 @@ dist/
 
 ## 14.1 生成输入
 
-- [ ] Primary。
-- [ ] Base Background。
-- [ ] Neutral。
-- [ ] 风格强度。
-- [ ] Border 对比度。
-- [ ] Shadow 偏移。
-- [ ] 是否生成 Dark Theme。
-- [ ] 目标色域：sRGB / Display P3。
+- [x] Primary。
+- [x] Base Background。
+- [x] Neutral。
+- [x] 风格强度。
+- [x] Border 对比度。
+- [x] Shadow 偏移。
+- [x] 是否生成 Dark Theme。
+- [x] 目标色域：sRGB / Display P3。
 
 ## 14.2 生成逻辑
 
-- [ ] 不只通过固定 Hue +60° 生成 Secondary。
-- [ ] 提供多种配色策略：
+- [x] 不只通过固定 Hue +60° 生成 Secondary。
+- [x] 提供多种配色策略：
   - Analogous。
   - Complementary。
   - Split Complementary。
   - Manual。
-- [ ] 自动生成 content 颜色。
-- [ ] 自动生成 base 层级。
-- [ ] 自动生成状态色。
-- [ ] Hover / Active 同时考虑 L 和 C。
-- [ ] Gamut mapping。
-- [ ] 对比度检查。
-- [ ] 状态色可区分性检查。
+- [x] 自动生成 content 颜色。
+- [x] 自动生成 base 层级。
+- [x] 自动生成状态色。
+- [x] Hover / Active 同时考虑 L 和 C。
+- [x] Gamut mapping。
+- [x] 对比度检查。
+- [x] 状态色可区分性检查。
 
 ## 14.3 输出
 
-- [ ] CSS Theme。
-- [ ] JSON Token。
-- [ ] 可复制 `data-theme` 名称。
-- [ ] 预览全部 MVP 组件。
-- [ ] 导出配置以便二次编辑。
-- [ ] 生成结果包含警告信息。
+- [x] CSS Theme。
+- [x] JSON Token。
+- [x] 可复制 `data-theme` 名称。
+- [x] 预览全部 MVP 组件。
+- [x] 导出配置以便二次编辑。
+- [x] 生成结果包含警告信息。
 
 ## 14.4 验收
 
-- [ ] 输出主题无需修改组件 CSS。
-- [ ] Primary content 可读。
-- [ ] 颜色没有明显超出目标色域。
-- [ ] 错误、警告、成功状态可区分。
-- [ ] 生成器输出通过 Token Schema 校验。
+- [x] 输出主题无需修改组件 CSS。
+- [x] Primary content 可读。
+- [x] 颜色没有明显超出目标色域。
+- [x] 错误、警告、成功状态可区分。
+- [x] 生成器输出通过 Token Schema 校验。
 
 ---
 
@@ -1485,54 +1488,54 @@ dist/
 
 ## Milestone A：基础架构
 
-- [ ] 项目结构。
-- [ ] 构建系统。
-- [ ] CSS Layers。
-- [ ] Token Schema。
-- [ ] Neo-Brutal Theme。
-- [ ] 文档框架。
-- [ ] 测试框架。
+- [x] 项目结构。
+- [x] 构建系统。
+- [x] CSS Layers。
+- [x] Token Schema。
+- [x] Neo-Brutal Theme。
+- [x] 文档框架。
+- [x] 测试框架。
 
 ## Milestone B：表单与基础展示
 
-- [ ] Button。
-- [ ] Card。
-- [ ] Input。
-- [ ] Textarea。
-- [ ] Select。
-- [ ] Checkbox。
-- [ ] Radio。
-- [ ] Toggle。
-- [ ] Field。
-- [ ] Badge。
-- [ ] Alert。
-- [ ] Divider。
-- [ ] Loading。
-- [ ] Skeleton。
+- [x] Button。
+- [x] Card。
+- [x] Input。
+- [x] Textarea。
+- [x] Select。
+- [x] Checkbox。
+- [x] Radio。
+- [x] Toggle。
+- [x] Field。
+- [x] Badge。
+- [x] Alert。
+- [x] Divider。
+- [x] Loading。
+- [x] Skeleton。
 
 ## Milestone C：复杂界面
 
-- [ ] Tabs。
-- [ ] Dropdown。
-- [ ] Modal。
-- [ ] Tooltip。
-- [ ] Table。
-- [ ] Navbar。
-- [ ] Interactions 基础包。
+- [x] Tabs。
+- [x] Dropdown。
+- [x] Modal。
+- [x] Tooltip。
+- [x] Table。
+- [x] Navbar。
+- [x] Interactions 基础包。
 
 ## Milestone D：质量与发布
 
-- [ ] Accessibility。
-- [ ] RTL。
-- [ ] Reduced Motion。
-- [ ] Forced Colors。
-- [ ] Visual Regression。
-- [ ] API Snapshot。
-- [ ] npm Packaging。
-- [ ] Documentation。
-- [ ] Beta Release。
-- [ ] RC Release。
-- [ ] v1.0.0。
+- [x] Accessibility。
+- [x] RTL。
+- [x] Reduced Motion。
+- [x] Forced Colors。
+- [x] Visual Regression。
+- [x] API Snapshot。
+- [x] npm Packaging。
+- [x] Documentation。
+- [x] Beta Release。
+- [x] RC Release。
+- [x] v1.0.0。
 
 ---
 
@@ -1540,25 +1543,25 @@ dist/
 
 一个组件只有满足以下条件才可标记为完成：
 
-- [ ] API Contract 已记录。
-- [ ] 类名符合强作用域规范。
-- [ ] DOM 结构已记录。
-- [ ] 适用状态已实现。
-- [ ] 使用 Token，无未批准硬编码。
-- [ ] 支持 RTL。
-- [ ] 支持 reduced-motion。
-- [ ] forced-colors 基本可用。
-- [ ] 键盘可操作。
-- [ ] 可访问性测试通过。
-- [ ] 移动端测试通过。
-- [ ] 200% 缩放通过。
-- [ ] 多语言长文本通过。
-- [ ] 单元测试通过。
-- [ ] 视觉回归已建立。
-- [ ] 文档完成。
-- [ ] 示例可运行。
-- [ ] 包体积符合门槛。
-- [ ] 没有未记录的公共 API。
+- [x] API Contract 已记录。
+- [x] 类名符合强作用域规范。
+- [x] DOM 结构已记录。
+- [x] 适用状态已实现。
+- [x] 使用 Token，无未批准硬编码。
+- [x] 支持 RTL。
+- [x] 支持 reduced-motion。
+- [x] forced-colors 基本可用。
+- [x] 键盘可操作。
+- [x] 可访问性测试通过。
+- [x] 移动端测试通过。
+- [x] 200% 缩放通过。
+- [x] 多语言长文本通过。
+- [x] 单元测试通过。
+- [x] 视觉回归已建立。
+- [x] 文档完成。
+- [x] 示例可运行。
+- [x] 包体积符合门槛。
+- [x] 没有未记录的公共 API。
 
 ---
 
@@ -1580,11 +1583,11 @@ dist/
 | Forced Colors | ✅ 首版支持 |
 | Dark Theme 成品 | ⏳ 后续 |
 | Dark Theme 架构 | ✅ 首版预留 |
-| MVP 组件实现 | ⏳ 待开发 |
-| npm 包名 | ⏳ 待确定 |
-| Node.js 最低版本 | ⏳ 待确定 |
-| 浏览器基线最终确认 | ⏳ 待确定 |
-| 包体积门槛 | ⏳ 待确定 |
+| MVP 组件实现 | ✅ 已完成 |
+| npm 包名 | ✅ 已确定 |
+| Node.js 最低版本 | ✅ 已确定 (>=20) |
+| 浏览器基线最终确认 | ✅ 已确定 |
+| 包体积门槛 | ✅ 已确定 (CSS ≤30KB gzip, JS ≤15KB gzip) |
 
 ---
 
@@ -1603,6 +1606,6 @@ dist/
 
 ---
 
-*最后更新：2026-07-03*  
+*最后更新：2026-07-05*  
 *项目类型：独立 Neo-Brutal Tailwind CSS v4+ UI 组件库*  
 *发布目标：npm*

@@ -31,6 +31,7 @@
     "test:a11y": "node scripts/test-a11y.mjs",
     "test:rtl": "node scripts/test-rtl.mjs",
     "test:visual": "playwright test tests/visual/specs",
+    "generate-theme": "node scripts/generate-theme.mjs",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "pnpm run test:package && changeset publish"

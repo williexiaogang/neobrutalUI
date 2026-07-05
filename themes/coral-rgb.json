@@ -1,0 +1,78 @@
+{
+  "name": "coral-rgb",
+  "strategy": "triadic",
+  "intensity": 0.85,
+  "borderContrast": 0.8,
+  "shadowOffset": "md",
+  "colorSpace": "srgb",
+  "darkVariant": false,
+  "generatedAt": "2026-07-05T16:21:35.107Z",
+  "tokens": {
+    "base-100": "oklch(100% 0.01 22.821)",
+    "base-200": "oklch(95% 0.02 22.821)",
+    "base-300": "oklch(90% 0.03 22.821)",
+    "base-content": "oklch(15% 0.05 22.821)",
+    "base-content-muted": "oklch(45% 0.05 22.821)",
+    "neutral": "oklch(25% 0.025 260)",
+    "neutral-content": "oklch(98% 0.01 260)",
+    "primary": "oklch(71.161% 0.154 22.821)",
+    "primary-content": "oklch(15% 0.05 22.821)",
+    "secondary": "oklch(71.161% 0.123 142.821)",
+    "secondary-content": "oklch(15% 0.05 142.821)",
+    "accent": "oklch(71.161% 0.123 262.821)",
+    "accent-content": "oklch(15% 0.05 262.821)",
+    "info": "oklch(68% 0.153 255)",
+    "info-content": "oklch(29% 0.01 255)",
+    "success": "oklch(72% 0.17 145)",
+    "success-content": "oklch(15% 0.05 145)",
+    "warning": "oklch(80% 0.144 75)",
+    "warning-content": "oklch(15% 0.05 75)",
+    "error": "oklch(62% 0.187 25)",
+    "error-content": "oklch(20% 0.01 25)",
+    "border": "oklch(22% 0.03 260)",
+    "focus": "oklch(71.161% 0.154 22.821)",
+    "overlay": "oklch(25% 0.03 260 / 0.6)",
+    "primary-hover": "oklch(66.161% 0.144 22.821)",
+    "primary-active": "oklch(61.161% 0.111 22.821)",
+    "secondary-hover": "oklch(66.161% 0.115 142.821)",
+    "secondary-active": "oklch(61.161% 0.089 142.821)",
+    "accent-hover": "oklch(66.161% 0.115 262.821)",
+    "accent-active": "oklch(61.161% 0.089 262.821)",
+    "info-hover": "oklch(63% 0.143 255)",
+    "info-active": "oklch(58% 0.111 255)",
+    "success-hover": "oklch(67% 0.159 145)",
+    "success-active": "oklch(62% 0.123 145)",
+    "warning-hover": "oklch(75% 0.135 75)",
+    "warning-active": "oklch(70% 0.104 75)",
+    "error-hover": "oklch(57% 0.175 25)",
+    "error-active": "oklch(52% 0.135 25)",
+    "neutral-hover": "oklch(30% 0.024 260)",
+    "neutral-active": "oklch(35% 0.018 260)"
+  },
+  "palette": {
+    "primary": "oklch(71.161% 0.181 22.821)",
+    "secondary": "oklch(71.161% 0.145 142.821)",
+    "accent": "oklch(71.161% 0.145 262.821)"
+  },
+  "contrastRatios": {
+    "light": {
+      "primary-content": 7.234893444401397,
+      "secondary-content": 8.000110332417547,
+      "accent-content": 7.643410831297976,
+      "neutral-content": 15.107239273569267,
+      "base-content": 19.499962905252346,
+      "base-content-muted": 7.504575404946969,
+      "info-content": 4.876882469882849,
+      "success-content": 8.387596420277996,
+      "warning-content": 10.34522883057892,
+      "error-content": 4.55231733767502
+    }
+  },
+  "warnings": {
+    "light": [
+      "info-content contrast adjusted from 2.73:1 to 4.88:1",
+      "error-content contrast adjusted from 3.75:1 to 4.55:1"
+    ],
+    "dark": []
+  }
+}

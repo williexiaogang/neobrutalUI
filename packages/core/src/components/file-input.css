@@ -1,0 +1,190 @@
+/**
+ * Neo-Brutal UI — File Input Component
+ *
+ * Styled file upload with drag-and-drop area, selected file list,
+ * and brutalist border/shadow treatment.
+ */
+
+@layer nb.components {
+  .nb-file-input {
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--nb-space-2);
+    inline-size: 100%;
+  }
+
+  .nb-file-input-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-6) var(--nb-space-4);
+    border: var(--nb-border-width) dashed var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-sm);
+    cursor: pointer;
+    transition: border-color var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-file-input-area:hover {
+    border-color: var(--nb-primary);
+    box-shadow: var(--nb-shadow-md);
+  }
+
+  .nb-file-input-area:focus-within {
+    border-color: var(--nb-focus);
+    box-shadow: var(--nb-shadow-md);
+    outline: none;
+  }
+
+  .nb-file-input-area.is-dragover {
+    border-style: solid;
+    border-color: var(--nb-primary);
+    background: var(--nb-base-200);
+    box-shadow: var(--nb-shadow-md);
+  }
+
+  .nb-file-input-native {
+    position: absolute;
+    opacity: 0;
+    inline-size: 0.0625rem;
+    block-size: 0.0625rem;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .nb-file-input-icon {
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-file-input-hint {
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content-muted);
+    text-align: center;
+  }
+
+  .nb-file-input-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-2) var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-primary);
+    color: var(--nb-primary-content);
+    font-family: inherit;
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  /* File list */
+  .nb-file-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nb-file-item {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-2) var(--nb-space-3);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-xs);
+  }
+
+  .nb-file-item-name {
+    flex: 1;
+    min-inline-size: 0;
+    font-size: var(--nb-text-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nb-file-item-size {
+    flex-shrink: 0;
+    font-size: var(--nb-text-xs);
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-file-item-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+    padding: 0;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-selector);
+    background: var(--nb-base-200);
+    color: var(--nb-base-content);
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .nb-file-item-remove:hover {
+    background: var(--nb-error);
+    color: var(--nb-error-content);
+  }
+
+  .nb-file-item-remove:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  /* Error state */
+  .nb-file-input-area[aria-invalid="true"] {
+    border-color: var(--nb-error);
+  }
+
+  .nb-file-input-error {
+    font-size: var(--nb-text-sm);
+    color: var(--nb-error);
+    font-weight: 700;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-file-input-area {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .nb-file-input-area {
+      border: 2px dashed CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-file-input-area:focus-within {
+      border-style: solid;
+      outline: 2px solid Highlight;
+      outline-offset: -2px;
+    }
+
+    .nb-file-item {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-file-input-btn {
+      border: 2px solid ButtonText;
+      forced-color-adjust: none;
+    }
+  }
+}
