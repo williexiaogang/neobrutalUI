@@ -1,0 +1,212 @@
+/**
+ * Neo-Brutal UI — Collapse Component
+ *
+ * Single-panel disclosure with hard shadows, bold borders,
+ * and smooth height transitions. Useful for standalone expandable
+ * sections, FAQ items, or collapsible card bodies.
+ */
+
+@layer nb.components {
+  /* ------------------------------------------------------------------------
+   * Collapse root
+   * ------------------------------------------------------------------------ */
+  .nb-collapse {
+    --_collapse-bg: var(--nb-base-100);
+    --_collapse-border: var(--nb-border);
+
+    display: block;
+    inline-size: 100%;
+    background: var(--_collapse-bg);
+    border: var(--nb-border-width) solid var(--_collapse-border);
+    box-shadow: var(--nb-collapse-shadow, var(--nb-shadow-sm));
+    transition: box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-collapse.is-open {
+    box-shadow: var(--nb-collapse-shadow-open, var(--nb-shadow-md));
+  }
+
+  /* ------------------------------------------------------------------------
+   * Collapse trigger
+   * ------------------------------------------------------------------------ */
+  .nb-collapse-trigger,
+  .nb-collapse > button:first-child,
+  .nb-collapse [data-nb-collapse-trigger] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-3);
+    inline-size: 100%;
+    padding: var(--nb-space-3) var(--nb-space-4);
+    background: var(--_collapse-bg);
+    color: var(--nb-base-content);
+    font-family: inherit;
+    font-size: var(--nb-text-base);
+    font-weight: 700;
+    line-height: var(--nb-leading-tight);
+    text-align: start;
+    border: none;
+    border-block-end: var(--nb-border-width) solid transparent;
+    cursor: pointer;
+    transition:
+      background var(--nb-duration-fast) var(--nb-ease-out),
+      border-color var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-collapse-trigger:hover:not(:disabled),
+  .nb-collapse > button:first-child:hover:not(:disabled),
+  .nb-collapse [data-nb-collapse-trigger]:hover:not(:disabled) {
+    background: var(--nb-base-200);
+  }
+
+  .nb-collapse-trigger:focus-visible,
+  .nb-collapse > button:first-child:focus-visible,
+  .nb-collapse [data-nb-collapse-trigger]:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: -2px;
+  }
+
+  .nb-collapse-trigger:disabled,
+  .nb-collapse > button:first-child:disabled,
+  .nb-collapse [data-nb-collapse-trigger]:disabled,
+  .nb-collapse-trigger.nb-collapse-trigger-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .nb-collapse.is-open .nb-collapse-trigger,
+  .nb-collapse.is-open > button:first-child,
+  .nb-collapse.is-open [data-nb-collapse-trigger] {
+    border-block-end-color: var(--nb-border);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Collapse icon (chevron)
+   * ------------------------------------------------------------------------ */
+  .nb-collapse-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    flex-shrink: 0;
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-collapse.is-open .nb-collapse-icon {
+    transform: rotate(180deg);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Collapse panel wrapper — animated via grid trick
+   * ------------------------------------------------------------------------ */
+  .nb-collapse-panel,
+  .nb-collapse [data-nb-collapse-panel] {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition:
+      grid-template-rows var(--nb-duration-normal) var(--nb-ease-out),
+      visibility 0s var(--nb-duration-normal);
+  }
+
+  .nb-collapse.is-open .nb-collapse-panel,
+  .nb-collapse.is-open [data-nb-collapse-panel] {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition:
+      grid-template-rows var(--nb-duration-normal) var(--nb-ease-out),
+      visibility 0s 0s;
+  }
+
+  /* Inner wrapper for overflow clipping */
+  .nb-collapse-panel-inner,
+  .nb-collapse-panel > div:first-child {
+    overflow: hidden;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Collapse content
+   * ------------------------------------------------------------------------ */
+  .nb-collapse-content,
+  .nb-collapse-panel-inner > div,
+  .nb-collapse [data-nb-collapse-panel] > div > div {
+    padding: var(--nb-space-4);
+    font-size: var(--nb-text-sm);
+    line-height: var(--nb-leading-normal);
+    color: var(--nb-base-content);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Size variants
+   * ------------------------------------------------------------------------ */
+  .nb-collapse-sm .nb-collapse-trigger,
+  .nb-collapse-sm .nb-collapse > button:first-child {
+    padding: var(--nb-space-2) var(--nb-space-3);
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-collapse-sm .nb-collapse-content,
+  .nb-collapse-sm .nb-collapse-panel-inner > div {
+    padding: var(--nb-space-3);
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-collapse-lg .nb-collapse-trigger,
+  .nb-collapse-lg .nb-collapse > button:first-child {
+    padding: var(--nb-space-4) var(--nb-space-5);
+    font-size: var(--nb-text-lg);
+  }
+
+  .nb-collapse-lg .nb-collapse-content,
+  .nb-collapse-lg .nb-collapse-panel-inner > div {
+    padding: var(--nb-space-5);
+    font-size: var(--nb-text-base);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Reduced motion
+   * ------------------------------------------------------------------------ */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-collapse-panel,
+    .nb-collapse [data-nb-collapse-panel],
+    .nb-collapse-icon,
+    .nb-collapse-trigger,
+    .nb-collapse {
+      transition: none;
+    }
+
+    .nb-collapse.is-open .nb-collapse-panel,
+    .nb-collapse.is-open [data-nb-collapse-panel] {
+      grid-template-rows: 1fr;
+      visibility: visible;
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+   * Forced colors
+   * ------------------------------------------------------------------------ */
+  @media (forced-colors: active) {
+    .nb-collapse {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-collapse-trigger:focus-visible,
+    .nb-collapse > button:first-child:focus-visible,
+    .nb-collapse [data-nb-collapse-trigger]:focus-visible {
+      outline: 2px solid Highlight;
+      outline-offset: -2px;
+    }
+
+    .nb-collapse.is-open .nb-collapse-trigger,
+    .nb-collapse.is-open > button:first-child,
+    .nb-collapse.is-open [data-nb-collapse-trigger] {
+      border-block-end-color: CanvasText;
+    }
+
+    .nb-collapse-icon {
+      color: ButtonText;
+    }
+  }
+}

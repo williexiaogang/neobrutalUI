@@ -1,0 +1,218 @@
+/**
+ * Neo-Brutal UI — Chat Bubble Component
+ *
+ * Conversation message bubbles with directional variants, color
+ * modifiers, and a brutalist tail pointer.
+ */
+
+@layer nb.components {
+  .nb-chat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-2);
+  }
+
+  .nb-chat-row {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--nb-space-2);
+    max-inline-size: 100%;
+  }
+
+  .nb-chat-row-sent {
+    flex-direction: row-reverse;
+  }
+
+  .nb-chat-bubble {
+    --_bg: var(--nb-base-200);
+    --_fg: var(--nb-base-content);
+    --_border: var(--nb-border);
+    --_tail-color: var(--nb-base-200);
+
+    position: relative;
+    padding: var(--nb-space-3) var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_bg);
+    color: var(--_fg);
+    font-size: var(--nb-text-base);
+    font-weight: 600;
+    line-height: var(--nb-leading-normal);
+    box-shadow: var(--nb-shadow-sm);
+    word-break: break-word;
+  }
+
+  /* Tail for received (left) bubbles */
+  .nb-chat-bubble-received::before {
+    content: "";
+    position: absolute;
+    inset-block-end: var(--nb-space-3);
+    inset-inline-start: calc(var(--nb-border-width) * -1);
+    inline-size: 0;
+    block-size: 0;
+    border-style: solid;
+    border-width: 6px 8px 6px 0;
+    border-color: transparent var(--_border) transparent transparent;
+    transform: translateX(-100%);
+  }
+
+  .nb-chat-bubble-received::after {
+    content: "";
+    position: absolute;
+    inset-block-end: calc(var(--nb-space-3) + var(--nb-border-width));
+    inset-inline-start: calc(var(--nb-border-width) * -1);
+    inline-size: 0;
+    block-size: 0;
+    border-style: solid;
+    border-width: 4px 6px 4px 0;
+    border-color: transparent var(--_tail-color) transparent transparent;
+    transform: translateX(-100%);
+  }
+
+  /* Tail for sent (right) bubbles */
+  .nb-chat-bubble-sent::before {
+    content: "";
+    position: absolute;
+    inset-block-end: var(--nb-space-3);
+    inset-inline-end: calc(var(--nb-border-width) * -1);
+    inline-size: 0;
+    block-size: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 8px;
+    border-color: transparent transparent transparent var(--_border);
+    transform: translateX(100%);
+  }
+
+  .nb-chat-bubble-sent::after {
+    content: "";
+    position: absolute;
+    inset-block-end: calc(var(--nb-space-3) + var(--nb-border-width));
+    inset-inline-end: calc(var(--nb-border-width) * -1);
+    inline-size: 0;
+    block-size: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 6px;
+    border-color: transparent transparent transparent var(--_tail-color);
+    transform: translateX(100%);
+  }
+
+  /* Color variants */
+  .nb-chat-bubble-primary {
+    --_bg: var(--nb-primary);
+    --_fg: var(--nb-primary-content);
+    --_tail-color: var(--nb-primary);
+  }
+
+  .nb-chat-bubble-secondary {
+    --_bg: var(--nb-secondary);
+    --_fg: var(--nb-secondary-content);
+    --_tail-color: var(--nb-secondary);
+  }
+
+  .nb-chat-bubble-accent {
+    --_bg: var(--nb-accent);
+    --_fg: var(--nb-accent-content);
+    --_tail-color: var(--nb-accent);
+  }
+
+  .nb-chat-bubble-neutral {
+    --_bg: var(--nb-neutral);
+    --_fg: var(--nb-neutral-content);
+    --_tail-color: var(--nb-neutral);
+  }
+
+  .nb-chat-bubble-info {
+    --_bg: var(--nb-info);
+    --_fg: var(--nb-info-content);
+    --_tail-color: var(--nb-info);
+  }
+
+  .nb-chat-bubble-success {
+    --_bg: var(--nb-success);
+    --_fg: var(--nb-success-content);
+    --_tail-color: var(--nb-success);
+  }
+
+  .nb-chat-bubble-warning {
+    --_bg: var(--nb-warning);
+    --_fg: var(--nb-warning-content);
+    --_tail-color: var(--nb-warning);
+  }
+
+  .nb-chat-bubble-error {
+    --_bg: var(--nb-error);
+    --_fg: var(--nb-error-content);
+    --_tail-color: var(--nb-error);
+  }
+
+  /* Size variants */
+  .nb-chat-bubble-sm {
+    padding: var(--nb-space-2) var(--nb-space-3);
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-chat-bubble-lg {
+    padding: var(--nb-space-4) var(--nb-space-5);
+    font-size: var(--nb-text-lg);
+  }
+
+  /* Avatar */
+  .nb-chat-avatar {
+    flex-shrink: 0;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--nb-text-sm);
+    overflow: hidden;
+  }
+
+  .nb-chat-avatar img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  /* Meta (author / time) */
+  .nb-chat-meta {
+    display: flex;
+    gap: var(--nb-space-2);
+    font-size: var(--nb-text-xs);
+    color: var(--nb-base-content-muted);
+    font-weight: 600;
+  }
+
+  .nb-chat-row-sent .nb-chat-meta {
+    justify-content: flex-end;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-chat-bubble {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-chat-bubble {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-chat-bubble::before,
+    .nb-chat-bubble::after {
+      display: none;
+    }
+
+    .nb-chat-avatar {
+      border: 2px solid CanvasText;
+    }
+  }
+}

@@ -1,0 +1,365 @@
+/**
+ * Neo-Brutal UI — Timeline Component
+ *
+ * Vertical chronological event list with markers, connectors, and content cards.
+ * Supports horizontal layout, alternate (zig-zag) positioning, and color-coded states.
+ */
+
+@layer nb.components {
+  /* ========================================================================
+     Container
+     ======================================================================== */
+  .nb-timeline {
+    --_marker-size: 0.75rem;
+    --_connector-width: 2px;
+    --_content-bg: var(--nb-base-100);
+    --_content-border: var(--nb-border);
+    --_marker-color: var(--nb-neutral);
+    --_connector-color: var(--nb-border);
+
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  /* ========================================================================
+     Item
+     ======================================================================== */
+  .nb-timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--nb-space-4);
+    position: relative;
+    padding-block: var(--nb-space-2);
+    padding-inline: 0;
+  }
+
+  .nb-timeline-item:first-child {
+    padding-block-start: 0;
+  }
+
+  .nb-timeline-item:last-child {
+    padding-block-end: 0;
+  }
+
+  /* ========================================================================
+     Marker
+     ======================================================================== */
+  .nb-timeline-marker {
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    inline-size: var(--_marker-size);
+    block-size: var(--_marker-size);
+    margin-block-start: calc(var(--nb-text-base) * var(--nb-leading-tight) / 2 - var(--_marker-size) / 2);
+    border-radius: var(--nb-radius-box);
+    background: var(--_marker-color);
+    border: var(--nb-border-width) solid var(--nb-base-100);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  /* Marker variants */
+  .nb-timeline-marker-primary   { --_marker-color: var(--nb-primary); }
+  .nb-timeline-marker-secondary { --_marker-color: var(--nb-secondary); }
+  .nb-timeline-marker-accent    { --_marker-color: var(--nb-accent); }
+  .nb-timeline-marker-info      { --_marker-color: var(--nb-info); }
+  .nb-timeline-marker-success   { --_marker-color: var(--nb-success); }
+  .nb-timeline-marker-warning   { --_marker-color: var(--nb-warning); }
+  .nb-timeline-marker-error     { --_marker-color: var(--nb-error); }
+  .nb-timeline-marker-neutral   { --_marker-color: var(--nb-neutral); }
+
+  /* Large marker (icon-sized) */
+  .nb-timeline-marker-icon {
+    --_marker-size: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nb-base-100);
+    font-size: var(--nb-text-xs);
+    font-weight: 700;
+    line-height: var(--nb-leading-none);
+  }
+
+  /* ========================================================================
+     Connector line
+     ======================================================================== */
+  .nb-timeline-connector {
+    position: absolute;
+    inset-inline-start: calc(var(--_marker-size) / 2 - var(--_connector-width) / 2);
+    inset-block: 0;
+    inline-size: var(--_connector-width);
+    background: var(--_connector-color);
+    z-index: 0;
+  }
+
+  .nb-timeline-item:first-child .nb-timeline-connector {
+    inset-block-start: calc(var(--_marker-size) / 2);
+  }
+
+  .nb-timeline-item:last-child .nb-timeline-connector {
+    inset-block-end: calc(100% - var(--_marker-size) / 2);
+  }
+
+  /* ========================================================================
+     Content
+     ======================================================================== */
+  .nb-timeline-content {
+    flex: 1;
+    min-inline-size: 0;
+  }
+
+  .nb-timeline-card {
+    padding: var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--_content-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_content-bg);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-timeline-time {
+    font-size: var(--nb-text-xs);
+    font-weight: 600;
+    color: var(--nb-base-content-muted);
+    line-height: var(--nb-leading-tight);
+    margin-block-end: var(--nb-space-1);
+  }
+
+  .nb-timeline-title {
+    font-size: var(--nb-text-base);
+    font-weight: 700;
+    line-height: var(--nb-leading-tight);
+    color: var(--nb-base-content);
+    margin: 0 0 var(--nb-space-1);
+  }
+
+  .nb-timeline-body {
+    font-size: var(--nb-text-sm);
+    line-height: var(--nb-leading-normal);
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-timeline-body > :first-child {
+    margin-block-start: 0;
+  }
+
+  .nb-timeline-body > :last-child {
+    margin-block-end: 0;
+  }
+
+  /* ========================================================================
+     Alternate (zig-zag) layout
+     ======================================================================== */
+  .nb-timeline-alternate {
+    --_alternate-offset: 50%;
+  }
+
+  .nb-timeline-alternate .nb-timeline-item {
+    justify-content: flex-start;
+  }
+
+  .nb-timeline-alternate .nb-timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+    text-align: end;
+  }
+
+  .nb-timeline-alternate .nb-timeline-item:nth-child(odd) .nb-timeline-content {
+    text-align: end;
+  }
+
+  .nb-timeline-alternate .nb-timeline-connector {
+    inset-inline-start: calc(50% - var(--_connector-width) / 2);
+  }
+
+  .nb-timeline-alternate .nb-timeline-marker {
+    margin-inline-start: calc(var(--_alternate-offset) - var(--_marker-size) / 2 - var(--_connector-width) / 2);
+  }
+
+  .nb-timeline-alternate .nb-timeline-content {
+    flex: 0 0 calc(50% - var(--nb-space-4) - var(--_marker-size) / 2);
+  }
+
+  /* ========================================================================
+     Horizontal layout
+     ======================================================================== */
+  .nb-timeline-horizontal {
+    flex-direction: row;
+  }
+
+  .nb-timeline-horizontal .nb-timeline-item {
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--nb-space-3);
+    padding-inline: var(--nb-space-2);
+    padding-block: 0;
+    text-align: center;
+  }
+
+  .nb-timeline-horizontal .nb-timeline-item:first-child {
+    padding-inline-start: 0;
+  }
+
+  .nb-timeline-horizontal .nb-timeline-item:last-child {
+    padding-inline-end: 0;
+  }
+
+  .nb-timeline-horizontal .nb-timeline-marker {
+    margin-block-start: 0;
+    margin-inline: 0;
+  }
+
+  .nb-timeline-horizontal .nb-timeline-connector {
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    inset-block-start: calc(var(--_marker-size) / 2 - var(--_connector-width) / 2);
+    inset-block-end: auto;
+    inline-size: auto;
+    block-size: var(--_connector-width);
+  }
+
+  .nb-timeline-horizontal .nb-timeline-item:first-child .nb-timeline-connector {
+    inset-inline-start: 50%;
+    inset-block-start: calc(var(--_marker-size) / 2 - var(--_connector-width) / 2);
+  }
+
+  .nb-timeline-horizontal .nb-timeline-item:last-child .nb-timeline-connector {
+    inset-inline-end: 50%;
+    inset-block-end: auto;
+  }
+
+  .nb-timeline-horizontal .nb-timeline-content {
+    text-align: center;
+  }
+
+  /* ========================================================================
+     Size variants
+     ======================================================================== */
+  .nb-timeline-sm {
+    --_marker-size: 0.5rem;
+  }
+
+  .nb-timeline-sm .nb-timeline-marker-icon {
+    --_marker-size: 1.5rem;
+  }
+
+  .nb-timeline-sm .nb-timeline-card {
+    padding: var(--nb-space-3);
+  }
+
+  .nb-timeline-sm .nb-timeline-title {
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-timeline-sm .nb-timeline-body {
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-timeline-lg {
+    --_marker-size: 1rem;
+  }
+
+  .nb-timeline-lg .nb-timeline-marker-icon {
+    --_marker-size: 2.5rem;
+  }
+
+  .nb-timeline-lg .nb-timeline-card {
+    padding: var(--nb-space-5);
+  }
+
+  .nb-timeline-lg .nb-timeline-title {
+    font-size: var(--nb-text-lg);
+  }
+
+  .nb-timeline-lg .nb-timeline-body {
+    font-size: var(--nb-text-base);
+  }
+
+  /* ========================================================================
+     Dashed connector variant
+     ======================================================================== */
+  .nb-timeline-dashed .nb-timeline-connector {
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--_connector-color) 0,
+      var(--_connector-color) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  }
+
+  .nb-timeline-dashed.nb-timeline-horizontal .nb-timeline-connector {
+    background: repeating-linear-gradient(
+      to right,
+      var(--_connector-color) 0,
+      var(--_connector-color) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  }
+
+  /* ========================================================================
+     Opposite content (two-column vertical)
+     ======================================================================== */
+  .nb-timeline-opposite .nb-timeline-item {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--nb-space-4);
+    align-items: start;
+  }
+
+  .nb-timeline-opposite .nb-timeline-connector {
+    inset-inline-start: calc(50% - var(--_connector-width) / 2);
+  }
+
+  .nb-timeline-opposite .nb-timeline-marker {
+    margin-block-start: 0;
+  }
+
+  .nb-timeline-opposite .nb-timeline-content:first-child {
+    text-align: end;
+  }
+
+  .nb-timeline-opposite .nb-timeline-content:last-child {
+    text-align: start;
+  }
+
+  /* ========================================================================
+     Focus visible
+     ======================================================================== */
+  .nb-timeline-item:focus-visible,
+  .nb-timeline-card:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  /* ========================================================================
+     Reduced motion
+     ======================================================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-timeline-marker {
+      transition: none;
+    }
+  }
+
+  /* ========================================================================
+     Forced colors
+     ======================================================================== */
+  @media (forced-colors: active) {
+    .nb-timeline-marker {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-timeline-connector {
+      background: CanvasText;
+    }
+
+    .nb-timeline-card {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+  }
+}

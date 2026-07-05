@@ -1,0 +1,48 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended"],
+  "rules": {
+    "custom-property-pattern": [
+      "^nb-",
+      { "message": "Custom properties must start with --nb-" }
+    ],
+    "selector-class-pattern": [
+      "^nb-[a-z0-9-]+$",
+      { "message": "Class names must start with nb- and use kebab-case" }
+    ],
+    "color-no-hex": [true, { "message": "Use CSS custom properties / OKLCH instead of hardcoded hex colors" }],
+    "color-function-notation": "modern",
+    "property-no-unknown": [true, { "ignoreProperties": ["forced-color-adjust"] }],
+    "declaration-block-no-duplicate-properties": true,
+    "block-no-empty": true,
+    "comment-no-empty": true,
+    "no-duplicate-selectors": true,
+    "no-empty-source": true,
+    "no-extra-semicolons": true,
+    "declaration-property-value-no-unknown": true,
+    "font-family-no-duplicate-names": true,
+    "unit-no-unknown": true,
+    "value-no-vendor-prefix": true,
+    "property-no-vendor-prefix": true,
+    "selector-no-vendor-prefix": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "at-rule-no-vendor-prefix": true,
+    "function-url-no-scheme-relative": true,
+    "number-max-precision": 4,
+    "declaration-block-single-line-max-declarations": 1,
+    "max-nesting-depth": 3,
+    "declaration-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-declaration", "after-comment"]
+      }
+    ],
+    "custom-property-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-custom-property", "after-comment"]
+      }
+    ]
+  }
+}

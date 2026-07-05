@@ -31,6 +31,10 @@
     "dist/**/*.css",
     "README.md"
   ],
+  "sideEffects": true,
+  "engines": {
+    "node": ">= 20.0.0"
+  },
   "scripts": {
     "build": "node ../../../scripts/build-package.mjs theme-neo-brutal",
     "lint": "node --test tests/*.test.mjs",

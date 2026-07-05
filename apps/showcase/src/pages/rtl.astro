@@ -1,0 +1,308 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Section from "@components/layout/Section.astro";
+
+const pageTitle = "RTL Test · Neo-Brutal UI";
+const pageDescription =
+  "Key Neo-Brutal UI components rendered in a right-to-left (RTL) writing direction context.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main id="main-content">
+    <Section id="rtl-intro" ariaLabelledby="rtl-title">
+      <h1 id="rtl-title" class="nb-section-title" style="margin-block-start: var(--nb-space-8);">
+        RTL Component Test
+      </h1>
+      <p class="nb-section-lead">
+        This page renders critical components inside <code>dir="rtl"</code> to verify logical
+        property usage, reading order, and visual layout in Arabic / Hebrew / Persian contexts.
+      </p>
+    </Section>
+
+    <div dir="rtl" lang="ar">
+      <!-- Buttons -->
+      <Section id="rtl-buttons" ariaLabelledby="rtl-buttons-title">
+        <h2 id="rtl-buttons-title" class="nb-section-title">زرّ (Button)</h2>
+        <div class="nb-cluster" style="margin-block-start: var(--nb-space-4);">
+          <button class="nb-btn nb-btn-primary" type="button">نقر</button>
+          <button class="nb-btn nb-btn-outline" type="button">ملاحظات</button>
+          <button class="nb-btn" type="button" disabled>معطل</button>
+        </div>
+      </Section>
+
+      <!-- Card -->
+      <Section id="rtl-card" ariaLabelledby="rtl-card-title">
+        <h2 id="rtl-card-title" class="nb-section-title">بطاقة (Card)</h2>
+        <div class="nb-card" style="max-inline-size: 28rem; margin-block-start: var(--nb-space-4);">
+          <div class="nb-card-header">
+            <span class="nb-card-title">عنوان البطاقة</span>
+          </div>
+          <div class="nb-card-body">
+            <p style="margin: 0;">
+              هذا نص تجريبي داخل بطاقة نمط Neo-Brutal. يجب أن تبدأ الحدود والهوامش من اليمين إلى اليسار.
+            </p>
+          </div>
+          <div class="nb-card-footer">
+            <button class="nb-btn nb-btn-sm nb-btn-primary" type="button">موافق</button>
+            <button class="nb-btn nb-btn-sm nb-btn-outline" type="button">إلغاء</button>
+          </div>
+        </div>
+      </Section>
+
+      <!-- Alerts -->
+      <Section id="rtl-alerts" ariaLabelledby="rtl-alerts-title">
+        <h2 id="rtl-alerts-title" class="nb-section-title">تنبيه (Alert)</h2>
+        <div class="nb-stack" style="margin-block-start: var(--nb-space-4); max-inline-size: 40rem;">
+          <div class="nb-alert nb-alert-info" role="alert">
+            <span class="nb-alert-icon" aria-hidden="true">ⓘ</span>
+            <div>
+              <p class="nb-alert-title">معلومة</p>
+              <p class="nb-alert-body">هذا تنبيه معلوماتي يجب أن يبدأ الحدود من اليمين.</p>
+            </div>
+          </div>
+          <div class="nb-alert nb-alert-success" role="alert">
+            <span class="nb-alert-icon" aria-hidden="true">✔</span>
+            <div>
+              <p class="nb-alert-title">نجاح</p>
+              <p class="nb-alert-body">تمت العملية بنجاح.</p>
+            </div>
+          </div>
+          <div class="nb-alert nb-alert-warning" role="alert">
+            <span class="nb-alert-icon" aria-hidden="true">⚠</span>
+            <div>
+              <p class="nb-alert-title">تحذير</p>
+              <p class="nb-alert-body">يرجى التحقق من الإعدادات قبل المتابعة.</p>
+            </div>
+          </div>
+          <div class="nb-alert nb-alert-error" role="alert">
+            <span class="nb-alert-icon" aria-hidden="true">✖</span>
+            <div>
+              <p class="nb-alert-title">خطأ</p>
+              <p class="nb-alert-body">فشل في الاتصال بالخادم.</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <!-- Input & Select -->
+      <Section id="rtl-forms" ariaLabelledby="rtl-forms-title">
+        <h2 id="rtl-forms-title" class="nb-section-title">نموذج (Form)</h2>
+        <div class="nb-stack" style="max-inline-size: 28rem; margin-block-start: var(--nb-space-4);">
+          <div class="nb-field">
+            <label class="nb-field-label" for="rtl-input-name">الاسم الكامل</label>
+            <input
+              class="nb-input"
+              id="rtl-input-name"
+              type="text"
+              placeholder="أدخل اسمك"
+            />
+          </div>
+          <div class="nb-field">
+            <label class="nb-field-label" for="rtl-input-email">البريد الإلكتروني</label>
+            <input
+              class="nb-input"
+              id="rtl-input-email"
+              type="email"
+              placeholder="you@example.com"
+              aria-invalid="true"
+            />
+            <span class="nb-field-error">عنوان البريد الإلكتروني غير صالح.</span>
+          </div>
+          <div class="nb-field">
+            <label class="nb-field-label" for="rtl-select-priority">الأولوية</label>
+            <select class="nb-select" id="rtl-select-priority">
+              <option>منخفضة</option>
+              <option selected>متوسطة</option>
+              <option>عالية</option>
+            </select>
+          </div>
+        </div>
+      </Section>
+
+      <!-- Tabs -->
+      <Section id="rtl-tabs" ariaLabelledby="rtl-tabs-title">
+        <h2 id="rtl-tabs-title" class="nb-section-title">علامات التبويب (Tabs)</h2>
+        <div style="margin-block-start: var(--nb-space-4); max-inline-size: 40rem;">
+          <div class="nb-tabs" role="tablist" aria-label="علامات تبويب أفقية">
+            <button class="nb-tab nb-tab-active" role="tab" aria-selected="true" type="button">
+              عام
+            </button>
+            <button class="nb-tab" role="tab" aria-selected="false" type="button">
+              الأمان
+            </button>
+            <button class="nb-tab nb-tab-disabled" role="tab" aria-selected="false" disabled type="button">
+              الفواتير
+            </button>
+          </div>
+          <div class="nb-tab-panel" role="tabpanel">
+            <p style="margin: 0; font-size: var(--nb-text-sm);">
+              محتوى لوحة الإعدادات العامة. يجب أن تبدأ علامات التبويب من اليمين في وضع RTL.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-block-start: var(--nb-space-6); max-inline-size: 40rem;">
+          <div class="nb-tabs-vertical" role="tablist" aria-label="علامات تبويب عمودية">
+            <button class="nb-tab nb-tab-active" role="tab" aria-selected="true" type="button">
+              الملف الشخصي
+            </button>
+            <button class="nb-tab" role="tab" aria-selected="false" type="button">
+              الإشعارات
+            </button>
+            <button class="nb-tab" role="tab" aria-selected="false" type="button">
+              التكاملات
+            </button>
+          </div>
+          <div class="nb-tab-panel" role="tabpanel">
+            <p style="margin: 0; font-size: var(--nb-text-sm);">
+              محتوى لوحة الملف الشخصي. علامات التبويب العمودية يجب أن تكون على اليمين.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <!-- Table -->
+      <Section id="rtl-table" ariaLabelledby="rtl-table-title">
+        <h2 id="rtl-table-title" class="nb-section-title">جدول (Table)</h2>
+        <div class="nb-table-wrapper" style="margin-block-start: var(--nb-space-4);">
+          <table class="nb-table">
+            <thead>
+              <tr>
+                <th>المستخدم</th>
+                <th>الدور</th>
+                <th>الحالة</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>أحمد علي</td>
+                <td>مدير</td>
+                <td>نشط</td>
+              </tr>
+              <tr>
+                <td>فاطمة حسن</td>
+                <td>محرر</td>
+                <td>نشط</td>
+              </tr>
+              <tr>
+                <td>محمود سعيد</td>
+                <td>مشاهد</td>
+                <td>غير نشط</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </Section>
+
+      <!-- Navbar -->
+      <Section id="rtl-navbar" ariaLabelledby="rtl-navbar-title">
+        <h2 id="rtl-navbar-title" class="nb-section-title">شريط التنقل (Navbar)</h2>
+        <nav class="nb-navbar" aria-label="التنقل الرئيسي" style="margin-block-start: var(--nb-space-4);">
+          <a href="#" class="nb-navbar-brand">نيوبراند</a>
+          <div class="nb-navbar-collapse is-open" id="rtl-navbar-collapse">
+            <ul class="nb-navbar-nav">
+              <li><a href="#">الرئيسية</a></li>
+              <li><a href="#">الميزات</a></li>
+              <li><a href="#">الأسعار</a></li>
+            </ul>
+            <div class="nb-navbar-actions">
+              <button class="nb-btn nb-btn-sm" type="button">تسجيل الدخول</button>
+              <button class="nb-btn nb-btn-sm nb-btn-primary" type="button">ابدأ</button>
+            </div>
+          </div>
+          <button
+            class="nb-navbar-toggle"
+            type="button"
+            aria-label="تبديل التنقل"
+            aria-expanded="true"
+            aria-controls="rtl-navbar-collapse"
+          >
+            <span aria-hidden="true">☰</span>
+          </button>
+        </nav>
+      </Section>
+
+      <!-- Breadcrumbs -->
+      <Section id="rtl-breadcrumbs" ariaLabelledby="rtl-breadcrumbs-title">
+        <h2 id="rtl-breadcrumbs-title" class="nb-section-title">مسار التنقل (Breadcrumbs)</h2>
+        <nav class="nb-breadcrumb" aria-label="مسار التنقل" style="margin-block-start: var(--nb-space-4);">
+          <ol class="nb-breadcrumb-list">
+            <li class="nb-breadcrumb-item">
+              <a href="#" class="nb-breadcrumb-link">الرئيسية</a>
+            </li>
+            <li class="nb-breadcrumb-item nb-breadcrumb-separator-wrap" aria-hidden="true">
+              <span class="nb-breadcrumb-separator">›</span>
+            </li>
+            <li class="nb-breadcrumb-item">
+              <a href="#" class="nb-breadcrumb-link">المشاريع</a>
+            </li>
+            <li class="nb-breadcrumb-item nb-breadcrumb-separator-wrap" aria-hidden="true">
+              <span class="nb-breadcrumb-separator">›</span>
+            </li>
+            <li class="nb-breadcrumb-item">
+              <span class="nb-breadcrumb-current" aria-current="page">نيوبراند</span>
+            </li>
+          </ol>
+        </nav>
+      </Section>
+
+      <!-- Steps -->
+      <Section id="rtl-steps" ariaLabelledby="rtl-steps-title">
+        <h2 id="rtl-steps-title" class="nb-section-title">خطوات (Steps)</h2>
+        <ol class="nb-steps" style="margin-block-start: var(--nb-space-4); max-inline-size: 40rem;">
+          <li class="nb-step nb-step-completed nb-step-primary">
+            <span class="nb-step-indicator">1</span>
+            <div class="nb-step-body">
+              <span class="nb-step-label">التسجيل</span>
+              <span class="nb-step-description">أكمل تسجيل الحساب.</span>
+            </div>
+          </li>
+          <li class="nb-step nb-step-active nb-step-primary">
+            <span class="nb-step-indicator">2</span>
+            <div class="nb-step-body">
+              <span class="nb-step-label">التحقق</span>
+              <span class="nb-step-description">تحقق من بريدك الإلكتروني.</span>
+            </div>
+          </li>
+          <li class="nb-step">
+            <span class="nb-step-indicator">3</span>
+            <div class="nb-step-body">
+              <span class="nb-step-label">الإعداد</span>
+              <span class="nb-step-description">قم بإعداد ملفك الشخصي.</span>
+            </div>
+          </li>
+        </ol>
+      </Section>
+
+      <!-- Pagination -->
+      <Section id="rtl-pagination" ariaLabelledby="rtl-pagination-title">
+        <h2 id="rtl-pagination-title" class="nb-section-title">ترقيم الصفحات (Pagination)</h2>
+        <nav class="nb-pagination" aria-label="ترقيم الصفحات" style="margin-block-start: var(--nb-space-4);">
+          <ol class="nb-pagination-list">
+            <li class="nb-pagination-item">
+              <a href="#" class="nb-pagination-prev" aria-label="الصفحة السابقة">←</a>
+            </li>
+            <li class="nb-pagination-item">
+              <a href="#" class="nb-pagination-link" aria-label="الصفحة 1">1</a>
+            </li>
+            <li class="nb-pagination-item">
+              <a href="#" class="nb-pagination-link" aria-label="الصفحة 2">2</a>
+            </li>
+            <li class="nb-pagination-item">
+              <a href="#" class="nb-pagination-link nb-pagination-active" aria-current="page" aria-label="الصفحة 3">3</a>
+            </li>
+            <li class="nb-pagination-item">
+              <span class="nb-pagination-ellipsis" aria-hidden="true">…</span>
+            </li>
+            <li class="nb-pagination-item">
+              <a href="#" class="nb-pagination-link" aria-label="الصفحة 10">10</a>
+            </li>
+            <li class="nb-pagination-item">
+              <a href="#" class="nb-pagination-next" aria-label="الصفحة التالية">→</a>
+            </li>
+          </ol>
+        </nav>
+      </Section>
+    </div>
+  </main>
+</BaseLayout>

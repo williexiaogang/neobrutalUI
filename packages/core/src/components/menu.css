@@ -1,0 +1,268 @@
+/**
+ * Neo-Brutal UI — Menu Component
+ *
+ * ARIA Menu / Menubar pattern with vertical and horizontal layouts.
+ * Supports nested submenus, dividers, and full keyboard navigation.
+ * Reduced-motion and forced-colors support.
+ */
+
+@layer nb.components {
+  /* Menu container */
+  .nb-menu,
+  .nb-menu[role="menubar"],
+  .nb-menu[role="menu"] {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: var(--nb-base-100);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    box-shadow: var(--nb-shadow-md);
+    min-inline-size: var(--nb-menu-min-width, 12rem);
+  }
+
+  /* Horizontal menubar */
+  .nb-menu-horizontal,
+  .nb-menu-horizontal[role="menubar"] {
+    flex-direction: row;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    min-inline-size: auto;
+  }
+
+  /* Menu item wrapper */
+  .nb-menu-item,
+  .nb-menu [role="menuitem"],
+  .nb-menu [role="menuitemcheckbox"],
+  .nb-menu [role="menuitemradio"] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-2) var(--nb-space-4);
+    font-family: inherit;
+    font-size: var(--nb-text-base);
+    font-weight: 600;
+    line-height: var(--nb-leading-normal);
+    color: var(--nb-base-content);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: start;
+    text-decoration: none;
+    transition: background var(--nb-duration-fast) var(--nb-ease-out);
+    white-space: nowrap;
+  }
+
+  /* Horizontal menubar item */
+  .nb-menu-horizontal .nb-menu-item,
+  .nb-menu-horizontal [role="menuitem"],
+  .nb-menu-horizontal [role="menuitemcheckbox"],
+  .nb-menu-horizontal [role="menuitemradio"] {
+    padding: var(--nb-space-2) var(--nb-space-3);
+    border-block-end: var(--nb-border-width) solid transparent;
+  }
+
+  /* Hover state */
+  .nb-menu-item:hover:not(:disabled):not(.nb-menu-item-disabled),
+  .nb-menu [role="menuitem"]:hover:not(:disabled):not(.nb-menu-item-disabled),
+  .nb-menu [role="menuitemcheckbox"]:hover:not(:disabled):not(.nb-menu-item-disabled),
+  .nb-menu [role="menuitemradio"]:hover:not(:disabled):not(.nb-menu-item-disabled) {
+    background: var(--nb-base-200);
+  }
+
+  .nb-menu-horizontal .nb-menu-item:hover:not(:disabled):not(.nb-menu-item-disabled),
+  .nb-menu-horizontal [role="menuitem"]:hover:not(:disabled):not(.nb-menu-item-disabled) {
+    background: var(--nb-base-200);
+  }
+
+  /* Focus visible */
+  .nb-menu-item:focus-visible,
+  .nb-menu [role="menuitem"]:focus-visible,
+  .nb-menu [role="menuitemcheckbox"]:focus-visible,
+  .nb-menu [role="menuitemradio"]:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: -2px;
+    background: var(--nb-base-200);
+  }
+
+  /* Active / selected item */
+  .nb-menu-item-active,
+  .nb-menu [role="menuitem"][aria-selected="true"],
+  .nb-menu [role="menuitemcheckbox"][aria-checked="true"],
+  .nb-menu [role="menuitemradio"][aria-checked="true"] {
+    background: var(--nb-base-200);
+    font-weight: 700;
+  }
+
+  .nb-menu-horizontal .nb-menu-item-active,
+  .nb-menu-horizontal [role="menuitem"][aria-selected="true"] {
+    border-block-end-color: var(--nb-primary);
+  }
+
+  /* Disabled item */
+  .nb-menu-item:disabled,
+  .nb-menu-item-disabled,
+  .nb-menu [role="menuitem"]:disabled,
+  .nb-menu [role="menuitem"].nb-menu-item-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Submenu trigger indicator */
+  .nb-menu-submenu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    inline-size: 100%;
+  }
+
+  .nb-menu-submenu-trigger::after {
+    content: "▸";
+    font-size: var(--nb-text-xs);
+    margin-inline-start: var(--nb-space-2);
+    opacity: 0.7;
+  }
+
+  .nb-menu-horizontal .nb-menu-submenu-trigger::after {
+    content: "▾";
+  }
+
+  /* Submenu panel */
+  .nb-menu-submenu {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: var(--nb-space-2) 0;
+    background: var(--nb-base-100);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    box-shadow: var(--nb-shadow-md);
+    min-inline-size: var(--nb-menu-min-width, 12rem);
+  }
+
+  .nb-menu-submenu.is-open {
+    display: flex;
+  }
+
+  /* Horizontal submenu positioning */
+  .nb-menu-horizontal .nb-menu-submenu {
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline-start: 0;
+    z-index: var(--nb-z-dropdown);
+  }
+
+  /* Nested submenu (flyout) */
+  .nb-menu-submenu .nb-menu-submenu {
+    inset-block-start: 0;
+    inset-inline-start: 100%;
+  }
+
+  /* Divider */
+  .nb-menu-divider,
+  .nb-menu [role="separator"] {
+    border-block-start: 1px solid var(--nb-border);
+    margin: var(--nb-space-1) 0;
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Group label */
+  .nb-menu-group-label,
+  .nb-menu [role="group"] > [aria-label]::before {
+    display: block;
+    padding: var(--nb-space-2) var(--nb-space-4);
+    font-size: var(--nb-text-xs);
+    font-weight: 700;
+    line-height: var(--nb-leading-normal);
+    text-transform: uppercase;
+    color: var(--nb-base-content-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* Collapsed mode (mobile / minimal) */
+  .nb-menu-collapsed .nb-menu-item,
+  .nb-menu-collapsed [role="menuitem"] {
+    padding: var(--nb-space-3) var(--nb-space-4);
+    border-block-end: 1px solid var(--nb-border);
+  }
+
+  .nb-menu-collapsed .nb-menu-item:last-child,
+  .nb-menu-collapsed [role="menuitem"]:last-child {
+    border-block-end: none;
+  }
+
+  /* Responsive: mobile < 768px */
+  @media (max-width: 768px) {
+    .nb-menu:not(.nb-menu-horizontal) {
+      min-inline-size: 100%;
+    }
+
+    .nb-menu-horizontal.nb-menu-responsive {
+      flex-direction: column;
+      border: var(--nb-border-width) solid var(--nb-border);
+      box-shadow: var(--nb-shadow-md);
+      background: var(--nb-base-100);
+      min-inline-size: 100%;
+    }
+
+    .nb-menu-horizontal.nb-menu-responsive .nb-menu-item,
+    .nb-menu-horizontal.nb-menu-responsive [role="menuitem"] {
+      border-block-end: 1px solid var(--nb-border);
+      border-block-end-color: var(--nb-border);
+    }
+
+    .nb-menu-horizontal.nb-menu-responsive .nb-menu-submenu {
+      position: static;
+      border: none;
+      box-shadow: none;
+      padding-inline-start: var(--nb-space-4);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-menu-item,
+    .nb-menu [role="menuitem"] {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-menu,
+    .nb-menu[role="menubar"],
+    .nb-menu[role="menu"] {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-menu-horizontal {
+      border: none;
+    }
+
+    .nb-menu-submenu {
+      border: 2px solid CanvasText;
+    }
+
+    .nb-menu-divider,
+    .nb-menu [role="separator"] {
+      border-block-start-color: CanvasText;
+    }
+
+    .nb-menu-item:focus-visible,
+    .nb-menu [role="menuitem"]:focus-visible {
+      outline: 2px solid Highlight;
+    }
+
+    .nb-menu-horizontal .nb-menu-item-active,
+    .nb-menu-horizontal [role="menuitem"][aria-selected="true"] {
+      border-block-end-color: Highlight;
+    }
+  }
+}

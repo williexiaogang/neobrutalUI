@@ -1,0 +1,238 @@
+/**
+ * Neo-Brutal UI — List Component
+ *
+ * Structured lists with numbered, bulleted, striped, inline,
+ * bordered, and divided variants. Supports color accents and size modifiers.
+ * Reduced-motion and forced-colors support.
+ */
+
+@layer nb.components {
+  /* ------------------------------------------------------------------------
+   * List container
+   * ------------------------------------------------------------------------ */
+  .nb-list,
+  .nb-list[role="list"] {
+    --_list-accent: var(--nb-neutral);
+    --_list-bg: var(--nb-base-100);
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: var(--_list-bg);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    box-shadow: var(--nb-list-shadow, var(--nb-shadow-sm));
+    overflow: hidden;
+  }
+
+  /* ------------------------------------------------------------------------
+   * List item
+   * ------------------------------------------------------------------------ */
+  .nb-list-item,
+  .nb-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-3);
+    padding: var(--nb-list-item-padding, var(--nb-space-3)) var(--nb-space-4);
+    border-block-end: 1px solid var(--nb-border);
+    font-size: var(--nb-text-base);
+    line-height: var(--nb-leading-normal);
+    color: var(--nb-base-content);
+    transition: background var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-list-item:last-child,
+  .nb-list li:last-child {
+    border-block-end: none;
+  }
+
+  .nb-list-item:hover,
+  .nb-list li:hover {
+    background: var(--nb-base-200);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Numbered variant — brutalist counter markers
+   * ------------------------------------------------------------------------ */
+  .nb-list-numbered,
+  .nb-list[role="list"].nb-list-numbered {
+    counter-reset: list-counter;
+  }
+
+  .nb-list-numbered .nb-list-item::before,
+  .nb-list-numbered li::before {
+    counter-increment: list-counter;
+    content: counter(list-counter);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: var(--nb-list-marker-size, 1.5rem);
+    min-block-size: var(--nb-list-marker-size, 1.5rem);
+    padding: 0 var(--nb-space-1);
+    background: var(--_list-accent);
+    color: var(--nb-base-100);
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    border: var(--nb-border-width) solid var(--nb-border);
+    box-shadow: var(--nb-shadow-xs);
+    flex-shrink: 0;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Bulleted variant — square brutalist markers
+   * ------------------------------------------------------------------------ */
+  .nb-list-bulleted .nb-list-item::before,
+  .nb-list-bulleted li::before {
+    content: "";
+    display: inline-block;
+    inline-size: 0.625rem;
+    block-size: 0.625rem;
+    background: var(--_list-accent);
+    border: var(--nb-border-width) solid var(--nb-border);
+    box-shadow: var(--nb-shadow-xs);
+    flex-shrink: 0;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Striped variant
+   * ------------------------------------------------------------------------ */
+  .nb-list-striped .nb-list-item:nth-child(odd),
+  .nb-list-striped li:nth-child(odd) {
+    background: var(--nb-base-200);
+  }
+
+  .nb-list-striped .nb-list-item:hover,
+  .nb-list-striped li:hover {
+    background: var(--nb-base-300);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Divided variant — thick separators
+   * ------------------------------------------------------------------------ */
+  .nb-list-divided .nb-list-item,
+  .nb-list-divided li {
+    border-block-end-width: var(--nb-border-width);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Bordered variant — individual item cards
+   * ------------------------------------------------------------------------ */
+  .nb-list-bordered .nb-list-item,
+  .nb-list-bordered li {
+    border: var(--nb-border-width) solid var(--nb-border);
+    margin-block-end: var(--nb-space-2);
+    box-shadow: var(--nb-shadow-xs);
+  }
+
+  .nb-list-bordered .nb-list-item:last-child,
+  .nb-list-bordered li:last-child {
+    margin-block-end: 0;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Inline variant — horizontal chips
+   * ------------------------------------------------------------------------ */
+  .nb-list-inline,
+  .nb-list-inline[role="list"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nb-space-2);
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .nb-list-inline .nb-list-item,
+  .nb-list-inline li {
+    display: inline-flex;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    box-shadow: var(--nb-shadow-xs);
+    padding: var(--nb-space-1) var(--nb-space-3);
+    border-block-end: var(--nb-border-width) solid var(--nb-border);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-list-inline .nb-list-item:hover,
+  .nb-list-inline li:hover {
+    background: var(--nb-base-100);
+    transform: translate(-1px, -1px);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Compact variant
+   * ------------------------------------------------------------------------ */
+  .nb-list-compact .nb-list-item,
+  .nb-list-compact li {
+    padding: var(--nb-space-1) var(--nb-space-2);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Size variants
+   * ------------------------------------------------------------------------ */
+  .nb-list-sm .nb-list-item,
+  .nb-list-sm li {
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-list-lg .nb-list-item,
+  .nb-list-lg li {
+    font-size: var(--nb-text-lg);
+    padding: var(--nb-space-4) var(--nb-space-5);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Color variants — accent marker color
+   * ------------------------------------------------------------------------ */
+  .nb-list-primary   { --_list-accent: var(--nb-primary); }
+  .nb-list-secondary { --_list-accent: var(--nb-secondary); }
+  .nb-list-accent    { --_list-accent: var(--nb-accent); }
+  .nb-list-info      { --_list-accent: var(--nb-info); }
+  .nb-list-success   { --_list-accent: var(--nb-success); }
+  .nb-list-warning   { --_list-accent: var(--nb-warning); }
+  .nb-list-error     { --_list-accent: var(--nb-error); }
+  .nb-list-neutral   { --_list-accent: var(--nb-neutral); }
+
+  /* ------------------------------------------------------------------------
+   * Reduced motion
+   * ------------------------------------------------------------------------ */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-list-item,
+    .nb-list li,
+    .nb-list-inline .nb-list-item,
+    .nb-list-inline li {
+      transition: none;
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+   * Forced colors
+   * ------------------------------------------------------------------------ */
+  @media (forced-colors: active) {
+    .nb-list,
+    .nb-list[role="list"] {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-list-item,
+    .nb-list li {
+      border-block-end-color: CanvasText;
+    }
+
+    .nb-list-numbered .nb-list-item::before,
+    .nb-list-numbered li::before,
+    .nb-list-bulleted .nb-list-item::before,
+    .nb-list-bulleted li::before {
+      border: 2px solid CanvasText;
+    }
+
+    .nb-list-inline .nb-list-item,
+    .nb-list-inline li {
+      border: 2px solid CanvasText;
+    }
+  }
+}

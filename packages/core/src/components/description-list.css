@@ -1,0 +1,231 @@
+/**
+ * Neo-Brutal UI — Description List Component
+ *
+ * Key-value pairs (term/description) with horizontal, bordered,
+ * divided, and compact variants. Supports color accents and size modifiers.
+ * Reduced-motion and forced-colors support.
+ */
+
+@layer nb.components {
+  /* ------------------------------------------------------------------------
+   * Description list container
+   * ------------------------------------------------------------------------ */
+  .nb-description-list,
+  .nb-description-list[role="list"] {
+    --_dl-accent: var(--nb-neutral);
+    --_dl-bg: var(--nb-base-100);
+
+    margin: 0;
+    padding: 0;
+    background: var(--_dl-bg);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    box-shadow: var(--nb-description-list-shadow, var(--nb-shadow-sm));
+    overflow: hidden;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Description list term
+   * ------------------------------------------------------------------------ */
+  .nb-description-list-term,
+  .nb-description-list dt {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-3) var(--nb-space-4) 0;
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--_dl-accent);
+    line-height: var(--nb-leading-tight);
+  }
+
+  .nb-description-list-term::before,
+  .nb-description-list dt::before {
+    content: "";
+    display: inline-block;
+    inline-size: var(--nb-description-list-term-marker-size, 0.5rem);
+    block-size: var(--nb-description-list-term-marker-size, 0.5rem);
+    background: var(--_dl-accent);
+    border: var(--nb-border-width) solid var(--nb-border);
+    box-shadow: var(--nb-shadow-xs);
+    flex-shrink: 0;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Description list description
+   * ------------------------------------------------------------------------ */
+  .nb-description-list-description,
+  .nb-description-list dd {
+    margin: 0;
+    padding: 0 var(--nb-space-4) var(--nb-space-3);
+    font-size: var(--nb-text-base);
+    line-height: var(--nb-leading-normal);
+    color: var(--nb-base-content);
+    border-block-end: 1px solid var(--nb-border);
+  }
+
+  .nb-description-list-description:last-child,
+  .nb-description-list dd:last-of-type {
+    border-block-end: none;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Horizontal variant — grid layout
+   * ------------------------------------------------------------------------ */
+  .nb-description-list-horizontal,
+  .nb-description-list-horizontal[role="list"] {
+    display: grid;
+    grid-template-columns: minmax(8rem, 1fr) 2fr;
+    gap: 0;
+  }
+
+  .nb-description-list-horizontal .nb-description-list-term,
+  .nb-description-list-horizontal dt {
+    padding: var(--nb-space-3) var(--nb-space-4);
+    border-block-end: 1px solid var(--nb-border);
+    border-inline-end: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-200);
+  }
+
+  .nb-description-list-horizontal .nb-description-list-description,
+  .nb-description-list-horizontal dd {
+    padding: var(--nb-space-3) var(--nb-space-4);
+    border-block-end: 1px solid var(--nb-border);
+    display: flex;
+    align-items: center;
+  }
+
+  .nb-description-list-horizontal .nb-description-list-term:last-of-type,
+  .nb-description-list-horizontal dt:last-of-type {
+    border-block-end: none;
+  }
+
+  .nb-description-list-horizontal .nb-description-list-description:last-child,
+  .nb-description-list-horizontal dd:last-of-type {
+    border-block-end: none;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Bordered variant — individual cards
+   * ------------------------------------------------------------------------ */
+  .nb-description-list-bordered .nb-description-list-term,
+  .nb-description-list-bordered dt,
+  .nb-description-list-bordered .nb-description-list-description,
+  .nb-description-list-bordered dd {
+    border: var(--nb-border-width) solid var(--nb-border);
+    margin-block-end: var(--nb-space-2);
+  }
+
+  .nb-description-list-bordered .nb-description-list-term:last-of-type,
+  .nb-description-list-bordered dt:last-of-type,
+  .nb-description-list-bordered .nb-description-list-description:last-child,
+  .nb-description-list-bordered dd:last-of-type {
+    margin-block-end: 0;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Divided variant — thick separators
+   * ------------------------------------------------------------------------ */
+  .nb-description-list-divided .nb-description-list-term,
+  .nb-description-list-divided dt,
+  .nb-description-list-divided .nb-description-list-description,
+  .nb-description-list-divided dd {
+    border-block-end-width: var(--nb-border-width);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Compact variant
+   * ------------------------------------------------------------------------ */
+  .nb-description-list-compact .nb-description-list-term,
+  .nb-description-list-compact dt {
+    padding: var(--nb-space-1) var(--nb-space-2) 0;
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-description-list-compact .nb-description-list-description,
+  .nb-description-list-compact dd {
+    padding: 0 var(--nb-space-2) var(--nb-space-1);
+    font-size: var(--nb-text-sm);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Size variants
+   * ------------------------------------------------------------------------ */
+  .nb-description-list-sm .nb-description-list-term,
+  .nb-description-list-sm dt {
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-description-list-sm .nb-description-list-description,
+  .nb-description-list-sm dd {
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-description-list-lg .nb-description-list-term,
+  .nb-description-list-lg dt {
+    font-size: var(--nb-text-base);
+    padding: var(--nb-space-4) var(--nb-space-5) 0;
+  }
+
+  .nb-description-list-lg .nb-description-list-description,
+  .nb-description-list-lg dd {
+    font-size: var(--nb-text-lg);
+    padding: 0 var(--nb-space-5) var(--nb-space-4);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Color variants — accent term color
+   * ------------------------------------------------------------------------ */
+  .nb-description-list-primary   { --_dl-accent: var(--nb-primary); }
+  .nb-description-list-secondary { --_dl-accent: var(--nb-secondary); }
+  .nb-description-list-accent    { --_dl-accent: var(--nb-accent); }
+  .nb-description-list-info      { --_dl-accent: var(--nb-info); }
+  .nb-description-list-success   { --_dl-accent: var(--nb-success); }
+  .nb-description-list-warning   { --_dl-accent: var(--nb-warning); }
+  .nb-description-list-error     { --_dl-accent: var(--nb-error); }
+  .nb-description-list-neutral   { --_dl-accent: var(--nb-neutral); }
+
+  /* ------------------------------------------------------------------------
+   * Reduced motion
+   * ------------------------------------------------------------------------ */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-description-list-term,
+    .nb-description-list dt {
+      transition: none;
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+   * Forced colors
+   * ------------------------------------------------------------------------ */
+  @media (forced-colors: active) {
+    .nb-description-list,
+    .nb-description-list[role="list"] {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-description-list-term::before,
+    .nb-description-list dt::before {
+      border: 2px solid CanvasText;
+    }
+
+    .nb-description-list-description,
+    .nb-description-list dd {
+      border-block-end-color: CanvasText;
+    }
+
+    .nb-description-list-horizontal .nb-description-list-term,
+    .nb-description-list-horizontal dt {
+      border-inline-end-color: CanvasText;
+      border-block-end-color: CanvasText;
+    }
+
+    .nb-description-list-horizontal .nb-description-list-description,
+    .nb-description-list-horizontal dd {
+      border-block-end-color: CanvasText;
+    }
+  }
+}

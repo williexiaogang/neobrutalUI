@@ -23,39 +23,60 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs"
     },
-    "./dialog": {
-      "import": "./dist/dialog.js",
-      "types": "./dist/dialog.d.ts"
-    },
-    "./tabs": {
-      "import": "./dist/tabs.js",
-      "types": "./dist/tabs.d.ts"
-    },
-    "./dropdown": {
-      "import": "./dist/dropdown.js",
-      "types": "./dist/dropdown.d.ts"
-    },
-    "./drawer": {
-      "import": "./dist/drawer.js",
-      "types": "./dist/drawer.d.ts"
-    },
-    "./tooltip": {
-      "import": "./dist/tooltip.js",
-      "types": "./dist/tooltip.d.ts"
-    },
-    "./toast": {
-      "import": "./dist/toast.js",
-      "types": "./dist/toast.d.ts"
+    "./accordion": {
+      "import": "./dist/accordion.js",
+      "types": "./dist/accordion.d.ts"
     },
     "./animations": {
       "import": "./dist/animations.js",
       "types": "./dist/animations.d.ts"
     },
+    "./carousel": {
+      "import": "./dist/carousel.js",
+      "types": "./dist/carousel.d.ts"
+    },
+    "./collapse": {
+      "import": "./dist/collapse.js",
+      "types": "./dist/collapse.d.ts"
+    },
+    "./dialog": {
+      "import": "./dist/dialog.js",
+      "types": "./dist/dialog.d.ts"
+    },
+    "./drawer": {
+      "import": "./dist/drawer.js",
+      "types": "./dist/drawer.d.ts"
+    },
+    "./dropdown": {
+      "import": "./dist/dropdown.js",
+      "types": "./dist/dropdown.d.ts"
+    },
     "./factory": {
       "import": "./dist/factory.js",
       "types": "./dist/factory.d.ts"
+    },
+    "./menu": {
+      "import": "./dist/menu.js",
+      "types": "./dist/menu.d.ts"
+    },
+    "./rating": {
+      "import": "./dist/rating.js",
+      "types": "./dist/rating.d.ts"
+    },
+    "./tabs": {
+      "import": "./dist/tabs.js",
+      "types": "./dist/tabs.d.ts"
+    },
+    "./toast": {
+      "import": "./dist/toast.js",
+      "types": "./dist/toast.d.ts"
+    },
+    "./tooltip": {
+      "import": "./dist/tooltip.js",
+      "types": "./dist/tooltip.d.ts"
     },
     "./types": {
       "import": "./dist/types.js",
@@ -64,9 +85,14 @@
   },
   "files": [
     "dist/**/*.js",
+    "dist/**/*.cjs",
     "dist/**/*.d.ts",
     "README.md"
   ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">= 20.0.0"
+  },
   "scripts": {
     "build": "node ../../scripts/build-package.mjs interactions",
     "lint": "node ../../node_modules/typescript/bin/tsc --noEmit",

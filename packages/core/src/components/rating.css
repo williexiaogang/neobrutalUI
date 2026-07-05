@@ -1,0 +1,184 @@
+/**
+ * Neo-Brutal UI — Rating Component
+ *
+ * Star or icon-based value display and selection.
+ * Supports read-only, interactive, half-step, and size variants.
+ */
+
+@layer nb.components {
+  /* ========================================================================
+     Container
+     ======================================================================== */
+  .nb-rating {
+    --_star-color: var(--nb-warning);
+    --_star-empty: var(--nb-base-300);
+    --_star-size: 1.5rem;
+    --_star-gap: var(--nb-space-1);
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--_star-gap);
+    line-height: var(--nb-leading-none);
+  }
+
+  /* ========================================================================
+     Star / icon item
+     ======================================================================== */
+  .nb-rating-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_star-size);
+    block-size: var(--_star-size);
+    color: var(--_star-empty);
+    font-size: var(--_star-size);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      color var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-rating-item svg,
+  .nb-rating-item img {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  /* ========================================================================
+     Filled state
+     ======================================================================== */
+  .nb-rating-item-filled {
+    color: var(--_star-color);
+  }
+
+  /* ========================================================================
+     Half-filled state (clip gradient)
+     ======================================================================== */
+  .nb-rating-item-half {
+    color: var(--_star-empty);
+  }
+
+  .nb-rating-item-half::before {
+    content: "★";
+    position: absolute;
+    inset: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--_star-color);
+    clip-path: inset(0 50% 0 0);
+    overflow: hidden;
+  }
+
+  /* ========================================================================
+     Interactive hover
+     ======================================================================== */
+  .nb-rating-interactive .nb-rating-item {
+    cursor: pointer;
+  }
+
+  .nb-rating-interactive:hover .nb-rating-item {
+    color: var(--_star-empty);
+  }
+
+  .nb-rating-interactive .nb-rating-item:hover,
+  .nb-rating-interactive .nb-rating-item:hover ~ .nb-rating-item {
+    color: var(--_star-color);
+  }
+
+  .nb-rating-interactive .nb-rating-item:hover {
+    transform: scale(1.15);
+  }
+
+  .nb-rating-interactive .nb-rating-item:active {
+    transform: scale(0.95);
+  }
+
+  /* ========================================================================
+     Read-only
+     ======================================================================== */
+  .nb-rating-readonly .nb-rating-item {
+    cursor: default;
+  }
+
+  /* ========================================================================
+     Color variants
+     ======================================================================== */
+  .nb-rating-primary   { --_star-color: var(--nb-primary); }
+  .nb-rating-secondary { --_star-color: var(--nb-secondary); }
+  .nb-rating-accent    { --_star-color: var(--nb-accent); }
+  .nb-rating-info      { --_star-color: var(--nb-info); }
+  .nb-rating-success   { --_star-color: var(--nb-success); }
+  .nb-rating-warning   { --_star-color: var(--nb-warning); }
+  .nb-rating-error     { --_star-color: var(--nb-error); }
+  .nb-rating-neutral   { --_star-color: var(--nb-neutral); }
+
+  /* ========================================================================
+     Size variants
+     ======================================================================== */
+  .nb-rating-sm {
+    --_star-size: 1rem;
+    --_star-gap: var(--nb-space-1);
+  }
+
+  .nb-rating-lg {
+    --_star-size: 2rem;
+    --_star-gap: var(--nb-space-2);
+  }
+
+  .nb-rating-xl {
+    --_star-size: 2.5rem;
+    --_star-gap: var(--nb-space-2);
+  }
+
+  /* ========================================================================
+     Numeric caption
+     ======================================================================== */
+  .nb-rating-caption {
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    color: var(--nb-base-content-muted);
+    margin-inline-start: var(--nb-space-2);
+  }
+
+  .nb-rating-lg ~ .nb-rating-caption,
+  .nb-rating-xl ~ .nb-rating-caption {
+    font-size: var(--nb-text-base);
+  }
+
+  /* ========================================================================
+     Focus visible (interactive items)
+     ======================================================================== */
+  .nb-rating-interactive .nb-rating-item:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+    border-radius: var(--nb-radius-box);
+  }
+
+  /* ========================================================================
+     Reduced motion
+     ======================================================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-rating-item {
+      transition: none;
+    }
+  }
+
+  /* ========================================================================
+     Forced colors
+     ======================================================================== */
+  @media (forced-colors: active) {
+    .nb-rating-item {
+      forced-color-adjust: none;
+      color: GrayText;
+    }
+
+    .nb-rating-item-filled,
+    .nb-rating-item-half::before {
+      color: Highlight;
+    }
+
+    .nb-rating-interactive .nb-rating-item:hover {
+      color: Highlight;
+    }
+  }
+}

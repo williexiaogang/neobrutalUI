@@ -1,0 +1,364 @@
+/**
+ * Neo-Brutal UI — Carousel Component
+ *
+ * Scrollable content carousel with brutalist shadows, hard-edge navigation
+ * buttons, and dot indicators. CSS-only scrolling with optional JS enhancement
+ * for smooth transitions, keyboard navigation, and auto-play.
+ */
+
+@layer nb.components {
+  /* ------------------------------------------------------------------------
+   * Root container
+   * ------------------------------------------------------------------------ */
+  .nb-carousel {
+    --_shadow: var(--nb-carousel-shadow, var(--nb-shadow-md));
+    --_nav-size: var(--nb-carousel-nav-size, 2.5rem);
+    --_dot-size: var(--nb-carousel-dot-size, 0.75rem);
+    --_gap: var(--nb-carousel-gap, var(--nb-space-4));
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-3);
+    inline-size: 100%;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Track / viewport
+   * ------------------------------------------------------------------------ */
+  .nb-carousel-viewport {
+    position: relative;
+    overflow: hidden;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    box-shadow: var(--_shadow);
+  }
+
+  .nb-carousel-track {
+    display: flex;
+    gap: var(--_gap);
+    inline-size: 100%;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+
+  .nb-carousel-track::-webkit-scrollbar {
+    display: none; /* Chrome / Safari / Edge */
+  }
+
+  /* Reduced motion: disable smooth scroll */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-carousel-track {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+   * Slides
+   * ------------------------------------------------------------------------ */
+  .nb-carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-block-size: var(--nb-carousel-slide-min-height, 12rem);
+    padding: var(--nb-carousel-slide-padding, var(--nb-space-6));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nb-carousel-slide img,
+  .nb-carousel-slide picture {
+    max-inline-size: 100%;
+    block-size: auto;
+    object-fit: cover;
+  }
+
+  /* Multiple slides visible */
+  .nb-carousel-show-2 .nb-carousel-slide {
+    flex: 0 0 calc(50% - var(--_gap) / 2);
+  }
+
+  .nb-carousel-show-3 .nb-carousel-slide {
+    flex: 0 0 calc(33.333% - var(--_gap) * 2 / 3);
+  }
+
+  .nb-carousel-show-4 .nb-carousel-slide {
+    flex: 0 0 calc(25% - var(--_gap) * 3 / 4);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Navigation arrows
+   * ------------------------------------------------------------------------ */
+  .nb-carousel-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_nav-size);
+    block-size: var(--_nav-size);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-base-100);
+    color: var(--nb-base-content);
+    font-family: inherit;
+    font-size: var(--nb-text-lg);
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: var(--nb-shadow-sm);
+    transform: translate(0, 0);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-carousel-nav {
+      transition: none;
+    }
+  }
+
+  .nb-carousel-nav:hover:not(:disabled) {
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(-1px, -1px);
+  }
+
+  .nb-carousel-nav:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  .nb-carousel-nav:active:not(:disabled) {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(1px, 1px);
+  }
+
+  .nb-carousel-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: translate(1px, 1px);
+  }
+
+  /* Positioned arrows (overlay mode) */
+  .nb-carousel-nav-overlay .nb-carousel-nav {
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .nb-carousel-nav-overlay .nb-carousel-nav-prev {
+    inset-inline-start: var(--nb-space-3);
+  }
+
+  .nb-carousel-nav-overlay .nb-carousel-nav-next {
+    inset-inline-end: var(--nb-space-3);
+  }
+
+  .nb-carousel-nav-overlay .nb-carousel-nav:hover:not(:disabled) {
+    transform: translateY(-50%) translate(-1px, -1px);
+  }
+
+  .nb-carousel-nav-overlay .nb-carousel-nav:active:not(:disabled) {
+    transform: translateY(-50%) translate(1px, 1px);
+  }
+
+  .nb-carousel-nav-overlay .nb-carousel-nav:disabled {
+    transform: translateY(-50%) translate(1px, 1px);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Dot indicators
+   * ------------------------------------------------------------------------ */
+  .nb-carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--nb-space-2);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .nb-carousel-dot {
+    inline-size: var(--_dot-size);
+    block-size: var(--_dot-size);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: 9999px;
+    background: var(--nb-base-300);
+    cursor: pointer;
+    padding: 0;
+    transition: background var(--nb-duration-fast) var(--nb-ease-out),
+      transform var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-carousel-dot {
+      transition: none;
+    }
+  }
+
+  .nb-carousel-dot:hover {
+    background: var(--nb-base-content-muted);
+    transform: scale(1.15);
+  }
+
+  .nb-carousel-dot:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  .nb-carousel-dot-active {
+    background: var(--nb-primary);
+    border-color: var(--nb-base-content);
+    transform: scale(1.25);
+  }
+
+  .nb-carousel-dot-active:hover {
+    background: var(--nb-primary);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Caption / content area below slides
+   * ------------------------------------------------------------------------ */
+  .nb-carousel-caption {
+    padding: var(--nb-space-3) var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-200);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-carousel-caption-title {
+    margin: 0 0 var(--nb-space-1);
+    font-size: var(--nb-text-base);
+    font-weight: 700;
+  }
+
+  .nb-carousel-caption-body {
+    margin: 0;
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content-muted);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Color variants (accent borders)
+   * ------------------------------------------------------------------------ */
+  .nb-carousel-primary .nb-carousel-viewport {
+    border-color: var(--nb-primary);
+  }
+
+  .nb-carousel-secondary .nb-carousel-viewport {
+    border-color: var(--nb-secondary);
+  }
+
+  .nb-carousel-accent .nb-carousel-viewport {
+    border-color: var(--nb-accent);
+  }
+
+  .nb-carousel-info .nb-carousel-viewport {
+    border-color: var(--nb-info);
+  }
+
+  .nb-carousel-success .nb-carousel-viewport {
+    border-color: var(--nb-success);
+  }
+
+  .nb-carousel-warning .nb-carousel-viewport {
+    border-color: var(--nb-warning);
+  }
+
+  .nb-carousel-error .nb-carousel-viewport {
+    border-color: var(--nb-error);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Size variants
+   * ------------------------------------------------------------------------ */
+  .nb-carousel-sm .nb-carousel-slide {
+    min-block-size: 8rem;
+    padding: var(--nb-space-4);
+  }
+
+  .nb-carousel-sm .nb-carousel-nav {
+    --_nav-size: 2rem;
+    font-size: var(--nb-text-base);
+  }
+
+  .nb-carousel-lg .nb-carousel-slide {
+    min-block-size: 16rem;
+    padding: var(--nb-space-8);
+  }
+
+  .nb-carousel-lg .nb-carousel-nav {
+    --_nav-size: 3rem;
+    font-size: var(--nb-text-xl);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Vertical orientation
+   * ------------------------------------------------------------------------ */
+  .nb-carousel-vertical .nb-carousel-track {
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .nb-carousel-vertical .nb-carousel-slide {
+    flex: 0 0 100%;
+    inline-size: 100%;
+  }
+
+  .nb-carousel-vertical .nb-carousel-nav-overlay .nb-carousel-nav {
+    inset-block-start: auto;
+    inset-inline-start: auto;
+    inset-inline-end: var(--nb-space-3);
+    transform: translateX(0);
+  }
+
+  .nb-carousel-vertical .nb-carousel-nav-overlay .nb-carousel-nav-prev {
+    inset-block-start: var(--nb-space-3);
+  }
+
+  .nb-carousel-vertical .nb-carousel-nav-overlay .nb-carousel-nav-next {
+    inset-block-end: var(--nb-space-3);
+  }
+
+  .nb-carousel-vertical .nb-carousel-nav-overlay .nb-carousel-nav:hover:not(:disabled) {
+    transform: translate(-1px, -1px);
+  }
+
+  .nb-carousel-vertical .nb-carousel-nav-overlay .nb-carousel-nav:active:not(:disabled) {
+    transform: translate(1px, 1px);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Forced colors
+   * ------------------------------------------------------------------------ */
+  @media (forced-colors: active) {
+    .nb-carousel-viewport,
+    .nb-carousel-nav,
+    .nb-carousel-dot,
+    .nb-carousel-caption {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-carousel-nav:disabled {
+      border-color: GrayText;
+    }
+
+    .nb-carousel-dot-active {
+      background: Highlight;
+      border-color: ButtonText;
+    }
+  }
+}

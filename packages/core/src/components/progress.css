@@ -1,0 +1,247 @@
+/**
+ * Neo-Brutal UI — Progress Component
+ *
+ * Linear and circular progress indicators with color variants,
+ * size modifiers, indeterminate animation, and striped fill.
+ */
+
+@layer nb.components {
+  /* ── Linear progress ── */
+  .nb-progress {
+    --_track-bg: var(--nb-base-200);
+    --_fill-bg: var(--nb-primary);
+    --_stripes: var(--nb-base-100);
+    --_height: 0.75rem;
+
+    display: block;
+    inline-size: 100%;
+    block-size: var(--_height);
+    overflow: hidden;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--_track-bg);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-progress::-webkit-progress-bar {
+    background: var(--_track-bg);
+  }
+
+  .nb-progress::-webkit-progress-value {
+    background: var(--_fill-bg);
+    transition: inline-size var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-progress::-moz-progress-bar {
+    background: var(--_fill-bg);
+    transition: inline-size var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  /* Native progress element polyfill for indeterminate */
+  .nb-progress:indeterminate::-webkit-progress-value {
+    background: var(--_fill-bg);
+  }
+
+  .nb-progress:indeterminate::-moz-progress-bar {
+    background: var(--_fill-bg);
+  }
+
+  /* Custom linear track + fill (div-based) */
+  .nb-progress-track {
+    display: flex;
+    inline-size: 100%;
+    block-size: var(--_height);
+    overflow: hidden;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--_track-bg);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-progress-fill {
+    block-size: 100%;
+    background: var(--_fill-bg);
+    transition: inline-size var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  /* Indeterminate animation on div-based fill */
+  .nb-progress-indeterminate .nb-progress-fill {
+    inline-size: 30%;
+    animation: nb-progress-indeterminate 1.5s ease-in-out infinite;
+  }
+
+  @keyframes nb-progress-indeterminate {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(333%);
+    }
+  }
+
+  /* Striped fill */
+  .nb-progress-striped .nb-progress-fill {
+    background-image: linear-gradient(
+      45deg,
+      var(--_stripes) 25%,
+      transparent 25%,
+      transparent 50%,
+      var(--_stripes) 50%,
+      var(--_stripes) 75%,
+      transparent 75%,
+      transparent 100%
+    );
+    background-size: 1rem 1rem;
+    animation: nb-progress-stripes 1s linear infinite;
+  }
+
+  @keyframes nb-progress-stripes {
+    0% {
+      background-position: 1rem 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  /* ── Circular progress ── */
+  .nb-progress-circular {
+    --_size: 3rem;
+    --_stroke: 0.375rem;
+    --_track: var(--nb-base-200);
+    --_fill: var(--nb-primary);
+
+    display: inline-block;
+    inline-size: var(--_size);
+    block-size: var(--_size);
+  }
+
+  .nb-progress-circular svg {
+    inline-size: 100%;
+    block-size: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .nb-progress-circular-track {
+    fill: none;
+    stroke: var(--_track);
+    stroke-width: var(--_stroke);
+  }
+
+  .nb-progress-circular-fill {
+    fill: none;
+    stroke: var(--_fill);
+    stroke-width: var(--_stroke);
+    stroke-linecap: butt;
+    transition: stroke-dashoffset var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-progress-circular-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_size);
+    block-size: var(--_size);
+    font-size: var(--nb-text-xs);
+    font-weight: 700;
+  }
+
+  /* ── Color variants ── */
+  .nb-progress-success,
+  .nb-progress-track:has(.nb-progress-success) .nb-progress-fill,
+  .nb-progress-success .nb-progress-circular-fill {
+    --_fill-bg: var(--nb-success);
+    --_fill: var(--nb-success);
+  }
+
+  .nb-progress-warning,
+  .nb-progress-track:has(.nb-progress-warning) .nb-progress-fill,
+  .nb-progress-warning .nb-progress-circular-fill {
+    --_fill-bg: var(--nb-warning);
+    --_fill: var(--nb-warning);
+  }
+
+  .nb-progress-error,
+  .nb-progress-track:has(.nb-progress-error) .nb-progress-fill,
+  .nb-progress-error .nb-progress-circular-fill {
+    --_fill-bg: var(--nb-error);
+    --_fill: var(--nb-error);
+  }
+
+  .nb-progress-neutral,
+  .nb-progress-track:has(.nb-progress-neutral) .nb-progress-fill,
+  .nb-progress-neutral .nb-progress-circular-fill {
+    --_fill-bg: var(--nb-neutral);
+    --_fill: var(--nb-neutral);
+  }
+
+  .nb-progress-info,
+  .nb-progress-track:has(.nb-progress-info) .nb-progress-fill,
+  .nb-progress-info .nb-progress-circular-fill {
+    --_fill-bg: var(--nb-info);
+    --_fill: var(--nb-info);
+  }
+
+  /* ── Size variants ── */
+  .nb-progress-sm {
+    --_height: 0.5rem;
+  }
+
+  .nb-progress-sm .nb-progress-circular {
+    --_size: 2rem;
+    --_stroke: 0.25rem;
+  }
+
+  .nb-progress-lg {
+    --_height: 1.25rem;
+  }
+
+  .nb-progress-lg .nb-progress-circular {
+    --_size: 4rem;
+    --_stroke: 0.5rem;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-progress-fill,
+    .nb-progress::-webkit-progress-value,
+    .nb-progress::-moz-progress-bar {
+      transition: none;
+    }
+
+    .nb-progress-indeterminate .nb-progress-fill {
+      animation: none;
+    }
+
+    .nb-progress-striped .nb-progress-fill {
+      animation: none;
+    }
+
+    .nb-progress-circular-fill {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-progress,
+    .nb-progress-track {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-progress::-webkit-progress-value,
+    .nb-progress::-moz-progress-bar,
+    .nb-progress-fill {
+      background: Highlight;
+    }
+
+    .nb-progress-circular-track {
+      stroke: CanvasText;
+    }
+
+    .nb-progress-circular-fill {
+      stroke: Highlight;
+    }
+  }
+}

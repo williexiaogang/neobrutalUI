@@ -1,0 +1,149 @@
+/**
+ * Neo-Brutal UI — Skeleton Component
+ *
+ * Placeholder skeletons for loading states: text lines, circles, images,
+ * cards, and buttons. Supports pulse and wave animations with reduced-motion
+ * fallback.
+ */
+
+@layer nb.components {
+  .nb-skeleton {
+    display: block;
+    inline-size: 100%;
+    block-size: 1em;
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-skeleton-bg);
+    animation: nb-skeleton-pulse 1.5s ease-in-out infinite;
+  }
+
+  .nb-skeleton-wave {
+    background: linear-gradient(
+      90deg,
+      var(--nb-skeleton-bg) 25%,
+      var(--nb-skeleton-shimmer) 50%,
+      var(--nb-skeleton-bg) 75%
+    );
+    background-size: 200% 100%;
+    animation: nb-skeleton-wave 1.5s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-skeleton,
+    .nb-skeleton-wave {
+      animation: none;
+      background: var(--nb-skeleton-bg);
+    }
+  }
+
+  @keyframes nb-skeleton-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes nb-skeleton-wave {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Shape variants */
+  .nb-skeleton-circle {
+    inline-size: var(--nb-skeleton-circle-size, 2.5rem);
+    block-size: var(--nb-skeleton-circle-size, 2.5rem);
+    border-radius: 50%;
+  }
+
+  .nb-skeleton-text {
+    block-size: var(--nb-skeleton-text-height, 1em);
+    border-radius: var(--nb-radius-field);
+  }
+
+  .nb-skeleton-image {
+    aspect-ratio: 16 / 9;
+    border-radius: var(--nb-radius-box);
+  }
+
+  .nb-skeleton-card {
+    block-size: 8rem;
+    border-radius: var(--nb-radius-box);
+    border: var(--nb-border-width) solid var(--nb-base-300);
+  }
+
+  .nb-skeleton-button {
+    inline-size: 6rem;
+    block-size: 2.5rem;
+    border-radius: var(--nb-radius-field);
+    border: var(--nb-border-width) solid var(--nb-base-300);
+  }
+
+  /* Size modifiers */
+  .nb-skeleton-xs {
+    block-size: 0.5rem;
+  }
+
+  .nb-skeleton-sm {
+    block-size: 0.75rem;
+  }
+
+  .nb-skeleton-md {
+    block-size: 1rem;
+  }
+
+  .nb-skeleton-lg {
+    block-size: 1.25rem;
+  }
+
+  .nb-skeleton-xl {
+    block-size: 1.5rem;
+  }
+
+  /* Text line multipliers */
+  .nb-skeleton-text-1 {
+    inline-size: 100%;
+  }
+
+  .nb-skeleton-text-2 {
+    inline-size: 75%;
+  }
+
+  .nb-skeleton-text-3 {
+    inline-size: 50%;
+  }
+
+  .nb-skeleton-text-4 {
+    inline-size: 25%;
+  }
+
+  /* Stacked skeleton group */
+  .nb-skeleton-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-2);
+    inline-size: 100%;
+  }
+
+  .nb-skeleton-group-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--nb-space-3);
+    inline-size: 100%;
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-skeleton,
+    .nb-skeleton-wave {
+      background: GrayText;
+      border-color: CanvasText;
+      forced-color-adjust: none;
+    }
+  }
+}

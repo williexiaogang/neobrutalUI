@@ -1,0 +1,270 @@
+/**
+ * Neo-Brutal UI — Date Picker Component
+ *
+ * Input trigger + dropdown panel containing a calendar, with footer actions,
+ * range mode, and size variants. Builds on the Calendar, Field, Dropdown, and
+ * Button components.
+ */
+
+@layer nb.components {
+  .nb-date-picker {
+    --_panel-width: 20rem;
+    --_panel-shadow: var(--nb-shadow-xl);
+    --_panel-bg: var(--nb-base-100);
+    --_accent: var(--nb-primary);
+
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    inline-size: fit-content;
+    font-family: inherit;
+  }
+
+  .nb-date-picker-input {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-2) var(--nb-space-3);
+    min-block-size: 2.5rem;
+    inline-size: 100%;
+    border: var(--nb-border-width) solid var(--nb-input-border-color, var(--nb-border));
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-base-100);
+    color: var(--nb-base-content);
+    font-size: var(--nb-text-base);
+    font-weight: 600;
+    font-family: inherit;
+    line-height: var(--nb-leading-none);
+    cursor: pointer;
+    box-shadow: var(--nb-input-shadow, var(--nb-shadow-sm));
+    transition: box-shadow var(--nb-duration-fast) var(--nb-ease-out),
+      border-color var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-date-picker-input:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  .nb-date-picker-input:hover:not(:disabled) {
+    box-shadow: var(--nb-input-shadow-focus, var(--nb-shadow-md));
+  }
+
+  .nb-date-picker-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .nb-date-picker-input-icon {
+    flex-shrink: 0;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-date-picker-input-placeholder {
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-date-picker-panel {
+    position: absolute;
+    inset-block-start: calc(100% + var(--nb-space-1));
+    inset-inline-start: 0;
+    z-index: 50;
+    display: none;
+    inline-size: var(--_panel-width);
+    padding: var(--nb-space-3);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_panel-bg);
+    box-shadow: var(--_panel-shadow);
+  }
+
+  .nb-date-picker-panel[data-open] {
+    display: block;
+  }
+
+  .nb-date-picker-panel .nb-calendar {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+
+  .nb-date-picker-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-2);
+    padding-block-start: var(--nb-space-2);
+    margin-block-start: var(--nb-space-2);
+    border-block-start: var(--nb-border-width) solid var(--nb-border);
+  }
+
+  .nb-date-picker-footer-actions {
+    display: flex;
+    gap: var(--nb-space-2);
+  }
+
+  .nb-date-picker-footer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--nb-space-1);
+    padding: var(--nb-space-1) var(--nb-space-3);
+    min-block-size: 2rem;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-base-100);
+    color: var(--nb-base-content);
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: var(--nb-shadow-sm);
+    transform: translate(0, 0);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-date-picker-footer-btn:hover:not(:disabled) {
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(-1px, -1px);
+  }
+
+  .nb-date-picker-footer-btn:active:not(:disabled) {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(1px, 1px);
+  }
+
+  .nb-date-picker-footer-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .nb-date-picker-footer-btn-primary {
+    background: var(--_accent);
+    color: var(--nb-primary-content);
+  }
+
+  /* Range mode: two calendars side by side */
+  .nb-date-picker-range {
+    --_panel-width: 40rem;
+  }
+
+  .nb-date-picker-range .nb-date-picker-calendars {
+    display: flex;
+    gap: var(--nb-space-2);
+  }
+
+  .nb-date-picker-range .nb-date-picker-calendars .nb-calendar {
+    flex: 1;
+  }
+
+  .nb-date-picker-range .nb-date-picker-calendars .nb-calendar + .nb-calendar {
+    border-inline-start: var(--nb-border-width) solid var(--nb-border);
+    padding-inline-start: var(--nb-space-2);
+  }
+
+  /* Inline variant: panel is always visible */
+  .nb-date-picker-inline .nb-date-picker-panel {
+    position: static;
+    display: block;
+    box-shadow: var(--nb-shadow-md);
+  }
+
+  .nb-date-picker-inline .nb-date-picker-input {
+    display: none;
+  }
+
+  /* Size variants */
+  .nb-date-picker-sm .nb-date-picker-input {
+    padding: var(--nb-space-1) var(--nb-space-2);
+    min-block-size: 2rem;
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-date-picker-sm .nb-date-picker-input-icon {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .nb-date-picker-lg .nb-date-picker-input {
+    padding: var(--nb-space-3) var(--nb-space-4);
+    min-block-size: 3rem;
+    font-size: var(--nb-text-lg);
+  }
+
+  .nb-date-picker-lg .nb-date-picker-input-icon {
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+  }
+
+  /* Color variants */
+  .nb-date-picker-primary {
+    --_accent: var(--nb-primary);
+  }
+
+  .nb-date-picker-secondary {
+    --_accent: var(--nb-secondary);
+  }
+
+  .nb-date-picker-accent {
+    --_accent: var(--nb-accent);
+  }
+
+  .nb-date-picker-neutral {
+    --_accent: var(--nb-neutral);
+  }
+
+  .nb-date-picker-info {
+    --_accent: var(--nb-info);
+  }
+
+  .nb-date-picker-success {
+    --_accent: var(--nb-success);
+  }
+
+  .nb-date-picker-warning {
+    --_accent: var(--nb-warning);
+  }
+
+  .nb-date-picker-error {
+    --_accent: var(--nb-error);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-date-picker-input,
+    .nb-date-picker-footer-btn {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-date-picker-input {
+      border: 2px solid ButtonText;
+      forced-color-adjust: none;
+    }
+
+    .nb-date-picker-panel {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-date-picker-footer {
+      border-color: CanvasText;
+    }
+
+    .nb-date-picker-footer-btn {
+      border: 2px solid ButtonText;
+    }
+
+    .nb-date-picker-footer-btn-primary {
+      background: Highlight;
+      color: HighlightText;
+      border-color: Highlight;
+    }
+  }
+}

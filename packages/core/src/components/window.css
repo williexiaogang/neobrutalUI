@@ -1,0 +1,211 @@
+/**
+ * Neo-Brutal UI — Window Mockup Component
+ *
+ * Brutalist application window frame with title bar, control buttons, and content area.
+ * Useful for showcasing desktop UIs, dialog previews, or IDE-style layouts.
+ */
+
+@layer nb.components {
+  .nb-window {
+    --_bg: var(--nb-base-100);
+    --_header-bg: var(--nb-base-200);
+    --_border: var(--nb-border);
+    --_shadow: var(--nb-shadow-md);
+
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_bg);
+    box-shadow: var(--_shadow);
+    overflow: hidden;
+  }
+
+  .nb-window-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-3) var(--nb-space-4);
+    border-block-end: var(--nb-border-width) solid var(--_border);
+    background: var(--_header-bg);
+    font-weight: 700;
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-window-title {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    overflow: hidden;
+  }
+
+  .nb-window-title-icon {
+    flex-shrink: 0;
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-window-title-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nb-window-controls {
+    display: flex;
+    gap: var(--nb-space-2);
+    flex-shrink: 0;
+  }
+
+  .nb-window-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-base-100);
+    cursor: pointer;
+    font-size: var(--nb-text-xs);
+    line-height: 1;
+    color: var(--nb-base-content);
+    box-shadow: var(--nb-shadow-xs);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-window-control:hover {
+    box-shadow: var(--nb-shadow-sm);
+    transform: translate(-1px, -1px);
+  }
+
+  .nb-window-control:active {
+    box-shadow: none;
+    transform: translate(1px, 1px);
+  }
+
+  .nb-window-control-minimize::before {
+    content: "−";
+  }
+
+  .nb-window-control-maximize::before {
+    content: "□";
+  }
+
+  .nb-window-control-close::before {
+    content: "×";
+  }
+
+  .nb-window-control-close {
+    background: var(--nb-error);
+    color: var(--nb-error-content, var(--nb-base-100));
+  }
+
+  .nb-window-body {
+    flex: 1;
+    padding: var(--nb-space-4);
+    overflow: auto;
+    min-block-size: 8rem;
+  }
+
+  .nb-window-body:empty::before {
+    content: "";
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      var(--nb-base-200) 0,
+      var(--nb-base-200) 0.75rem,
+      transparent 0.75rem,
+      transparent 1.5rem
+    );
+    opacity: 0.4;
+  }
+
+  .nb-window-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-2) var(--nb-space-4);
+    border-block-start: var(--nb-border-width) solid var(--_border);
+    background: var(--_header-bg);
+    font-size: var(--nb-text-xs);
+    color: var(--nb-base-content-muted);
+  }
+
+  /* Size variants */
+  .nb-window-sm {
+    max-inline-size: 20rem;
+  }
+
+  .nb-window-sm .nb-window-header {
+    padding: var(--nb-space-2) var(--nb-space-3);
+  }
+
+  .nb-window-sm .nb-window-body {
+    padding: var(--nb-space-3);
+    min-block-size: 6rem;
+  }
+
+  .nb-window-lg {
+    max-inline-size: 48rem;
+  }
+
+  .nb-window-lg .nb-window-body {
+    padding: var(--nb-space-6);
+    min-block-size: 12rem;
+  }
+
+  /* Color variants */
+  .nb-window-primary {
+    --_header-bg: var(--nb-primary);
+  }
+
+  .nb-window-secondary {
+    --_header-bg: var(--nb-secondary);
+  }
+
+  .nb-window-accent {
+    --_header-bg: var(--nb-accent);
+  }
+
+  .nb-window-neutral {
+    --_header-bg: var(--nb-neutral);
+  }
+
+  /* Dark content fill variant */
+  .nb-window-dark .nb-window-body {
+    background: var(--nb-base-300);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-window,
+    .nb-window-control {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-window {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-window-header,
+    .nb-window-footer {
+      border-color: CanvasText;
+    }
+
+    .nb-window-control {
+      forced-color-adjust: none;
+    }
+  }
+}

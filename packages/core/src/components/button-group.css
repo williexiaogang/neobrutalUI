@@ -1,0 +1,93 @@
+/**
+ * Neo-Brutal UI — Button Group Component
+ *
+ * Visually joined buttons with shared border and collective shadow.
+ */
+
+@layer nb.components {
+  .nb-btn-group {
+    display: inline-flex;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    box-shadow: var(--nb-btn-group-shadow, var(--nb-shadow-md));
+  }
+
+  .nb-btn-group .nb-btn {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      background var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-btn-group .nb-btn {
+      transition: none;
+    }
+  }
+
+  .nb-btn-group .nb-btn:not(:last-child) {
+    border-inline-end: var(--nb-border-width) solid var(--nb-border);
+  }
+
+  .nb-btn-group .nb-btn:hover:not(:disabled) {
+    box-shadow: none;
+    transform: translate(0, -1px);
+  }
+
+  .nb-btn-group .nb-btn:active:not(:disabled) {
+    box-shadow: none;
+    transform: translate(0, 1px);
+  }
+
+  .nb-btn-group .nb-btn:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: -2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .nb-btn-group .nb-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Vertical variant */
+  .nb-btn-group-vertical {
+    flex-direction: column;
+  }
+
+  .nb-btn-group-vertical .nb-btn:not(:last-child) {
+    border-inline-end: none;
+    border-block-end: var(--nb-border-width) solid var(--nb-border);
+  }
+
+  /* Full-width block group */
+  .nb-btn-group-block {
+    display: flex;
+    inline-size: 100%;
+  }
+
+  .nb-btn-group-block .nb-btn {
+    flex: 1 1 0%;
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-btn-group {
+      border: 2px solid ButtonText;
+      forced-color-adjust: none;
+    }
+
+    .nb-btn-group .nb-btn:not(:last-child) {
+      border-inline-end-color: ButtonText;
+    }
+
+    .nb-btn-group-vertical .nb-btn:not(:last-child) {
+      border-inline-end-color: transparent;
+      border-block-end-color: ButtonText;
+    }
+  }
+}

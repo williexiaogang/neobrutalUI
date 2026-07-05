@@ -1,0 +1,191 @@
+/**
+ * Neo-Brutal UI — Browser Mockup Component
+ *
+ * Brutalist browser frame with toolbar dots, address bar, and content area.
+ * Useful for showcasing web UIs, screenshots, or landing-page previews.
+ */
+
+@layer nb.components {
+  .nb-browser {
+    --_bg: var(--nb-base-100);
+    --_header-bg: var(--nb-base-200);
+    --_border: var(--nb-border);
+    --_shadow: var(--nb-shadow-md);
+
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_bg);
+    box-shadow: var(--_shadow);
+    overflow: hidden;
+  }
+
+  .nb-browser-header {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-3) var(--nb-space-4);
+    border-block-end: var(--nb-border-width) solid var(--_border);
+    background: var(--_header-bg);
+  }
+
+  .nb-browser-dots {
+    display: flex;
+    gap: var(--nb-space-2);
+    flex-shrink: 0;
+  }
+
+  .nb-browser-dot {
+    inline-size: 0.75rem;
+    block-size: 0.75rem;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: 9999px;
+    background: var(--nb-base-300);
+  }
+
+  .nb-browser-dot-red {
+    background: var(--nb-error);
+  }
+
+  .nb-browser-dot-yellow {
+    background: var(--nb-warning);
+  }
+
+  .nb-browser-dot-green {
+    background: var(--nb-success);
+  }
+
+  .nb-browser-address {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: var(--nb-space-1) var(--nb-space-3);
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-base-100);
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content-muted);
+    min-inline-size: 0;
+  }
+
+  .nb-browser-address-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nb-browser-toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-2) var(--nb-space-4);
+    border-block-end: var(--nb-border-width) solid var(--_border);
+    background: var(--_header-bg);
+  }
+
+  .nb-browser-body {
+    flex: 1;
+    padding: var(--nb-space-4);
+    overflow: auto;
+    min-block-size: 8rem;
+  }
+
+  .nb-browser-body:empty::before {
+    content: "";
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      var(--nb-base-200) 0,
+      var(--nb-base-200) 0.75rem,
+      transparent 0.75rem,
+      transparent 1.5rem
+    );
+    opacity: 0.4;
+  }
+
+  /* Size variants */
+  .nb-browser-sm {
+    max-inline-size: 20rem;
+  }
+
+  .nb-browser-sm .nb-browser-header {
+    padding: var(--nb-space-2) var(--nb-space-3);
+  }
+
+  .nb-browser-sm .nb-browser-dot {
+    inline-size: 0.5rem;
+    block-size: 0.5rem;
+  }
+
+  .nb-browser-sm .nb-browser-body {
+    padding: var(--nb-space-3);
+    min-block-size: 6rem;
+  }
+
+  .nb-browser-lg {
+    max-inline-size: 48rem;
+  }
+
+  .nb-browser-lg .nb-browser-body {
+    padding: var(--nb-space-6);
+    min-block-size: 12rem;
+  }
+
+  /* Color variants */
+  .nb-browser-primary {
+    --_header-bg: var(--nb-primary);
+  }
+
+  .nb-browser-primary .nb-browser-address {
+    background: var(--nb-base-100);
+  }
+
+  .nb-browser-secondary {
+    --_header-bg: var(--nb-secondary);
+  }
+
+  .nb-browser-secondary .nb-browser-address {
+    background: var(--nb-base-100);
+  }
+
+  .nb-browser-accent {
+    --_header-bg: var(--nb-accent);
+  }
+
+  .nb-browser-accent .nb-browser-address {
+    background: var(--nb-base-100);
+  }
+
+  /* Dark content fill variant */
+  .nb-browser-dark .nb-browser-body {
+    background: var(--nb-base-300);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-browser {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-browser {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-browser-header,
+    .nb-browser-toolbar {
+      border-color: CanvasText;
+    }
+
+    .nb-browser-dot {
+      forced-color-adjust: none;
+    }
+  }
+}

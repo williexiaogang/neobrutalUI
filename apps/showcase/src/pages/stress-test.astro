@@ -1,0 +1,270 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Section from "@components/layout/Section.astro";
+
+const pageTitle = "Content Stress Test · Neo-Brutal UI";
+const pageDescription =
+  "Stress-test Neo-Brutal UI components with long text, RTL scripts, German compound words, emoji, and unbreakable strings.";
+
+const longChinese =
+  "这是一段非常长的中文测试文本，用于验证组件在中文内容下的表现和布局是否正确，包括文本换行、容器扩展和整体可读性。Neo-Brutal UI 的设计哲学强调粗边框和硬阴影，因此长文本必须能够在这些视觉约束下正确呈现，不会溢出或被截断。";
+
+const arabicText =
+  "هذا نص عربي طويل جداً لاختبار دعم اللغات من اليمين إلى اليسار في واجهة المستخدم. يجب أن يكون التصميم مرناً بما يكفي لاستيعاب النصوص الطويلة دون أن تتأثر الجودة البصرية أو الوظيفية. Neo-Brutal UI يجب أن يدعم اللغات المتنوعة بشكل افتراضي.";
+
+const longGerman = "Donaudampfschifffahrtsgesellschaftskapitänsmützenhersteller";
+
+const emojiString = "🔥🚀💯✨🎉🌈🐱🍕🎮🌍🌟🎵🎨📸🎁🍀🎃🎄🎅🎆🎇";
+
+const unbreakableString =
+  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main id="main-content">
+    <Section id="stress-intro" ariaLabelledby="stress-title">
+      <h1 id="stress-title" class="nb-section-title" style="margin-block-start: var(--nb-space-8);">
+        Content Stress Test
+      </h1>
+      <p class="nb-section-lead">
+        This page pushes components to their limits with extreme content: long Chinese text,
+        Arabic RTL scripts, German compound words, emoji floods, and unbreakable character strings.
+      </p>
+    </Section>
+
+    <!-- Buttons -->
+    <Section id="stress-buttons" ariaLabelledby="stress-buttons-title">
+      <h2 id="stress-buttons-title" class="nb-section-title">Buttons</h2>
+      <div class="nb-stack" style="margin-block-start: var(--nb-space-4); align-items: flex-start;">
+        <div class="nb-cluster">
+          <button class="nb-btn nb-btn-primary" type="button">{longChinese}</button>
+          <button class="nb-btn nb-btn-outline" type="button">{arabicText}</button>
+        </div>
+        <div class="nb-cluster">
+          <button class="nb-btn nb-btn-secondary" type="button">{longGerman}</button>
+          <button class="nb-btn nb-btn-accent" type="button">{emojiString}</button>
+        </div>
+        <button class="nb-btn nb-btn-block" type="button">{unbreakableString}</button>
+      </div>
+    </Section>
+
+    <!-- Cards -->
+    <Section id="stress-cards" ariaLabelledby="stress-cards-title">
+      <h2 id="stress-cards-title" class="nb-section-title">Cards</h2>
+      <div class="nb-grid nb-grid--2" style="margin-block-start: var(--nb-space-4);">
+        <div class="nb-card">
+          <div class="nb-card-header">
+            <span class="nb-card-title">{longChinese}</span>
+          </div>
+          <div class="nb-card-body">
+            <p style="margin: 0;">{longChinese}</p>
+          </div>
+          <div class="nb-card-footer">
+            <span class="nb-badge nb-badge-info">长文本</span>
+          </div>
+        </div>
+
+        <div class="nb-card">
+          <div class="nb-card-header">
+            <span class="nb-card-title">{arabicText}</span>
+          </div>
+          <div class="nb-card-body">
+            <p style="margin: 0;">{arabicText}</p>
+          </div>
+          <div class="nb-card-footer">
+            <span class="nb-badge nb-badge-warning">RTL</span>
+          </div>
+        </div>
+
+        <div class="nb-card">
+          <div class="nb-card-header">
+            <span class="nb-card-title">{longGerman}</span>
+          </div>
+          <div class="nb-card-body">
+            <p style="margin: 0;">{longGerman}</p>
+          </div>
+          <div class="nb-card-footer">
+            <span class="nb-badge nb-badge-success">DE</span>
+          </div>
+        </div>
+
+        <div class="nb-card">
+          <div class="nb-card-header">
+            <span class="nb-card-title">{emojiString}</span>
+          </div>
+          <div class="nb-card-body">
+            <p style="margin: 0;">{emojiString}</p>
+          </div>
+          <div class="nb-card-footer">
+            <span class="nb-badge nb-badge-accent">Emoji</span>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Alerts -->
+    <Section id="stress-alerts" ariaLabelledby="stress-alerts-title">
+      <h2 id="stress-alerts-title" class="nb-section-title">Alerts</h2>
+      <div class="nb-stack" style="margin-block-start: var(--nb-space-4); max-inline-size: 48rem;">
+        <div class="nb-alert nb-alert-info" role="alert">
+          <span class="nb-alert-icon" aria-hidden="true">ⓘ</span>
+          <div>
+            <p class="nb-alert-title">{longChinese}</p>
+            <p class="nb-alert-body">{longChinese}</p>
+          </div>
+        </div>
+        <div class="nb-alert nb-alert-warning" role="alert">
+          <span class="nb-alert-icon" aria-hidden="true">⚠</span>
+          <div>
+            <p class="nb-alert-title">{arabicText}</p>
+            <p class="nb-alert-body">{arabicText}</p>
+          </div>
+        </div>
+        <div class="nb-alert nb-alert-error" role="alert">
+          <span class="nb-alert-icon" aria-hidden="true">✖</span>
+          <div>
+            <p class="nb-alert-title">{longGerman}</p>
+            <p class="nb-alert-body">{longGerman}</p>
+          </div>
+        </div>
+        <div class="nb-alert nb-alert-success" role="alert">
+          <span class="nb-alert-icon" aria-hidden="true">✔</span>
+          <div>
+            <p class="nb-alert-title">{emojiString}</p>
+            <p class="nb-alert-body">{emojiString}</p>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Tables -->
+    <Section id="stress-tables" ariaLabelledby="stress-tables-title">
+      <h2 id="stress-tables-title" class="nb-section-title">Tables</h2>
+      <div class="nb-table-wrapper" style="margin-block-start: var(--nb-space-4);">
+        <table class="nb-table">
+          <thead>
+            <tr>
+              <th>Chinese</th>
+              <th>Arabic</th>
+              <th>German</th>
+              <th>Emoji</th>
+              <th>Unbreakable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{longChinese}</td>
+              <td>{arabicText}</td>
+              <td>{longGerman}</td>
+              <td>{emojiString}</td>
+              <td>{unbreakableString}</td>
+            </tr>
+            <tr>
+              <td>{longChinese}</td>
+              <td>{arabicText}</td>
+              <td>{longGerman}</td>
+              <td>{emojiString}</td>
+              <td>{unbreakableString}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </Section>
+
+    <!-- Inputs -->
+    <Section id="stress-inputs" ariaLabelledby="stress-inputs-title">
+      <h2 id="stress-inputs-title" class="nb-section-title">Inputs</h2>
+      <div class="nb-stack" style="max-inline-size: 32rem; margin-block-start: var(--nb-space-4);">
+        <div class="nb-field">
+          <label class="nb-field-label" for="stress-input-zh">中文标签</label>
+          <input
+            class="nb-input"
+            id="stress-input-zh"
+            type="text"
+            value={longChinese}
+          />
+        </div>
+        <div class="nb-field">
+          <label class="nb-field-label" for="stress-input-ar">وسم عربي</label>
+          <input
+            class="nb-input"
+            id="stress-input-ar"
+            type="text"
+            value={arabicText}
+          />
+        </div>
+        <div class="nb-field">
+          <label class="nb-field-label" for="stress-input-de">Deutsches Label</label>
+          <input
+            class="nb-input"
+            id="stress-input-de"
+            type="text"
+            value={longGerman}
+          />
+        </div>
+        <div class="nb-field">
+          <label class="nb-field-label" for="stress-input-emoji">Emoji Label</label>
+          <input
+            class="nb-input"
+            id="stress-input-emoji"
+            type="text"
+            value={emojiString}
+          />
+        </div>
+        <div class="nb-field">
+          <label class="nb-field-label" for="stress-input-unbreakable">Unbreakable</label>
+          <input
+            class="nb-input"
+            id="stress-input-unbreakable"
+            type="text"
+            value={unbreakableString}
+          />
+        </div>
+      </div>
+    </Section>
+
+    <!-- Badges -->
+    <Section id="stress-badges" ariaLabelledby="stress-badges-title">
+      <h2 id="stress-badges-title" class="nb-section-title">Badges</h2>
+      <div class="nb-cluster" style="margin-block-start: var(--nb-space-4); flex-wrap: wrap;">
+        <span class="nb-badge nb-badge-primary">{longChinese}</span>
+        <span class="nb-badge nb-badge-secondary">{arabicText}</span>
+        <span class="nb-badge nb-badge-success">{longGerman}</span>
+        <span class="nb-badge nb-badge-warning">{emojiString}</span>
+        <span class="nb-badge nb-badge-error">{unbreakableString}</span>
+        <span class="nb-badge nb-badge-outline">{longChinese}</span>
+      </div>
+    </Section>
+
+    <!-- Tooltips -->
+    <Section id="stress-tooltips" ariaLabelledby="stress-tooltips-title">
+      <h2 id="stress-tooltips-title" class="nb-section-title">Tooltips</h2>
+      <div class="nb-cluster" style="margin-block-start: var(--nb-space-4); flex-wrap: wrap;">
+        <span class="nb-tooltip">
+          <button class="nb-btn nb-btn-sm" type="button">中文提示</button>
+          <span class="nb-tooltip-content" role="tooltip">{longChinese}</span>
+        </span>
+
+        <span class="nb-tooltip nb-tooltip-bottom">
+          <button class="nb-btn nb-btn-sm nb-btn-secondary" type="button">تلميح</button>
+          <span class="nb-tooltip-content" role="tooltip">{arabicText}</span>
+        </span>
+
+        <span class="nb-tooltip nb-tooltip-end">
+          <button class="nb-btn nb-btn-sm nb-btn-accent" type="button">Tooltip</button>
+          <span class="nb-tooltip-content" role="tooltip">{longGerman}</span>
+        </span>
+
+        <span class="nb-tooltip nb-tooltip-start">
+          <button class="nb-btn nb-btn-sm nb-btn-primary" type="button">Emoji</button>
+          <span class="nb-tooltip-content" role="tooltip">{emojiString}</span>
+        </span>
+
+        <span class="nb-tooltip nb-tooltip-bottom">
+          <button class="nb-btn nb-btn-sm nb-btn-outline" type="button">Unbreakable</button>
+          <span class="nb-tooltip-content" role="tooltip">{unbreakableString}</span>
+        </span>
+      </div>
+    </Section>
+  </main>
+</BaseLayout>

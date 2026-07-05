@@ -2,6 +2,8 @@
 
 Neo-Brutal UI is a bold, accessible component library for Tailwind CSS v4 and modern CSS pipelines. The core package is CSS-first and framework-agnostic; optional JavaScript interactions are published separately so apps can import only what they need.
 
+**48 CSS components** and **11 JS interactions** — zero runtime, fully themeable, and built for modern browsers.
+
 ## Packages
 
 | Package | Purpose |
@@ -12,9 +14,25 @@ Neo-Brutal UI is a bold, accessible component library for Tailwind CSS v4 and mo
 
 ## Install
 
+Install the core CSS, default theme, and optional interactions:
+
 ```sh
 npm install @neo-brutal-ui/core @neo-brutal-ui/theme-neo-brutal @neo-brutal-ui/interactions tailwindcss
 ```
+
+Or with **pnpm** (recommended):
+
+```sh
+pnpm add @neo-brutal-ui/core @neo-brutal-ui/theme-neo-brutal @neo-brutal-ui/interactions tailwindcss
+```
+
+Or with **yarn**:
+
+```sh
+yarn add @neo-brutal-ui/core @neo-brutal-ui/theme-neo-brutal @neo-brutal-ui/interactions tailwindcss
+```
+
+> **Requirements**: Node.js 20+ and Tailwind CSS v4+. See [docs/support-policy.md](docs/support-policy.md) for full browser support details.
 
 ## Usage
 
@@ -65,6 +83,75 @@ document.querySelector("[data-open-dialog]").addEventListener("click", () => {
 ```
 
 Use `@neo-brutal-ui/theme-neo-brutal/css` for the normal themed import. Use the split core entry points only when an advanced build needs finer CSS control.
+
+## Quick Start
+
+### 1. Import the CSS
+
+```css
+@import "tailwindcss";
+@import "@neo-brutal-ui/theme-neo-brutal/css";
+```
+
+### 2. Wrap your app in a theme container
+
+```html
+<html data-theme="neo-brutal">
+  <body>
+    <button class="nb-btn nb-btn-primary">Get started</button>
+    <div class="nb-card">
+      <div class="nb-card-header">Hello</div>
+      <div class="nb-card-body">Neo-Brutal UI is ready.</div>
+    </div>
+  </body>
+</html>
+```
+
+### 3. Optional: add a theme toggle
+
+```js
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute("data-theme") === "neo-brutal"
+    ? "neo-brutal-dark"
+    : "neo-brutal";
+  html.setAttribute("data-theme", next);
+  localStorage.setItem("nb-theme", next);
+}
+
+// Restore on load
+const saved = localStorage.getItem("nb-theme");
+if (saved) document.documentElement.setAttribute("data-theme", saved);
+```
+
+## Integration Guides
+
+Step-by-step guides for popular frameworks and build tools:
+
+| Guide | Framework | Tailwind |
+|---|---|---|
+| [Vite](docs/guides/vite.md) | Vite (vanilla, React, Vue, etc.) | v4+ |
+| [React](docs/guides/react.md) | React 18+ | v4+ |
+| [Vue](docs/guides/vue.md) | Vue 3 / Nuxt | v4+ |
+| [Next.js](docs/guides/nextjs.md) | Next.js 14+ (App & Pages Router) | v4+ |
+| [Astro](docs/guides/astro.md) | Astro 4+ | v4+ |
+| [Pure CSS](docs/guides/pure-css.md) | Any (no framework) | — |
+| [Tailwind mix](docs/guides/tailwind-mix.md) | Any (with existing Tailwind utilities) | v4+ |
+| [Coexisting with daisyUI](docs/guides/daisyui-coexist.md) | Any (migration or hybrid) | v4+ |
+
+## Component Documentation
+
+Every component follows a standardized documentation template: [docs/templates/component-doc.md](docs/templates/component-doc.md). The template covers purpose, class names, DOM contract, variants, sizes, state matrix, accessibility, keyboard behavior, RTL, reduced motion, JS enhancement, tokens, common errors, and API stability.
+
+## Interactive Playground
+
+Explore components live in the showcase app:
+
+```sh
+pnpm --filter @neo-brutal-ui/showcase dev
+```
+
+Then visit `/playground` to toggle themes, RTL, reduced motion, viewport sizes, and customize tokens in real time.
 
 ## Development
 

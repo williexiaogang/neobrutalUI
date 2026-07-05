@@ -1,0 +1,185 @@
+/**
+ * Neo-Brutal UI — Hero Component
+ *
+ * Bold marketing hero block with title, subtitle, description,
+ * actions, and optional media area. Follows brutalist offset-shadow
+ * and border conventions.
+ */
+
+@layer nb.components {
+  .nb-hero {
+    --_bg: var(--nb-base-100);
+    --_fg: var(--nb-base-content);
+    --_border: var(--nb-border);
+    --_padding: var(--nb-space-12);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-6);
+    padding: var(--_padding);
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_bg);
+    color: var(--_fg);
+    box-shadow: var(--nb-shadow-md);
+  }
+
+  .nb-hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-4);
+    max-inline-size: 64rem;
+  }
+
+  .nb-hero-title {
+    margin: 0;
+    font-size: var(--nb-text-4xl);
+    font-weight: 800;
+    line-height: var(--nb-leading-tight);
+    letter-spacing: -0.025em;
+  }
+
+  .nb-hero-subtitle {
+    margin: 0;
+    font-size: var(--nb-text-xl);
+    font-weight: 600;
+    line-height: var(--nb-leading-tight);
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-hero-description {
+    margin: 0;
+    font-size: var(--nb-text-base);
+    line-height: var(--nb-leading-relaxed);
+    color: var(--nb-base-content-muted);
+    max-inline-size: 48rem;
+  }
+
+  .nb-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nb-space-3);
+    align-items: center;
+  }
+
+  .nb-hero-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-200);
+    overflow: hidden;
+  }
+
+  .nb-hero-media img,
+  .nb-hero-media video {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: cover;
+  }
+
+  /* Variants — alignment */
+  .nb-hero-center {
+    text-align: center;
+    align-items: center;
+  }
+
+  .nb-hero-center .nb-hero-description {
+    margin-inline: auto;
+  }
+
+  .nb-hero-center .nb-hero-actions {
+    justify-content: center;
+  }
+
+  /* Variants — size */
+  .nb-hero-sm {
+    --_padding: var(--nb-space-8);
+  }
+
+  .nb-hero-sm .nb-hero-title {
+    font-size: var(--nb-text-2xl);
+  }
+
+  .nb-hero-sm .nb-hero-subtitle {
+    font-size: var(--nb-text-lg);
+  }
+
+  .nb-hero-lg {
+    --_padding: var(--nb-space-16);
+  }
+
+  .nb-hero-lg .nb-hero-title {
+    font-size: calc(var(--nb-text-4xl) + 0.5rem);
+  }
+
+  .nb-hero-lg .nb-hero-subtitle {
+    font-size: var(--nb-text-2xl);
+  }
+
+  /* Variants — color */
+  .nb-hero-primary {
+    --_bg: var(--nb-primary);
+    --_fg: var(--nb-primary-content);
+  }
+
+  .nb-hero-primary .nb-hero-subtitle,
+  .nb-hero-primary .nb-hero-description {
+    color: var(--nb-primary-content);
+    opacity: 0.85;
+  }
+
+  .nb-hero-secondary {
+    --_bg: var(--nb-secondary);
+    --_fg: var(--nb-secondary-content);
+  }
+
+  .nb-hero-secondary .nb-hero-subtitle,
+  .nb-hero-secondary .nb-hero-description {
+    color: var(--nb-secondary-content);
+    opacity: 0.85;
+  }
+
+  .nb-hero-accent {
+    --_bg: var(--nb-accent);
+    --_fg: var(--nb-accent-content);
+  }
+
+  .nb-hero-accent .nb-hero-subtitle,
+  .nb-hero-accent .nb-hero-description {
+    color: var(--nb-accent-content);
+    opacity: 0.85;
+  }
+
+  .nb-hero-neutral {
+    --_bg: var(--nb-neutral);
+    --_fg: var(--nb-neutral-content);
+  }
+
+  .nb-hero-neutral .nb-hero-subtitle,
+  .nb-hero-neutral .nb-hero-description {
+    color: var(--nb-neutral-content);
+    opacity: 0.85;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-hero {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-hero {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-hero-media {
+      border: 2px solid CanvasText;
+    }
+  }
+}

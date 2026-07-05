@@ -1,0 +1,106 @@
+<div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-6);">
+  <!-- Single-open Accordion -->
+  <div>
+    <div class="nb-accordion" data-nb-accordion id="accordion-single-demo">
+      <div class="nb-accordion-item" data-nb-accordion-item>
+        <button
+          class="nb-accordion-trigger"
+          data-nb-accordion-trigger
+          aria-expanded="false"
+          aria-controls="panel-1"
+          id="trigger-1"
+          type="button"
+        >
+          General Settings
+          <span class="nb-accordion-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
+        </button>
+        <div
+          class="nb-accordion-panel"
+          data-nb-accordion-panel
+          id="panel-1"
+          role="region"
+          aria-labelledby="trigger-1"
+          aria-hidden="true"
+        >
+          <div class="nb-accordion-panel-inner">
+            <div class="nb-accordion-content">
+              <p style="margin: 0;">Configure your account preferences, language, and timezone settings. These affect how dates and times are displayed across the application.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-accordion-item" data-nb-accordion-item>
+        <button
+          class="nb-accordion-trigger"
+          data-nb-accordion-trigger
+          aria-expanded="false"
+          aria-controls="panel-2"
+          id="trigger-2"
+          type="button"
+        >
+          Security
+          <span class="nb-accordion-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
+        </button>
+        <div
+          class="nb-accordion-panel"
+          data-nb-accordion-panel
+          id="panel-2"
+          role="region"
+          aria-labelledby="trigger-2"
+          aria-hidden="true"
+        >
+          <div class="nb-accordion-panel-inner">
+            <div class="nb-accordion-content">
+              <p style="margin: 0;">Manage passwords, two-factor authentication, and active sessions. Review login history and revoke access from unknown devices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nb-accordion-item" data-nb-accordion-item>
+        <button
+          class="nb-accordion-trigger"
+          data-nb-accordion-trigger
+          aria-expanded="false"
+          aria-controls="panel-3"
+          id="trigger-3"
+          type="button"
+          disabled
+        >
+          Billing (Disabled)
+          <span class="nb-accordion-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
+        </button>
+        <div
+          class="nb-accordion-panel"
+          data-nb-accordion-panel
+          id="panel-3"
+          role="region"
+          aria-labelledby="trigger-3"
+          aria-hidden="true"
+        >
+          <div class="nb-accordion-panel-inner">
+            <div class="nb-accordion-content">
+              <p style="margin: 0;">View invoices, update payment methods, and manage your subscription plan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { createAccordion } from "@neo-brutal-ui/interactions/accordion";
+
+  const accordionEl = document.getElementById("accordion-single-demo");
+  if (accordionEl) {
+    createAccordion(accordionEl, { allowMultiple: false });
+  }
+</script>

@@ -1,0 +1,94 @@
+/**
+ * Neo-Brutal UI — Empty State Component
+ *
+ * Empty-state placeholder for lists, pages, and cards. Includes icon,
+ * title, message, and optional action slot.
+ */
+
+@layer nb.components {
+  .nb-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--nb-empty-gap, var(--nb-space-4));
+    padding: var(--nb-space-8) var(--nb-space-4);
+    text-align: center;
+    inline-size: 100%;
+  }
+
+  .nb-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--nb-empty-icon-size, 3rem);
+    block-size: var(--nb-empty-icon-size, 3rem);
+    color: var(--nb-empty-icon-color, var(--nb-base-content-muted));
+  }
+
+  .nb-empty-icon svg,
+  .nb-empty-icon img {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .nb-empty-title {
+    margin: 0;
+    font-size: var(--nb-text-lg);
+    font-weight: 700;
+    line-height: var(--nb-leading-tight);
+    color: var(--nb-base-content);
+  }
+
+  .nb-empty-message {
+    margin: 0;
+    font-size: var(--nb-text-sm);
+    line-height: var(--nb-leading-normal);
+    color: var(--nb-base-content-muted);
+    max-inline-size: 24rem;
+  }
+
+  .nb-empty-action {
+    display: flex;
+    gap: var(--nb-space-2);
+    margin-block-start: var(--nb-space-2);
+  }
+
+  /* Compact variant for inline use */
+  .nb-empty-compact {
+    padding: var(--nb-space-4) var(--nb-space-3);
+    gap: var(--nb-space-2);
+  }
+
+  .nb-empty-compact .nb-empty-icon {
+    inline-size: var(--nb-space-8);
+    block-size: var(--nb-space-8);
+  }
+
+  .nb-empty-compact .nb-empty-title {
+    font-size: var(--nb-text-base);
+  }
+
+  .nb-empty-compact .nb-empty-message {
+    font-size: var(--nb-text-xs);
+  }
+
+  /* Bordered variant */
+  .nb-empty-bordered {
+    border: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-empty-bordered {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-empty-icon {
+      color: CanvasText;
+    }
+  }
+}

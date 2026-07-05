@@ -1,0 +1,183 @@
+/**
+ * Neo-Brutal UI — Feature Grid Component
+ *
+ * Grid layout for feature cards with icon, title, and description.
+ * Supports column variants, color accents, and size modifiers.
+ */
+
+@layer nb.components {
+  .nb-feature-grid {
+    --_grid-cols: 1;
+    --_gap: var(--nb-space-4);
+    --_item-bg: var(--nb-base-100);
+    --_item-border: var(--nb-border);
+    --_item-shadow: var(--nb-shadow-sm);
+    --_accent: var(--nb-primary);
+
+    display: grid;
+    grid-template-columns: repeat(var(--_grid-cols), minmax(0, 1fr));
+    gap: var(--_gap);
+    inline-size: 100%;
+  }
+
+  .nb-feature-grid-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--_item-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_item-bg);
+    box-shadow: var(--_item-shadow);
+    transform: translate(0, 0);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-feature-grid-item {
+      transition: none;
+    }
+  }
+
+  .nb-feature-grid-item:hover {
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(-2px, -2px);
+  }
+
+  .nb-feature-grid-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    border: var(--nb-border-width) solid var(--_accent);
+    border-radius: var(--nb-radius-box);
+    background: var(--_accent);
+    color: var(--nb-base-100);
+    font-size: var(--nb-text-lg);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .nb-feature-grid-title {
+    margin: 0;
+    font-size: var(--nb-text-base);
+    font-weight: 700;
+    line-height: var(--nb-leading-tight);
+  }
+
+  .nb-feature-grid-description {
+    margin: 0;
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content-muted);
+    line-height: var(--nb-leading-normal);
+  }
+
+  /* Column variants */
+  .nb-feature-grid-cols-2 {
+    --_grid-cols: 2;
+  }
+
+  .nb-feature-grid-cols-3 {
+    --_grid-cols: 3;
+  }
+
+  .nb-feature-grid-cols-4 {
+    --_grid-cols: 4;
+  }
+
+  @media (max-width: 768px) {
+    .nb-feature-grid-cols-2,
+    .nb-feature-grid-cols-3,
+    .nb-feature-grid-cols-4 {
+      --_grid-cols: 1;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .nb-feature-grid-cols-3,
+    .nb-feature-grid-cols-4 {
+      --_grid-cols: 2;
+    }
+  }
+
+  /* Color accent variants */
+  .nb-feature-grid-primary {
+    --_accent: var(--nb-primary);
+  }
+
+  .nb-feature-grid-secondary {
+    --_accent: var(--nb-secondary);
+  }
+
+  .nb-feature-grid-accent {
+    --_accent: var(--nb-accent);
+  }
+
+  .nb-feature-grid-neutral {
+    --_accent: var(--nb-neutral);
+  }
+
+  /* Size variants */
+  .nb-feature-grid-sm .nb-feature-grid-item {
+    padding: var(--nb-space-3);
+    gap: var(--nb-space-2);
+  }
+
+  .nb-feature-grid-sm .nb-feature-grid-icon {
+    inline-size: 2rem;
+    block-size: 2rem;
+    font-size: var(--nb-text-base);
+  }
+
+  .nb-feature-grid-sm .nb-feature-grid-title {
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-feature-grid-sm .nb-feature-grid-description {
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-feature-grid-lg .nb-feature-grid-item {
+    padding: var(--nb-space-6);
+    gap: var(--nb-space-4);
+  }
+
+  .nb-feature-grid-lg .nb-feature-grid-icon {
+    inline-size: 3rem;
+    block-size: 3rem;
+    font-size: var(--nb-text-xl);
+  }
+
+  .nb-feature-grid-lg .nb-feature-grid-title {
+    font-size: var(--nb-text-lg);
+  }
+
+  .nb-feature-grid-lg .nb-feature-grid-description {
+    font-size: var(--nb-text-base);
+  }
+
+  /* Gap variants */
+  .nb-feature-grid-gap-sm {
+    --_gap: var(--nb-space-2);
+  }
+
+  .nb-feature-grid-gap-lg {
+    --_gap: var(--nb-space-8);
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-feature-grid-item {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-feature-grid-icon {
+      border: 2px solid CanvasText;
+      background: CanvasText;
+      color: Canvas;
+    }
+  }
+}

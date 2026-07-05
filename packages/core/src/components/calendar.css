@@ -1,0 +1,334 @@
+/**
+ * Neo-Brutal UI — Calendar Component
+ *
+ * Month-view calendar grid with header navigation, weekday row, day cells,
+ * today / selected / range / disabled / outside states, and size + color variants.
+ */
+
+@layer nb.components {
+  .nb-calendar {
+    --_accent: var(--nb-primary);
+    --_accent-content: var(--nb-primary-content);
+    --_day-size: 2.5rem;
+    --_gap: var(--nb-space-1);
+    --_header-pb: var(--nb-space-2);
+    --_day-font: var(--nb-text-sm);
+    --_weekday-font: var(--nb-text-xs);
+    --_shadow: var(--nb-shadow-md);
+
+    display: flex;
+    flex-direction: column;
+    inline-size: fit-content;
+    padding: var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    box-shadow: var(--_shadow);
+    font-family: inherit;
+  }
+
+  .nb-calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-2);
+    padding-block-end: var(--_header-pb);
+    margin-block-end: var(--nb-space-2);
+    border-block-end: var(--nb-border-width) solid var(--nb-border);
+  }
+
+  .nb-calendar-title {
+    font-size: var(--nb-text-base);
+    font-weight: 700;
+    line-height: var(--nb-leading-tight);
+    color: var(--nb-base-content);
+  }
+
+  .nb-calendar-nav {
+    display: flex;
+    gap: var(--nb-space-1);
+  }
+
+  .nb-calendar-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    padding: 0;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-base-100);
+    color: var(--nb-base-content);
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--nb-shadow-sm);
+    transform: translate(0, 0);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-calendar-nav-btn:hover:not(:disabled) {
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(-1px, -1px);
+  }
+
+  .nb-calendar-nav-btn:active:not(:disabled) {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(1px, 1px);
+  }
+
+  .nb-calendar-nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(1px, 1px);
+  }
+
+  .nb-calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--_gap);
+    margin-block-end: var(--nb-space-1);
+  }
+
+  .nb-calendar-weekday {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_day-size);
+    block-size: var(--_day-size);
+    font-size: var(--_weekday-font);
+    font-weight: 700;
+    color: var(--nb-base-content-muted);
+    text-transform: uppercase;
+  }
+
+  .nb-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--_gap);
+  }
+
+  .nb-calendar-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_day-size);
+    block-size: var(--_day-size);
+    padding: 0;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-base-100);
+    color: var(--nb-base-content);
+    font-size: var(--_day-font);
+    font-weight: 600;
+    line-height: var(--nb-leading-none);
+    cursor: pointer;
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(0, 0);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out),
+      background var(--nb-duration-fast) var(--nb-ease-out),
+      color var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-calendar-day:hover:not(:disabled, .nb-calendar-day-selected, .nb-calendar-day-disabled) {
+    box-shadow: var(--nb-shadow-sm);
+    transform: translate(-1px, -1px);
+  }
+
+  .nb-calendar-day:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  .nb-calendar-day:active:not(:disabled, .nb-calendar-day-selected, .nb-calendar-day-disabled) {
+    box-shadow: none;
+    transform: translate(1px, 1px);
+  }
+
+  .nb-calendar-day-selected {
+    background: var(--_accent);
+    color: var(--_accent-content);
+    border-color: var(--nb-border);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-calendar-day-today:not(.nb-calendar-day-selected) {
+    border-color: var(--_accent);
+    border-width: calc(var(--nb-border-width) * 1.5);
+  }
+
+  .nb-calendar-day-range-start {
+    background: var(--_accent);
+    color: var(--_accent-content);
+    border-start-start-radius: var(--nb-radius-field);
+    border-end-start-radius: var(--nb-radius-field);
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+
+  .nb-calendar-day-range-end {
+    background: var(--_accent);
+    color: var(--_accent-content);
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+    border-start-end-radius: var(--nb-radius-field);
+    border-end-end-radius: var(--nb-radius-field);
+  }
+
+  .nb-calendar-day-range-mid {
+    background: color-mix(in srgb, var(--_accent) 20%, var(--nb-base-100));
+    border-color: color-mix(in srgb, var(--_accent) 30%, var(--nb-border));
+    border-radius: 0;
+  }
+
+  .nb-calendar-day-outside {
+    color: var(--nb-base-content-muted);
+    opacity: 0.6;
+  }
+
+  .nb-calendar-day-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+    text-decoration: line-through;
+  }
+
+  /* Size variants */
+  .nb-calendar-sm {
+    --_day-size: 2rem;
+    --_gap: 2px;
+    --_header-pb: var(--nb-space-1);
+    --_day-font: var(--nb-text-xs);
+    --_weekday-font: var(--nb-text-xs);
+    padding: var(--nb-space-2);
+  }
+
+  .nb-calendar-sm .nb-calendar-nav-btn {
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-calendar-lg {
+    --_day-size: 3rem;
+    --_gap: var(--nb-space-2);
+    --_day-font: var(--nb-text-base);
+    --_weekday-font: var(--nb-text-sm);
+    padding: var(--nb-space-6);
+  }
+
+  .nb-calendar-lg .nb-calendar-nav-btn {
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    font-size: var(--nb-text-base);
+  }
+
+  /* Color variants */
+  .nb-calendar-primary {
+    --_accent: var(--nb-primary);
+    --_accent-content: var(--nb-primary-content);
+  }
+
+  .nb-calendar-secondary {
+    --_accent: var(--nb-secondary);
+    --_accent-content: var(--nb-secondary-content);
+  }
+
+  .nb-calendar-accent {
+    --_accent: var(--nb-accent);
+    --_accent-content: var(--nb-accent-content);
+  }
+
+  .nb-calendar-neutral {
+    --_accent: var(--nb-neutral);
+    --_accent-content: var(--nb-neutral-content);
+  }
+
+  .nb-calendar-info {
+    --_accent: var(--nb-info);
+    --_accent-content: var(--nb-info-content);
+  }
+
+  .nb-calendar-success {
+    --_accent: var(--nb-success);
+    --_accent-content: var(--nb-success-content);
+  }
+
+  .nb-calendar-warning {
+    --_accent: var(--nb-warning);
+    --_accent-content: var(--nb-warning-content);
+  }
+
+  .nb-calendar-error {
+    --_accent: var(--nb-error);
+    --_accent-content: var(--nb-error-content);
+  }
+
+  /* Compact variant: no padding, tighter shadow */
+  .nb-calendar-compact {
+    --_shadow: var(--nb-shadow-sm);
+    padding: var(--nb-space-2);
+  }
+
+  .nb-calendar-compact .nb-calendar-header {
+    margin-block-end: var(--nb-space-1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-calendar-day,
+    .nb-calendar-nav-btn {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-calendar {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-calendar-header {
+      border-color: CanvasText;
+    }
+
+    .nb-calendar-nav-btn {
+      border: 2px solid ButtonText;
+    }
+
+    .nb-calendar-day {
+      border: 2px solid ButtonText;
+    }
+
+    .nb-calendar-day-selected {
+      background: Highlight;
+      color: HighlightText;
+      border-color: Highlight;
+    }
+
+    .nb-calendar-day-today:not(.nb-calendar-day-selected) {
+      border-color: Highlight;
+    }
+
+    .nb-calendar-day-range-start,
+    .nb-calendar-day-range-end {
+      background: Highlight;
+      color: HighlightText;
+      border-color: Highlight;
+    }
+
+    .nb-calendar-day-range-mid {
+      background: color-mix(in srgb, Highlight 20%, Canvas);
+      border-color: Highlight;
+    }
+
+    .nb-calendar-day-disabled {
+      border-color: GrayText;
+      color: GrayText;
+    }
+  }
+}

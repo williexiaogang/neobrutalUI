@@ -1,0 +1,184 @@
+/**
+ * Neo-Brutal UI — Stat Component
+ *
+ * Number + label + trend display. Supports vertical (default) and
+ * horizontal layouts, color variants, and size modifiers.
+ */
+
+@layer nb.components {
+  .nb-stat {
+    --_value-color: var(--nb-base-content);
+    --_label-color: var(--nb-base-content-muted);
+    --_desc-color: var(--nb-base-content-muted);
+    --_trend-up: var(--nb-success);
+    --_trend-down: var(--nb-error);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-stat-title {
+    margin: 0;
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    color: var(--_label-color);
+    line-height: var(--nb-leading-none);
+  }
+
+  .nb-stat-value {
+    margin: 0;
+    font-size: var(--nb-text-3xl);
+    font-weight: 800;
+    line-height: var(--nb-leading-tight);
+    color: var(--_value-color);
+  }
+
+  .nb-stat-desc {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nb-space-1);
+    margin: 0;
+    font-size: var(--nb-text-sm);
+    color: var(--_desc-color);
+  }
+
+  .nb-stat-desc::before {
+    content: "";
+    display: inline-block;
+    inline-size: 0;
+    block-size: 0;
+    border-style: solid;
+  }
+
+  .nb-stat-trend-up .nb-stat-desc::before {
+    border-width: 0 0.3em 0.4em 0.3em;
+    border-color: transparent transparent var(--_trend-up) transparent;
+  }
+
+  .nb-stat-trend-up .nb-stat-desc {
+    color: var(--_trend-up);
+  }
+
+  .nb-stat-trend-down .nb-stat-desc::before {
+    border-width: 0.4em 0.3em 0 0.3em;
+    border-color: var(--_trend-down) transparent transparent transparent;
+  }
+
+  .nb-stat-trend-down .nb-stat-desc {
+    color: var(--_trend-down);
+  }
+
+  /* Horizontal layout */
+  .nb-stat-horizontal {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--nb-space-4);
+  }
+
+  .nb-stat-horizontal .nb-stat-title {
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-stat-horizontal .nb-stat-value {
+    font-size: var(--nb-text-2xl);
+  }
+
+  .nb-stat-horizontal .nb-stat-desc {
+    font-size: var(--nb-text-xs);
+  }
+
+  /* Compact padding variant */
+  .nb-stat-compact {
+    padding: var(--nb-space-2) var(--nb-space-3);
+  }
+
+  /* Borderless / ghost variant */
+  .nb-stat-ghost {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  /* ── Color variants ── */
+  .nb-stat-primary .nb-stat-value {
+    --_value-color: var(--nb-primary);
+  }
+
+  .nb-stat-secondary .nb-stat-value {
+    --_value-color: var(--nb-secondary);
+  }
+
+  .nb-stat-accent .nb-stat-value {
+    --_value-color: var(--nb-accent);
+  }
+
+  .nb-stat-success .nb-stat-value {
+    --_value-color: var(--nb-success);
+  }
+
+  .nb-stat-info .nb-stat-value {
+    --_value-color: var(--nb-info);
+  }
+
+  .nb-stat-warning .nb-stat-value {
+    --_value-color: var(--nb-warning);
+  }
+
+  .nb-stat-error .nb-stat-value {
+    --_value-color: var(--nb-error);
+  }
+
+  /* ── Size variants ── */
+  .nb-stat-sm .nb-stat-value {
+    font-size: var(--nb-text-2xl);
+  }
+
+  .nb-stat-sm .nb-stat-title,
+  .nb-stat-sm .nb-stat-desc {
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-stat-lg .nb-stat-value {
+    font-size: var(--nb-text-4xl);
+  }
+
+  .nb-stat-lg .nb-stat-title {
+    font-size: var(--nb-text-base);
+  }
+
+  .nb-stat-lg .nb-stat-desc {
+    font-size: var(--nb-text-base);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-stat-value {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-stat {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-stat-trend-up .nb-stat-desc::before {
+      border-color: transparent transparent Highlight transparent;
+    }
+
+    .nb-stat-trend-down .nb-stat-desc::before {
+      border-color: Highlight transparent transparent transparent;
+    }
+  }
+}

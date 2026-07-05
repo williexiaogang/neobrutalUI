@@ -1,0 +1,125 @@
+/**
+ * Neo-Brutal UI — Avatar Component
+ *
+ * Profile image, initials fallback, and status dot indicator.
+ */
+
+@layer nb.components {
+  .nb-avatar {
+    --_size: var(--nb-avatar-size, 2.5rem);
+    --_status-size: var(--nb-avatar-status-size, 0.625rem);
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--_size);
+    block-size: var(--_size);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    background: var(--nb-base-200);
+    box-shadow: var(--nb-shadow-sm);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .nb-avatar-image {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .nb-avatar-initials {
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    line-height: var(--nb-leading-none);
+    color: var(--nb-base-content);
+    text-transform: uppercase;
+  }
+
+  .nb-avatar-status {
+    position: absolute;
+    inset-block-end: 2px;
+    inset-inline-end: 2px;
+    inline-size: var(--_status-size);
+    block-size: var(--_status-size);
+    border: 2px solid var(--nb-base-100);
+    border-radius: 9999px;
+    background: var(--nb-neutral);
+  }
+
+  /* Status colors */
+  .nb-avatar-status-online {
+    background: var(--nb-success);
+  }
+
+  .nb-avatar-status-busy {
+    background: var(--nb-error);
+  }
+
+  .nb-avatar-status-away {
+    background: var(--nb-warning);
+  }
+
+  .nb-avatar-status-offline {
+    background: var(--nb-neutral);
+  }
+
+  /* Sizes */
+  .nb-avatar-sm {
+    --_size: 2rem;
+    --_status-size: 0.5rem;
+  }
+
+  .nb-avatar-sm .nb-avatar-initials {
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-avatar-lg {
+    --_size: 3rem;
+    --_status-size: 0.75rem;
+  }
+
+  .nb-avatar-lg .nb-avatar-initials {
+    font-size: var(--nb-text-base);
+  }
+
+  .nb-avatar-xl {
+    --_size: 4rem;
+    --_status-size: 0.875rem;
+  }
+
+  .nb-avatar-xl .nb-avatar-initials {
+    font-size: var(--nb-text-lg);
+  }
+
+  /* Grouped avatars */
+  .nb-avatar-group {
+    display: inline-flex;
+  }
+
+  .nb-avatar-group .nb-avatar {
+    border: var(--nb-border-width) solid var(--nb-base-100);
+    margin-inline-start: calc(var(--nb-space-2) * -1);
+  }
+
+  .nb-avatar-group .nb-avatar:first-child {
+    margin-inline-start: 0;
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-avatar {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-avatar-status {
+      border-color: Canvas;
+    }
+
+    .nb-avatar-group .nb-avatar {
+      border-color: Canvas;
+    }
+  }
+}

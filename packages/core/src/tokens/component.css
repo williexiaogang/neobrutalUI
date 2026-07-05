@@ -75,8 +75,168 @@
     --nb-table-shadow: var(--nb-shadow-sm);
     --nb-table-header-bg: var(--nb-base-200);
 
+    /* Breadcrumb */
+    --nb-breadcrumb-separator-color: var(--nb-base-content-muted);
+    --nb-breadcrumb-link-color: var(--nb-primary);
+
+    /* Pagination */
+    --nb-pagination-shadow: var(--nb-shadow-sm);
+    --nb-pagination-shadow-hover: var(--nb-shadow-md);
+    --nb-pagination-shadow-active: var(--nb-shadow-xs);
+
     /* Skeleton */
     --nb-skeleton-bg: var(--nb-base-200);
     --nb-skeleton-shimmer: var(--nb-base-300);
+
+    /* Collapse */
+    --nb-collapse-shadow: var(--nb-shadow-sm);
+    --nb-collapse-shadow-open: var(--nb-shadow-md);
+
+    /* Progress */
+    --nb-progress-track-bg: var(--nb-base-200);
+    --nb-progress-fill-bg: var(--nb-primary);
+    --nb-progress-height: 0.75rem;
+    --nb-progress-circular-size: 3rem;
+    --nb-progress-circular-stroke: 0.375rem;
+
+    /* Command Palette */
+    --nb-command-palette-max-width: 36rem;
+    --nb-command-palette-shadow: var(--nb-shadow-xl);
+    --nb-command-palette-backdrop-opacity: 0.6;
+
+    /* Stat */
+    --nb-stat-padding: var(--nb-space-4);
+    --nb-stat-shadow: var(--nb-shadow-sm);
+    --nb-stat-value-size: var(--nb-text-3xl);
+    --nb-stat-title-size: var(--nb-text-sm);
+
+
+    /* Steps */
+    --nb-steps-indicator-size: 2.5rem;
+    --nb-steps-indicator-shadow: var(--nb-shadow-sm);
+    --nb-steps-active-shadow: var(--nb-shadow-md);
+    --nb-steps-connector-thickness: var(--nb-border-width);
+
+    /* Menu */
+    --nb-menu-min-width: 12rem;
+    --nb-menu-shadow: var(--nb-shadow-md);
+
+    /* Skeleton */
+    --nb-skeleton-circle-size: 2.5rem;
+    --nb-skeleton-text-height: 1em;
+
+    /* Empty State */
+    --nb-empty-gap: var(--nb-space-4);
+    --nb-empty-icon-size: 3rem;
+    --nb-empty-icon-color: var(--nb-base-content-muted);
+
+    /* Calendar */
+    --nb-calendar-day-size: 2.5rem;
+    --nb-calendar-gap: var(--nb-space-1);
+    --nb-calendar-shadow: var(--nb-shadow-md);
+    --nb-calendar-nav-btn-size: 2rem;
+
+    /* Date Picker */
+    --nb-date-picker-panel-width: 20rem;
+    --nb-date-picker-panel-shadow: var(--nb-shadow-xl);
+    --nb-date-picker-input-shadow: var(--nb-shadow-sm);
+    --nb-date-picker-input-shadow-focus: var(--nb-shadow-md);
+    --nb-avatar-size: 2.5rem;
+    --nb-avatar-status-size: 0.625rem;
+
+    /* Button Group */
+    --nb-btn-group-shadow: var(--nb-shadow-md);
+
+    /* Timeline */
+    --nb-timeline-marker-size: 0.75rem;
+    --nb-timeline-connector-width: 2px;
+    --nb-timeline-connector-color: var(--nb-border);
+    --nb-timeline-card-shadow: var(--nb-shadow-sm);
+
+    /* Rating */
+    --nb-rating-star-size: 1.5rem;
+    --nb-rating-star-gap: var(--nb-space-1);
+    --nb-rating-star-color: var(--nb-warning);
+    --nb-rating-star-empty: var(--nb-base-300);
+
+    /* Carousel */
+    --nb-carousel-shadow: var(--nb-shadow-md);
+    --nb-carousel-nav-size: 2.5rem;
+    --nb-carousel-dot-size: 0.75rem;
+    --nb-carousel-gap: var(--nb-space-4);
+    --nb-carousel-slide-min-height: 12rem;
+    --nb-carousel-slide-padding: var(--nb-space-6);
+
+    /* Hero */
+    --nb-hero-padding: var(--nb-space-12);
+    --nb-hero-shadow: var(--nb-shadow-md);
+    --nb-hero-title-size: var(--nb-text-4xl);
+    --nb-hero-subtitle-size: var(--nb-text-xl);
+
+    /* Footer */
+    --nb-footer-padding: var(--nb-space-8);
+    --nb-footer-shadow: var(--nb-shadow-sm);
+    --nb-footer-link-gap: var(--nb-space-2);
+    --nb-footer-group-gap: var(--nb-space-8);
+
+    /* Code Block */
+    --nb-code-block-shadow: var(--nb-shadow-md);
+    --nb-code-block-body-padding: var(--nb-space-4);
+    --nb-code-block-max-height: 24rem;
+
+    /* Diff Viewer */
+    --nb-diff-shadow: var(--nb-shadow-md);
+    --nb-diff-max-height: 32rem;
+
+    /* Browser Mockup */
+    --nb-browser-shadow: var(--nb-shadow-md);
+    --nb-browser-header-bg: var(--nb-base-200);
+    --nb-browser-body-min-height: 8rem;
+
+    /* Phone Mockup */
+    --nb-phone-shadow: var(--nb-shadow-lg);
+    --nb-phone-frame-bg: var(--nb-base-300);
+    --nb-phone-screen-min-height: 12rem;
+
+    /* Window Mockup */
+    --nb-window-shadow: var(--nb-shadow-md);
+    --nb-window-header-bg: var(--nb-base-200);
+    --nb-window-body-min-height: 8rem;
+
+    /* Chat Bubble */
+    --nb-chat-bubble-shadow: var(--nb-shadow-sm);
+    --nb-chat-bubble-padding: var(--nb-space-3) var(--nb-space-4);
+    --nb-chat-bubble-gap: var(--nb-space-3);
+    --nb-chat-avatar-size: 2.5rem;
+
+    /* Kbd */
+    --nb-kbd-shadow: var(--nb-shadow-md);
+    --nb-kbd-shadow-hover: var(--nb-shadow-lg);
+    --nb-kbd-shadow-active: var(--nb-shadow-xs);
+    --nb-kbd-min-size: 2rem;
+
+    /* List */
+    --nb-list-shadow: var(--nb-shadow-sm);
+    --nb-list-item-padding: var(--nb-space-3) var(--nb-space-4);
+    --nb-list-marker-size: 1.5rem;
+
+    /* Description List */
+    --nb-description-list-shadow: var(--nb-shadow-sm);
+    --nb-description-list-term-marker-size: 0.5rem;
+
+    /* Pricing Card */
+    --nb-pricing-card-shadow: var(--nb-shadow-md);
+    --nb-pricing-card-shadow-hover: var(--nb-shadow-lg);
+    --nb-pricing-card-shadow-featured: var(--nb-shadow-xl);
+    --nb-pricing-card-padding: var(--nb-space-4);
+    --nb-pricing-card-price-size: var(--nb-text-4xl);
+    --nb-pricing-card-accent-width: var(--nb-border-width);
+
+    /* Feature Grid */
+    --nb-feature-grid-gap: var(--nb-space-4);
+    --nb-feature-grid-item-shadow: var(--nb-shadow-sm);
+    --nb-feature-grid-item-shadow-hover: var(--nb-shadow-md);
+    --nb-feature-grid-item-padding: var(--nb-space-4);
+    --nb-feature-grid-icon-size: 2.5rem;
   }
 }

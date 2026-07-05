@@ -1,0 +1,78 @@
+<div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-6);">
+  <!-- Inline nav carousel -->
+  <div class="nb-carousel" data-nb-carousel>
+    <div class="nb-carousel-viewport">
+      <div class="nb-carousel-track" role="region" aria-label="Featured items" aria-roledescription="carousel">
+        <div class="nb-carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 3" style="background: var(--nb-base-200);">
+          <p style="margin: 0; font-size: var(--nb-text-2xl); font-weight: 700;">Slide 1</p>
+          <p style="margin: 0; font-size: var(--nb-text-sm); color: var(--nb-base-content-muted);">Neo-Brutal content block</p>
+        </div>
+        <div class="nb-carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 3" style="background: var(--nb-base-300);">
+          <p style="margin: 0; font-size: var(--nb-text-2xl); font-weight: 700;">Slide 2</p>
+          <p style="margin: 0; font-size: var(--nb-text-sm); color: var(--nb-base-content-muted);">Another bold surface</p>
+        </div>
+        <div class="nb-carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 3" style="background: var(--nb-accent); color: var(--nb-accent-content);">
+          <p style="margin: 0; font-size: var(--nb-text-2xl); font-weight: 700;">Slide 3</p>
+          <p style="margin: 0; font-size: var(--nb-text-sm); color: var(--nb-accent-content);">Accent variant</p>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; gap: var(--nb-space-3);">
+      <button class="nb-carousel-nav nb-carousel-nav-prev" type="button" aria-label="Previous slide">‹</button>
+      <ol class="nb-carousel-dots" role="tablist" aria-label="Slide indicators">
+        <li><button class="nb-carousel-dot nb-carousel-dot-active" role="tab" aria-selected="true" aria-label="Slide 1" type="button"></button></li>
+        <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2" type="button"></button></li>
+        <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 3" type="button"></button></li>
+      </ol>
+      <button class="nb-carousel-nav nb-carousel-nav-next" type="button" aria-label="Next slide">›</button>
+    </div>
+  </div>
+
+  <!-- Overlay nav carousel with primary accent -->
+  <div class="nb-carousel nb-carousel-primary nb-carousel-nav-overlay" data-nb-carousel>
+    <div class="nb-carousel-viewport">
+      <div class="nb-carousel-track" role="region" aria-label="Featured items" aria-roledescription="carousel">
+        <div class="nb-carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 2" style="background: var(--nb-base-200);">
+          <p style="margin: 0; font-size: var(--nb-text-xl); font-weight: 700;">Overlay Nav</p>
+          <p style="margin: 0; font-size: var(--nb-text-sm); color: var(--nb-base-content-muted);">Primary border accent</p>
+        </div>
+        <div class="nb-carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 2" style="background: var(--nb-base-300);">
+          <p style="margin: 0; font-size: var(--nb-text-xl); font-weight: 700;">Second Slide</p>
+          <p style="margin: 0; font-size: var(--nb-text-sm); color: var(--nb-base-content-muted);">Arrows float on top</p>
+        </div>
+      </div>
+    </div>
+    <button class="nb-carousel-nav nb-carousel-nav-prev" type="button" aria-label="Previous slide">‹</button>
+    <button class="nb-carousel-nav nb-carousel-nav-next" type="button" aria-label="Next slide">›</button>
+  </div>
+
+  <!-- Multi-slide visible (show-2) -->
+  <div class="nb-carousel nb-carousel-show-2" data-nb-carousel>
+    <div class="nb-carousel-viewport">
+      <div class="nb-carousel-track" role="region" aria-label="Featured items" aria-roledescription="carousel">
+        <div class="nb-carousel-slide" role="group" aria-roledescription="slide" aria-label="1 of 4" style="background: var(--nb-base-200);">
+          <p style="margin: 0; font-size: var(--nb-text-lg); font-weight: 700;">Item A</p>
+        </div>
+        <div class="nb-carousel-slide" role="group" aria-roledescription="slide" aria-label="2 of 4" style="background: var(--nb-base-300);">
+          <p style="margin: 0; font-size: var(--nb-text-lg); font-weight: 700;">Item B</p>
+        </div>
+        <div class="nb-carousel-slide" role="group" aria-roledescription="slide" aria-label="3 of 4" style="background: var(--nb-info); color: var(--nb-info-content);">
+          <p style="margin: 0; font-size: var(--nb-text-lg); font-weight: 700;">Item C</p>
+        </div>
+        <div class="nb-carousel-slide" role="group" aria-roledescription="slide" aria-label="4 of 4" style="background: var(--nb-success); color: var(--nb-success-content);">
+          <p style="margin: 0; font-size: var(--nb-text-lg); font-weight: 700;">Item D</p>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; gap: var(--nb-space-3);">
+      <button class="nb-carousel-nav nb-carousel-nav-prev" type="button" aria-label="Previous slide">‹</button>
+      <ol class="nb-carousel-dots" role="tablist" aria-label="Slide indicators">
+        <li><button class="nb-carousel-dot nb-carousel-dot-active" role="tab" aria-selected="true" aria-label="Slide 1" type="button"></button></li>
+        <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2" type="button"></button></li>
+        <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 3" type="button"></button></li>
+        <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 4" type="button"></button></li>
+      </ol>
+      <button class="nb-carousel-nav nb-carousel-nav-next" type="button" aria-label="Next slide">›</button>
+    </div>
+  </div>
+</div>

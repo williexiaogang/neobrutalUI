@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-05T14:57:11.253Z",
+  "allPassed": true,
+  "results": [
+    {
+      "name": "core-css",
+      "file": "packages/core/dist/index.css",
+      "rawBytes": 232084,
+      "gzipBytes": 28878,
+      "thresholdBytes": 30720,
+      "passed": true
+    },
+    {
+      "name": "interactions-js",
+      "file": "packages/interactions/dist/index.js",
+      "rawBytes": 1854,
+      "gzipBytes": 524,
+      "thresholdBytes": 15360,
+      "passed": true
+    }
+  ]
+}

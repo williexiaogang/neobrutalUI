@@ -1,0 +1,323 @@
+/**
+ * Neo-Brutal UI — Steps Component
+ *
+ * Stepper / wizard navigation with horizontal and vertical layouts,
+ * connector lines, and pending / active / completed states.
+ * Uses semantic <ol> / <li> by default; ARIA roles are optional enhancements.
+ */
+
+@layer nb.components {
+  /* ========================================================================
+     Container
+     ======================================================================== */
+  .nb-steps {
+    --_indicator-size: var(--nb-steps-indicator-size, 2.5rem);
+    --_indicator-bg: var(--nb-base-100);
+    --_indicator-fg: var(--nb-base-content-muted);
+    --_indicator-border: var(--nb-border);
+    --_active-bg: var(--nb-primary);
+    --_active-fg: var(--nb-primary-content);
+    --_connector-color: var(--nb-border);
+
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Vertical layout ------------------------------------------------------- */
+  .nb-steps-vertical {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* ========================================================================
+     Step item
+     ======================================================================== */
+  .nb-step {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-2);
+    min-inline-size: 0;
+  }
+
+  .nb-steps-vertical .nb-step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-2) 0;
+  }
+
+  /* ========================================================================
+     Connector line
+     ======================================================================== */
+  .nb-step::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    background: var(--_connector-color);
+  }
+
+  /* Horizontal connector — spans from indicator centre to next indicator ---- */
+  .nb-step::after {
+    top: calc(var(--nb-space-2) + var(--_indicator-size) / 2 - var(--nb-border-width) / 2);
+    inset-inline-start: 50%;
+    inline-size: 100%;
+    block-size: var(--nb-steps-connector-thickness, var(--nb-border-width));
+  }
+
+  .nb-step:last-child::after {
+    display: none;
+  }
+
+  /* Vertical connector — spans from indicator centre downward --------------- */
+  .nb-steps-vertical .nb-step::after {
+    top: calc(var(--_indicator-size) / 2);
+    inset-inline-start: calc(var(--_indicator-size) / 2 - var(--nb-border-width) / 2);
+    inline-size: var(--nb-steps-connector-thickness, var(--nb-border-width));
+    block-size: 100%;
+  }
+
+  /* ========================================================================
+     Indicator (number / icon)
+     ======================================================================== */
+  .nb-step-indicator {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    inline-size: var(--_indicator-size);
+    block-size: var(--_indicator-size);
+    border: var(--nb-border-width) solid var(--_indicator-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_indicator-bg);
+    color: var(--_indicator-fg);
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    line-height: var(--nb-leading-none);
+    box-shadow: var(--nb-steps-indicator-shadow, var(--nb-shadow-sm));
+    transition: background var(--nb-duration-fast) var(--nb-ease-out),
+      color var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  /* ========================================================================
+     Step body (label + description)
+     ======================================================================== */
+  .nb-step-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--nb-space-1);
+    text-align: center;
+    z-index: 1;
+  }
+
+  .nb-steps-vertical .nb-step-body {
+    align-items: flex-start;
+    text-align: start;
+    padding-block-start: calc((var(--_indicator-size) - var(--nb-text-base) * var(--nb-leading-tight)) / 2);
+  }
+
+  .nb-step-label {
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    line-height: var(--nb-leading-tight);
+    color: var(--nb-base-content);
+  }
+
+  .nb-step-description {
+    font-size: var(--nb-text-xs);
+    line-height: var(--nb-leading-normal);
+    color: var(--nb-base-content-muted);
+  }
+
+  /* ========================================================================
+     States
+     ======================================================================== */
+
+  /* Completed ------------------------------------------------------------- */
+  .nb-step-completed {
+    --_indicator-bg: var(--_active-bg);
+    --_indicator-fg: var(--_active-fg);
+    --_indicator-border: var(--_active-bg);
+    --_connector-color: var(--_active-bg);
+  }
+
+  .nb-step-completed .nb-step-indicator {
+    box-shadow: none;
+  }
+
+  /* Active ---------------------------------------------------------------- */
+  .nb-step-active {
+    --_indicator-bg: var(--_active-bg);
+    --_indicator-fg: var(--_active-fg);
+    --_indicator-border: var(--nb-border);
+  }
+
+  .nb-step-active .nb-step-indicator {
+    box-shadow: var(--nb-steps-active-shadow, var(--nb-shadow-md));
+  }
+
+  .nb-step-active .nb-step-label {
+    color: var(--_active-bg);
+  }
+
+  /* Disabled -------------------------------------------------------------- */
+  .nb-step-disabled,
+  .nb-step:has(.nb-step-indicator[disabled]) {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .nb-step-disabled .nb-step-indicator,
+  .nb-step:has(.nb-step-indicator[disabled]) .nb-step-indicator {
+    box-shadow: none;
+  }
+
+  /* ========================================================================
+     Color variants
+     ======================================================================== */
+  .nb-step-primary {
+    --_active-bg: var(--nb-primary);
+    --_active-fg: var(--nb-primary-content);
+  }
+
+  .nb-step-secondary {
+    --_active-bg: var(--nb-secondary);
+    --_active-fg: var(--nb-secondary-content);
+  }
+
+  .nb-step-accent {
+    --_active-bg: var(--nb-accent);
+    --_active-fg: var(--nb-accent-content);
+  }
+
+  .nb-step-info {
+    --_active-bg: var(--nb-info);
+    --_active-fg: var(--nb-info-content);
+  }
+
+  .nb-step-success {
+    --_active-bg: var(--nb-success);
+    --_active-fg: var(--nb-success-content);
+  }
+
+  .nb-step-warning {
+    --_active-bg: var(--nb-warning);
+    --_active-fg: var(--nb-warning-content);
+  }
+
+  .nb-step-error {
+    --_active-bg: var(--nb-error);
+    --_active-fg: var(--nb-error-content);
+  }
+
+  .nb-step-neutral {
+    --_active-bg: var(--nb-neutral);
+    --_active-fg: var(--nb-neutral-content);
+  }
+
+  /* ========================================================================
+     Size variants
+     ======================================================================== */
+  .nb-steps-sm {
+    --_indicator-size: 2rem;
+  }
+
+  .nb-steps-sm .nb-step-label {
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-steps-sm .nb-step-description {
+    font-size: 0.625rem;
+  }
+
+  .nb-steps-lg {
+    --_indicator-size: 3rem;
+  }
+
+  .nb-steps-lg .nb-step-indicator {
+    font-size: var(--nb-text-base);
+  }
+
+  .nb-steps-lg .nb-step-label {
+    font-size: var(--nb-text-base);
+  }
+
+  .nb-steps-lg .nb-step-description {
+    font-size: var(--nb-text-sm);
+  }
+
+  /* ========================================================================
+     Focus visible
+     ======================================================================== */
+  .nb-step:focus-visible,
+  .nb-step-indicator:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  /* ========================================================================
+     Responsive: horizontal scroll on narrow viewports
+     ======================================================================== */
+  @media (max-width: 640px) {
+    .nb-steps:not(.nb-steps-vertical) {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .nb-steps:not(.nb-steps-vertical)::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nb-steps:not(.nb-steps-vertical) .nb-step {
+      flex: 0 0 auto;
+      min-inline-size: 5rem;
+    }
+  }
+
+  /* ========================================================================
+     Reduced motion
+     ======================================================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-step-indicator {
+      transition: none;
+    }
+  }
+
+  /* ========================================================================
+     Forced colors
+     ======================================================================== */
+  @media (forced-colors: active) {
+    .nb-step-indicator {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-step-completed .nb-step-indicator {
+      border-color: Highlight;
+      background: Highlight;
+      color: HighlightText;
+    }
+
+    .nb-step-active .nb-step-indicator {
+      border-color: Highlight;
+    }
+
+    .nb-step::after {
+      background: CanvasText;
+    }
+
+    .nb-step-completed::after {
+      background: Highlight;
+    }
+  }
+}

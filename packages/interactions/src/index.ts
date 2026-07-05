@@ -13,10 +13,16 @@ export type {
   DialogOptions,
   TabsOptions,
   TabsInstance,
+  CarouselOptions,
+  CarouselInstance,
   DropdownOptions,
   TooltipOptions,
   DrawerOptions,
   DisclosureOptions,
+  MenuOptions,
+  AccordionInstance,
+  RatingOptions,
+  RatingInstance,
 } from './types.js';
 
 // --------------------------------------------------------------------------
@@ -42,7 +48,7 @@ export {
 
 export { createDialog } from './dialog.js';
 export { createTabs } from './tabs.js';
-
+export { createCarousel } from './carousel.js';
 export { createTooltip } from './tooltip.js';
 
 // --------------------------------------------------------------------------
@@ -55,14 +61,21 @@ export type { RevealOptions, CountUpOptions, StaggerOptions } from './animations
 export { createToastManager } from './toast.js';
 export type { ToastOptions } from './toast.js';
 
+import { createCollapse, type CollapseInstance } from './collapse.js';
+import type { DisclosureOptions } from './types.js';
+export { createCollapse };
+export type { CollapseInstance };
+
 // --------------------------------------------------------------------------
-// Placeholders (not yet implemented)
+// Placeholders (now implemented)
 // --------------------------------------------------------------------------
 
 export { createDropdown } from './dropdown.js';
 
 export { createDrawer } from './drawer.js';
 
-export function createDisclosure(): never {
-  throw new Error('[@neo-brutal-ui/interactions] createDisclosure is not yet implemented.');
+export { createRating } from './rating.js';
+
+export function createDisclosure(element: HTMLElement, options: DisclosureOptions = {}): CollapseInstance {
+  return createCollapse(element, options);
 }

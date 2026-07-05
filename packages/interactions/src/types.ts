@@ -114,3 +114,104 @@ export interface DisclosureOptions extends BaseOptions {
   /** Close other panels when one opens. Default: true */
   closeOthers?: boolean;
 }
+
+// --------------------------------------------------------------------------
+// Menu
+// --------------------------------------------------------------------------
+
+export interface MenuOptions extends BaseOptions {
+  /** Orientation of the menu. Default: 'vertical' */
+  orientation?: 'horizontal' | 'vertical';
+  /** Close when Escape key is pressed. Default: true */
+  closeOnEscape?: boolean;
+  /** Close when clicking outside the menu. Default: true */
+  closeOnOutsideClick?: boolean;
+  /** Called when a menu item is selected */
+  onSelect?: (item: HTMLElement) => void;
+}
+
+// --------------------------------------------------------------------------
+// Accordion
+// --------------------------------------------------------------------------
+
+/** Extended interface for accordion that exposes panel navigation */
+export interface AccordionInstance extends ComponentInstance {
+  /** Open a specific panel by zero-based index */
+  openPanel(index: number): void;
+  /** Close a specific panel by zero-based index */
+  closePanel(index: number): void;
+  /** Toggle a specific panel by zero-based index */
+  togglePanel(index: number): void;
+  /** Read the currently open panel indices */
+  get activeIndices(): number[];
+}
+
+// --------------------------------------------------------------------------
+// Rating
+// --------------------------------------------------------------------------
+
+export interface RatingOptions {
+  /** Maximum rating value. Default: 5 */
+  max?: number;
+  /** Initial value. Default: 0 */
+  value?: number;
+  /** Prevent user interaction. Default: false */
+  readOnly?: boolean;
+  /** Allow half-step values. Default: false */
+  allowHalf?: boolean;
+  /** Called when the rating value changes */
+  onChange?: (value: number) => void;
+  /** Called when a star is hovered */
+  onHover?: (value: number) => void;
+  /** Called when the mouse leaves the rating area */
+  onLeave?: () => void;
+}
+
+export interface RatingInstance extends ComponentInstance {
+  /** Read the current rating value */
+  readonly value: number;
+  /** Set the rating value programmatically */
+  setValue(value: number): void;
+  /** Clear the rating (set to 0) */
+  clear(): void;
+}
+// --------------------------------------------------------------------------
+
+export interface CarouselOptions {
+  /** Zero-based index of the initially-active slide. Default: 0 */
+  defaultIndex?: number;
+  /** Enable auto-play in ms. Default: 0 (disabled) */
+  autoPlay?: number;
+  /** Pause auto-play on hover. Default: true */
+  pauseOnHover?: boolean;
+  /** Pause auto-play on focus. Default: true */
+  pauseOnFocus?: boolean;
+  /** Enable infinite loop. Default: false */
+  loop?: boolean;
+  /** Called when the active slide changes */
+  onChange?: (index: number, previousIndex: number) => void;
+  /** Called when auto-play starts */
+  onPlay?: () => void;
+  /** Called when auto-play pauses */
+  onPause?: () => void;
+}
+
+export interface CarouselInstance extends ComponentInstance {
+  /** Navigate to a specific slide by zero-based index */
+  goTo(index: number): void;
+  /** Advance to the next slide */
+  next(): void;
+  /** Go back to the previous slide */
+  prev(): void;
+  /** Start auto-play (if configured) */
+  play(): void;
+  /** Pause auto-play */
+  pause(): void;
+  /** Read the currently active slide index */
+  get activeIndex(): number;
+  /** Read whether auto-play is currently running */
+  get isPlaying(): boolean;
+  /** Read the total number of slides */
+  get slideCount(): number;
+}
+

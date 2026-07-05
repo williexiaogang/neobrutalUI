@@ -1,0 +1,105 @@
+/**
+ * Neo-Brutal UI — Breadcrumb Component
+ *
+ * Horizontal navigation trail with separators. Uses semantic nav + ol markup.
+ */
+
+@layer nb.components {
+  .nb-breadcrumb {
+    display: flex;
+    align-items: center;
+  }
+
+  .nb-breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--nb-space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nb-breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    font-size: var(--nb-text-sm);
+    font-weight: 600;
+    line-height: var(--nb-leading-tight);
+  }
+
+  .nb-breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nb-space-1);
+    padding: var(--nb-space-1) var(--nb-space-2);
+    color: var(--nb-primary);
+    text-decoration: none;
+    border: var(--nb-border-width) solid transparent;
+    transition: background var(--nb-duration-fast) var(--nb-ease-out),
+      border-color var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-breadcrumb-link:hover {
+    background: var(--nb-base-200);
+    border-color: var(--nb-border);
+  }
+
+  .nb-breadcrumb-link:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  .nb-breadcrumb-current {
+    padding: var(--nb-space-1) var(--nb-space-2);
+    color: var(--nb-base-content);
+    font-weight: 700;
+  }
+
+  .nb-breadcrumb-separator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--nb-base-content-muted);
+    font-weight: 700;
+    user-select: none;
+  }
+
+  /* Collapsed variant (mobile) — hide middle items */
+  .nb-breadcrumb-collapsed .nb-breadcrumb-item:not(:first-child):not(:last-child):not(.nb-breadcrumb-separator-wrap) {
+    display: none;
+  }
+
+  .nb-breadcrumb-collapsed .nb-breadcrumb-item.nb-breadcrumb-separator-wrap {
+    display: inline-flex;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-breadcrumb-link {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-breadcrumb-link {
+      border: 2px solid transparent;
+      color: LinkText;
+    }
+
+    .nb-breadcrumb-link:hover {
+      border-color: ButtonText;
+      background: Canvas;
+    }
+
+    .nb-breadcrumb-current {
+      color: CanvasText;
+    }
+
+    .nb-breadcrumb-separator {
+      color: GrayText;
+    }
+  }
+}

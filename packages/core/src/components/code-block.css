@@ -1,0 +1,211 @@
+/**
+ * Neo-Brutal UI — Code Block Component
+ *
+ * Brutalist code display with hard shadows, optional header with
+ * language label / filename, copy button area, and line numbers.
+ */
+
+@layer nb.components {
+  .nb-code-block {
+    --_bg: var(--nb-base-100);
+    --_fg: var(--nb-base-content);
+    --_border: var(--nb-border);
+    --_accent: var(--nb-neutral);
+    --_line-bg: var(--nb-base-200);
+    --_line-fg: var(--nb-base-content-muted);
+
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_bg);
+    color: var(--_fg);
+    box-shadow: var(--nb-code-block-shadow);
+    overflow: hidden;
+  }
+
+  .nb-code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-2);
+    padding-inline: var(--nb-space-4);
+    padding-block: var(--nb-space-2);
+    border-block-end: var(--nb-border-width) solid var(--_border);
+    background: var(--_line-bg);
+    font-family: var(--nb-font-mono);
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+  }
+
+  .nb-code-block-lang {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    color: var(--_accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .nb-code-block-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+  }
+
+  .nb-code-block-body {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-block-size: var(--nb-code-block-max-height);
+    padding: var(--nb-code-block-body-padding);
+    font-family: var(--nb-font-mono);
+    font-size: var(--nb-text-sm);
+    line-height: var(--nb-leading-normal);
+    background: var(--_bg);
+  }
+
+  .nb-code-block-pre {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    white-space: pre;
+    word-wrap: normal;
+    tab-size: 2;
+  }
+
+  .nb-code-block-code {
+    display: block;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  /* Line numbers variant */
+  .nb-code-block-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .nb-code-block-line {
+    display: flex;
+    gap: var(--nb-space-3);
+    padding-inline: var(--nb-space-2);
+    padding-block: 0;
+  }
+
+  .nb-code-block-line-number {
+    display: inline-block;
+    min-inline-size: 2ch;
+    text-align: end;
+    color: var(--_line-fg);
+    user-select: none;
+    flex-shrink: 0;
+  }
+
+  .nb-code-block-line-content {
+    flex: 1;
+    white-space: pre;
+  }
+
+  /* Color variants (accent the header/lang) */
+  .nb-code-block-primary {
+    --_accent: var(--nb-primary);
+  }
+
+  .nb-code-block-secondary {
+    --_accent: var(--nb-secondary);
+  }
+
+  .nb-code-block-accent {
+    --_accent: var(--nb-accent);
+  }
+
+  .nb-code-block-info {
+    --_accent: var(--nb-info);
+  }
+
+  .nb-code-block-success {
+    --_accent: var(--nb-success);
+  }
+
+  .nb-code-block-warning {
+    --_accent: var(--nb-warning);
+  }
+
+  .nb-code-block-error {
+    --_accent: var(--nb-error);
+  }
+
+  /* Size variants */
+  .nb-code-block-sm .nb-code-block-body {
+    padding: var(--nb-space-2);
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-code-block-sm .nb-code-block-header {
+    padding-inline: var(--nb-space-2);
+    padding-block: var(--nb-space-1);
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-code-block-lg .nb-code-block-body {
+    padding: var(--nb-space-6);
+    font-size: var(--nb-text-base);
+  }
+
+  .nb-code-block-lg .nb-code-block-header {
+    padding-inline: var(--nb-space-6);
+    padding-block: var(--nb-space-3);
+    font-size: var(--nb-text-base);
+  }
+
+  /* No header variant */
+  .nb-code-block-plain .nb-code-block-body {
+    border-block-start: none;
+  }
+
+  .nb-code-block-plain .nb-code-block-header {
+    display: none;
+  }
+
+  /* Full-width (no max-block-size limit) */
+  .nb-code-block-full .nb-code-block-body {
+    max-block-size: none;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-code-block {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-code-block {
+      border: 2px solid CanvasText;
+      background: Canvas;
+      color: CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-code-block-header {
+      border-block-end: 2px solid CanvasText;
+      background: Canvas;
+    }
+
+    .nb-code-block-line-number {
+      color: GrayText;
+    }
+  }
+}

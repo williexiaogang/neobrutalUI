@@ -1,0 +1,222 @@
+/**
+ * Neo-Brutal UI — Footer Component
+ *
+ * Multi-section footer with brand area, link groups, and bottom bar.
+ * Brutalist borders, hard shadows, and logical-property spacing.
+ */
+
+@layer nb.components {
+  .nb-footer {
+    --_bg: var(--nb-base-100);
+    --_fg: var(--nb-base-content);
+    --_border: var(--nb-border);
+    --_padding: var(--nb-space-8);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-6);
+    padding: var(--_padding);
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_bg);
+    color: var(--_fg);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-2);
+  }
+
+  .nb-footer-brand-name {
+    margin: 0;
+    font-size: var(--nb-text-lg);
+    font-weight: 800;
+    line-height: var(--nb-leading-tight);
+  }
+
+  .nb-footer-brand-tagline {
+    margin: 0;
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content-muted);
+    max-inline-size: 20rem;
+  }
+
+  .nb-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nb-space-8);
+  }
+
+  .nb-footer-link-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-2);
+    min-inline-size: 10rem;
+  }
+
+  .nb-footer-link-title {
+    margin: 0 0 var(--nb-space-1);
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--nb-base-content);
+  }
+
+  .nb-footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nb-space-1);
+    padding: var(--nb-space-1) 0;
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content-muted);
+    text-decoration: none;
+    transition: color var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-footer-link:hover {
+    color: var(--nb-base-content);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .nb-footer-link:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+    border-radius: var(--nb-radius-field);
+  }
+
+  .nb-footer-divider {
+    block-size: var(--nb-border-width);
+    background: var(--nb-border);
+    border: none;
+  }
+
+  .nb-footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nb-space-4);
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-footer-copyright {
+    margin: 0;
+  }
+
+  .nb-footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nb-space-4);
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nb-footer-legal a {
+    color: var(--nb-base-content-muted);
+    text-decoration: none;
+    transition: color var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-footer-legal a:hover {
+    color: var(--nb-base-content);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .nb-footer-legal a:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+    border-radius: var(--nb-radius-field);
+  }
+
+  /* Variants — compact */
+  .nb-footer-compact {
+    --_padding: var(--nb-space-4);
+    gap: var(--nb-space-4);
+  }
+
+  .nb-footer-compact .nb-footer-links {
+    gap: var(--nb-space-4);
+  }
+
+  .nb-footer-compact .nb-footer-link-group {
+    min-inline-size: 8rem;
+  }
+
+  /* Variants — color */
+  .nb-footer-primary {
+    --_bg: var(--nb-primary);
+    --_fg: var(--nb-primary-content);
+  }
+
+  .nb-footer-primary .nb-footer-brand-tagline,
+  .nb-footer-primary .nb-footer-link,
+  .nb-footer-primary .nb-footer-bottom,
+  .nb-footer-primary .nb-footer-legal a {
+    color: var(--nb-primary-content);
+    opacity: 0.85;
+  }
+
+  .nb-footer-primary .nb-footer-link:hover,
+  .nb-footer-primary .nb-footer-legal a:hover {
+    opacity: 1;
+  }
+
+  .nb-footer-primary .nb-footer-link-title {
+    color: var(--nb-primary-content);
+  }
+
+  .nb-footer-neutral {
+    --_bg: var(--nb-neutral);
+    --_fg: var(--nb-neutral-content);
+  }
+
+  .nb-footer-neutral .nb-footer-brand-tagline,
+  .nb-footer-neutral .nb-footer-link,
+  .nb-footer-neutral .nb-footer-bottom,
+  .nb-footer-neutral .nb-footer-legal a {
+    color: var(--nb-neutral-content);
+    opacity: 0.85;
+  }
+
+  .nb-footer-neutral .nb-footer-link:hover,
+  .nb-footer-neutral .nb-footer-legal a:hover {
+    opacity: 1;
+  }
+
+  .nb-footer-neutral .nb-footer-link-title {
+    color: var(--nb-neutral-content);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-footer-link,
+    .nb-footer-legal a {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-footer {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-footer-divider {
+      background: CanvasText;
+    }
+
+    .nb-footer-link,
+    .nb-footer-legal a {
+      color: LinkText;
+    }
+  }
+}

@@ -1,0 +1,154 @@
+/**
+ * Neo-Brutal UI — Pagination Component
+ *
+ * Page number navigation with prev/next, active state, and ellipsis.
+ */
+
+@layer nb.components {
+  .nb-pagination {
+    display: flex;
+    align-items: center;
+  }
+
+  .nb-pagination-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--nb-space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nb-pagination-item {
+    display: inline-flex;
+  }
+
+  .nb-pagination-link,
+  .nb-pagination-prev,
+  .nb-pagination-next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 2.5rem;
+    min-block-size: 2.5rem;
+    padding: var(--nb-space-1) var(--nb-space-3);
+    font-size: var(--nb-text-base);
+    font-weight: 700;
+    line-height: var(--nb-leading-none);
+    font-family: inherit;
+    color: var(--nb-base-content);
+    background: var(--nb-base-100);
+    border: var(--nb-border-width) solid var(--nb-border);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: var(--nb-shadow-sm);
+    transform: translate(0, 0);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out),
+      background var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-pagination-link:hover:not(:disabled):not(.nb-pagination-active),
+  .nb-pagination-prev:hover:not(:disabled):not([aria-disabled="true"]),
+  .nb-pagination-next:hover:not(:disabled):not([aria-disabled="true"]) {
+    box-shadow: var(--nb-shadow-md);
+    transform: translate(-2px, -2px);
+  }
+
+  .nb-pagination-link:active:not(:disabled):not(.nb-pagination-active),
+  .nb-pagination-prev:active:not(:disabled):not([aria-disabled="true"]),
+  .nb-pagination-next:active:not(:disabled):not([aria-disabled="true"]) {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(2px, 2px);
+  }
+
+  .nb-pagination-link:focus-visible,
+  .nb-pagination-prev:focus-visible,
+  .nb-pagination-next:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  .nb-pagination-active {
+    background: var(--nb-primary);
+    color: var(--nb-primary-content);
+    border-color: var(--nb-border);
+    box-shadow: var(--nb-shadow-md);
+    cursor: default;
+  }
+
+  .nb-pagination-prev[aria-disabled="true"],
+  .nb-pagination-next[aria-disabled="true"],
+  .nb-pagination-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(2px, 2px);
+  }
+
+  .nb-pagination-ellipsis {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 2.5rem;
+    min-block-size: 2.5rem;
+    padding: var(--nb-space-1) var(--nb-space-3);
+    font-size: var(--nb-text-base);
+    font-weight: 700;
+    color: var(--nb-base-content-muted);
+    user-select: none;
+  }
+
+  /* Size variants */
+  .nb-pagination-sm .nb-pagination-link,
+  .nb-pagination-sm .nb-pagination-prev,
+  .nb-pagination-sm .nb-pagination-next,
+  .nb-pagination-sm .nb-pagination-ellipsis {
+    min-inline-size: 2rem;
+    min-block-size: 2rem;
+    padding: var(--nb-space-1) var(--nb-space-2);
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-pagination-lg .nb-pagination-link,
+  .nb-pagination-lg .nb-pagination-prev,
+  .nb-pagination-lg .nb-pagination-next,
+  .nb-pagination-lg .nb-pagination-ellipsis {
+    min-inline-size: 3rem;
+    min-block-size: 3rem;
+    padding: var(--nb-space-2) var(--nb-space-4);
+    font-size: var(--nb-text-lg);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-pagination-link,
+    .nb-pagination-prev,
+    .nb-pagination-next {
+      transition: none;
+    }
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-pagination-link,
+    .nb-pagination-prev,
+    .nb-pagination-next {
+      border: 2px solid ButtonText;
+      forced-color-adjust: none;
+    }
+
+    .nb-pagination-active {
+      background: Highlight;
+      color: HighlightText;
+      border-color: ButtonText;
+    }
+
+    .nb-pagination-prev[aria-disabled="true"],
+    .nb-pagination-next[aria-disabled="true"],
+    .nb-pagination-disabled {
+      border-color: GrayText;
+    }
+  }
+}

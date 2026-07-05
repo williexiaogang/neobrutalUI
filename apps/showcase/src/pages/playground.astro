@@ -1,0 +1,687 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/layout/Header.astro";
+import Footer from "@components/layout/Footer.astro";
+
+const pageTitle = "Playground · Neo-Brutal UI";
+const pageDescription = "Interactive playground for Neo-Brutal UI components. Toggle themes, RTL, reduced motion, viewport sizes, and customize tokens live.";
+
+const initialMarkup = `<!-- Button variants -->
+<button class="nb-btn nb-btn-primary" type="button">Primary</button>
+<button class="nb-btn nb-btn-outline" type="button">Outline</button>
+<button class="nb-btn" type="button" disabled>Disabled</button>
+
+<!-- Card -->
+<div class="nb-card" style="inline-size: 100%;">
+  <div class="nb-card-header">
+    <span class="nb-card-title" style="font-size: var(--nb-text-base);">Card title</span>
+  </div>
+  <div class="nb-card-body" style="padding: var(--nb-space-3);">
+    <p style="margin: 0; font-size: var(--nb-text-sm);">A compact preview of the card component structure.</p>
+  </div>
+</div>
+
+<!-- Alert -->
+<div class="nb-alert nb-alert-info" role="alert">
+  <div class="nb-alert-icon" aria-hidden="true">ℹ</div>
+  <div class="nb-alert-body">
+    <div class="nb-alert-title">Heads up</div>
+    <p class="nb-alert-message">This is an informational alert message.</p>
+  </div>
+</div>
+
+<!-- Input field -->
+<label class="nb-field">
+  <span class="nb-field-label">Email</span>
+  <input class="nb-input" type="email" placeholder="you@example.com" />
+  <span class="nb-field-description">We will never share your email.</span>
+</label>
+
+<!-- Select -->
+<label class="nb-field">
+  <span class="nb-field-label">Framework</span>
+  <select class="nb-select">
+    <option>Astro</option>
+    <option>React</option>
+    <option>Vue</option>
+    <option>Svelte</option>
+  </select>
+</label>
+
+<!-- Tabs -->
+<div class="nb-tabs" role="tablist">
+  <button class="nb-tab" role="tab" aria-selected="true">Details</button>
+  <button class="nb-tab" role="tab" aria-selected="false">Settings</button>
+  <button class="nb-tab" role="tab" aria-selected="false">Security</button>
+</div>
+
+<!-- Table -->
+<div class="nb-table-wrapper">
+  <table class="nb-table">
+    <thead>
+      <tr><th>Name</th><th>Role</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Alex</td><td>Engineer</td><td><span class="nb-badge nb-badge-primary">Active</span></td></tr>
+      <tr><td>Jordan</td><td>Designer</td><td><span class="nb-badge nb-badge-accent">Away</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Navbar preview -->
+<nav class="nb-navbar" aria-label="Playground preview">
+  <a class="nb-navbar-brand" href="#">Brand</a>
+  <ul class="nb-navbar-nav" role="menubar">
+    <li><a href="#" role="menuitem">Home</a></li>
+    <li><a href="#" role="menuitem">About</a></li>
+  </ul>
+</nav>
+
+<!-- Breadcrumbs -->
+<nav class="nb-breadcrumb" aria-label="Breadcrumb">
+  <ol class="nb-breadcrumb-list">
+    <li class="nb-breadcrumb-item"><a href="#">Home</a></li>
+    <li class="nb-breadcrumb-item"><a href="#">Products</a></li>
+    <li class="nb-breadcrumb-item" aria-current="page">Details</li>
+  </ol>
+</nav>
+
+<!-- Steps -->
+<ol class="nb-steps" aria-label="Progress">
+  <li class="nb-step nb-step-completed"><span class="nb-step-indicator">1</span><span class="nb-step-label">Cart</span></li>
+  <li class="nb-step nb-step-active"><span class="nb-step-indicator">2</span><span class="nb-step-label">Shipping</span></li>
+  <li class="nb-step"><span class="nb-step-indicator">3</span><span class="nb-step-label">Payment</span></li>
+</ol>
+
+<!-- Pagination -->
+<nav class="nb-pagination" aria-label="Pagination">
+  <ul class="nb-pagination-list">
+    <li class="nb-pagination-item"><button class="nb-pagination-prev" aria-label="Previous page">←</button></li>
+    <li class="nb-pagination-item"><button class="nb-pagination-link nb-pagination-active" aria-current="page">1</button></li>
+    <li class="nb-pagination-item"><button class="nb-pagination-link">2</button></li>
+    <li class="nb-pagination-item"><button class="nb-pagination-link">3</button></li>
+    <li class="nb-pagination-item"><button class="nb-pagination-next" aria-label="Next page">→</button></li>
+  </ul>
+</nav>
+
+<!-- Badge cluster -->
+<div class="nb-cluster">
+  <span class="nb-badge nb-badge-primary">New</span>
+  <span class="nb-badge nb-badge-secondary">Beta</span>
+  <span class="nb-badge nb-badge-accent">Hot</span>
+  <span class="nb-badge nb-badge-info">Info</span>
+  <span class="nb-badge nb-badge-success">Done</span>
+  <span class="nb-badge nb-badge-warning">Warn</span>
+  <span class="nb-badge nb-badge-error">Error</span>
+</div>
+
+<!-- Tooltip example -->
+<div class="nb-tooltip" role="tooltip" aria-label="Tooltip">
+  <span class="nb-tooltip-trigger" aria-describedby="tooltip-id">Hover me</span>
+  <span class="nb-tooltip-content" id="tooltip-id">This is a tooltip message.</span>
+</div>`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Header />
+
+  <main id="main-content" class="playground-main">
+    <div class="nb-container">
+      <div class="playground-header">
+        <h1 class="playground-title">Playground</h1>
+        <p class="playground-lead">
+          Toggle themes, RTL, motion preferences, and viewport sizes. Customize tokens and copy the live markup.
+        </p>
+      </div>
+
+      <div class="playground-layout">
+        <!-- Sidebar controls -->
+        <aside class="playground-controls" aria-label="Playground controls">
+          <section class="control-group">
+            <h2 class="control-group-title">Appearance</h2>
+
+            <div class="control-row">
+              <label class="control-label" for="theme-toggle">Theme</label>
+              <div class="control-widget">
+                <button
+                  id="theme-toggle"
+                  class="nb-btn nb-btn-sm"
+                  type="button"
+                  aria-pressed="false"
+                  data-control="theme"
+                >
+                  <span data-theme-label>neo-brutal</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="control-row">
+              <label class="control-label" for="rtl-toggle">RTL</label>
+              <div class="control-widget">
+                <button
+                  id="rtl-toggle"
+                  class="nb-btn nb-btn-sm"
+                  type="button"
+                  aria-pressed="false"
+                  data-control="rtl"
+                >
+                  <span data-rtl-label>OFF</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="control-row">
+              <label class="control-label" for="motion-toggle">Reduced motion</label>
+              <div class="control-widget">
+                <button
+                  id="motion-toggle"
+                  class="nb-btn nb-btn-sm"
+                  type="button"
+                  aria-pressed="false"
+                  data-control="motion"
+                >
+                  <span data-motion-label>OFF</span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="control-group">
+            <h2 class="control-group-title">Viewport</h2>
+            <div class="control-row">
+              <label class="control-label" for="viewport-select">Size</label>
+              <div class="control-widget">
+                <select id="viewport-select" class="nb-select" data-control="viewport">
+                  <option value="100%">Full width</option>
+                  <option value="768px">Tablet (768px)</option>
+                  <option value="640px">Small tablet (640px)</option>
+                  <option value="390px">Mobile (390px)</option>
+                  <option value="320px">Small mobile (320px)</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section class="control-group">
+            <h2 class="control-group-title">Tokens</h2>
+
+            <div class="control-row control-row--stack">
+              <label class="control-label" for="token-primary">Primary color</label>
+              <input
+                id="token-primary"
+                type="color"
+                class="token-color"
+                data-control="token"
+                data-token="--nb-primary"
+                value="#ff007f"
+              />
+            </div>
+
+            <div class="control-row control-row--stack">
+              <label class="control-label" for="token-border-width">Border width</label>
+              <input
+                id="token-border-width"
+                type="range"
+                class="token-range"
+                data-control="token"
+                data-token="--nb-border-width"
+                min="1"
+                max="6"
+                step="1"
+                value="3"
+              />
+              <span class="token-value" data-token-value="--nb-border-width">3px</span>
+            </div>
+
+            <div class="control-row control-row--stack">
+              <label class="control-label" for="token-shadow-offset">Shadow offset</label>
+              <input
+                id="token-shadow-offset"
+                type="range"
+                class="token-range"
+                data-control="token"
+                data-token="--nb-shadow-offset"
+                min="0"
+                max="8"
+                step="1"
+                value="4"
+              />
+              <span class="token-value" data-token-value="--nb-shadow-offset">4px</span>
+            </div>
+
+            <div class="control-row control-row--stack">
+              <label class="control-label" for="token-radius">Border radius</label>
+              <input
+                id="token-radius"
+                type="range"
+                class="token-range"
+                data-control="token"
+                data-token="--nb-radius-field"
+                min="0"
+                max="16"
+                step="1"
+                value="8"
+              />
+              <span class="token-value" data-token-value="--nb-radius-field">8px</span>
+            </div>
+          </section>
+
+          <section class="control-group">
+            <h2 class="control-group-title">Actions</h2>
+            <div class="control-row">
+              <button class="nb-btn nb-btn-primary nb-btn-block" type="button" data-action="copy">
+                Copy HTML
+              </button>
+            </div>
+            <div class="control-row">
+              <button class="nb-btn nb-btn-outline nb-btn-block" type="button" data-action="reset">
+                Reset defaults
+              </button>
+            </div>
+            <p class="control-hint" role="status" aria-live="polite" data-copy-status></p>
+          </section>
+        </aside>
+
+        <!-- Preview pane -->
+        <div class="playground-preview" aria-label="Component preview">
+          <div class="preview-toolbar" aria-hidden="true">
+            <span class="preview-toolbar-label">Preview</span>
+            <span class="preview-toolbar-size" data-viewport-size-label>Full width</span>
+          </div>
+          <div class="preview-frame-wrapper">
+            <div
+              id="preview-frame"
+              class="preview-frame"
+              data-theme="neo-brutal"
+              dir="ltr"
+              data-viewport="100%"
+            >
+              <div class="preview-inner" set:html={initialMarkup} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .playground-main {
+    padding-block: var(--nb-space-8) var(--nb-space-16);
+  }
+
+  .playground-header {
+    margin-block-end: var(--nb-space-8);
+  }
+
+  .playground-title {
+    margin: 0;
+    font-size: var(--nb-text-3xl);
+    line-height: var(--nb-leading-tight);
+  }
+
+  .playground-lead {
+    margin-block-start: var(--nb-space-2);
+    color: var(--nb-base-content-muted);
+    max-inline-size: 60ch;
+  }
+
+  .playground-layout {
+    display: grid;
+    gap: var(--nb-space-6);
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .playground-layout {
+      grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    }
+  }
+
+  .playground-controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-6);
+  }
+
+  .control-group {
+    padding: var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .control-group-title {
+    margin: 0 0 var(--nb-space-4);
+    font-size: var(--nb-text-sm);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--nb-base-content-muted);
+  }
+
+  .control-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-3);
+    padding-block: var(--nb-space-2);
+  }
+
+  .control-row:not(:last-child) {
+    border-block-end: 1px solid var(--nb-border);
+  }
+
+  .control-row--stack {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--nb-space-1);
+  }
+
+  .control-label {
+    font-weight: 700;
+    font-size: var(--nb-text-sm);
+  }
+
+  .control-widget {
+    flex-shrink: 0;
+  }
+
+  .control-widget .nb-select {
+    inline-size: 100%;
+    min-inline-size: 8rem;
+  }
+
+  .token-color {
+    inline-size: 100%;
+    block-size: 2.5rem;
+    padding: 0;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-field);
+    cursor: pointer;
+    background: none;
+  }
+
+  .token-range {
+    inline-size: 100%;
+    cursor: pointer;
+  }
+
+  .token-value {
+    font-size: var(--nb-text-xs);
+    font-weight: 700;
+    color: var(--nb-base-content-muted);
+    text-align: end;
+  }
+
+  .control-hint {
+    margin: var(--nb-space-2) 0 0;
+    font-size: var(--nb-text-xs);
+    color: var(--nb-base-content-muted);
+    min-block-size: 1.25em;
+  }
+
+  .playground-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-md);
+    overflow: hidden;
+  }
+
+  .preview-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-2) var(--nb-space-4);
+    border-block-end: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-200);
+    font-size: var(--nb-text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .preview-frame-wrapper {
+    padding: var(--nb-space-4);
+    background: var(--nb-base-200);
+    overflow-x: auto;
+  }
+
+  .preview-frame {
+    margin-inline: auto;
+    padding: var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-box);
+    background: var(--nb-base-100);
+    transition: inline-size var(--nb-duration-fast) var(--nb-ease-out);
+    inline-size: 100%;
+  }
+
+  .preview-frame[data-viewport="768px"] { inline-size: 768px; }
+  .preview-frame[data-viewport="640px"] { inline-size: 640px; }
+  .preview-frame[data-viewport="390px"] { inline-size: 390px; }
+  .preview-frame[data-viewport="320px"] { inline-size: 320px; }
+
+  .preview-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-4);
+  }
+
+  /* Reduced motion overrides for the preview frame itself */
+  .preview-frame[data-reduced-motion="true"] * {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Copy success feedback */
+  .control-hint.is-success {
+    color: var(--nb-success);
+  }
+</style>
+
+<script>
+  (function () {
+    const frame = document.getElementById('preview-frame');
+    const themeBtn = document.querySelector('[data-control="theme"]');
+    const rtlBtn = document.querySelector('[data-control="rtl"]');
+    const motionBtn = document.querySelector('[data-control="motion"]');
+    const viewportSelect = document.querySelector('[data-control="viewport"]');
+    const tokenInputs = document.querySelectorAll('[data-control="token"]');
+    const copyBtn = document.querySelector('[data-action="copy"]');
+    const resetBtn = document.querySelector('[data-action="reset"]');
+    const copyStatus = document.querySelector('[data-copy-status]');
+    const viewportLabel = document.querySelector('[data-viewport-size-label]');
+
+    const themeLabel = document.querySelector('[data-theme-label]');
+    const rtlLabel = document.querySelector('[data-rtl-label]');
+    const motionLabel = document.querySelector('[data-motion-label]');
+
+    const defaults = {
+      theme: 'neo-brutal',
+      rtl: false,
+      reducedMotion: false,
+      viewport: '100%',
+      tokens: {
+        '--nb-primary': '#ff007f',
+        '--nb-border-width': '3px',
+        '--nb-shadow-offset': '4px',
+        '--nb-radius-field': '8px',
+      },
+    };
+
+    function updateTheme() {
+      const current = frame.getAttribute('data-theme');
+      const next = current === 'neo-brutal' ? 'neo-brutal-dark' : 'neo-brutal';
+      frame.setAttribute('data-theme', next);
+      themeBtn.setAttribute('aria-pressed', String(next === 'neo-brutal-dark'));
+      themeLabel.textContent = next;
+    }
+
+    function updateRtl() {
+      const current = frame.getAttribute('dir') === 'rtl';
+      const next = !current;
+      frame.setAttribute('dir', next ? 'rtl' : 'ltr');
+      rtlBtn.setAttribute('aria-pressed', String(next));
+      rtlLabel.textContent = next ? 'ON' : 'OFF';
+    }
+
+    function updateMotion() {
+      const current = frame.getAttribute('data-reduced-motion') === 'true';
+      const next = !current;
+      frame.setAttribute('data-reduced-motion', String(next));
+      motionBtn.setAttribute('aria-pressed', String(next));
+      motionLabel.textContent = next ? 'ON' : 'OFF';
+    }
+
+    function updateViewport() {
+      const value = viewportSelect.value;
+      frame.setAttribute('data-viewport', value);
+      const option = viewportSelect.options[viewportSelect.selectedIndex];
+      viewportLabel.textContent = option.text;
+    }
+
+    function updateToken(input) {
+      const token = input.getAttribute('data-token');
+      const value = input.value;
+      const unit = input.type === 'range' ? 'px' : '';
+      const formatted = input.type === 'color' ? value : value + unit;
+      frame.style.setProperty(token, formatted);
+
+      const valueDisplay = document.querySelector('[data-token-value="' + token + '"]');
+      if (valueDisplay) {
+        valueDisplay.textContent = formatted;
+      }
+    }
+
+    function copyHtml() {
+      const inner = frame.querySelector('.preview-inner');
+      if (!inner) return;
+      const html = inner.innerHTML
+        .replace(/\n\s*\n/g, '\n')
+        .trim();
+      navigator.clipboard.writeText(html).then(() => {
+        copyStatus.textContent = 'Copied to clipboard!';
+        copyStatus.classList.add('is-success');
+        setTimeout(() => {
+          copyStatus.textContent = '';
+          copyStatus.classList.remove('is-success');
+        }, 2000);
+      }).catch(() => {
+        copyStatus.textContent = 'Copy failed. Select and copy manually.';
+        copyStatus.classList.remove('is-success');
+      });
+    }
+
+    function resetAll() {
+      frame.setAttribute('data-theme', defaults.theme);
+      frame.setAttribute('dir', defaults.rtl ? 'rtl' : 'ltr');
+      frame.setAttribute('data-reduced-motion', String(defaults.reducedMotion));
+      frame.setAttribute('data-viewport', defaults.viewport);
+      frame.style.cssText = '';
+
+      themeBtn.setAttribute('aria-pressed', 'false');
+      themeLabel.textContent = defaults.theme;
+
+      rtlBtn.setAttribute('aria-pressed', 'false');
+      rtlLabel.textContent = 'OFF';
+
+      motionBtn.setAttribute('aria-pressed', 'false');
+      motionLabel.textContent = 'OFF';
+
+      viewportSelect.value = defaults.viewport;
+      viewportLabel.textContent = 'Full width';
+
+      tokenInputs.forEach((input) => {
+        const token = input.getAttribute('data-token');
+        const defaultValue = defaults.tokens[token] || input.getAttribute('value');
+        input.value = parseFloat(defaultValue) || defaultValue;
+        const valueDisplay = document.querySelector('[data-token-value="' + token + '"]');
+        if (valueDisplay) {
+          const unit = input.type === 'range' ? 'px' : '';
+          valueDisplay.textContent = (parseFloat(defaultValue) || defaultValue) + unit;
+        }
+      });
+
+      copyStatus.textContent = 'Reset to defaults.';
+      setTimeout(() => { copyStatus.textContent = ''; }, 1500);
+    }
+
+    themeBtn.addEventListener('click', updateTheme);
+    rtlBtn.addEventListener('click', updateRtl);
+    motionBtn.addEventListener('click', updateMotion);
+    viewportSelect.addEventListener('change', updateViewport);
+
+    tokenInputs.forEach((input) => {
+      input.addEventListener('input', () => updateToken(input));
+      updateToken(input);
+    });
+
+    copyBtn.addEventListener('click', copyHtml);
+    resetBtn.addEventListener('click', resetAll);
+
+    // Init from saved state
+    try {
+      const saved = JSON.parse(localStorage.getItem('nb-playground') || '{}');
+      if (saved.theme) {
+        frame.setAttribute('data-theme', saved.theme);
+        themeBtn.setAttribute('aria-pressed', String(saved.theme === 'neo-brutal-dark'));
+        themeLabel.textContent = saved.theme;
+      }
+      if (saved.rtl) {
+        frame.setAttribute('dir', 'rtl');
+        rtlBtn.setAttribute('aria-pressed', 'true');
+        rtlLabel.textContent = 'ON';
+      }
+      if (saved.reducedMotion) {
+        frame.setAttribute('data-reduced-motion', 'true');
+        motionBtn.setAttribute('aria-pressed', 'true');
+        motionLabel.textContent = 'ON';
+      }
+      if (saved.viewport) {
+        frame.setAttribute('data-viewport', saved.viewport);
+        viewportSelect.value = saved.viewport;
+        const option = viewportSelect.options[viewportSelect.selectedIndex];
+        viewportLabel.textContent = option ? option.text : 'Full width';
+      }
+      if (saved.tokens) {
+        Object.entries(saved.tokens).forEach(([token, value]) => {
+          const input = document.querySelector('[data-token="' + token + '"]');
+          if (input) {
+            input.value = parseFloat(value) || value;
+            updateToken(input);
+          }
+        });
+      }
+    } catch {}
+
+    // Persist state
+    function persist() {
+      const state = {
+        theme: frame.getAttribute('data-theme'),
+        rtl: frame.getAttribute('dir') === 'rtl',
+        reducedMotion: frame.getAttribute('data-reduced-motion') === 'true',
+        viewport: frame.getAttribute('data-viewport'),
+        tokens: {},
+      };
+      tokenInputs.forEach((input) => {
+        state.tokens[input.getAttribute('data-token')] = input.value;
+      });
+      localStorage.setItem('nb-playground', JSON.stringify(state));
+    }
+
+    [themeBtn, rtlBtn, motionBtn, viewportSelect].forEach((el) => {
+      el.addEventListener('change', persist);
+      el.addEventListener('click', () => setTimeout(persist, 0));
+    });
+    tokenInputs.forEach((input) => input.addEventListener('change', persist));
+  })();
+</script>

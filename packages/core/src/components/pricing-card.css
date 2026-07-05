@@ -1,0 +1,206 @@
+/**
+ * Neo-Brutal UI — Pricing Card Component
+ *
+ * Bold pricing card with hard shadows, color variants, featured highlight,
+ * price display, feature list, and CTA area.
+ */
+
+@layer nb.components {
+  .nb-pricing-card {
+    --_bg: var(--nb-base-100);
+    --_fg: var(--nb-base-content);
+    --_accent: var(--nb-primary);
+    --_border: var(--nb-border);
+    --_shadow: var(--nb-shadow-md);
+
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+    max-inline-size: 24rem;
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-box);
+    background: var(--_bg);
+    color: var(--_fg);
+    box-shadow: var(--_shadow);
+    transform: translate(0, 0);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-pricing-card {
+      transition: none;
+    }
+  }
+
+  .nb-pricing-card:hover {
+    box-shadow: var(--nb-shadow-lg);
+    transform: translate(-2px, -2px);
+  }
+
+  .nb-pricing-card-header {
+    padding: var(--nb-space-4) var(--nb-space-4) var(--nb-space-2);
+    border-block-end: var(--nb-border-width) solid var(--_border);
+  }
+
+  .nb-pricing-card-name {
+    margin: 0;
+    font-size: var(--nb-text-lg);
+    font-weight: 700;
+    line-height: var(--nb-leading-tight);
+    color: var(--_accent);
+  }
+
+  .nb-pricing-card-description {
+    margin: var(--nb-space-1) 0 0;
+    font-size: var(--nb-text-sm);
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-pricing-card-price-block {
+    display: flex;
+    align-items: baseline;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-4);
+    border-block-end: var(--nb-border-width) solid var(--_border);
+  }
+
+  .nb-pricing-card-price {
+    margin: 0;
+    font-size: var(--nb-text-4xl);
+    font-weight: 800;
+    line-height: var(--nb-leading-none);
+  }
+
+  .nb-pricing-card-period {
+    font-size: var(--nb-text-sm);
+    font-weight: 600;
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-pricing-card-features {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-3);
+    padding: var(--nb-space-4);
+    list-style: none;
+    margin: 0;
+  }
+
+  .nb-pricing-card-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-pricing-card-feature::before {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    flex-shrink: 0;
+    font-weight: 700;
+    color: var(--_accent);
+  }
+
+  .nb-pricing-card-feature-muted {
+    color: var(--nb-base-content-muted);
+    text-decoration: line-through;
+  }
+
+  .nb-pricing-card-feature-muted::before {
+    content: "✕";
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-pricing-card-cta {
+    padding: var(--nb-space-4);
+    border-block-start: var(--nb-border-width) solid var(--_border);
+  }
+
+  /* Color variants */
+  .nb-pricing-card-primary {
+    --_accent: var(--nb-primary);
+  }
+
+  .nb-pricing-card-secondary {
+    --_accent: var(--nb-secondary);
+  }
+
+  .nb-pricing-card-accent {
+    --_accent: var(--nb-accent);
+  }
+
+  .nb-pricing-card-neutral {
+    --_accent: var(--nb-neutral);
+  }
+
+  /* Featured variant */
+  .nb-pricing-card-featured {
+    --_shadow: var(--nb-shadow-xl);
+    --_border: var(--_accent);
+    border-width: calc(var(--nb-border-width) * 2);
+  }
+
+  .nb-pricing-card-featured:hover {
+    box-shadow: var(--nb-shadow-xl);
+    transform: translate(-3px, -3px);
+  }
+
+  .nb-pricing-card-featured .nb-pricing-card-name {
+    font-size: var(--nb-text-xl);
+  }
+
+  /* Size variants */
+  .nb-pricing-card-sm {
+    max-inline-size: 18rem;
+  }
+
+  .nb-pricing-card-sm .nb-pricing-card-header,
+  .nb-pricing-card-sm .nb-pricing-card-price-block,
+  .nb-pricing-card-sm .nb-pricing-card-features,
+  .nb-pricing-card-sm .nb-pricing-card-cta {
+    padding: var(--nb-space-3);
+  }
+
+  .nb-pricing-card-sm .nb-pricing-card-price {
+    font-size: var(--nb-text-3xl);
+  }
+
+  .nb-pricing-card-lg {
+    max-inline-size: 28rem;
+  }
+
+  .nb-pricing-card-lg .nb-pricing-card-header,
+  .nb-pricing-card-lg .nb-pricing-card-price-block,
+  .nb-pricing-card-lg .nb-pricing-card-features,
+  .nb-pricing-card-lg .nb-pricing-card-cta {
+    padding: var(--nb-space-6);
+  }
+
+  .nb-pricing-card-lg .nb-pricing-card-price {
+    font-size: calc(var(--nb-text-4xl) + 0.5rem);
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-pricing-card {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-pricing-card-header,
+    .nb-pricing-card-price-block,
+    .nb-pricing-card-cta {
+      border-color: CanvasText;
+    }
+
+    .nb-pricing-card-feature::before {
+      color: CanvasText;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+/**
+ * Neo-Brutal UI — Kbd Component
+ *
+ * Chunky keyboard key representations with a raised 3-D look.
+ * Pressed state simulates a physical key depression.
+ */
+
+@layer nb.components {
+  .nb-kbd {
+    --_bg: var(--nb-base-100);
+    --_fg: var(--nb-base-content);
+    --_border: var(--nb-border);
+    --_shadow: var(--nb-shadow-md);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 2rem;
+    min-block-size: 2rem;
+    padding: var(--nb-space-1) var(--nb-space-3);
+    border: var(--nb-border-width) solid var(--_border);
+    border-radius: var(--nb-radius-field);
+    background: var(--_bg);
+    color: var(--_fg);
+    font-family: var(--nb-font-mono, ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace);
+    font-size: var(--nb-text-sm);
+    font-weight: 700;
+    line-height: var(--nb-leading-none);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: var(--_shadow);
+    transform: translate(0, 0);
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+    user-select: none;
+    cursor: default;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nb-kbd {
+      transition: none;
+    }
+  }
+
+  .nb-kbd:hover {
+    box-shadow: var(--nb-shadow-lg);
+    transform: translate(-1px, -1px);
+  }
+
+  .nb-kbd:active,
+  .nb-kbd-pressed {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(2px, 2px);
+  }
+
+  /* Size variants */
+  .nb-kbd-sm {
+    min-inline-size: 1.5rem;
+    min-block-size: 1.5rem;
+    padding: 0 var(--nb-space-2);
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-kbd-lg {
+    min-inline-size: 2.75rem;
+    min-block-size: 2.75rem;
+    padding: var(--nb-space-2) var(--nb-space-4);
+    font-size: var(--nb-text-base);
+  }
+
+  /* Color variants */
+  .nb-kbd-primary {
+    --_bg: var(--nb-primary);
+    --_fg: var(--nb-primary-content);
+  }
+
+  .nb-kbd-secondary {
+    --_bg: var(--nb-secondary);
+    --_fg: var(--nb-secondary-content);
+  }
+
+  .nb-kbd-accent {
+    --_bg: var(--nb-accent);
+    --_fg: var(--nb-accent-content);
+  }
+
+  .nb-kbd-neutral {
+    --_bg: var(--nb-neutral);
+    --_fg: var(--nb-neutral-content);
+  }
+
+  /* Grouping — combo shortcuts like "Ctrl + K" */
+  .nb-kbd-group {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nb-space-2);
+  }
+
+  .nb-kbd-group .nb-kbd + .nb-kbd::before {
+    content: "+";
+    position: absolute;
+    inset-inline-start: calc(var(--nb-space-2) * -1 - 0.25em);
+    color: var(--nb-base-content-muted);
+    font-weight: 700;
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-kbd-group .nb-kbd {
+    position: relative;
+  }
+
+  /* Forced colors */
+  @media (forced-colors: active) {
+    .nb-kbd {
+      border: 2px solid ButtonText;
+      forced-color-adjust: none;
+    }
+
+    .nb-kbd-group .nb-kbd + .nb-kbd::before {
+      color: CanvasText;
+    }
+  }
+}

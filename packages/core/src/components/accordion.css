@@ -1,0 +1,234 @@
+/**
+ * Neo-Brutal UI — Accordion Component
+ *
+ * Collapsible content sections with hard shadows, bold borders,
+ * and smooth height transitions. Supports single and multi-open modes.
+ */
+
+@layer nb.components {
+  /* ------------------------------------------------------------------------
+   * Accordion root
+   * ------------------------------------------------------------------------ */
+  .nb-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-2);
+    inline-size: 100%;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Accordion item
+   * ------------------------------------------------------------------------ */
+  .nb-accordion-item {
+    --_accordion-bg: var(--nb-base-100);
+    --_accordion-border: var(--nb-border);
+
+    background: var(--_accordion-bg);
+    border: var(--nb-border-width) solid var(--_accordion-border);
+    box-shadow: var(--nb-shadow-sm);
+    transition: box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-accordion-item.is-open {
+    box-shadow: var(--nb-shadow-md);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Accordion trigger
+   * ------------------------------------------------------------------------ */
+  .nb-accordion-trigger,
+  .nb-accordion-item > button:first-child,
+  .nb-accordion [data-nb-accordion-trigger] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-3);
+    inline-size: 100%;
+    padding: var(--nb-space-3) var(--nb-space-4);
+    background: var(--_accordion-bg);
+    color: var(--nb-base-content);
+    font-family: inherit;
+    font-size: var(--nb-text-base);
+    font-weight: 700;
+    line-height: var(--nb-leading-tight);
+    text-align: start;
+    border: none;
+    border-block-end: var(--nb-border-width) solid transparent;
+    cursor: pointer;
+    transition:
+      background var(--nb-duration-fast) var(--nb-ease-out),
+      border-color var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-accordion-trigger:hover:not(:disabled),
+  .nb-accordion-item > button:first-child:hover:not(:disabled),
+  .nb-accordion [data-nb-accordion-trigger]:hover:not(:disabled) {
+    background: var(--nb-base-200);
+  }
+
+  .nb-accordion-trigger:focus-visible,
+  .nb-accordion-item > button:first-child:focus-visible,
+  .nb-accordion [data-nb-accordion-trigger]:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: -2px;
+  }
+
+  .nb-accordion-trigger:disabled,
+  .nb-accordion-item > button:first-child:disabled,
+  .nb-accordion [data-nb-accordion-trigger]:disabled,
+  .nb-accordion-trigger.nb-accordion-trigger-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Active trigger state when panel is open */
+  .nb-accordion-item.is-open .nb-accordion-trigger,
+  .nb-accordion-item.is-open > button:first-child,
+  .nb-accordion-item.is-open [data-nb-accordion-trigger] {
+    border-block-end-color: var(--nb-border);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Accordion icon (chevron)
+   * ------------------------------------------------------------------------ */
+  .nb-accordion-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    flex-shrink: 0;
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-accordion-item.is-open .nb-accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Accordion panel wrapper — animated via grid trick
+   * ------------------------------------------------------------------------ */
+  .nb-accordion-panel,
+  .nb-accordion [data-nb-accordion-panel] {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition:
+      grid-template-rows var(--nb-duration-normal) var(--nb-ease-out),
+      visibility 0s var(--nb-duration-normal);
+  }
+
+  .nb-accordion-panel.is-open,
+  .nb-accordion [data-nb-accordion-panel].is-open {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition:
+      grid-template-rows var(--nb-duration-normal) var(--nb-ease-out),
+      visibility 0s 0s;
+  }
+
+  /* Inner wrapper for overflow clipping */
+  .nb-accordion-panel-inner,
+  .nb-accordion-panel > div:first-child {
+    overflow: hidden;
+  }
+
+  /* ------------------------------------------------------------------------
+   * Accordion content
+   * ------------------------------------------------------------------------ */
+  .nb-accordion-content,
+  .nb-accordion-panel-inner > div,
+  .nb-accordion [data-nb-accordion-panel] > div > div {
+    padding: var(--nb-space-4);
+    font-size: var(--nb-text-sm);
+    line-height: var(--nb-leading-normal);
+    color: var(--nb-base-content);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Flush variant — no gaps, connected borders
+   * ------------------------------------------------------------------------ */
+  .nb-accordion-flush {
+    gap: 0;
+  }
+
+  .nb-accordion-flush .nb-accordion-item {
+    box-shadow: none;
+    border-block-end-width: 0;
+  }
+
+  .nb-accordion-flush .nb-accordion-item:last-child {
+    border-block-end-width: var(--nb-border-width);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Size variants
+   * ------------------------------------------------------------------------ */
+  .nb-accordion-sm .nb-accordion-trigger,
+  .nb-accordion-sm .nb-accordion-item > button:first-child {
+    padding: var(--nb-space-2) var(--nb-space-3);
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-accordion-sm .nb-accordion-content,
+  .nb-accordion-sm .nb-accordion-panel-inner > div {
+    padding: var(--nb-space-3);
+    font-size: var(--nb-text-xs);
+  }
+
+  .nb-accordion-lg .nb-accordion-trigger,
+  .nb-accordion-lg .nb-accordion-item > button:first-child {
+    padding: var(--nb-space-4) var(--nb-space-5);
+    font-size: var(--nb-text-lg);
+  }
+
+  .nb-accordion-lg .nb-accordion-content,
+  .nb-accordion-lg .nb-accordion-panel-inner > div {
+    padding: var(--nb-space-5);
+    font-size: var(--nb-text-base);
+  }
+
+  /* ------------------------------------------------------------------------
+   * Reduced motion
+   * ------------------------------------------------------------------------ */
+  @media (prefers-reduced-motion: reduce) {
+    .nb-accordion-panel,
+    .nb-accordion [data-nb-accordion-panel],
+    .nb-accordion-icon,
+    .nb-accordion-item,
+    .nb-accordion-trigger {
+      transition: none;
+    }
+
+    .nb-accordion-panel.is-open,
+    .nb-accordion [data-nb-accordion-panel].is-open {
+      grid-template-rows: 1fr;
+      visibility: visible;
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+   * Forced colors
+   * ------------------------------------------------------------------------ */
+  @media (forced-colors: active) {
+    .nb-accordion-item {
+      border: 2px solid CanvasText;
+      forced-color-adjust: none;
+    }
+
+    .nb-accordion-trigger:focus-visible,
+    .nb-accordion-item > button:first-child:focus-visible {
+      outline: 2px solid Highlight;
+      outline-offset: -2px;
+    }
+
+    .nb-accordion-item.is-open .nb-accordion-trigger,
+    .nb-accordion-item.is-open > button:first-child {
+      border-block-end-color: CanvasText;
+    }
+
+    .nb-accordion-icon {
+      color: ButtonText;
+    }
+  }
+}
