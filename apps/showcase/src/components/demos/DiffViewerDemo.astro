@@ -1,0 +1,99 @@
+<div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-6); inline-size: 100%;">
+  <!-- Diff Viewer: File Change -->
+  <div class="nb-diff nb-diff-primary" data-theme="neo-brutal">
+    <div class="nb-diff-header">
+      <span class="nb-diff-file-old">src/utils/helpers.ts</span>
+      <span>→</span>
+      <span class="nb-diff-file-new">src/utils/helpers.ts</span>
+      <div class="nb-diff-stats">
+        <span class="nb-badge nb-badge-success">+12</span>
+        <span class="nb-badge nb-badge-error">-4</span>
+      </div>
+    </div>
+    <div class="nb-diff-body">
+      <div class="nb-diff-hunk">
+        <div class="nb-diff-line nb-diff-removed">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">14</span></span>
+          <span class="nb-diff-sign">-</span>
+          <span class="nb-diff-content">export function formatDate(date: Date): string {</span>
+        </div>
+        <div class="nb-diff-line nb-diff-removed">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">15</span></span>
+          <span class="nb-diff-sign">-</span>
+          <span class="nb-diff-content">  return date.toLocaleDateString();</span>
+        </div>
+        <div class="nb-diff-line nb-diff-removed">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">16</span></span>
+          <span class="nb-diff-sign">-</span>
+          <span class="nb-diff-content">}</span>
+        </div>
+        <div class="nb-diff-line nb-diff-added">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">14</span></span>
+          <span class="nb-diff-sign">+</span>
+          <span class="nb-diff-content">export function formatDate(date: Date, locale = "en-US"): string {</span>
+        </div>
+        <div class="nb-diff-line nb-diff-added">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">15</span></span>
+          <span class="nb-diff-sign">+</span>
+          <span class="nb-diff-content">  return new Intl.DateTimeFormat(locale, {</span>
+        </div>
+        <div class="nb-diff-line nb-diff-added">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">16</span></span>
+          <span class="nb-diff-sign">+</span>
+          <span class="nb-diff-content">    year: "numeric", month: "short", day: "numeric"</span>
+        </div>
+        <div class="nb-diff-line nb-diff-added">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">17</span></span>
+          <span class="nb-diff-sign">+</span>
+          <span class="nb-diff-content">  }).format(date);</span>
+        </div>
+        <div class="nb-diff-line nb-diff-added">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">18</span></span>
+          <span class="nb-diff-sign">+</span>
+          <span class="nb-diff-content">}</span>
+        </div>
+      </div>
+      <div class="nb-diff-hunk">
+        <div class="nb-diff-line nb-diff-unchanged">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">28</span></span>
+          <span class="nb-diff-sign"> </span>
+          <span class="nb-diff-content">export function slugify(text: string): string {</span>
+        </div>
+        <div class="nb-diff-line nb-diff-unchanged">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">29</span></span>
+          <span class="nb-diff-sign"> </span>
+          <span class="nb-diff-content">  return text.toLowerCase().replace(/\s+/g, "-");</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compact Diff -->
+  <div class="nb-diff nb-diff-sm nb-diff-plain nb-diff-secondary" data-theme="neo-brutal">
+    <div class="nb-diff-header">
+      <span class="nb-diff-file-new">README.md</span>
+      <div class="nb-diff-stats">
+        <span class="nb-badge nb-badge-success">+3</span>
+      </div>
+    </div>
+    <div class="nb-diff-body">
+      <div class="nb-diff-hunk">
+        <div class="nb-diff-line nb-diff-added">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">1</span></span>
+          <span class="nb-diff-sign">+</span>
+          <span class="nb-diff-content"># Neo-Brutal UI</span>
+        </div>
+        <div class="nb-diff-line nb-diff-added">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">2</span></span>
+          <span class="nb-diff-sign">+</span>
+          <span class="nb-diff-content">A bold, high-contrast component library.</span>
+        </div>
+        <div class="nb-diff-line nb-diff-added">
+          <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">3</span></span>
+          <span class="nb-diff-sign">+</span>
+          <span class="nb-diff-content">Built with Astro and vanilla CSS.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-6);">
+  <!-- Default Collapse (open) -->
+  <div class="nb-collapse is-open" data-nb-collapse id="collapse-default-demo">
+    <button class="nb-collapse-trigger" data-nb-collapse-trigger aria-expanded="true" aria-controls="collapse-panel-1" id="collapse-trigger-1" type="button">
+      Shipping Details
+      <span class="nb-collapse-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </span>
+    </button>
+    <div class="nb-collapse-panel" data-nb-collapse-panel id="collapse-panel-1" role="region" aria-labelledby="collapse-trigger-1">
+      <div class="nb-collapse-panel-inner">
+        <div class="nb-collapse-content">
+          <p style="margin: 0;">Free shipping on all orders over $50. Orders typically arrive within 3–5 business days. Express options available at checkout.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Small Collapse (closed) -->
+  <div class="nb-collapse nb-collapse-sm" data-nb-collapse id="collapse-sm-demo">
+    <button class="nb-collapse-trigger" data-nb-collapse-trigger aria-expanded="false" aria-controls="collapse-panel-2" id="collapse-trigger-2" type="button">
+      Return Policy
+      <span class="nb-collapse-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </span>
+    </button>
+    <div class="nb-collapse-panel" data-nb-collapse-panel id="collapse-panel-2" role="region" aria-labelledby="collapse-trigger-2">
+      <div class="nb-collapse-panel-inner">
+        <div class="nb-collapse-content">
+          <p style="margin: 0;">30-day hassle-free returns. Items must be unused and in original packaging.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Large Collapse (closed) -->
+  <div class="nb-collapse nb-collapse-lg" data-nb-collapse id="collapse-lg-demo">
+    <button class="nb-collapse-trigger" data-nb-collapse-trigger aria-expanded="false" aria-controls="collapse-panel-3" id="collapse-trigger-3" type="button">
+      Warranty Information
+      <span class="nb-collapse-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </span>
+    </button>
+    <div class="nb-collapse-panel" data-nb-collapse-panel id="collapse-panel-3" role="region" aria-labelledby="collapse-trigger-3">
+      <div class="nb-collapse-panel-inner">
+        <div class="nb-collapse-content">
+          <p style="margin: 0;">All products come with a 2-year manufacturer warranty covering defects in materials and workmanship. Extended warranty plans available for purchase.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disabled Collapse -->
+  <div class="nb-collapse" data-nb-collapse id="collapse-disabled-demo">
+    <button class="nb-collapse-trigger nb-collapse-trigger-disabled" data-nb-collapse-trigger aria-expanded="false" aria-controls="collapse-panel-4" id="collapse-trigger-4" type="button" disabled>
+      Premium Support (Locked)
+      <span class="nb-collapse-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </span>
+    </button>
+    <div class="nb-collapse-panel" data-nb-collapse-panel id="collapse-panel-4" role="region" aria-labelledby="collapse-trigger-4">
+      <div class="nb-collapse-panel-inner">
+        <div class="nb-collapse-content">
+          <p style="margin: 0;">Premium support is available for Enterprise customers only.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collapse with Field Context -->
+  <div class="nb-field" data-theme="neo-brutal">
+    <label class="nb-field-label">Advanced Settings</label>
+    <div class="nb-collapse" data-nb-collapse id="collapse-field-demo">
+      <button class="nb-collapse-trigger" data-nb-collapse-trigger aria-expanded="false" aria-controls="collapse-panel-5" id="collapse-trigger-5" type="button">
+        Configure API Keys
+        <span class="nb-collapse-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+      </button>
+      <div class="nb-collapse-panel" data-nb-collapse-panel id="collapse-panel-5" role="region" aria-labelledby="collapse-trigger-5">
+        <div class="nb-collapse-panel-inner">
+          <div class="nb-collapse-content">
+            <p style="margin: 0;">Manage your API keys, rate limits, and webhook endpoints in this section.</p>
+            <input class="nb-input nb-input-sm" type="text" placeholder="Enter API key…" style="margin-block-start: var(--nb-space-2);" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="nb-field-hint">Expand to reveal advanced configuration options.</p>
+  </div>
+</div>
+
+<script>
+  import { createCollapse } from "@neo-brutal-ui/interactions/collapse";
+
+  document.querySelectorAll<HTMLElement>("[data-nb-collapse]").forEach((el) => {
+    const trigger = el.querySelector<HTMLButtonElement>("[data-nb-collapse-trigger]");
+    if (!trigger || trigger.disabled) return;
+
+    createCollapse(el, { trigger });
+  });
+</script>
