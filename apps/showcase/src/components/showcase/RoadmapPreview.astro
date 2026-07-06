@@ -8,6 +8,8 @@ const { availableNow, buildingNext, plannedPreview, plannedTotal } =
 
 const availablePreview = availableNow.slice(0, 12);
 const availableMore = Math.max(availableNow.length - availablePreview.length, 0);
+const buildingPreview = buildingNext.slice(0, 6);
+const buildingMore = Math.max(buildingNext.length - buildingPreview.length, 0);
 ---
 
 <Section id="roadmap" ariaLabelledby="roadmap-title">
@@ -46,11 +48,16 @@ const availableMore = Math.max(availableNow.length - availablePreview.length, 0)
         buildingNext.length === 0 ? (
           <p class="nb-component-card__notes">Nothing in progress right now.</p>
         ) : (
-          <ul class="nb-roadmap__list">
-            {buildingNext.slice(0, 6).map((c) => (
-              <li>{c.name}</li>
-            ))}
-          </ul>
+          <>
+            <ul class="nb-roadmap__list">
+              {buildingPreview.map((c) => (
+                <li>{c.name}</li>
+              ))}
+            </ul>
+            {buildingMore > 0 && (
+              <p class="nb-roadmap__more">and {buildingMore} more in the gallery</p>
+            )}
+          </>
         )
       }
     </div>

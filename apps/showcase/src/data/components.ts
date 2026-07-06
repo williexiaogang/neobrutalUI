@@ -4,20 +4,21 @@ import type { ShowcaseComponent } from "@/types/component";
  * Component catalog for the showcase site.
  *
  * This data must reflect the *actual* implementation status of the library.
- * As of this preview build, core visual primitives exist but no component has
- * yet reached the Ready threshold (full variants, accessibility, mobile, RTL,
- * and stable API). Complex interaction components are still planned.
+ * As of this preview build, no component has reached the Ready threshold
+ * (full variants, accessibility, mobile, RTL, docs, and stable API). Beta
+ * means the current CSS/demo is usable; In Progress means a documented visual,
+ * responsive, accessibility, or interaction gap remains.
  */
 export const components: ShowcaseComponent[] = [
   /* ----------------------------------------------------------------------
-   * In Progress — visual CSS exists but the full component contract is not
-   * finished (missing full state matrices, RTL verification, API review).
+   * Beta / In Progress — visual CSS exists, but the full component contract
+   * is still being finalized across docs, states, RTL, and optional JS.
    * ---------------------------------------------------------------------- */
   {
     name: "Button",
     slug: "button",
     category: "actions",
-    status: "beta",
+    status: "in-progress",
     description: "Bold actions with tactile press feedback.",
     available: true,
     featured: true,
@@ -34,7 +35,7 @@ export const components: ShowcaseComponent[] = [
     name: "Card",
     slug: "card",
     category: "layout",
-    status: "beta",
+    status: "in-progress",
     description: "Structured surfaces with header, body, and footer areas.",
     available: true,
     featured: true,
@@ -47,7 +48,7 @@ export const components: ShowcaseComponent[] = [
     name: "Input",
     slug: "input",
     category: "forms",
-    status: "beta",
+    status: "in-progress",
     description: "Strong form fields with clear focus and validation states.",
     available: true,
     demo: "InputDemo",
@@ -75,7 +76,7 @@ export const components: ShowcaseComponent[] = [
     name: "Textarea",
     slug: "textarea",
     category: "forms",
-    status: "beta",
+    status: "in-progress",
     description: "Multi-line text fields with resizable behavior.",
     available: true,
     demo: "TextareaDemo",
@@ -86,7 +87,7 @@ export const components: ShowcaseComponent[] = [
     name: "Select",
     slug: "select",
     category: "forms",
-    status: "beta",
+    status: "in-progress",
     description: "Native-styled single-select controls.",
     available: true,
     demo: "SelectDemo",
@@ -98,7 +99,7 @@ export const components: ShowcaseComponent[] = [
     name: "Checkbox",
     slug: "checkbox",
     category: "forms",
-    status: "beta",
+    status: "in-progress",
     description: "Binary selectors with clear checked and disabled states.",
     available: true,
     demo: "CheckboxDemo",
@@ -110,7 +111,7 @@ export const components: ShowcaseComponent[] = [
     name: "Radio",
     slug: "radio",
     category: "forms",
-    status: "beta",
+    status: "in-progress",
     description: "Single-choice selectors within a group.",
     available: true,
     demo: "RadioDemo",
@@ -122,7 +123,7 @@ export const components: ShowcaseComponent[] = [
     name: "Toggle",
     slug: "toggle",
     category: "forms",
-    status: "beta",
+    status: "in-progress",
     description: "Switch controls with animated thumb feedback.",
     available: true,
     demo: "ToggleDemo",
@@ -134,7 +135,7 @@ export const components: ShowcaseComponent[] = [
     name: "Badge",
     slug: "badge",
     category: "data-display",
-    status: "beta",
+    status: "in-progress",
     description: "Compact status labels and counts.",
     available: true,
     demo: "BadgeDemo",
@@ -146,7 +147,7 @@ export const components: ShowcaseComponent[] = [
     name: "Alert",
     slug: "alert",
     category: "feedback",
-    status: "beta",
+    status: "in-progress",
     description: "Contextual messages with accent borders.",
     available: true,
     demo: "AlertDemo",
@@ -158,7 +159,7 @@ export const components: ShowcaseComponent[] = [
     name: "Divider",
     slug: "divider",
     category: "layout",
-    status: "beta",
+    status: "in-progress",
     description: "Horizontal and vertical section separators.",
     available: true,
     demo: "DividerDemo",
@@ -169,7 +170,7 @@ export const components: ShowcaseComponent[] = [
     name: "Loading",
     slug: "loading",
     category: "feedback",
-    status: "beta",
+    status: "in-progress",
     description: "Geometric loading indicators.",
     available: true,
     demo: "LoadingDemo",
@@ -181,7 +182,7 @@ export const components: ShowcaseComponent[] = [
     name: "Skeleton",
     slug: "skeleton",
     category: "feedback",
-    status: "beta",
+    status: "in-progress",
     description: "Placeholder shapes for loading content.",
     available: true,
     demo: "SkeletonDemo",
@@ -193,7 +194,7 @@ export const components: ShowcaseComponent[] = [
     name: "Modal",
     slug: "modal",
     category: "overlay",
-    status: "beta",
+    status: "in-progress",
     description: "Dialog overlays with focus trapping and keyboard dismissal.",
     available: true,
     demo: "ModalDemo",
@@ -209,7 +210,7 @@ export const components: ShowcaseComponent[] = [
 
 
   /* ----------------------------------------------------------------------
-   * Planned — on the roadmap but no usable implementation yet.
+   * Mature beta surfaces and larger component families.
    * ---------------------------------------------------------------------- */
   {
     name: "Tabs",
@@ -291,7 +292,7 @@ export const components: ShowcaseComponent[] = [
     name: "Navbar",
     slug: "navbar",
     category: "navigation",
-    status: "beta",
+    status: "in-progress",
     description: "Top navigation with brand, links, and mobile collapse.",
     available: true,
     demo: "NavbarDemo",
@@ -468,6 +469,7 @@ export const components: ShowcaseComponent[] = [
     description: "Placeholder layout for empty lists, search results, and error states.",
     available: true,
     demo: "EmptyStateDemo",
+    size: "wide",
     tags: ["layout", "placeholder"],
     notes: "CSS visual layer implemented. Supports icon area, title, description, and action area. Includes compact and center-aligned variants. Reduced-motion and forced-colors support included. Purely presentational — no JS required.",
     knownIssues: [],
@@ -492,6 +494,7 @@ export const components: ShowcaseComponent[] = [
     description: "Styled file upload control with drag-and-drop visuals.",
     available: true,
     demo: "FileInputDemo",
+    size: "wide",
     tags: ["form", "upload"],
     notes: "CSS visual layer implemented. Supports drag area, selected file list, and remove button styling. Reduced-motion and forced-colors support included. Purely presentational — no JS required.",
     knownIssues: [],
@@ -504,6 +507,7 @@ export const components: ShowcaseComponent[] = [
     description: "Styled range slider with track, thumb, and fill indicators.",
     available: true,
     demo: "RangeDemo",
+    size: "wide",
     tags: ["form", "slider"],
     notes: "CSS visual layer implemented. Supports track, thumb, fill, color variants, size variants, and disabled state. Reduced-motion and forced-colors support included. Purely presentational — no JS required.",
     knownIssues: [],
@@ -512,7 +516,7 @@ export const components: ShowcaseComponent[] = [
     name: "OTP Input",
     slug: "otp",
     category: "forms",
-    status: "beta",
+    status: "in-progress",
     description: "One-time password segmented input with auto-focus chaining.",
     available: true,
     demo: "OtpDemo",
@@ -524,7 +528,7 @@ export const components: ShowcaseComponent[] = [
     name: "Segmented Control",
     slug: "segmented-control",
     category: "forms",
-    status: "beta",
+    status: "in-progress",
     description: "Toggle-like segmented button group for switching between options.",
     available: true,
     demo: "SegmentedControlDemo",
@@ -642,7 +646,7 @@ export const components: ShowcaseComponent[] = [
     name: "Code Block",
     slug: "code-block",
     category: "data-display",
-    status: "beta",
+    status: "in-progress",
     description: "Monospace code display with header, language label, and optional line numbers.",
     available: true,
     demo: "CodeBlockDemo",
@@ -694,7 +698,7 @@ export const components: ShowcaseComponent[] = [
     name: "Calendar",
     slug: "calendar",
     category: "data-display",
-    status: "beta",
+    status: "in-progress",
     description: "Month-view calendar grid with navigation, day states, and range selection.",
     available: true,
     demo: "CalendarDemo",
@@ -708,30 +712,28 @@ export const components: ShowcaseComponent[] = [
     name: "Date Picker",
     slug: "date-picker",
     category: "forms",
-    status: "beta",
+    status: "in-progress",
     description: "Date input with dropdown calendar panel, footer actions, and range mode.",
     available: true,
     demo: "DatePickerDemo",
     size: "full",
-    interactive: true,
     tags: ["form", "date", "calendar", "input"],
     notes:
-      "CSS visual layer implemented. Supports input trigger, dropdown panel with embedded calendar, footer with Today/Clear buttons, range mode with dual calendars, inline always-visible variant, sm/lg size variants, and primary/secondary/accent/neutral/info/success/warning/error color variants. Reduced-motion and forced-colors support included. JS interaction for panel toggle, date selection, and range handling is optional.",
+      "CSS visual layer implemented. Supports input trigger, dropdown panel with embedded calendar, footer with Today/Clear buttons, range mode with dual calendars, inline always-visible variant, sm/lg size variants, and primary/secondary/accent/neutral/info/success/warning/error color variants. Reduced-motion and forced-colors support included. JS interaction for panel toggle, date selection, and range handling is planned.",
     knownIssues: [],
   },
   {
     name: "Command Palette",
     slug: "command-palette",
     category: "overlay",
-    status: "beta",
+    status: "in-progress",
     description: "Searchable command overlay with grouped results, keyboard shortcuts, and active-item highlighting.",
     available: true,
     demo: "CommandPaletteDemo",
     size: "wide",
-    interactive: true,
     tags: ["command", "search", "overlay"],
     notes:
-      "CSS visual layer implemented. Supports backdrop, search input, grouped results, keyboard shortcuts, active item highlighting, empty state, size variants (sm/lg), and mobile fullscreen mode. Reduced-motion and forced-colors support included. JS interactions (search, keyboard navigation, selection) are optional.",
+      "CSS visual layer implemented. Supports backdrop, search input, grouped results, keyboard shortcuts, active item highlighting, empty state, size variants (sm/lg), and mobile fullscreen mode. Reduced-motion and forced-colors support included. JS interactions for search, keyboard navigation, and selection are planned.",
     knownIssues: [],
   },
   {
@@ -742,6 +744,7 @@ export const components: ShowcaseComponent[] = [
     description: "Brutalist browser frame with toolbar, address bar, and content area for UI previews.",
     available: true,
     demo: "BrowserMockupDemo",
+    size: "wide",
     tags: ["mockup", "browser", "preview"],
     notes:
       "CSS visual layer implemented. Supports size variants (sm/lg), color header variants (primary/secondary/accent), dark content fill, and reduced-motion / forced-colors support. Purely presentational — no JS required.",
@@ -755,6 +758,7 @@ export const components: ShowcaseComponent[] = [
     description: "Brutalist mobile phone frame with notch, screen, and home indicator for app previews.",
     available: true,
     demo: "PhoneMockupDemo",
+    size: "wide",
     tags: ["mockup", "phone", "mobile", "preview"],
     notes:
       "CSS visual layer implemented. Supports size variants (sm/lg), color frame variants (primary/secondary/accent/neutral), dark screen fill, and reduced-motion / forced-colors support. Purely presentational — no JS required.",
@@ -768,6 +772,7 @@ export const components: ShowcaseComponent[] = [
     description: "Brutalist desktop application window with title bar, controls, and content area for UI previews.",
     available: true,
     demo: "WindowMockupDemo",
+    size: "wide",
     tags: ["mockup", "window", "desktop", "preview"],
     notes:
       "CSS visual layer implemented. Supports size variants (sm/lg), color header variants (primary/secondary/accent/neutral), dark content fill, footer bar, interactive control buttons, and reduced-motion / forced-colors support. Purely presentational — no JS required.",
