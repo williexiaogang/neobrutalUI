@@ -9,6 +9,8 @@
   .nb-segmented {
     display: inline-flex;
     flex-direction: row;
+    max-inline-size: 100%;
+    overflow-x: auto;
     padding: var(--nb-space-1);
     border: var(--nb-border-width) solid var(--nb-border);
     border-radius: var(--nb-radius-field);

@@ -5,6 +5,9 @@ import { statusLabels } from "@data/statuses";
 
 const { availableNow, buildingNext, plannedPreview, plannedTotal } =
   getRoadmapPreview();
+
+const availablePreview = availableNow.slice(0, 12);
+const availableMore = Math.max(availableNow.length - availablePreview.length, 0);
 ---
 
 <Section id="roadmap" ariaLabelledby="roadmap-title">
@@ -23,11 +26,16 @@ const { availableNow, buildingNext, plannedPreview, plannedTotal } =
             No components have reached {statusLabels.ready} or {statusLabels.beta} yet.
           </p>
         ) : (
-          <ul class="nb-roadmap__list">
-            {availableNow.map((c) => (
-              <li>{c.name}</li>
-            ))}
-          </ul>
+          <>
+            <ul class="nb-roadmap__list">
+              {availablePreview.map((c) => (
+                <li>{c.name}</li>
+              ))}
+            </ul>
+            {availableMore > 0 && (
+              <p class="nb-roadmap__more">and {availableMore} more in the gallery</p>
+            )}
+          </>
         )
       }
     </div>
@@ -49,9 +57,15 @@ const { availableNow, buildingNext, plannedPreview, plannedTotal } =
 
     <div class="nb-roadmap__col">
       <h3 class="nb-roadmap__title">Planned</h3>
-      <ul class="nb-roadmap__list">
-        {plannedPreview.map((c) => <li>{c.name}</li>)}
-      </ul>
+      {
+        plannedPreview.length === 0 ? (
+          <p class="nb-component-card__notes">No planned-only components right now.</p>
+        ) : (
+          <ul class="nb-roadmap__list">
+            {plannedPreview.map((c) => <li>{c.name}</li>)}
+          </ul>
+        )
+      }
       {
         plannedTotal > plannedPreview.length && (
           <p class="nb-roadmap__more">

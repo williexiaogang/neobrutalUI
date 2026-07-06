@@ -31,6 +31,8 @@
     box-shadow: none;
     background: transparent;
     min-inline-size: auto;
+    max-inline-size: 100%;
+    overflow-x: auto;
   }
 
   /* Menu item wrapper */

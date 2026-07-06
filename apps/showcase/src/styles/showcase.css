@@ -16,6 +16,11 @@
   font-size: var(--nb-text-lg);
 }
 
+.nb-section-lead code,
+.nb-component-card__demo code {
+  margin-inline: 0.15em;
+}
+
 /* Header */
 .nb-header {
   position: sticky;
@@ -95,6 +100,16 @@
   align-items: center;
   flex-shrink: 0;
   gap: var(--nb-space-1);
+}
+
+.nb-header__actions > .nb-badge {
+  display: none;
+}
+
+@media (min-width: 420px) {
+  .nb-header__actions > .nb-badge {
+    display: inline-flex;
+  }
 }
 
 .nb-header__actions > a {
@@ -405,8 +420,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: var(--nb-space-6);
-  align-items: stretch;
-  grid-auto-flow: dense;
+  align-items: start;
 }
 
 @media (min-width: 640px) {
@@ -415,7 +429,24 @@
   }
 
   .nb-component-card--wide,
-  .nb-component-card--full {
+  .nb-component-card--full,
+  .nb-component-card[data-component="button-group"],
+  .nb-component-card[data-component="code-block"],
+  .nb-component-card[data-component="description-list"],
+  .nb-component-card[data-component="diff-viewer"],
+  .nb-component-card[data-component="feature-grid"],
+  .nb-component-card[data-component="footer"],
+  .nb-component-card[data-component="form-summary"],
+  .nb-component-card[data-component="hero"],
+  .nb-component-card[data-component="link"],
+  .nb-component-card[data-component="menu"],
+  .nb-component-card[data-component="otp"],
+  .nb-component-card[data-component="pagination"],
+  .nb-component-card[data-component="pricing-card"],
+  .nb-component-card[data-component="segmented-control"],
+  .nb-component-card[data-component="stat"],
+  .nb-component-card[data-component="steps"],
+  .nb-component-card[data-component="timeline"] {
     grid-column: span 2;
   }
 }
@@ -429,7 +460,24 @@
     grid-column: span 2;
   }
 
-  .nb-component-card--full {
+  .nb-component-card--full,
+  .nb-component-card[data-component="button-group"],
+  .nb-component-card[data-component="code-block"],
+  .nb-component-card[data-component="description-list"],
+  .nb-component-card[data-component="diff-viewer"],
+  .nb-component-card[data-component="feature-grid"],
+  .nb-component-card[data-component="footer"],
+  .nb-component-card[data-component="form-summary"],
+  .nb-component-card[data-component="hero"],
+  .nb-component-card[data-component="link"],
+  .nb-component-card[data-component="menu"],
+  .nb-component-card[data-component="otp"],
+  .nb-component-card[data-component="pagination"],
+  .nb-component-card[data-component="pricing-card"],
+  .nb-component-card[data-component="segmented-control"],
+  .nb-component-card[data-component="stat"],
+  .nb-component-card[data-component="steps"],
+  .nb-component-card[data-component="timeline"] {
     grid-column: span 3;
   }
 }
@@ -849,4 +897,3 @@
   align-items: center;
   min-inline-size: 0;
 }
-

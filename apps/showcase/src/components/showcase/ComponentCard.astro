@@ -21,6 +21,7 @@ const sizeClass = component.size
 <article
   class:list={["nb-component-card", sizeClass]}
   data-component-card
+  data-component={component.slug}
   data-status={component.status}
   data-category={component.category}
   data-size={component.size ?? "default"}
