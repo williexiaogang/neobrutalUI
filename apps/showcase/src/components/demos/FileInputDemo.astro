@@ -1,0 +1,73 @@
+---
+---
+
+<div class="nb-component-card__demo" style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: flex-start;">
+  <!-- 1. Basic File Input -->
+  <div class="nb-file-input" style="max-inline-size: 20rem;">
+    <label class="nb-file-input-area" for="demo-file-1">
+      <input class="nb-file-input-native" id="demo-file-1" type="file" />
+      <svg class="nb-file-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="17 8 12 3 7 8"></polyline>
+        <line x1="12" y1="3" x2="12" y2="15"></line>
+      </svg>
+      <span class="nb-file-input-hint">Drag & drop files here or click to browse</span>
+      <span class="nb-file-input-btn">Choose File</span>
+    </label>
+  </div>
+
+  <!-- 2. File Input with Selected Files -->
+  <div class="nb-file-input" style="max-inline-size: 20rem;">
+    <label class="nb-file-input-area" for="demo-file-2">
+      <input class="nb-file-input-native" id="demo-file-2" type="file" multiple />
+      <svg class="nb-file-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="17 8 12 3 7 8"></polyline>
+        <line x1="12" y1="3" x2="12" y2="15"></line>
+      </svg>
+      <span class="nb-file-input-hint">Drag & drop files here or click to browse</span>
+      <span class="nb-file-input-btn">Upload Files</span>
+    </label>
+    <ul class="nb-file-list">
+      <li class="nb-file-item">
+        <span class="nb-file-item-name">document.pdf</span>
+        <span class="nb-file-item-size">2.4 MB</span>
+        <button class="nb-file-item-remove" type="button" aria-label="Remove file">×</button>
+      </li>
+      <li class="nb-file-item">
+        <span class="nb-file-item-name">avatar.png</span>
+        <span class="nb-file-item-size">1.1 MB</span>
+        <button class="nb-file-item-remove" type="button" aria-label="Remove file">×</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 3. Error State -->
+  <div class="nb-file-input" style="max-inline-size: 20rem;">
+    <label class="nb-file-input-area" for="demo-file-3" aria-invalid="true">
+      <input class="nb-file-input-native" id="demo-file-3" type="file" aria-invalid="true" />
+      <svg class="nb-file-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span class="nb-file-input-hint">File must be under 5MB</span>
+      <span class="nb-file-input-btn">Retry Upload</span>
+    </label>
+    <span class="nb-file-input-error">File too large. Maximum size is 5MB.</span>
+  </div>
+
+  <!-- 4. Dragover State (Visual Demo) -->
+  <div class="nb-file-input" style="max-inline-size: 20rem;">
+    <label class="nb-file-input-area is-dragover" for="demo-file-4">
+      <input class="nb-file-input-native" id="demo-file-4" type="file" />
+      <svg class="nb-file-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="17 8 12 3 7 8"></polyline>
+        <line x1="12" y1="3" x2="12" y2="15"></line>
+      </svg>
+      <span class="nb-file-input-hint">Drop files here to upload</span>
+      <span class="nb-file-input-btn">Release to Upload</span>
+    </label>
+  </div>
+</div>

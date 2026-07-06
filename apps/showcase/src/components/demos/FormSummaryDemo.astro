@@ -1,0 +1,75 @@
+---
+// Neo-Brutal UI — Form Summary Demo
+// Showcases error, warning, compact, and combined variants.
+---
+
+<div class="nb-component-card__demo" style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: flex-start;">
+  <!-- 1. Default error variant -->
+  <div class="nb-form-summary" role="alert" aria-labelledby="fs-title-1">
+    <h3 class="nb-form-summary-title" id="fs-title-1">
+      <span aria-hidden="true">⚠️</span> There are 3 errors in your form
+    </h3>
+    <ul class="nb-form-summary-list">
+      <li class="nb-form-summary-item">
+        <button class="nb-form-summary-link" type="button">Username</button> must be at least 3 characters
+      </li>
+      <li class="nb-form-summary-item">
+        <button class="nb-form-summary-link" type="button">Email</button> is not a valid address
+      </li>
+      <li class="nb-form-summary-item">
+        <button class="nb-form-summary-link" type="button">Password</button> must contain a number
+      </li>
+    </ul>
+  </div>
+
+  <!-- 2. Warning variant -->
+  <div class="nb-form-summary nb-form-summary-warning" role="alert" aria-labelledby="fs-title-2">
+    <h3 class="nb-form-summary-title" id="fs-title-2">
+      <span aria-hidden="true">🔶</span> 2 fields need attention
+    </h3>
+    <ul class="nb-form-summary-list">
+      <li class="nb-form-summary-item">
+        <button class="nb-form-summary-link" type="button">Bio</button> is close to the character limit
+      </li>
+      <li class="nb-form-summary-item">
+        <button class="nb-form-summary-link" type="button">Avatar</button> may be slow to load
+      </li>
+    </ul>
+  </div>
+
+  <!-- 3. Compact variant -->
+  <div class="nb-form-summary nb-form-summary-compact" role="alert" aria-labelledby="fs-title-3">
+    <h3 class="nb-form-summary-title" id="fs-title-3">
+      <span aria-hidden="true">⚠️</span> 1 error
+    </h3>
+    <ul class="nb-form-summary-list">
+      <li class="nb-form-summary-item">
+        <button class="nb-form-summary-link" type="button">Phone</button> is required
+      </li>
+    </ul>
+  </div>
+
+  <!-- 4. Compact + warning combined -->
+  <div class="nb-form-summary nb-form-summary-warning nb-form-summary-compact" role="alert" aria-labelledby="fs-title-4">
+    <h3 class="nb-form-summary-title" id="fs-title-4">
+      <span aria-hidden="true">🔶</span> 1 notice
+    </h3>
+    <ul class="nb-form-summary-list">
+      <li class="nb-form-summary-item">
+        <button class="nb-form-summary-link" type="button">Website</button> URL is not secure
+      </li>
+    </ul>
+  </div>
+
+  <!-- 5. Error without links (plain text only) -->
+  <div class="nb-form-summary" role="alert" aria-labelledby="fs-title-5">
+    <h3 class="nb-form-summary-title" id="fs-title-5">
+      <span aria-hidden="true">❌</span> Server-side validation failed
+    </h3>
+    <ul class="nb-form-summary-list">
+      <li class="nb-form-summary-item">Invoice total exceeds account limit</li>
+      <li class="nb-form-summary-item">Selected SKU is out of stock</li>
+      <li class="nb-form-summary-item">Coupon code has expired</li>
+    </ul>
+  </div>
+</div>

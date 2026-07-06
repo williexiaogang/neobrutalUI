@@ -1,0 +1,185 @@
+<div class="nb-component-card__demo">
+  <!-- 1. 基础默认（默认尺寸） -->
+  <div class="nb-segmented" role="radiogroup" aria-label="View type">
+    <label class="nb-segmented-item">
+      <input type="radio" name="view-default" value="list" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      List
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="view-default" value="grid" checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Grid
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="view-default" value="map" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Map
+    </label>
+  </div>
+</div>
+
+<div class="nb-component-card__demo">
+  <!-- 2. 全宽 / Block 变体 -->
+  <div class="nb-segmented nb-segmented-block" role="radiogroup" aria-label="Priority">
+    <label class="nb-segmented-item">
+      <input type="radio" name="priority-block" value="low" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Low
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="priority-block" value="medium" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Medium
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="priority-block" value="high" checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      High
+    </label>
+  </div>
+</div>
+
+<div class="nb-component-card__demo" style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: center;">
+  <!-- 3. 尺寸变体：小、默认、大 -->
+  <div class="nb-segmented nb-segmented-sm" role="radiogroup" aria-label="Size small">
+    <label class="nb-segmented-item">
+      <input type="radio" name="size-sm" value="xs" checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      XS
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="size-sm" value="sm" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      SM
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="size-sm" value="md" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      MD
+    </label>
+  </div>
+
+  <div class="nb-segmented" role="radiogroup" aria-label="Size default">
+    <label class="nb-segmented-item">
+      <input type="radio" name="size-default" value="sm" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      SM
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="size-default" value="md" checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      MD
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="size-default" value="lg" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      LG
+    </label>
+  </div>
+
+  <div class="nb-segmented nb-segmented-lg" role="radiogroup" aria-label="Size large">
+    <label class="nb-segmented-item">
+      <input type="radio" name="size-lg" value="sm" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Small
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="size-lg" value="md" checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Medium
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="size-lg" value="lg" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Large
+    </label>
+  </div>
+</div>
+
+<div class="nb-component-card__demo">
+  <!-- 4. 垂直布局 -->
+  <div class="nb-segmented nb-segmented-vertical" role="radiogroup" aria-label="Alignment" style="inline-size: 200px;">
+    <label class="nb-segmented-item">
+      <input type="radio" name="align-vert" value="left" checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Left
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="align-vert" value="center" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Center
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="align-vert" value="right" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Right
+    </label>
+  </div>
+</div>
+
+<div class="nb-component-card__demo" style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: center;">
+  <!-- 5. 颜色变体：Primary、Secondary、Accent -->
+  <div class="nb-segmented nb-segmented-primary" role="radiogroup" aria-label="Theme primary">
+    <label class="nb-segmented-item">
+      <input type="radio" name="theme-primary" value="light" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Light
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="theme-primary" value="dark" checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Dark
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="theme-primary" value="auto" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Auto
+    </label>
+  </div>
+
+  <div class="nb-segmented nb-segmented-secondary" role="radiogroup" aria-label="Status secondary">
+    <label class="nb-segmented-item">
+      <input type="radio" name="status-secondary" value="draft" checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Draft
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="status-secondary" value="review" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Review
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="status-secondary" value="published" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Published
+    </label>
+  </div>
+
+  <div class="nb-segmented nb-segmented-accent" role="radiogroup" aria-label="Plan accent">
+    <label class="nb-segmented-item">
+      <input type="radio" name="plan-accent" value="free" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Free
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="plan-accent" value="pro" checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Pro
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="plan-accent" value="team" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Team
+    </label>
+  </div>
+</div>
+
+<div class="nb-component-card__demo">
+  <!-- 6. 禁用状态 -->
+  <div class="nb-segmented" role="radiogroup" aria-label="Disabled example">
+    <label class="nb-segmented-item">
+      <input type="radio" name="disabled-demo" value="edit" disabled style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Edit
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="disabled-demo" value="preview" disabled checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Preview
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="disabled-demo" value="export" disabled style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Export
+    </label>
+  </div>
+</div>
+
+<div class="nb-component-card__demo">
+  <!-- 7. 组合变体：Block + Primary + 大尺寸 -->
+  <div class="nb-segmented nb-segmented-block nb-segmented-lg nb-segmented-primary" role="radiogroup" aria-label="Combined variant">
+    <label class="nb-segmented-item">
+      <input type="radio" name="combined" value="monthly" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Monthly
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="combined" value="quarterly" checked style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Quarterly
+    </label>
+    <label class="nb-segmented-item">
+      <input type="radio" name="combined" value="yearly" style="position: absolute; opacity: 0; width: 0; height: 0;" />
+      Yearly
+    </label>
+  </div>
+</div>

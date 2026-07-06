@@ -1,0 +1,61 @@
+<div
+  class="nb-component-card__demo"
+  style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: stretch;"
+>
+  <!-- Default Empty State -->
+  <div class="nb-empty" style="flex: 1; min-inline-size: 12rem;">
+    <div class="nb-empty-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+      </svg>
+    </div>
+    <h3 class="nb-empty-title">No photos yet</h3>
+    <p class="nb-empty-message">
+      Get started by uploading your first image to the gallery.
+    </p>
+    <div class="nb-empty-action">
+      <button class="nb-btn nb-btn-primary" type="button">Upload</button>
+      <button class="nb-btn nb-btn-outline" type="button">Browse</button>
+    </div>
+  </div>
+
+  <!-- Compact Empty State -->
+  <div class="nb-empty nb-empty-compact" style="flex: 1; min-inline-size: 12rem;">
+    <div class="nb-empty-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </svg>
+    </div>
+    <h3 class="nb-empty-title">No results</h3>
+    <p class="nb-empty-message">Try adjusting your search filters.</p>
+  </div>
+
+  <!-- Bordered Empty State -->
+  <div class="nb-empty nb-empty-bordered" style="flex: 1; min-inline-size: 12rem;">
+    <div class="nb-empty-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"></path>
+      </svg>
+    </div>
+    <h3 class="nb-empty-title">Reading list empty</h3>
+    <p class="nb-empty-message">Save articles to read them later.</p>
+    <div class="nb-empty-action">
+      <button class="nb-btn nb-btn-sm nb-btn-primary" type="button">Discover</button>
+    </div>
+  </div>
+
+  <!-- Compact + Bordered -->
+  <div class="nb-empty nb-empty-compact nb-empty-bordered" style="flex: 1; min-inline-size: 12rem;">
+    <div class="nb-empty-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+        <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+      </svg>
+    </div>
+    <h3 class="nb-empty-title">No notifications</h3>
+    <p class="nb-empty-message">You're all caught up.</p>
+  </div>
+</div>

@@ -1,0 +1,167 @@
+---
+/* Pagination Demo — Neo-Brutal UI */
+---
+
+<!-- ========== Basic Pagination ========== -->
+<div class="nb-component-card__demo">
+  <p class="nb-component-card__label">Basic</p>
+  <nav class="nb-pagination" aria-label="Pagination">
+    <ul class="nb-pagination-list">
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-prev" aria-disabled="true">&larr;</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link nb-pagination-active" aria-current="page">1</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">2</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">3</a>
+      </li>
+      <li class="nb-pagination-item">
+        <span class="nb-pagination-ellipsis">&hellip;</span>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">10</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-next">&rarr;</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ========== Small Size ========== -->
+<div class="nb-component-card__demo">
+  <p class="nb-component-card__label">Small</p>
+  <nav class="nb-pagination nb-pagination-sm" aria-label="Small pagination">
+    <ul class="nb-pagination-list">
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-prev" aria-disabled="true">&larr;</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link nb-pagination-active" aria-current="page">1</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">2</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">3</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-next">&rarr;</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ========== Large Size ========== -->
+<div class="nb-component-card__demo">
+  <p class="nb-component-card__label">Large</p>
+  <nav class="nb-pagination nb-pagination-lg" aria-label="Large pagination">
+    <ul class="nb-pagination-list">
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-prev" aria-disabled="true">&larr;</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link nb-pagination-active" aria-current="page">1</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">2</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">3</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">4</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-next">&rarr;</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ========== States: Disabled / Active / Ellipsis ========== -->
+<div class="nb-component-card__demo">
+  <p class="nb-component-card__label">States</p>
+  <nav class="nb-pagination" aria-label="Pagination states">
+    <ul class="nb-pagination-list">
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-prev" aria-disabled="true">&larr;</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">1</a>
+      </li>
+      <li class="nb-pagination-item">
+        <span class="nb-pagination-ellipsis">&hellip;</span>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">5</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link nb-pagination-active" aria-current="page">6</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">7</a>
+      </li>
+      <li class="nb-pagination-item">
+        <span class="nb-pagination-ellipsis">&hellip;</span>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">12</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-next">&rarr;</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ========== All Sizes Side-by-Side ========== -->
+<div class="nb-component-card__demo" style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: center;">
+  <p class="nb-component-card__label" style="width: 100%;">All Sizes</p>
+
+  <nav class="nb-pagination nb-pagination-sm" aria-label="Small pagination">
+    <ul class="nb-pagination-list">
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link nb-pagination-active" aria-current="page">1</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">2</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">3</a>
+      </li>
+    </ul>
+  </nav>
+
+  <nav class="nb-pagination" aria-label="Default pagination">
+    <ul class="nb-pagination-list">
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link nb-pagination-active" aria-current="page">1</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">2</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">3</a>
+      </li>
+    </ul>
+  </nav>
+
+  <nav class="nb-pagination nb-pagination-lg" aria-label="Large pagination">
+    <ul class="nb-pagination-list">
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link nb-pagination-active" aria-current="page">1</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">2</a>
+      </li>
+      <li class="nb-pagination-item">
+        <a href="#" class="nb-pagination-link">3</a>
+      </li>
+    </ul>
+  </nav>
+</div>

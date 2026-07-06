@@ -1,0 +1,254 @@
+---
+/**
+ * Steps Demo
+ * Shows various states, colors, sizes, and layouts of the Steps component.
+ */
+---
+
+<div class="nb-component-card__demo">
+  <h4 class="nb-text-sm nb-font-bold nb-mb-2">Default Steps</h4>
+  <ol class="nb-steps nb-steps">
+    <li class="nb-step nb-step-completed">
+      <span class="nb-step-indicator">1</span>
+      <div class="nb-step-body">
+        <span class="nb-step-label">Register</span>
+        <span class="nb-step-description">Create an account</span>
+      </div>
+    </li>
+    <li class="nb-step nb-step-active">
+      <span class="nb-step-indicator">2</span>
+      <div class="nb-step-body">
+        <span class="nb-step-label">Profile</span>
+        <span class="nb-step-description">Set up your info</span>
+      </div>
+    </li>
+    <li class="nb-step">
+      <span class="nb-step-indicator">3</span>
+      <div class="nb-step-body">
+        <span class="nb-step-label">Verify</span>
+        <span class="nb-step-description">Confirm identity</span>
+      </div>
+    </li>
+  </ol>
+</div>
+
+<div class="nb-component-card__demo">
+  <h4 class="nb-text-sm nb-font-bold nb-mb-2">Color Variants</h4>
+  <div style="display: flex; flex-direction: column; gap: var(--nb-space-4);">
+    <ol class="nb-steps">
+      <li class="nb-step nb-step-completed nb-step-primary">
+        <span class="nb-step-indicator">1</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Primary</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-active nb-step-primary">
+        <span class="nb-step-indicator">2</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Active</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-primary">
+        <span class="nb-step-indicator">3</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Next</span>
+        </div>
+      </li>
+    </ol>
+
+    <ol class="nb-steps">
+      <li class="nb-step nb-step-completed nb-step-secondary">
+        <span class="nb-step-indicator">1</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Secondary</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-active nb-step-secondary">
+        <span class="nb-step-indicator">2</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Active</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-secondary">
+        <span class="nb-step-indicator">3</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Next</span>
+        </div>
+      </li>
+    </ol>
+
+    <ol class="nb-steps">
+      <li class="nb-step nb-step-completed nb-step-success">
+        <span class="nb-step-indicator">1</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Success</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-active nb-step-success">
+        <span class="nb-step-indicator">2</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Active</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-success">
+        <span class="nb-step-indicator">3</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Next</span>
+        </div>
+      </li>
+    </ol>
+
+    <ol class="nb-steps">
+      <li class="nb-step nb-step-completed nb-step-error">
+        <span class="nb-step-indicator">1</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Error</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-active nb-step-error">
+        <span class="nb-step-indicator">2</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Active</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-error">
+        <span class="nb-step-indicator">3</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Next</span>
+        </div>
+      </li>
+    </ol>
+
+    <ol class="nb-steps">
+      <li class="nb-step nb-step-completed nb-step-warning">
+        <span class="nb-step-indicator">1</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Warning</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-active nb-step-warning">
+        <span class="nb-step-indicator">2</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Active</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-warning">
+        <span class="nb-step-indicator">3</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Next</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="nb-component-card__demo">
+  <h4 class="nb-text-sm nb-font-bold nb-mb-2">Size Variants</h4>
+  <div style="display: flex; flex-direction: column; gap: var(--nb-space-4);">
+    <ol class="nb-steps nb-steps-sm">
+      <li class="nb-step nb-step-completed">
+        <span class="nb-step-indicator">1</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Small</span>
+          <span class="nb-step-description">Compact</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-active">
+        <span class="nb-step-indicator">2</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Active</span>
+          <span class="nb-step-description">Current</span>
+        </div>
+      </li>
+      <li class="nb-step">
+        <span class="nb-step-indicator">3</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Next</span>
+          <span class="nb-step-description">Pending</span>
+        </div>
+      </li>
+    </ol>
+
+    <ol class="nb-steps nb-steps-lg">
+      <li class="nb-step nb-step-completed">
+        <span class="nb-step-indicator">1</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Large</span>
+          <span class="nb-step-description">Spacious</span>
+        </div>
+      </li>
+      <li class="nb-step nb-step-active">
+        <span class="nb-step-indicator">2</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Active</span>
+          <span class="nb-step-description">Current</span>
+        </div>
+      </li>
+      <li class="nb-step">
+        <span class="nb-step-indicator">3</span>
+        <div class="nb-step-body">
+          <span class="nb-step-label">Next</span>
+          <span class="nb-step-description">Pending</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="nb-component-card__demo">
+  <h4 class="nb-text-sm nb-font-bold nb-mb-2">Vertical Layout</h4>
+  <ol class="nb-steps nb-steps-vertical">
+    <li class="nb-step nb-step-completed">
+      <span class="nb-step-indicator">1</span>
+      <div class="nb-step-body">
+        <span class="nb-step-label">Order</span>
+        <span class="nb-step-description">Place your order</span>
+      </div>
+    </li>
+    <li class="nb-step nb-step-active">
+      <span class="nb-step-indicator">2</span>
+      <div class="nb-step-body">
+        <span class="nb-step-label">Payment</span>
+        <span class="nb-step-description">Complete payment</span>
+      </div>
+    </li>
+    <li class="nb-step">
+      <span class="nb-step-indicator">3</span>
+      <div class="nb-step-body">
+        <span class="nb-step-label">Shipping</span>
+        <span class="nb-step-description">Wait for delivery</span>
+      </div>
+    </li>
+    <li class="nb-step">
+      <span class="nb-step-indicator">4</span>
+      <div class="nb-step-body">
+        <span class="nb-step-label">Done</span>
+        <span class="nb-step-description">Enjoy your product</span>
+      </div>
+    </li>
+  </ol>
+</div>
+
+<div class="nb-component-card__demo">
+  <h4 class="nb-text-sm nb-font-bold nb-mb-2">Disabled Steps</h4>
+  <ol class="nb-steps">
+    <li class="nb-step nb-step-completed">
+      <span class="nb-step-indicator">1</span>
+      <div class="nb-step-body">
+        <span class="nb-step-label">Done</span>
+      </div>
+    </li>
+    <li class="nb-step nb-step-active">
+      <span class="nb-step-indicator">2</span>
+      <div class="nb-step-body">
+        <span class="nb-step-label">Active</span>
+      </div>
+    </li>
+    <li class="nb-step nb-step-disabled">
+      <span class="nb-step-indicator" disabled>3</span>
+      <div class="nb-step-body">
+        <span class="nb-step-label">Disabled</span>
+      </div>
+    </li>
+  </ol>
+</div>

@@ -1,0 +1,85 @@
+<div class="nb-component-card__demo">
+  <!-- Basic Range -->
+  <div class="nb-range-group" style="margin-bottom: var(--nb-space-4);">
+    <label for="range-basic">Basic Range</label>
+    <input type="range" id="range-basic" class="nb-range" min="0" max="100" value="50" />
+  </div>
+
+  <!-- Color Variants -->
+  <div style="display: flex; flex-direction: column; gap: var(--nb-space-4); margin-bottom: var(--nb-space-4);">
+    <div class="nb-range-group">
+      <label for="range-primary">Primary</label>
+      <input type="range" id="range-primary" class="nb-range nb-range-primary" min="0" max="100" value="40" />
+    </div>
+    <div class="nb-range-group">
+      <label for="range-secondary">Secondary</label>
+      <input type="range" id="range-secondary" class="nb-range nb-range-secondary" min="0" max="100" value="60" />
+    </div>
+    <div class="nb-range-group">
+      <label for="range-accent">Accent</label>
+      <input type="range" id="range-accent" class="nb-range nb-range-accent" min="0" max="100" value="30" />
+    </div>
+    <div class="nb-range-group">
+      <label for="range-info">Info</label>
+      <input type="range" id="range-info" class="nb-range nb-range-info" min="0" max="100" value="70" />
+    </div>
+    <div class="nb-range-group">
+      <label for="range-success">Success</label>
+      <input type="range" id="range-success" class="nb-range nb-range-success" min="0" max="100" value="80" />
+    </div>
+    <div class="nb-range-group">
+      <label for="range-warning">Warning</label>
+      <input type="range" id="range-warning" class="nb-range nb-range-warning" min="0" max="100" value="55" />
+    </div>
+    <div class="nb-range-group">
+      <label for="range-error">Error</label>
+      <input type="range" id="range-error" class="nb-range nb-range-error" min="0" max="100" value="90" />
+    </div>
+  </div>
+
+  <!-- With Tick Marks -->
+  <div class="nb-range-group" style="margin-bottom: var(--nb-space-4);">
+    <label for="range-ticks">With Tick Marks</label>
+    <input type="range" id="range-ticks" class="nb-range nb-range-primary" min="0" max="100" value="50" step="10" />
+    <div class="nb-range-ticks">
+      <span>0</span>
+      <span>25</span>
+      <span>50</span>
+      <span>75</span>
+      <span>100</span>
+    </div>
+  </div>
+
+  <!-- Disabled State -->
+  <div class="nb-range-group" style="margin-bottom: var(--nb-space-4);">
+    <label for="range-disabled">Disabled</label>
+    <input type="range" id="range-disabled" class="nb-range" min="0" max="100" value="50" disabled />
+  </div>
+
+  <!-- Vertical Layout -->
+  <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-6); align-items: flex-start; margin-bottom: var(--nb-space-4);">
+    <div class="nb-range-group" style="align-items: center;">
+      <label for="range-vol">Vol</label>
+      <input type="range" id="range-vol" class="nb-range nb-range-vertical nb-range-primary" min="0" max="100" value="75" />
+    </div>
+    <div class="nb-range-group" style="align-items: center;">
+      <label for="range-bright">Bright</label>
+      <input type="range" id="range-bright" class="nb-range nb-range-vertical nb-range-accent" min="0" max="100" value="40" />
+    </div>
+    <div class="nb-range-group" style="align-items: center;">
+      <label for="range-level">Level</label>
+      <input type="range" id="range-level" class="nb-range nb-range-vertical nb-range-success" min="0" max="100" value="60" />
+    </div>
+  </div>
+
+  <!-- Value Labels Example -->
+  <div class="nb-range-group">
+    <label for="range-volume">Volume: <span id="range-value">50</span>%</label>
+    <input type="range" id="range-volume" class="nb-range nb-range-info" min="0" max="100" value="50" />
+    <div class="nb-range-ticks">
+      <span>0%</span>
+      <span>50%</span>
+      <span>100%</span>
+    </div>
+  </div>
+</div>

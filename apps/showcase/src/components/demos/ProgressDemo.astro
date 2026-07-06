@@ -1,0 +1,101 @@
+<div class="nb-component-card__demo">
+  <!-- Linear Progress: Size Variants -->
+  <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Linear Sizes</h4>
+  <div style="display: flex; flex-direction: column; gap: var(--nb-space-3); margin-bottom: var(--nb-space-4);">
+    <progress class="nb-progress nb-progress-sm" value="40" max="100">40%</progress>
+    <progress class="nb-progress" value="60" max="100">60%</progress>
+    <progress class="nb-progress nb-progress-lg" value="80" max="100">80%</progress>
+  </div>
+
+  <!-- Linear Progress: Color Variants -->
+  <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Linear Colors</h4>
+  <div style="display: flex; flex-direction: column; gap: var(--nb-space-3); margin-bottom: var(--nb-space-4);">
+    <progress class="nb-progress nb-progress-success" value="75" max="100">75%</progress>
+    <progress class="nb-progress nb-progress-warning" value="50" max="100">50%</progress>
+    <progress class="nb-progress nb-progress-error" value="25" max="100">25%</progress>
+    <progress class="nb-progress nb-progress-neutral" value="90" max="100">90%</progress>
+    <progress class="nb-progress nb-progress-info" value="65" max="100">65%</progress>
+  </div>
+
+  <!-- Div-based Linear Progress: Striped & Colors -->
+  <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Div-based Striped</h4>
+  <div style="display: flex; flex-direction: column; gap: var(--nb-space-3); margin-bottom: var(--nb-space-4);">
+    <div class="nb-progress-track nb-progress-striped">
+      <div class="nb-progress-fill nb-progress-success" style="width: 75%;"></div>
+    </div>
+    <div class="nb-progress-track nb-progress-striped">
+      <div class="nb-progress-fill nb-progress-warning" style="width: 50%;"></div>
+    </div>
+    <div class="nb-progress-track nb-progress-striped">
+      <div class="nb-progress-fill nb-progress-error" style="width: 25%;"></div>
+    </div>
+  </div>
+
+  <!-- Div-based Linear Progress: Indeterminate -->
+  <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Indeterminate</h4>
+  <div style="display: flex; flex-direction: column; gap: var(--nb-space-3); margin-bottom: var(--nb-space-4);">
+    <div class="nb-progress-track nb-progress-indeterminate">
+      <div class="nb-progress-fill nb-progress-primary"></div>
+    </div>
+    <div class="nb-progress-track nb-progress-indeterminate">
+      <div class="nb-progress-fill nb-progress-info"></div>
+    </div>
+  </div>
+
+  <!-- Circular Progress: Sizes -->
+  <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Circular Sizes</h4>
+  <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: center; margin-bottom: var(--nb-space-4);">
+    <div class="nb-progress-circular nb-progress-sm">
+      <svg viewBox="0 0 36 36">
+        <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
+        <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="23.55"></circle>
+      </svg>
+    </div>
+    <div class="nb-progress-circular">
+      <div class="nb-progress-circular-label">75%</div>
+      <svg viewBox="0 0 36 36">
+        <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
+        <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="23.55"></circle>
+      </svg>
+    </div>
+    <div class="nb-progress-circular nb-progress-lg">
+      <svg viewBox="0 0 36 36">
+        <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
+        <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="47.1"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Circular Progress: Colors -->
+  <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Circular Colors</h4>
+  <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: center; margin-bottom: var(--nb-space-4);">
+    <div class="nb-progress-circular nb-progress-success">
+      <div class="nb-progress-circular-label">75%</div>
+      <svg viewBox="0 0 36 36">
+        <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
+        <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="23.55"></circle>
+      </svg>
+    </div>
+    <div class="nb-progress-circular nb-progress-warning">
+      <div class="nb-progress-circular-label">50%</div>
+      <svg viewBox="0 0 36 36">
+        <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
+        <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="47.1"></circle>
+      </svg>
+    </div>
+    <div class="nb-progress-circular nb-progress-error">
+      <div class="nb-progress-circular-label">25%</div>
+      <svg viewBox="0 0 36 36">
+        <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
+        <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="70.65"></circle>
+      </svg>
+    </div>
+    <div class="nb-progress-circular nb-progress-info">
+      <div class="nb-progress-circular-label">90%</div>
+      <svg viewBox="0 0 36 36">
+        <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
+        <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="9.42"></circle>
+      </svg>
+    </div>
+  </div>
+</div>
