@@ -220,6 +220,7 @@ export const components: ShowcaseComponent[] = [
     available: true,
     demo: "TabsDemo",
     size: "wide",
+    interactive: true,
     tags: ["navigation"],
     notes: "CSS visual layer implemented. JS tab switching is optional.",
   },
@@ -269,6 +270,7 @@ export const components: ShowcaseComponent[] = [
     description: "Styled lists with numbered, bulleted, striped, inline, bordered, and divided variants.",
     available: true,
     demo: "ListDemo",
+    size: "full",
     tags: ["list", "data"],
     notes: "Base styling, numbered, bulleted, striped, divided, bordered, inline, compact, and size variants are implemented. Color accent variants are supported.",
     knownIssues: [],
@@ -319,6 +321,7 @@ export const components: ShowcaseComponent[] = [
     available: true,
     demo: "ToastDemo",
     size: "wide",
+    interactive: true,
     tags: ["message"],
     notes: "CSS visual layer and JS interaction are implemented. Supports info, success, warning, error variants, auto-dismiss with progress bar, 4 positions, and reduced-motion.",
   },
@@ -452,6 +455,7 @@ export const components: ShowcaseComponent[] = [
     description: "ARIA Menu and Menubar pattern with vertical and horizontal layouts.",
     available: true,
     demo: "MenuDemo",
+    interactive: true,
     tags: ["navigation", "menu"],
     notes: "CSS visual layer implemented. Supports vertical menu, horizontal menubar, hover states, disabled items, dividers, and size variants. Reduced-motion and forced-colors support included. JS interaction for keyboard navigation is optional.",
     knownIssues: [],
@@ -587,6 +591,7 @@ export const components: ShowcaseComponent[] = [
     description: "Star or icon-based value display and selection.",
     available: true,
     demo: "RatingDemo",
+    interactive: true,
     tags: ["input"],
     notes:
       "CSS visual layer implemented. Supports filled, half-filled, read-only, interactive hover, size, and color variants. Optional JS for star click selection.",
@@ -614,6 +619,7 @@ export const components: ShowcaseComponent[] = [
     available: true,
     demo: "CarouselDemo",
     size: "wide",
+    interactive: true,
     tags: ["slider", "gallery"],
     notes:
       "CSS visual layer with scroll-snap, size variants (sm/lg), color accent borders, overlay/inline nav modes, and multi-slide visible modes (show-2/3/4). JS interaction provides keyboard navigation, auto-play, and dot/arrow sync.",
@@ -692,6 +698,7 @@ export const components: ShowcaseComponent[] = [
     description: "Month-view calendar grid with navigation, day states, and range selection.",
     available: true,
     demo: "CalendarDemo",
+    size: "full",
     tags: ["calendar", "date", "grid"],
     notes:
       "CSS visual layer implemented. Supports header navigation, weekday row, day cell states (today, selected, disabled, outside-month), range selection (start/mid/end), sm/lg/compact size variants, and primary/secondary/accent/neutral/info/success/warning/error color variants. Reduced-motion and forced-colors support included. JS interaction for month navigation and date selection is optional.",
@@ -705,6 +712,7 @@ export const components: ShowcaseComponent[] = [
     description: "Date input with dropdown calendar panel, footer actions, and range mode.",
     available: true,
     demo: "DatePickerDemo",
+    size: "full",
     interactive: true,
     tags: ["form", "date", "calendar", "input"],
     notes:
