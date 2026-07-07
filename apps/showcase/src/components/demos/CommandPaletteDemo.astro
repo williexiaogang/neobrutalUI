@@ -1,114 +1,92 @@
 <div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-6);">
   <!-- Trigger Button -->
   <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: center;">
-    <button class="nb-btn nb-btn-sm nb-btn-primary" type="button">
+    <button class="nb-btn nb-btn-sm nb-btn-primary" type="button" data-command-palette-toggle>
       Open Command Palette
     </button>
   </div>
 
-  <!-- Open Command Palette (simulated) -->
-  <div style="position: relative; overflow: hidden; border: 2px solid var(--nb-base-300);">
-    <div class="nb-command-palette">
-      <div class="nb-command-palette-backdrop"></div>
-      <div class="nb-command-palette-dialog">
-        <div class="nb-command-palette-search">
-          <input type="text" placeholder="Type a command or search..." value="theme" style="inline-size: 100%;" />
-        </div>
-        <div class="nb-command-palette-results">
-          <div class="nb-command-palette-group">
-            <div class="nb-command-palette-group-label">Preferences</div>
-            <button class="nb-command-palette-item nb-command-palette-item-active" type="button">
-              <span>Toggle Dark Mode</span>
-              <span class="nb-command-palette-shortcut">⌘D</span>
-            </button>
-            <button class="nb-command-palette-item" type="button">
-              <span>Change Color Theme</span>
-              <span class="nb-command-palette-shortcut">⌘T</span>
-            </button>
-            <button class="nb-command-palette-item" type="button">
-              <span>Reset Settings</span>
-              <span class="nb-command-palette-shortcut">⇧⌘R</span>
-            </button>
-          </div>
-          <div class="nb-command-palette-group">
-            <div class="nb-command-palette-group-label">Navigation</div>
-            <button class="nb-command-palette-item" type="button">
-              <span>Go to Components</span>
-              <span class="nb-command-palette-shortcut">⌘G</span>
-            </button>
-            <button class="nb-command-palette-item" type="button">
-              <span>Go to Settings</span>
-              <span class="nb-command-palette-shortcut">⌘S</span>
-            </button>
-            <button class="nb-command-palette-item" type="button">
-              <span>Go to Dashboard</span>
-              <span class="nb-command-palette-shortcut">⌘H</span>
-            </button>
-          </div>
-          <div class="nb-command-palette-group">
-            <div class="nb-command-palette-group-label">Actions</div>
-            <button class="nb-command-palette-item" type="button">
-              <span>Create New Project</span>
-              <span class="nb-command-palette-shortcut">⌘N</span>
-            </button>
-            <button class="nb-command-palette-item" type="button">
-              <span>Duplicate File</span>
-              <span class="nb-command-palette-shortcut">⌘⇧D</span>
-            </button>
-          </div>
-        </div>
-        <div class="nb-command-palette-footer">
-          <span>⌘K to open · ↑↓ to navigate · ↵ to select</span>
-        </div>
+  <!-- Command Palette Backdrop -->
+  <div class="nb-command-palette-backdrop" data-nb-command-palette>
+    <div class="nb-command-palette" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="nb-command-palette-input">
+        <span class="nb-command-palette-input-icon" aria-hidden="true">🔍</span>
+        <input type="text" class="nb-command-palette-input-field" placeholder="Type a command or search..." />
       </div>
-    </div>
-  </div>
-
-  <!-- Empty State -->
-  <div style="position: relative; overflow: hidden; border: 2px solid var(--nb-base-300);">
-    <div class="nb-command-palette nb-command-palette-neutral">
-      <div class="nb-command-palette-backdrop"></div>
-      <div class="nb-command-palette-dialog">
-        <div class="nb-command-palette-search">
-          <input type="text" placeholder="Type a command or search..." value="xyz" style="inline-size: 100%;" />
-        </div>
-        <div class="nb-command-palette-empty">
-          <div class="nb-command-palette-empty-icon">🔍</div>
-          <div class="nb-command-palette-empty-title">No results found</div>
-          <div class="nb-command-palette-empty-description">Try a different search term or check your spelling.</div>
-        </div>
-        <div class="nb-command-palette-footer">
-          <span>Press Esc to close</span>
-        </div>
+      <ul class="nb-command-palette-list" role="listbox">
+        <li class="nb-command-palette-group" role="presentation">Preferences</li>
+        <li class="nb-command-palette-item" role="option" data-value="toggle-dark">
+          <span class="nb-command-palette-item-content">
+            <span class="nb-command-palette-item-title">Toggle Dark Mode</span>
+          </span>
+          <span class="nb-command-palette-shortcut"><kbd>⌘</kbd><kbd>D</kbd></span>
+        </li>
+        <li class="nb-command-palette-item" role="option" data-value="change-theme">
+          <span class="nb-command-palette-item-content">
+            <span class="nb-command-palette-item-title">Change Color Theme</span>
+          </span>
+          <span class="nb-command-palette-shortcut"><kbd>⌘</kbd><kbd>T</kbd></span>
+        </li>
+        <li class="nb-command-palette-item" role="option" data-value="reset-settings">
+          <span class="nb-command-palette-item-content">
+            <span class="nb-command-palette-item-title">Reset Settings</span>
+          </span>
+          <span class="nb-command-palette-shortcut"><kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd></span>
+        </li>
+        <li class="nb-command-palette-group" role="presentation">Navigation</li>
+        <li class="nb-command-palette-item" role="option" data-value="go-components">
+          <span class="nb-command-palette-item-content">
+            <span class="nb-command-palette-item-title">Go to Components</span>
+          </span>
+          <span class="nb-command-palette-shortcut"><kbd>⌘</kbd><kbd>G</kbd></span>
+        </li>
+        <li class="nb-command-palette-item" role="option" data-value="go-settings">
+          <span class="nb-command-palette-item-content">
+            <span class="nb-command-palette-item-title">Go to Settings</span>
+          </span>
+          <span class="nb-command-palette-shortcut"><kbd>⌘</kbd><kbd>S</kbd></span>
+        </li>
+        <li class="nb-command-palette-item" role="option" data-value="go-dashboard">
+          <span class="nb-command-palette-item-content">
+            <span class="nb-command-palette-item-title">Go to Dashboard</span>
+          </span>
+          <span class="nb-command-palette-shortcut"><kbd>⌘</kbd><kbd>H</kbd></span>
+        </li>
+        <li class="nb-command-palette-group" role="presentation">Actions</li>
+        <li class="nb-command-palette-item" role="option" data-value="new-project">
+          <span class="nb-command-palette-item-content">
+            <span class="nb-command-palette-item-title">Create New Project</span>
+          </span>
+          <span class="nb-command-palette-shortcut"><kbd>⌘</kbd><kbd>N</kbd></span>
+        </li>
+        <li class="nb-command-palette-item" role="option" data-value="duplicate-file">
+          <span class="nb-command-palette-item-content">
+            <span class="nb-command-palette-item-title">Duplicate File</span>
+          </span>
+          <span class="nb-command-palette-shortcut"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>D</kbd></span>
+        </li>
+      </ul>
+      <div class="nb-command-palette-empty" hidden>
+        <div class="nb-command-palette-empty-icon" aria-hidden="true">🔍</div>
+        <div class="nb-command-palette-empty-title">No results found</div>
+        <div class="nb-command-palette-empty-description">Try a different search term or check your spelling.</div>
       </div>
-    </div>
-  </div>
-
-  <!-- Small Variant -->
-  <div style="position: relative; overflow: hidden; border: 2px solid var(--nb-base-300);">
-    <div class="nb-command-palette nb-command-palette-sm nb-command-palette-secondary">
-      <div class="nb-command-palette-backdrop"></div>
-      <div class="nb-command-palette-dialog">
-        <div class="nb-command-palette-search">
-          <input type="text" placeholder="Search..." style="inline-size: 100%;" />
-        </div>
-        <div class="nb-command-palette-results">
-          <div class="nb-command-palette-group">
-            <div class="nb-command-palette-group-label">Recent</div>
-            <button class="nb-command-palette-item" type="button">
-              <span>index.astro</span>
-              <span class="nb-command-palette-shortcut">↵</span>
-            </button>
-            <button class="nb-command-palette-item" type="button">
-              <span>styles.css</span>
-              <span class="nb-command-palette-shortcut">↵</span>
-            </button>
-          </div>
-        </div>
-        <div class="nb-command-palette-footer">
-          <span>↑↓ navigate · ↵ select</span>
-        </div>
+      <div class="nb-command-palette-footer">
+        <span>⌘K to open · ↑↓ to navigate · ↵ to select</span>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  import { createCommandPalette } from "@neo-brutal-ui/interactions/command-palette";
+
+  const palette = document.querySelector<HTMLElement>("[data-nb-command-palette]");
+  if (palette) {
+    const instance = createCommandPalette(palette, { hotkey: true });
+
+    document.querySelectorAll<HTMLButtonElement>("[data-command-palette-toggle]").forEach((btn) => {
+      btn.addEventListener("click", () => instance.open());
+    });
+  }
+</script>

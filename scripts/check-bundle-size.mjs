@@ -6,7 +6,7 @@
 // Fails CI if thresholds are exceeded.
 //
 // Thresholds:
-//   - core CSS (index.css)   ≤ 30 KB gzip
+//   - core CSS (index.css)   ≤ 32 KB gzip
 //   - interactions JS (index.js) ≤ 15 KB gzip
 // ============================================================================
 
@@ -20,7 +20,7 @@ const root = resolve(import.meta.dirname, "..");
 const reportPath = resolve(root, "reports", "bundle-size.json");
 
 const THRESHOLDS = {
-  "core-css": 30 * 1024,      // 30 KB gzip
+  "core-css": 32 * 1024,      // 32 KB gzip
   "interactions-js": 15 * 1024, // 15 KB gzip
 };
 

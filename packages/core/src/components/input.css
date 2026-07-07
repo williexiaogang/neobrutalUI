@@ -1,0 +1,11 @@
+/**
+ * Neo-Brutal UI — Input Component
+ *
+ * Thin entrypoint for the Input component. Input, textarea, select, and
+ * field-wrapper styles are shared through `field.css` to keep form controls
+ * consistent. Import this file when you only need the form-field layer.
+ *
+ * Includes prefers-reduced-motion and forced-colors support via field.css.
+ */
+
+@import url("./field.css");

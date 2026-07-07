@@ -30,6 +30,18 @@
       "import": "./dist/accordion.js",
       "types": "./dist/accordion.d.ts"
     },
+    "./code-block": {
+      "import": "./dist/code-block.js",
+      "types": "./dist/code-block.d.ts"
+    },
+    "./date-picker": {
+      "import": "./dist/date-picker.js",
+      "types": "./dist/date-picker.d.ts"
+    },
+    "./command-palette": {
+      "import": "./dist/command-palette.js",
+      "types": "./dist/command-palette.d.ts"
+    },
     "./animations": {
       "import": "./dist/animations.js",
       "types": "./dist/animations.d.ts"
@@ -62,9 +74,17 @@
       "import": "./dist/menu.js",
       "types": "./dist/menu.d.ts"
     },
+    "./otp": {
+      "import": "./dist/otp.js",
+      "types": "./dist/otp.d.ts"
+    },
     "./rating": {
       "import": "./dist/rating.js",
       "types": "./dist/rating.d.ts"
+    },
+    "./segmented-control": {
+      "import": "./dist/segmented-control.js",
+      "types": "./dist/segmented-control.d.ts"
     },
     "./tabs": {
       "import": "./dist/tabs.js",

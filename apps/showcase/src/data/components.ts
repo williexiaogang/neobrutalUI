@@ -717,9 +717,10 @@ export const components: ShowcaseComponent[] = [
     available: true,
     demo: "DatePickerDemo",
     size: "full",
+    interactive: true,
     tags: ["form", "date", "calendar", "input"],
     notes:
-      "CSS visual layer implemented. Supports input trigger, dropdown panel with embedded calendar, footer with Today/Clear buttons, range mode with dual calendars, inline always-visible variant, sm/lg size variants, and primary/secondary/accent/neutral/info/success/warning/error color variants. Reduced-motion and forced-colors support included. JS interaction for panel toggle, date selection, and range handling is planned.",
+      "CSS visual layer implemented. Supports input trigger, dropdown panel with embedded calendar, footer with Today/Clear buttons, range mode with dual calendars, inline always-visible variant, sm/lg size variants, and primary/secondary/accent/neutral/info/success/warning/error color variants. Reduced-motion and forced-colors support included. JS interaction module added for panel toggle, single date selection, and footer actions.",
     knownIssues: [],
   },
   {
@@ -731,9 +732,10 @@ export const components: ShowcaseComponent[] = [
     available: true,
     demo: "CommandPaletteDemo",
     size: "wide",
+    interactive: true,
     tags: ["command", "search", "overlay"],
     notes:
-      "CSS visual layer implemented. Supports backdrop, search input, grouped results, keyboard shortcuts, active item highlighting, empty state, size variants (sm/lg), and mobile fullscreen mode. Reduced-motion and forced-colors support included. JS interactions for search, keyboard navigation, and selection are planned.",
+      "CSS visual layer implemented. Supports backdrop, search input, grouped results, keyboard shortcuts, active item highlighting, empty state, size variants (sm/lg), and mobile fullscreen mode. Reduced-motion and forced-colors support included. JS interaction module added for search filtering, keyboard navigation, selection, and Cmd/Ctrl+K shortcut.",
     knownIssues: [],
   },
   {

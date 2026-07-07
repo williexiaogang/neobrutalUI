@@ -1,11 +1,11 @@
 # Neo-Brutal UI — Build Report
 
-**Date:** 2026-07-05T15:46:45.533Z
+**Date:** 2026-07-07T08:56:22.167Z
 
 | Package | Status | Duration |
 |---------|--------|----------|
-| core | ✅ success | 122ms |
-| interactions | ✅ success | 1381ms |
-| theme-neo-brutal | ✅ success | 74ms |
+| core | ✅ success | 45ms |
+| interactions | ✅ success | 656ms |
+| theme-neo-brutal | ✅ success | 33ms |
 
 ✅ All packages built successfully.

@@ -1,6 +1,6 @@
 <div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-6);">
   <!-- Single Date Picker -->
-  <div class="nb-date-picker">
+  <div class="nb-date-picker" data-nb-date-picker>
     <div class="nb-date-picker-input">
       <input type="text" placeholder="Select a date" value="Jun 11, 2025" readonly style="inline-size: 100%;" />
       <button class="nb-btn nb-btn-sm" type="button" aria-label="Open calendar">📅</button>
@@ -67,14 +67,14 @@
         </div>
       </div>
       <div class="nb-date-picker-footer">
-        <button class="nb-date-picker-footer-btn" type="button">Today</button>
-        <button class="nb-date-picker-footer-btn" type="button">Clear</button>
+        <button class="nb-date-picker-footer-btn" type="button" data-action="today">Today</button>
+        <button class="nb-date-picker-footer-btn" type="button" data-action="clear">Clear</button>
       </div>
     </div>
   </div>
 
   <!-- Inline Date Picker -->
-  <div class="nb-date-picker nb-date-picker-inline nb-date-picker-primary">
+  <div class="nb-date-picker nb-date-picker-inline nb-date-picker-primary" data-nb-date-picker-inline>
     <div class="nb-calendar nb-calendar-compact">
       <div class="nb-calendar-header">
         <button class="nb-calendar-nav-btn" type="button" aria-label="Previous month">‹</button>
@@ -138,7 +138,7 @@
   </div>
 
   <!-- Range Date Picker -->
-  <div class="nb-date-picker nb-date-picker-range">
+  <div class="nb-date-picker nb-date-picker-range" data-nb-date-picker-range>
     <div class="nb-date-picker-input">
       <input type="text" placeholder="Start date" value="Jun 16, 2025" readonly style="inline-size: 100%;" />
       <span style="padding: var(--nb-space-2);">→</span>
@@ -147,3 +147,11 @@
     </div>
   </div>
 </div>
+
+<script>
+  import { createDatePicker } from "@neo-brutal-ui/interactions/date-picker";
+
+  document.querySelectorAll<HTMLElement>("[data-nb-date-picker]").forEach((el) => {
+    createDatePicker(el);
+  });
+</script>

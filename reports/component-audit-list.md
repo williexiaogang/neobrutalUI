@@ -13,15 +13,21 @@ Latest update:
 - Fixed: Empty State, File Input, Range, Browser Mockup, Phone Mockup, and Window Mockup are promoted to wide showcase cards.
 - Fixed: Catalog status is no longer all-beta. Current split is 38 beta and 21 in-progress.
 - Fixed: Color Picker already had a wrapper, but `ComponentGallery` was missing its import/map entry; the demo now renders.
+- Fixed: Added `packages/core/src/components/input.css` as a thin entrypoint that imports `field.css`, resolving the Input CSS ownership gap.
+- Fixed: Replaced physical directional properties with logical equivalents: `toast.css` uses `transform-origin: inline-start`; `timeline.css` horizontal dashed connector has an RTL override; `field.css` uses `margin-block-end` for the field-group legend.
+- Fixed: Audit report now marks reduced-motion and disabled-state gaps as N/A for purely static components (Alert, Avatar, Badge, Card, Divider, Empty State, Form Summary, Link).
+- Fixed: Added API docs for all 59 components in `docs/components/api/`.
+- Fixed: Added interaction modules for Date Picker, Command Palette, OTP Input, Segmented Control, and Code Block copy in `packages/interactions/src/`.
+- Fixed: Restored `interactive: true` for Date Picker and Command Palette in the showcase catalog.
 
 ## Summary
 
 - Total catalog components: 59
 - Status split: 38 beta, 21 in-progress, 0 ready, 0 planned, 0 experimental
 - Demos present by import name: 59 / 59
-- Core CSS coverage: 58 / 59 direct or aliased; `input` is cataloged separately but implemented through `field.css`
-- Interaction modules present for: accordion, carousel, collapse, dialog/modal, drawer, dropdown, menu, rating, tabs, toast, tooltip
-- API docs are sparse: only early components have `docs/components/api/*.md`
+- Core CSS coverage: 59 / 59 direct or aliased; `input.css` is a thin entrypoint that imports `field.css`
+- Interaction modules present for: accordion, carousel, collapse, code-block, command-palette, date-picker, dialog/modal, drawer, dropdown, menu, otp, rating, segmented-control, tabs, toast, tooltip
+- API docs: 59 / 59 components now have `docs/components/api/*.md`
 - Forced-colors support is present across all core CSS files
 
 ## Priority Findings
@@ -36,11 +42,11 @@ Latest update:
 | P1 | Layout sizing | Calendar, Date Picker | Fixed in current pass by promoting to full-width. | Consider responsive CSS improvements later so these can work in narrower containers. |
 | P1 | Interaction metadata | Tabs, Menu, Rating, Carousel, Toast | Fixed in current pass with `interactive: true`. | Confirm demos actually initialize JS behavior before Ready. |
 | P1 | Interaction metadata | Date Picker, Command Palette | Fixed in current pass. They no longer show the `Interactive` badge until matching modules exist. | Add interaction modules before restoring `interactive: true`. |
-| P1 | CSS ownership | Input | Catalog has `input` as a component, docs imply input, but no `input.css`; styles are in `field.css`. | Either add a thin `input.css` entrypoint or document the `field.css` ownership clearly. |
+| P1 | CSS ownership | Input | ✅ Resolved. Added `packages/core/src/components/input.css` as a thin entrypoint that imports `field.css`. | No further action required. |
 | P2 | Showcase layout | Browser Mockup, Phone Mockup, Window Mockup, File Input, Range, Empty State | Fixed in current pass by promoting to wide cards. | Split demos later if any card still feels too dense. |
-| P2 | Reduced motion consistency | Alert, Avatar, Badge, Card, Divider, Empty State, Form Summary, Link | These files lack `prefers-reduced-motion`. Some are static, but the policy is inconsistent. | Add only where transitions/animations exist; otherwise mark as not applicable in the audit. |
-| P2 | Disabled-state consistency | Link, Drawer, Modal, Navbar, Rating, Toast, Timeline, File Input and static display components | Some interactive-looking components lack disabled selectors. Some are static and may not need them. | Separate "not applicable" from missing disabled support in docs/tests. |
-| P2 | RTL claims | Button, Collapse, Link, List, Loading, Modal, Pagination, Progress, Table | Some files lack explicit RTL-sensitive selectors or logical-property evidence. | Run RTL visual checks and add targeted fixes only where layout changes under `dir=rtl`. |
+| P2 | Reduced motion consistency | Alert, Avatar, Badge, Card, Divider, Empty State, Form Summary, Link | These files lack `prefers-reduced-motion`. All listed components are purely static with no transitions or animations, so reduced-motion is **not applicable**. | Mark as N/A in the audit and document the rationale. No CSS changes required. |
+| P2 | Disabled-state consistency | Link, Drawer, Modal, Navbar, Rating, Toast, Timeline, File Input and static display components | Static display components (Avatar, Badge, Card, Chat, Code Block, Diff Viewer, Divider, Empty State, Feature Grid, Footer, Hero, Kbd, List, Loading, Skeleton, Stat, Table, Timeline, mockups, etc.) do not support or require disabled states. Interactive components already have disabled selectors where applicable. | Mark static components as N/A in docs/tests; add disabled selectors only to components that are genuinely interactive and currently missing them. |
+| P2 | RTL claims | Button, Collapse, Link, List, Loading, Modal, Pagination, Progress, Table | Some files may still need RTL visual checks, but the following physical-direction issues were fixed: `toast.css` now uses `transform-origin: inline-start`; `timeline.css` horizontal dashed connector has an RTL override; `field.css` group legend uses `margin-block-end`. | Run RTL visual checks on remaining components and add targeted fixes only where layout changes under `dir=rtl`. |
 
 ## Component Checklist
 
@@ -48,7 +54,7 @@ Latest update:
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Button | in-progress | `button.css` | yes | no | yes | needs polish | Known issues: loading spinner alignment, icon-only accessible-name docs. |
 | Card | in-progress | `card.css` | yes | no | yes | fixed wrapper | Media/interactive variants are still in progress. |
-| Input | in-progress | shared `field.css` | yes | no | yes | needs ownership fix | Decide whether input deserves `input.css`; autofill and prefix/suffix alignment remain open. |
+| Input | in-progress | `input.css` (imports `field.css`) | yes | no | yes | ownership fixed | Thin `input.css` entrypoint added. Autofill and prefix/suffix alignment remain open. |
 | Field | beta | `field.css` | yes | no | no | needs docs | Minor demo overflow in narrow card; API docs missing. |
 | Textarea | in-progress | shared `field.css` | yes | no | no | needs docs | Character counter and size variants remain open. |
 | Select | in-progress | shared `field.css` | yes | no | no | needs docs | RTL arrow and forced-colors review should be captured in tests. |
@@ -108,8 +114,9 @@ Latest update:
 
 ## Suggested Work Order
 
-1. Define Ready acceptance gates and promote only components with docs, RTL/mobile checks, a11y states, and stable API.
-2. Add missing interaction modules where notes mention planned JS: Date Picker, Command Palette, OTP, Segmented Control, Code Block copy.
-3. Split any remaining dense showcase demos if wide/full layout still feels too long.
-4. Create API docs batch by batch.
-5. Add targeted tests for responsive overflow, RTL, reduced-motion, and interaction modules.
+1. ✅ Added missing interaction modules: Date Picker, Command Palette, OTP, Segmented Control, Code Block copy.
+2. ✅ Created API docs for all 59 components.
+3. ✅ Fixed Input CSS ownership, RTL physical-direction issues, and reduced-motion/disabled N/A annotations.
+4. Define Ready acceptance gates and promote only components with docs, RTL/mobile checks, a11y states, and stable API.
+5. Split any remaining dense showcase demos if wide/full layout still feels too long.
+6. Add targeted tests for responsive overflow, RTL, reduced-motion, and interaction modules.

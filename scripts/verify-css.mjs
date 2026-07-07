@@ -290,8 +290,8 @@ async function checkComponentPrefixes(files) {
       const line = lines[i];
       const trimmed = line.trim();
 
-      // Skip at-rules and closing braces
-      if (trimmed.startsWith("@") || trimmed.startsWith("}")) continue;
+      // Skip at-rules, imports, comments, and closing braces
+      if (trimmed.startsWith("@") || trimmed.startsWith("}") || trimmed.startsWith("*") || trimmed.startsWith("/*")) continue;
 
       // Extract selector part (before first `{` on this line)
       const selectorPart = trimmed.split("{")[0];

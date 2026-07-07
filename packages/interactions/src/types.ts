@@ -45,6 +45,75 @@ export interface DialogOptions extends BaseOptions {
 }
 
 // --------------------------------------------------------------------------
+// OTP Input
+// --------------------------------------------------------------------------
+
+export interface OtpOptions {
+  /** Number of characters. Default: number of fields in the DOM */
+  length?: number;
+  /** Allow letters in addition to digits. Default: false */
+  allowAlpha?: boolean;
+  /** Called when all fields are filled */
+  onComplete?: (value: string) => void;
+  /** Called whenever the value changes */
+  onChange?: (value: string) => void;
+}
+
+/** Extended interface for OTP input that exposes the current value */
+export interface OtpInstance extends ComponentInstance {
+  /** Set the OTP value programmatically */
+  setValue(value: string): void;
+  /** Clear all fields */
+  clear(): void;
+  /** Read the current OTP value */
+  get value(): string;
+  /** Read the configured OTP length */
+  get length(): number;
+}
+
+// --------------------------------------------------------------------------
+// Segmented Control
+// --------------------------------------------------------------------------
+
+export interface SegmentedControlOptions {
+  /** Initially selected value */
+  defaultValue?: string;
+  /** Called when the selected value changes */
+  onChange?: (value: string, index: number) => void;
+}
+
+/** Extended interface for segmented control that exposes selection */
+export interface SegmentedControlInstance extends ComponentInstance {
+  /** Select a value programmatically */
+  select(index: number): void;
+  /** Read the currently selected value */
+  get value(): string;
+  /** Read the currently selected index */
+  get activeIndex(): number;
+}
+
+// --------------------------------------------------------------------------
+// Code Block
+// --------------------------------------------------------------------------
+
+export interface CodeBlockOptions {
+  /** Selector for copy buttons. Default: '[data-nb-code-block-copy], .nb-code-block-actions button' */
+  copyButtonSelector?: string;
+  /** Text shown after a successful copy. Default: 'Copied!' */
+  successText?: string;
+  /** Milliseconds before the button label resets. Default: 2000 */
+  resetDelay?: number;
+  /** Called after a copy attempt */
+  onCopy?: (text: string, success: boolean) => void;
+}
+
+/** Interface for code block copy behavior */
+export interface CodeBlockInstance extends ComponentInstance {
+  /** Copy the code block text using the first available button */
+  copy(): Promise<void>;
+}
+
+// --------------------------------------------------------------------------
 // Tabs
 // --------------------------------------------------------------------------
 
@@ -128,6 +197,56 @@ export interface MenuOptions extends BaseOptions {
   closeOnOutsideClick?: boolean;
   /** Called when a menu item is selected */
   onSelect?: (item: HTMLElement) => void;
+}
+
+// --------------------------------------------------------------------------
+// Date Picker
+// --------------------------------------------------------------------------
+
+export interface DatePickerOptions extends BaseOptions {
+  /** Selection mode. Default: 'single' */
+  mode?: 'single' | 'range';
+  /** Formatter for the input value. Default: 'Jun 11, 2025' */
+  formatDate?: (date: Date) => string;
+  /** Initially selected date */
+  defaultDate?: Date | string;
+  /** Earliest selectable date */
+  minDate?: Date | string;
+  /** Latest selectable date */
+  maxDate?: Date | string;
+  /** Called when a single date is selected */
+  onSelect?: (date: Date) => void;
+  /** Called when a date range is completed */
+  onRange?: (range: { start: Date; end: Date }) => void;
+}
+
+/** Extended interface for date picker that exposes date control */
+export interface DatePickerInstance extends ComponentInstance {
+  /** Set the selected date programmatically */
+  setDate(date: Date | string): void;
+  /** Clear the current selection */
+  clear(): void;
+  /** Read the current input value */
+  get value(): string;
+}
+
+// --------------------------------------------------------------------------
+// Command Palette
+// --------------------------------------------------------------------------
+
+export interface CommandPaletteOptions extends BaseOptions {
+  /** Enable Cmd/Ctrl+K global shortcut. Default: true */
+  hotkey?: boolean;
+  /** Custom filter function for matching items against the query */
+  filter?: (query: string, item: HTMLElement) => boolean;
+  /** Called when an item is selected */
+  onSelect?: (value: string, item: HTMLElement) => void;
+}
+
+/** Extended interface for command palette that exposes item selection */
+export interface CommandPaletteInstance extends ComponentInstance {
+  /** Select an item by its data-value programmatically */
+  select(value: string): void;
 }
 
 // --------------------------------------------------------------------------

@@ -10,6 +10,12 @@
 export type {
   ComponentInstance,
   BaseOptions,
+  OtpOptions,
+  OtpInstance,
+  SegmentedControlOptions,
+  SegmentedControlInstance,
+  CodeBlockOptions,
+  CodeBlockInstance,
   DialogOptions,
   TabsOptions,
   TabsInstance,
@@ -23,6 +29,10 @@ export type {
   AccordionInstance,
   RatingOptions,
   RatingInstance,
+  DatePickerOptions,
+  DatePickerInstance,
+  CommandPaletteOptions,
+  CommandPaletteInstance,
 } from './types.js';
 
 // --------------------------------------------------------------------------
@@ -75,6 +85,16 @@ export { createDropdown } from './dropdown.js';
 export { createDrawer } from './drawer.js';
 
 export { createRating } from './rating.js';
+
+export { createOtp } from './otp.js';
+
+export { createSegmentedControl } from './segmented-control.js';
+
+export { createCodeBlock } from './code-block.js';
+
+export { createDatePicker } from './date-picker.js';
+
+export { createCommandPalette } from './command-palette.js';
 
 export function createDisclosure(element: HTMLElement, options: DisclosureOptions = {}): CollapseInstance {
   return createCollapse(element, options);

@@ -171,7 +171,7 @@
     inline-size: 100%;
     block-size: 3px;
     background: var(--_accent);
-    transform-origin: left;
+    transform-origin: inline-start;
     transform: scaleX(1);
   }
 

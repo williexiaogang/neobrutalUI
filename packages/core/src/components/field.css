@@ -175,7 +175,7 @@
     padding: var(--nb-space-1) var(--nb-space-3);
     border: var(--nb-border-width) solid var(--nb-border);
     background: var(--nb-base-200);
-    margin-bottom: var(--nb-space-3);
+    margin-block-end: var(--nb-space-3);
   }
 
   /* Forced colors */

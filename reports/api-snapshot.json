@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-07-05T15:44:43.620Z",
+    "generatedAt": "2026-07-07T08:54:40.417Z",
     "version": "0.0.2"
   },
   "css": {
@@ -934,17 +934,22 @@
     "hash": "a7f4b3f1967b2f05"
   },
   "js": {
-    "namedExportCount": 23,
+    "namedExportCount": 28,
     "namedExports": [
       "countUp",
       "createCarousel",
+      "createCodeBlock",
       "createCollapse",
+      "createCommandPalette",
+      "createDatePicker",
       "createDialog",
       "createDisclosure",
       "createDrawer",
       "createDropdown",
       "createEventManager",
+      "createOtp",
       "createRating",
+      "createSegmentedControl",
       "createStateManager",
       "createTabs",
       "createToastManager",
@@ -960,29 +965,39 @@
       "saveActiveElement",
       "stagger"
     ],
-    "typeExportCount": 20,
+    "typeExportCount": 30,
     "typeExports": [
       "AccordionInstance",
       "BaseOptions",
       "CarouselInstance",
       "CarouselOptions",
+      "CodeBlockInstance",
+      "CodeBlockOptions",
       "CollapseInstance",
+      "CommandPaletteInstance",
+      "CommandPaletteOptions",
       "ComponentInstance",
       "CountUpOptions",
+      "DatePickerInstance",
+      "DatePickerOptions",
       "DialogOptions",
       "DisclosureOptions",
       "DrawerOptions",
       "DropdownOptions",
       "MenuOptions",
+      "OtpInstance",
+      "OtpOptions",
       "RatingInstance",
       "RatingOptions",
       "RevealOptions",
+      "SegmentedControlInstance",
+      "SegmentedControlOptions",
       "StaggerOptions",
       "TabsInstance",
       "TabsOptions",
       "ToastOptions",
       "TooltipOptions"
     ],
-    "hash": "e96e7cbe8a3fc60a"
+    "hash": "00ccb291bef5a3ab"
   }
 }

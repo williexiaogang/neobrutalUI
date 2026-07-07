@@ -183,3 +183,12 @@
     </label>
   </div>
 </div>
+
+
+<script>
+  import { createSegmentedControl } from "@neo-brutal-ui/interactions/segmented-control";
+
+  document.querySelectorAll<HTMLElement>(".nb-segmented[role='radiogroup']").forEach((el) => {
+    createSegmentedControl(el);
+  });
+</script>

@@ -300,6 +300,16 @@
     );
   }
 
+  [dir="rtl"] .nb-timeline-dashed.nb-timeline-horizontal .nb-timeline-connector {
+    background: repeating-linear-gradient(
+      to left,
+      var(--_connector-color) 0,
+      var(--_connector-color) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  }
+
   /* ========================================================================
      Opposite content (two-column vertical)
      ======================================================================== */

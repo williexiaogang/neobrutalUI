@@ -72,3 +72,11 @@
     </div>
   </div>
 </div>
+
+<script>
+  import { createOtp } from "@neo-brutal-ui/interactions/otp";
+
+  document.querySelectorAll<HTMLElement>(".nb-otp").forEach((el) => {
+    createOtp(el);
+  });
+</script>
