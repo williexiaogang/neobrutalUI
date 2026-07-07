@@ -35,13 +35,13 @@ Latest update:
 | Priority | Area | Components | Issue | Recommended action |
 | --- | --- | --- | --- | --- |
 | P1 | Status model | All 59 | Fixed in current pass. Components with explicit visual, responsive, accessibility, or interaction gaps are now `in-progress`; usable CSS/demo surfaces remain `beta`. | Define Ready acceptance gates before promoting any component to `ready`. |
-| P1 | Docs | Most components after Modal | API docs exist for only a small subset. Users cannot rely on stable class names, anatomy, states, or accessibility guidance. | Create API docs in batches by family: forms, navigation, overlays, data display, layout/marketing. |
+| P1 | Docs | All 59 components | ✅ Resolved. API docs now exist for every catalog component in `docs/components/api/`. | Keep docs in sync with future CSS/API changes. |
 | P1 | Showcase demo structure | Card, Alert | Fixed in current pass. Demos now use `.nb-component-card__demo`. | Re-run rendered audit after future demo edits. |
 | P1 | Showcase demo mapping | Color Picker | Fixed in current pass. The demo file had a wrapper, but the gallery map omitted `ColorPickerDemo`. | Re-run rendered audit after future catalog additions. |
 | P1 | Layout sizing | List | Fixed in current pass by promoting to full-width. | Consider splitting variants later if the full-width card still feels too long. |
 | P1 | Layout sizing | Calendar, Date Picker | Fixed in current pass by promoting to full-width. | Consider responsive CSS improvements later so these can work in narrower containers. |
 | P1 | Interaction metadata | Tabs, Menu, Rating, Carousel, Toast | Fixed in current pass with `interactive: true`. | Confirm demos actually initialize JS behavior before Ready. |
-| P1 | Interaction metadata | Date Picker, Command Palette | Fixed in current pass. They no longer show the `Interactive` badge until matching modules exist. | Add interaction modules before restoring `interactive: true`. |
+| P1 | Interaction metadata | Date Picker, Command Palette | ✅ Resolved. Interaction modules added and `interactive: true` restored. | Confirm JS behavior is active in demos before Ready. |
 | P1 | CSS ownership | Input | ✅ Resolved. Added `packages/core/src/components/input.css` as a thin entrypoint that imports `field.css`. | No further action required. |
 | P2 | Showcase layout | Browser Mockup, Phone Mockup, Window Mockup, File Input, Range, Empty State | Fixed in current pass by promoting to wide cards. | Split demos later if any card still feels too dense. |
 | P2 | Reduced motion consistency | Alert, Avatar, Badge, Card, Divider, Empty State, Form Summary, Link | These files lack `prefers-reduced-motion`. All listed components are purely static with no transitions or animations, so reduced-motion is **not applicable**. | Mark as N/A in the audit and document the rationale. No CSS changes required. |
@@ -52,71 +52,96 @@ Latest update:
 
 | Component | Status | CSS | Demo | JS | API doc | Audit state | Optimization notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Button | in-progress | `button.css` | yes | no | yes | needs polish | Known issues: loading spinner alignment, icon-only accessible-name docs. |
-| Card | in-progress | `card.css` | yes | no | yes | fixed wrapper | Media/interactive variants are still in progress. |
+| Button | in-progress | `button.css` | yes | no | yes | needs polish | Loading spinner alignment and icon-only accessible-name docs remain open. |
+| Card | in-progress | `card.css` | yes | no | yes | docs added | Media/interactive variants remain in progress. |
 | Input | in-progress | `input.css` (imports `field.css`) | yes | no | yes | ownership fixed | Thin `input.css` entrypoint added. Autofill and prefix/suffix alignment remain open. |
-| Field | beta | `field.css` | yes | no | no | needs docs | Minor demo overflow in narrow card; API docs missing. |
-| Textarea | in-progress | shared `field.css` | yes | no | no | needs docs | Character counter and size variants remain open. |
-| Select | in-progress | shared `field.css` | yes | no | no | needs docs | RTL arrow and forced-colors review should be captured in tests. |
-| Checkbox | in-progress | `selector.css` | yes | no | yes | near stable | Add indeterminate docs/examples before Ready. |
-| Radio | in-progress | `selector.css` | yes | no | no | needs docs | Add radio group anatomy and keyboard expectations. |
-| Toggle | in-progress | `selector.css` | yes | no | no | needs docs/tests | Confirm reduced-motion and RTL thumb positioning. |
-| Badge | in-progress | `badge.css` | yes | no | no | needs docs | Removable tag behavior remains undefined. |
-| Alert | in-progress | `alert.css` | yes | no | no | fixed wrapper | Dismissible behavior/API remains open. |
-| Divider | in-progress | `divider.css` | yes | no | no | needs docs | Vertical orientation still noted as in progress. |
-| Loading | in-progress | `loading.css` | yes | no | no | needs a11y docs | Add screen-reader strategy and size variants. |
-| Skeleton | in-progress | `skeleton.css` | yes | no | no | needs docs | Add avatar/card skeleton patterns or re-scope notes. |
+| Field | beta | `field.css` | yes | no | yes | docs added | Minor demo overflow in narrow card; consider responsive tweaks. |
+| Textarea | in-progress | shared `field.css` | yes | no | yes | docs added | Character counter and size variants remain open. |
+| Select | in-progress | shared `field.css` | yes | no | yes | docs added | RTL arrow and forced-colors review should be captured in tests. |
+| Checkbox | in-progress | `selector.css` | yes | no | yes | docs added | Add indeterminate examples before Ready. |
+| Radio | in-progress | `selector.css` | yes | no | yes | docs added | Radio group anatomy and keyboard expectations now documented. |
+| Toggle | in-progress | `selector.css` | yes | no | yes | docs added | Reduced-motion and RTL thumb positioning now documented. |
+| Badge | in-progress | `badge.css` | yes | no | yes | docs added | Removable tag behavior remains undefined. |
+| Alert | in-progress | `alert.css` | yes | no | yes | docs added | Dismissible behavior/API remains open. |
+| Divider | in-progress | `divider.css` | yes | no | yes | docs added | Vertical orientation still noted as in progress. |
+| Loading | in-progress | `loading.css` | yes | no | yes | docs added | Screen-reader strategy and size variants remain open. |
+| Skeleton | in-progress | `skeleton.css` | yes | no | yes | docs added | Avatar/card skeleton patterns remain open. |
 | Modal | in-progress | `modal.css` | yes | dialog module | yes | needs JS polish | Known issue: div fallback focus trap. |
-| Tabs | beta | `tabs.css` | yes | tabs module | no | metadata fixed | Confirm JS is active in demo before Ready. |
-| Dropdown | beta | `dropdown.css` | yes | dropdown module | no | needs docs | Add API docs and interaction tests if not already covered. |
-| Tooltip | beta | `tooltip.css` | yes | tooltip module | no | needs docs | CSS focus/hover behavior needs documented trigger pattern. |
-| Table | beta | `table.css` | yes | no | no | needs docs | Confirm responsive wrapper pattern. |
-| List | beta | `list.css` | yes | no | no | layout fixed | Now full-width; split variants later if still too long. |
-| Description List | beta | `description-list.css` | yes | no | no | needs docs | Full-width showcase works; add API docs. |
-| Navbar | in-progress | `navbar.css` | yes | no | no | needs behavior decision | Collapse behavior requires optional JS but no module exists. |
-| Drawer | beta | `drawer.css` | yes | drawer module | no | needs docs | Add API docs and disabled/edge-case states if applicable. |
-| Toast | beta | `toast.css` | yes | toast module | no | metadata fixed | Confirm JS behavior before Ready. |
-| Accordion | beta | `accordion.css` | yes | accordion module | no | needs docs | Good CSS/JS coverage; API docs missing. |
-| Collapse | beta | `collapse.css` | yes | collapse module | no | needs docs | Good coverage; API docs missing. |
-| Progress | beta | `progress.css` | yes | no | no | needs docs | Define native vs div-based API clearly. |
-| Avatar | beta | `avatar.css` | yes | no | no | needs docs | Static component; focus/disabled likely not applicable. |
-| Stat | beta | `stat.css` | yes | no | no | showcase ok | Wide layout helps; docs missing. |
-| Steps | beta | `steps.css` | yes | no | no | showcase ok | Full-width demo is appropriate; docs missing. |
-| Breadcrumbs | beta | `breadcrumb.css` | yes | no | no | needs docs | Slug plural maps to singular CSS; document naming. |
-| Pagination | beta | `pagination.css` | yes | no | no | showcase ok | Full-width demo is appropriate; docs missing. |
-| Button Group | beta | `button-group.css` | yes | no | no | showcase ok | Docs missing. |
-| Link | beta | `link.css` | yes | no | no | needs docs | Reduced-motion/disabled applicability should be clarified. |
-| Menu | beta | `menu.css` | yes | menu module | no | metadata fixed | Confirm JS is active in demo before Ready. |
-| Empty State | beta | `empty-state.css` | yes | no | no | layout fixed | Now wide; split variants later if needed. |
-| Form Summary | beta | `form-summary.css` | yes | no | no | showcase ok | Add reduced-motion only if transitions exist. |
-| File Input | beta | `file-input.css` | yes | no | no | layout fixed | Now wide; document drag/drop limits. |
-| Range | beta | `range.css` | yes | no | no | layout fixed | Now wide; split variants later if needed. |
-| OTP Input | in-progress | `otp.css` | yes | no | no | behavior gap | Notes mention auto-focus/paste JS but no module exists. |
-| Segmented Control | in-progress | `segmented-control.css` | yes | no | no | behavior gap | Notes mention keyboard JS optional but no module exists. |
-| Color Picker | beta | `color-picker.css` | yes | no | no | fixed mapping | Document native input limitations. |
-| Hero | beta | `hero.css` | yes | no | no | showcase ok | Full-width demo is appropriate; docs missing. |
-| Footer | beta | `footer.css` | yes | no | no | showcase ok | Full-width demo is appropriate; docs missing. |
-| Timeline | beta | `timeline.css` | yes | no | no | showcase ok | Full-width demo is appropriate; docs missing. |
-| Rating | beta | `rating.css` | yes | rating module | no | metadata fixed | Confirm JS is active in demo before Ready. |
-| Chat | beta | `chat-bubble.css` | yes | no | no | needs naming docs | Catalog slug maps to `chat-bubble.css`; document naming. |
-| Carousel | beta | `carousel.css` | yes | carousel module | no | metadata fixed | Confirm JS is active in demo before Ready. |
-| Kbd | beta | `kbd.css` | yes | no | no | needs docs | Static component; focus/disabled likely not applicable. |
-| Code Block | in-progress | `code-block.css` | yes | no | no | behavior gap | Notes mention copy interaction but no module exists. |
-| Diff Viewer | beta | `diff-viewer.css` | yes | no | no | showcase ok | Docs missing. |
-| Pricing Card | beta | `pricing-card.css` | yes | no | no | showcase ok | Full-width demo is appropriate; docs missing. |
-| Feature Grid | beta | `feature-grid.css` | yes | no | no | showcase ok | Full-width demo is appropriate; docs missing. |
-| Calendar | in-progress | `calendar.css` | yes | no | no | layout fixed / behavior gap | Now full-width; month navigation/date selection JS remains optional/planned. |
-| Date Picker | in-progress | `date-picker.css` | yes | no | no | layout fixed / behavior planned | Now full-width; `interactive` removed until JS module exists. |
-| Command Palette | in-progress | `command-palette.css` | yes | no | no | metadata fixed / behavior planned | `interactive` removed until JS module exists. |
-| Browser Mockup | beta | `browser.css` | yes | no | no | layout fixed | Now wide. |
-| Phone Mockup | beta | `phone.css` | yes | no | no | layout fixed | Now wide. |
-| Window Mockup | beta | `window.css` | yes | no | no | layout fixed | Now wide. |
+| Tabs | beta | `tabs.css` | yes | tabs module | yes | docs added | Confirm JS is active in demo before Ready. |
+| Dropdown | beta | `dropdown.css` | yes | dropdown module | yes | docs added | Add interaction tests if not already covered. |
+| Tooltip | beta | `tooltip.css` | yes | tooltip module | yes | docs added | CSS focus/hover trigger pattern now documented. |
+| Table | beta | `table.css` | yes | no | yes | docs added | Confirm responsive wrapper pattern before Ready. |
+| List | beta | `list.css` | yes | no | yes | docs added | Now full-width; split variants later if still too long. |
+| Description List | beta | `description-list.css` | yes | no | yes | docs added | Full-width showcase works. |
+| Navbar | in-progress | `navbar.css` | yes | no | yes | docs added | Collapse behavior requires optional JS but no module exists. |
+| Drawer | beta | `drawer.css` | yes | drawer module | yes | docs added | Add disabled/edge-case states if applicable. |
+| Toast | beta | `toast.css` | yes | toast module | yes | docs added | Confirm JS behavior before Ready. |
+| Accordion | beta | `accordion.css` | yes | accordion module | yes | docs added | Good CSS/JS coverage; API docs now present. |
+| Collapse | beta | `collapse.css` | yes | collapse module | yes | docs added | Good coverage; API docs now present. |
+| Progress | beta | `progress.css` | yes | no | yes | docs added | Define native vs div-based API clearly before Ready. |
+| Avatar | beta | `avatar.css` | yes | no | yes | docs added | Static component; focus/disabled not applicable. |
+| Stat | beta | `stat.css` | yes | no | yes | docs added | Wide layout helps. |
+| Steps | beta | `steps.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
+| Breadcrumbs | beta | `breadcrumb.css` | yes | no | yes | docs added | Slug plural maps to singular CSS; naming now documented. |
+| Pagination | beta | `pagination.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
+| Button Group | beta | `button-group.css` | yes | no | yes | docs added | Purely presentational; no JS required. |
+| Link | beta | `link.css` | yes | no | yes | docs added | Reduced-motion/disabled applicability now documented as N/A. |
+| Menu | beta | `menu.css` | yes | menu module | yes | docs added | Confirm JS is active in demo before Ready. |
+| Empty State | beta | `empty-state.css` | yes | no | yes | docs added | Now wide; split variants later if needed. |
+| Form Summary | beta | `form-summary.css` | yes | no | yes | docs added | Reduced-motion not applicable (no transitions). |
+| File Input | beta | `file-input.css` | yes | no | yes | docs added | Now wide; document drag/drop limits before Ready. |
+| Range | beta | `range.css` | yes | no | yes | docs added | Now wide; split variants later if needed. |
+| OTP Input | in-progress | `otp.css` | yes | otp module | yes | module added | Auto-focus/paste JS module added. |
+| Segmented Control | in-progress | `segmented-control.css` | yes | segmented-control module | yes | module added | Keyboard navigation JS module added. |
+| Color Picker | beta | `color-picker.css` | yes | no | yes | docs added | Native input limitations now documented. |
+| Hero | beta | `hero.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
+| Footer | beta | `footer.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
+| Timeline | beta | `timeline.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
+| Rating | beta | `rating.css` | yes | rating module | yes | docs added | Confirm JS is active in demo before Ready. |
+| Chat | beta | `chat-bubble.css` | yes | no | yes | docs added | Catalog slug maps to `chat-bubble.css`; naming now documented. |
+| Carousel | beta | `carousel.css` | yes | carousel module | yes | docs added | Confirm JS is active in demo before Ready. |
+| Kbd | beta | `kbd.css` | yes | no | yes | docs added | Static component; focus/disabled not applicable. |
+| Code Block | in-progress | `code-block.css` | yes | code-block module | yes | module added | Copy-to-clipboard JS module added. |
+| Diff Viewer | beta | `diff-viewer.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
+| Pricing Card | beta | `pricing-card.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
+| Feature Grid | beta | `feature-grid.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
+| Calendar | in-progress | `calendar.css` | yes | no | yes | docs added | Now full-width; month navigation/date selection JS remains optional/planned. |
+| Date Picker | in-progress | `date-picker.css` | yes | date-picker module | yes | module added | `interactive` restored; JS module added for panel toggle and single-date selection. |
+| Command Palette | in-progress | `command-palette.css` | yes | command-palette module | yes | module added | `interactive` restored; JS module added for search, navigation, and selection. |
+| Browser Mockup | beta | `browser.css` | yes | no | yes | docs added | Now wide. |
+| Phone Mockup | beta | `phone.css` | yes | no | yes | docs added | Now wide. |
+| Window Mockup | beta | `window.css` | yes | no | yes | docs added | Now wide. |
 
 ## Suggested Work Order
+
+### Completed in this pass
 
 1. ✅ Added missing interaction modules: Date Picker, Command Palette, OTP, Segmented Control, Code Block copy.
 2. ✅ Created API docs for all 59 components.
 3. ✅ Fixed Input CSS ownership, RTL physical-direction issues, and reduced-motion/disabled N/A annotations.
-4. Define Ready acceptance gates and promote only components with docs, RTL/mobile checks, a11y states, and stable API.
-5. Split any remaining dense showcase demos if wide/full layout still feels too long.
-6. Add targeted tests for responsive overflow, RTL, reduced-motion, and interaction modules.
+
+### Next steps
+
+4. **Define Ready acceptance gates** before promoting any component from `beta` / `in-progress` to `ready`.
+
+   Proposed gates (all must pass):
+
+   | Gate | Requirement |
+   | --- | --- |
+   | API docs | `docs/components/api/<slug>.md` exists and matches current CSS |
+   | CSS complete | All documented variants, sizes, states, and color accents are implemented |
+   | Demo wiring | If `interactive: true`, the Showcase demo actually initializes the JS module |
+   | Accessibility | Focus order, ARIA attributes, color contrast, and keyboard behavior verified |
+   | RTL | Rendered correctly under `dir="rtl"` without layout breakage |
+   | Responsive | No overflow or overlap down to the narrowest supported viewport |
+   | Tests | Unit or visual tests cover the component’s core behavior and edge cases |
+
+   Recommended first batch of Ready candidates: **Button, Card, Checkbox, Modal, Tabs, Accordion, Collapse, Dropdown, Tooltip, Drawer, Toast**.
+
+5. **Split any remaining dense showcase demos** if wide/full layout still feels too long. Priority candidates: `CalendarDemo`, `DatePickerDemo`, `TableDemo`, `ListDemo`, `CommandPaletteDemo`, `PricingCardDemo`, `FeatureGridDemo`.
+
+6. **Add targeted tests** for responsive overflow, RTL rendering, reduced-motion behavior, and interaction modules.
+
+7. **Fix pre-existing Showcase TypeScript errors** in `apps/showcase/src/pages/playground.astro` and `theme-generator.astro` so `astro check` passes cleanly.
+
+8. **Promote vetted components to `ready`** and create changesets for the first stable release.
