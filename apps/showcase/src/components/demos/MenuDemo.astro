@@ -135,3 +135,13 @@
     <li class="nb-menu-item" role="menuitem">Notifications</li>
   </ul>
 </div>
+
+<script>
+  import { createMenu } from "@neo-brutal-ui/interactions/menu";
+
+  document.querySelectorAll<HTMLElement>(".nb-menu").forEach((el) => {
+    createMenu(el, {
+      orientation: el.classList.contains("nb-menu-horizontal") ? "horizontal" : "vertical",
+    });
+  });
+</script>

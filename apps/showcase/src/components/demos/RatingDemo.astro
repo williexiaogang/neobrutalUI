@@ -2,58 +2,58 @@
   <!-- Interactive Rating -->
   <div>
     <p style="margin: 0 0 var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Interactive Rating</p>
-    <div class="nb-rating" role="group" aria-label="Rate this product">
-      <span class="nb-rating-star nb-rating-star-filled nb-rating-primary" aria-label="1 star"></span>
-      <span class="nb-rating-star nb-rating-star-filled nb-rating-primary" aria-label="2 stars"></span>
-      <span class="nb-rating-star nb-rating-star-filled nb-rating-primary" aria-label="3 stars"></span>
-      <span class="nb-rating-star nb-rating-star-half nb-rating-primary" aria-label="3.5 stars"></span>
-      <span class="nb-rating-star nb-rating-star-empty nb-rating-primary" aria-label="4 stars"></span>
+    <div class="nb-rating nb-rating-interactive nb-rating-primary" data-nb-rating role="radiogroup" aria-label="Rate this product">
+      <span class="nb-rating-item" data-nb-rating-item data-value="1" role="radio" aria-checked="false" tabindex="0" aria-label="1 star"></span>
+      <span class="nb-rating-item" data-nb-rating-item data-value="2" role="radio" aria-checked="false" tabindex="-1" aria-label="2 stars"></span>
+      <span class="nb-rating-item" data-nb-rating-item data-value="3" role="radio" aria-checked="false" tabindex="-1" aria-label="3 stars"></span>
+      <span class="nb-rating-item" data-nb-rating-item data-value="4" role="radio" aria-checked="false" tabindex="-1" aria-label="4 stars"></span>
+      <span class="nb-rating-item" data-nb-rating-item data-value="5" role="radio" aria-checked="false" tabindex="-1" aria-label="5 stars"></span>
     </div>
   </div>
 
   <!-- Readonly Rating (various sizes) -->
   <div style="display: flex; flex-direction: column; gap: var(--nb-space-4);">
     <div>
-      <p style="margin: 0 0 var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Readonly — Small</p>
+      <p style="margin: 0 0 var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Readonly - Small</p>
       <div class="nb-rating nb-rating-readonly nb-rating-sm" role="img" aria-label="Rating: 4 out of 5">
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-warning"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-warning"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-warning"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-warning"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-warning"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-warning"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-warning"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-warning"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-warning"></span>
+        <span class="nb-rating-item nb-rating-warning"></span>
       </div>
     </div>
 
     <div>
-      <p style="margin: 0 0 var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Readonly — Default</p>
+      <p style="margin: 0 0 var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Readonly - Default</p>
       <div class="nb-rating nb-rating-readonly" role="img" aria-label="Rating: 2.5 out of 5">
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-accent"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-accent"></span>
-        <span class="nb-rating-star nb-rating-star-half nb-rating-accent"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-accent"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-accent"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-accent"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-accent"></span>
+        <span class="nb-rating-item nb-rating-item-half nb-rating-accent"></span>
+        <span class="nb-rating-item nb-rating-accent"></span>
+        <span class="nb-rating-item nb-rating-accent"></span>
       </div>
     </div>
 
     <div>
-      <p style="margin: 0 0 var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Readonly — Large</p>
+      <p style="margin: 0 0 var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Readonly - Large</p>
       <div class="nb-rating nb-rating-readonly nb-rating-lg" role="img" aria-label="Rating: 5 out of 5">
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-success"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-success"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-success"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-success"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-success"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-success"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-success"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-success"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-success"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-success"></span>
       </div>
     </div>
 
     <div>
-      <p style="margin: 0 0 var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Readonly — Extra Large</p>
+      <p style="margin: 0 0 var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Readonly - Extra Large</p>
       <div class="nb-rating nb-rating-readonly nb-rating-xl" role="img" aria-label="Rating: 1 out of 5">
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-error"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-error"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-error"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-error"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-error"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-error"></span>
+        <span class="nb-rating-item nb-rating-error"></span>
+        <span class="nb-rating-item nb-rating-error"></span>
+        <span class="nb-rating-item nb-rating-error"></span>
+        <span class="nb-rating-item nb-rating-error"></span>
       </div>
     </div>
   </div>
@@ -63,33 +63,41 @@
     <p style="margin: 0 0 var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Color Variants</p>
     <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-4); align-items: center;">
       <div class="nb-rating nb-rating-readonly nb-rating-sm" role="img" aria-label="3 stars">
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-primary"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-primary"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-primary"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-primary"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-primary"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-primary"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-primary"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-primary"></span>
+        <span class="nb-rating-item nb-rating-primary"></span>
+        <span class="nb-rating-item nb-rating-primary"></span>
       </div>
       <div class="nb-rating nb-rating-readonly nb-rating-sm" role="img" aria-label="3 stars">
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-secondary"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-secondary"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-secondary"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-secondary"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-secondary"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-secondary"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-secondary"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-secondary"></span>
+        <span class="nb-rating-item nb-rating-secondary"></span>
+        <span class="nb-rating-item nb-rating-secondary"></span>
       </div>
       <div class="nb-rating nb-rating-readonly nb-rating-sm" role="img" aria-label="3 stars">
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-neutral"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-neutral"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-neutral"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-neutral"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-neutral"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-neutral"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-neutral"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-neutral"></span>
+        <span class="nb-rating-item nb-rating-neutral"></span>
+        <span class="nb-rating-item nb-rating-neutral"></span>
       </div>
       <div class="nb-rating nb-rating-readonly nb-rating-sm" role="img" aria-label="3 stars">
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-info"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-info"></span>
-        <span class="nb-rating-star nb-rating-star-filled nb-rating-info"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-info"></span>
-        <span class="nb-rating-star nb-rating-star-empty nb-rating-info"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-info"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-info"></span>
+        <span class="nb-rating-item nb-rating-item-filled nb-rating-info"></span>
+        <span class="nb-rating-item nb-rating-info"></span>
+        <span class="nb-rating-item nb-rating-info"></span>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  import { createRating } from "@neo-brutal-ui/interactions/rating";
+
+  document.querySelectorAll<HTMLElement>("[data-nb-rating]").forEach((el) => {
+    createRating(el, { value: 3, allowHalf: false });
+  });
+</script>

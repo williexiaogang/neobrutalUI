@@ -18,13 +18,13 @@
       </div>
     </div>
     <div style="display: flex; justify-content: center; align-items: center; gap: var(--nb-space-3);">
-      <button class="nb-carousel-nav nb-carousel-nav-prev" type="button" aria-label="Previous slide">‹</button>
+      <button class="nb-carousel-nav nb-carousel-nav-prev" type="button" aria-label="Previous slide">&lsaquo;</button>
       <ol class="nb-carousel-dots" role="tablist" aria-label="Slide indicators">
         <li><button class="nb-carousel-dot nb-carousel-dot-active" role="tab" aria-selected="true" aria-label="Slide 1" type="button"></button></li>
         <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2" type="button"></button></li>
         <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 3" type="button"></button></li>
       </ol>
-      <button class="nb-carousel-nav nb-carousel-nav-next" type="button" aria-label="Next slide">›</button>
+      <button class="nb-carousel-nav nb-carousel-nav-next" type="button" aria-label="Next slide">&rsaquo;</button>
     </div>
   </div>
 
@@ -42,8 +42,8 @@
         </div>
       </div>
     </div>
-    <button class="nb-carousel-nav nb-carousel-nav-prev" type="button" aria-label="Previous slide">‹</button>
-    <button class="nb-carousel-nav nb-carousel-nav-next" type="button" aria-label="Next slide">›</button>
+    <button class="nb-carousel-nav nb-carousel-nav-prev" type="button" aria-label="Previous slide">&lsaquo;</button>
+    <button class="nb-carousel-nav nb-carousel-nav-next" type="button" aria-label="Next slide">&rsaquo;</button>
   </div>
 
   <!-- Multi-slide visible (show-2) -->
@@ -65,14 +65,22 @@
       </div>
     </div>
     <div style="display: flex; justify-content: center; align-items: center; gap: var(--nb-space-3);">
-      <button class="nb-carousel-nav nb-carousel-nav-prev" type="button" aria-label="Previous slide">‹</button>
+      <button class="nb-carousel-nav nb-carousel-nav-prev" type="button" aria-label="Previous slide">&lsaquo;</button>
       <ol class="nb-carousel-dots" role="tablist" aria-label="Slide indicators">
         <li><button class="nb-carousel-dot nb-carousel-dot-active" role="tab" aria-selected="true" aria-label="Slide 1" type="button"></button></li>
         <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2" type="button"></button></li>
         <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 3" type="button"></button></li>
         <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 4" type="button"></button></li>
       </ol>
-      <button class="nb-carousel-nav nb-carousel-nav-next" type="button" aria-label="Next slide">›</button>
+      <button class="nb-carousel-nav nb-carousel-nav-next" type="button" aria-label="Next slide">&rsaquo;</button>
     </div>
   </div>
 </div>
+
+<script>
+  import { createCarousel } from "@neo-brutal-ui/interactions/carousel";
+
+  document.querySelectorAll<HTMLElement>("[data-nb-carousel]").forEach((el) => {
+    createCarousel(el);
+  });
+</script>

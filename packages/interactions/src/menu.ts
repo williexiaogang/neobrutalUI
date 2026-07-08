@@ -1,5 +1,5 @@
 // ============================================================================
-// Neo-Brutal UI Interactions — Menu
+// Neo-Brutal UI Interactions - Menu
 // WAI-ARIA menubar / menu pattern with full keyboard navigation.
 // Supports nested submenus, horizontal and vertical layouts.
 // ============================================================================
@@ -112,6 +112,26 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
     focusItem(enabled.length - 1);
   }
 
+  function getItemSubmenu(item: HTMLElement): HTMLElement | null {
+    const nested = item.querySelector<HTMLElement>(':scope > .nb-menu-submenu');
+    if (nested) return nested;
+
+    const sibling = item.nextElementSibling as HTMLElement | null;
+    return sibling?.classList.contains('nb-menu-submenu') ? sibling : null;
+  }
+
+  function getSubmenuTrigger(submenu: HTMLElement): HTMLElement | null {
+    const parentItem = submenu.parentElement as HTMLElement | null;
+    if (parentItem?.classList.contains('nb-menu-item') || parentItem?.getAttribute('role') === 'menuitem') {
+      return parentItem;
+    }
+
+    const sibling = submenu.previousElementSibling as HTMLElement | null;
+    return sibling?.classList.contains('nb-menu-item') || sibling?.getAttribute('role') === 'menuitem'
+      ? sibling
+      : null;
+  }
+
   function selectItem(item: HTMLElement): void {
     if (item.hasAttribute('disabled') || item.classList.contains('nb-menu-item-disabled')) return;
 
@@ -121,7 +141,7 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
     onSelect?.(item);
 
     // If item has a submenu, toggle it instead of closing
-    const submenu = item.nextElementSibling as HTMLElement | null;
+    const submenu = getItemSubmenu(item);
     if (submenu && submenu.classList.contains('nb-menu-submenu')) {
       toggleSubmenu(submenu);
       return;
@@ -139,6 +159,7 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
   function openSubmenu(submenu: HTMLElement): void {
     submenu.classList.add('is-open');
     submenu.setAttribute('aria-expanded', 'true');
+    getSubmenuTrigger(submenu)?.setAttribute('aria-expanded', 'true');
     openSubmenus.add(submenu);
     state.set(true);
   }
@@ -146,6 +167,7 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
   function closeSubmenu(submenu: HTMLElement): void {
     submenu.classList.remove('is-open');
     submenu.setAttribute('aria-expanded', 'false');
+    getSubmenuTrigger(submenu)?.setAttribute('aria-expanded', 'false');
     openSubmenus.delete(submenu);
   }
 
@@ -153,6 +175,7 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
     openSubmenus.forEach((submenu) => {
       submenu.classList.remove('is-open');
       submenu.setAttribute('aria-expanded', 'false');
+      getSubmenuTrigger(submenu)?.setAttribute('aria-expanded', 'false');
     });
     openSubmenus.clear();
   }
@@ -252,7 +275,7 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
         // Open submenu if present
         const focused = document.activeElement as HTMLElement | null;
         if (focused) {
-          const submenu = focused.nextElementSibling as HTMLElement | null;
+          const submenu = getItemSubmenu(focused);
           if (submenu && submenu.classList.contains('nb-menu-submenu')) {
             e.preventDefault();
             openSubmenu(submenu);
@@ -274,7 +297,7 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
           if (parentSubmenu) {
             e.preventDefault();
             closeSubmenu(parentSubmenu);
-            const trigger = parentSubmenu.previousElementSibling as HTMLElement | null;
+            const trigger = getSubmenuTrigger(parentSubmenu);
             trigger?.focus();
           }
         }
@@ -297,7 +320,7 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
             const lastOpened = Array.from(openSubmenus).pop();
             if (lastOpened) {
               closeSubmenu(lastOpened);
-              const trigger = lastOpened.previousElementSibling as HTMLElement | null;
+              const trigger = getSubmenuTrigger(lastOpened);
               trigger?.focus();
             }
           } else {
@@ -334,7 +357,7 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
     });
 
     // Hover to open submenu (optional, progressive enhancement)
-    const submenu = item.nextElementSibling as HTMLElement | null;
+    const submenu = getItemSubmenu(item);
     if (submenu && submenu.classList.contains('nb-menu-submenu')) {
       events.add(item, 'mouseenter', () => {
         if (state.value || isHorizontal) {

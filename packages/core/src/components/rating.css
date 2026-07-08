@@ -1,5 +1,5 @@
 /**
- * Neo-Brutal UI — Rating Component
+ * Neo-Brutal UI - Rating Component
  *
  * Star or icon-based value display and selection.
  * Supports read-only, interactive, half-step, and size variants.
@@ -33,8 +33,14 @@
     block-size: var(--_star-size);
     color: var(--_star-empty);
     font-size: var(--_star-size);
+    line-height: 1;
     transition: transform var(--nb-duration-fast) var(--nb-ease-out),
       color var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-rating-item::before {
+    content: "\2605";
+    line-height: 1;
   }
 
   .nb-rating-item svg,
@@ -58,7 +64,7 @@
   }
 
   .nb-rating-item-half::before {
-    content: "★";
+    content: "\2605";
     position: absolute;
     inset: 0;
     display: inline-flex;
