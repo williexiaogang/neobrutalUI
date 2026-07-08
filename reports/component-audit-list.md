@@ -32,6 +32,8 @@ Latest update:
 - Added: `@playwright/test` dev dependency (was missing, blocking existing `button.spec.ts` and new visual specs).
 - Added: Reduced-motion behavior tests for `reveal`, `countUp`, and `stagger` in `packages/interactions/tests/animations.test.mjs`.
 - Verified: `pnpm test` passes with 46 tests (interactions 43 / core 2 / theme 1).
+- Split: Dense showcase demos for **Calendar**, **Table**, and **List** into multiple `.nb-component-card__demo` blocks with grouped headings.
+- Verified: Showcase build and responsive/RTL Playwright checks still pass after demo refactoring.
 
 ## Summary
 
@@ -152,6 +154,11 @@ Latest update:
    Recommended first batch of Ready candidates: **Button, Card, Checkbox, Modal, Tabs, Accordion, Collapse, Dropdown, Tooltip, Drawer, Toast**.
 
 5. **Split any remaining dense showcase demos** if wide/full layout still feels too long. Priority candidates: `CalendarDemo`, `DatePickerDemo`, `TableDemo`, `ListDemo`, `CommandPaletteDemo`, `PricingCardDemo`, `FeatureGridDemo`.
+
+   - ✅ Split **CalendarDemo** into 2 blocks: Default Calendar, Compact Accent.
+   - ✅ Split **TableDemo** into 3 blocks: Basic Table, Zebra Striping, Compact Density.
+   - ✅ Split **ListDemo** into 3 blocks: Markers, Row Styles, Inline & Sizes.
+   - ⏳ `DatePickerDemo`, `CommandPaletteDemo`, `PricingCardDemo`, and `FeatureGridDemo` remain as candidates if they still feel too dense.
 
 6. **Add targeted tests** for responsive overflow, RTL rendering, reduced-motion behavior, and interaction modules.
 
