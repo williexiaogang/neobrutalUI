@@ -1,4 +1,4 @@
-<div class="nb-component-card__demo">
+<div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch;">
   <!-- Linear Progress: Size Variants -->
   <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Linear Sizes</h4>
   <div style="display: flex; flex-direction: column; gap: var(--nb-space-3); margin-bottom: var(--nb-space-4);">
@@ -20,13 +20,13 @@
   <!-- Div-based Linear Progress: Striped & Colors -->
   <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Div-based Striped</h4>
   <div style="display: flex; flex-direction: column; gap: var(--nb-space-3); margin-bottom: var(--nb-space-4);">
-    <div class="nb-progress-track nb-progress-striped">
+    <div class="nb-progress-track nb-progress-striped" role="progressbar" aria-label="Build progress" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
       <div class="nb-progress-fill nb-progress-success" style="width: 75%;"></div>
     </div>
-    <div class="nb-progress-track nb-progress-striped">
+    <div class="nb-progress-track nb-progress-striped" role="progressbar" aria-label="Review progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
       <div class="nb-progress-fill nb-progress-warning" style="width: 50%;"></div>
     </div>
-    <div class="nb-progress-track nb-progress-striped">
+    <div class="nb-progress-track nb-progress-striped" role="progressbar" aria-label="Error budget used" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
       <div class="nb-progress-fill nb-progress-error" style="width: 25%;"></div>
     </div>
   </div>
@@ -34,10 +34,10 @@
   <!-- Div-based Linear Progress: Indeterminate -->
   <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Indeterminate</h4>
   <div style="display: flex; flex-direction: column; gap: var(--nb-space-3); margin-bottom: var(--nb-space-4);">
-    <div class="nb-progress-track nb-progress-indeterminate">
+    <div class="nb-progress-track nb-progress-indeterminate" role="progressbar" aria-label="Syncing data">
       <div class="nb-progress-fill nb-progress-primary"></div>
     </div>
-    <div class="nb-progress-track nb-progress-indeterminate">
+    <div class="nb-progress-track nb-progress-indeterminate" role="progressbar" aria-label="Loading preview">
       <div class="nb-progress-fill nb-progress-info"></div>
     </div>
   </div>
@@ -45,23 +45,24 @@
   <!-- Circular Progress: Sizes -->
   <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Circular Sizes</h4>
   <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: center; margin-bottom: var(--nb-space-4);">
-    <div class="nb-progress-circular nb-progress-sm">
+    <div class="nb-progress-circular nb-progress-sm" role="progressbar" aria-label="Small progress" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
       <svg viewBox="0 0 36 36">
         <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
         <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="23.55"></circle>
       </svg>
     </div>
-    <div class="nb-progress-circular">
+    <div class="nb-progress-circular" role="progressbar" aria-label="Default progress" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
       <div class="nb-progress-circular-label">75%</div>
       <svg viewBox="0 0 36 36">
         <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
         <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="23.55"></circle>
       </svg>
     </div>
-    <div class="nb-progress-circular nb-progress-lg">
+    <div class="nb-progress-circular nb-progress-lg" role="progressbar" aria-label="Large progress" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+      <div class="nb-progress-circular-label">75%</div>
       <svg viewBox="0 0 36 36">
         <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
-        <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="47.1"></circle>
+        <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="23.55"></circle>
       </svg>
     </div>
   </div>
@@ -69,28 +70,28 @@
   <!-- Circular Progress: Colors -->
   <h4 style="margin-bottom: var(--nb-space-2); font-size: var(--nb-text-sm); font-weight: 700;">Circular Colors</h4>
   <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: center; margin-bottom: var(--nb-space-4);">
-    <div class="nb-progress-circular nb-progress-success">
+    <div class="nb-progress-circular nb-progress-success" role="progressbar" aria-label="Success progress" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
       <div class="nb-progress-circular-label">75%</div>
       <svg viewBox="0 0 36 36">
         <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
         <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="23.55"></circle>
       </svg>
     </div>
-    <div class="nb-progress-circular nb-progress-warning">
+    <div class="nb-progress-circular nb-progress-warning" role="progressbar" aria-label="Warning progress" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
       <div class="nb-progress-circular-label">50%</div>
       <svg viewBox="0 0 36 36">
         <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
         <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="47.1"></circle>
       </svg>
     </div>
-    <div class="nb-progress-circular nb-progress-error">
+    <div class="nb-progress-circular nb-progress-error" role="progressbar" aria-label="Error progress" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
       <div class="nb-progress-circular-label">25%</div>
       <svg viewBox="0 0 36 36">
         <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>
         <circle class="nb-progress-circular-fill" cx="18" cy="18" r="15" stroke-dasharray="94.2" stroke-dashoffset="70.65"></circle>
       </svg>
     </div>
-    <div class="nb-progress-circular nb-progress-info">
+    <div class="nb-progress-circular nb-progress-info" role="progressbar" aria-label="Info progress" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
       <div class="nb-progress-circular-label">90%</div>
       <svg viewBox="0 0 36 36">
         <circle class="nb-progress-circular-track" cx="18" cy="18" r="15"></circle>

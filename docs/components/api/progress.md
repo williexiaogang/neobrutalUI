@@ -20,6 +20,7 @@
 | `.nb-progress-circular-track` | Part | SVG circle for the circular track. |
 | `.nb-progress-circular-fill` | Part | SVG circle for the circular fill. |
 | `.nb-progress-circular-label` | Part | Centered percentage label. |
+| `.nb-progress-primary` | Color | Sets fill color to `--nb-primary`. |
 | `.nb-progress-success` | Color | Sets fill color to `--nb-success`. |
 | `.nb-progress-warning` | Color | Sets fill color to `--nb-warning`. |
 | `.nb-progress-error` | Color | Sets fill color to `--nb-error`. |
