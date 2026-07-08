@@ -30,7 +30,7 @@
     "test:bundle": "node scripts/check-bundle-size.mjs",
     "test:a11y": "node scripts/test-a11y.mjs",
     "test:rtl": "node scripts/test-rtl.mjs",
-    "test:visual": "playwright test tests/visual/specs",
+    "test:visual": "playwright test --config tests/visual/playwright.config.ts tests/visual/specs",
     "generate-theme": "node scripts/generate-theme.mjs",
     "changeset": "changeset",
     "version-packages": "changeset version",
@@ -39,6 +39,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
     "@eslint/js": "^9.0.0",
+    "@playwright/test": "^1.61.1",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "axe-core": "^4.9.0",

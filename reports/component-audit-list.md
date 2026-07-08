@@ -25,6 +25,11 @@ Latest update:
 - Fixed: TypeScript error in `StepsDemo.astro` by replacing invalid `disabled` attribute on `<span>` with `aria-disabled="true"`.
 - Verified: `astro check` now reports 0 errors across the showcase package.
 - Verified: `pnpm --filter @neo-brutal-ui/showcase build` completes successfully.
+- Added: Behavior tests for previously untested interaction modules — Accordion, Collapse, Rating, Menu, Carousel.
+- Verified: `pnpm test` passes with 37 interaction tests (up from 27).
+- Added: Runtime responsive-overflow and RTL structural Playwright spec in `tests/visual/specs/responsive-rtl.spec.ts`; 16 checks pass across desktop and mobile viewports.
+- Fixed: `package.json` `test:visual` script now points to `tests/visual/playwright.config.ts` so `pnpm test:visual` resolves `baseURL` correctly.
+- Added: `@playwright/test` dev dependency (was missing, blocking existing `button.spec.ts` and new visual specs).
 
 ## Summary
 
@@ -147,6 +152,11 @@ Latest update:
 5. **Split any remaining dense showcase demos** if wide/full layout still feels too long. Priority candidates: `CalendarDemo`, `DatePickerDemo`, `TableDemo`, `ListDemo`, `CommandPaletteDemo`, `PricingCardDemo`, `FeatureGridDemo`.
 
 6. **Add targeted tests** for responsive overflow, RTL rendering, reduced-motion behavior, and interaction modules.
+
+   - ✅ Added behavior tests for **Accordion** and **Collapse** in `packages/interactions/tests/disclosure.test.mjs`.
+   - ✅ Added behavior tests for **Rating**, **Menu**, and **Carousel** in `packages/interactions/tests/navigation.test.mjs`.
+   - ✅ Added runtime RTL layout and responsive overflow checks in `tests/visual/specs/responsive-rtl.spec.ts`.
+   - ⏳ Reduced-motion behavior tests and visual baseline screenshots remain open.
 
 7. ✅ **Fixed pre-existing Showcase TypeScript errors** in `apps/showcase/src/pages/playground.astro` and `theme-generator.astro`; `astro check` now passes cleanly.
 
