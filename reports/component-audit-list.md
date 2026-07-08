@@ -41,6 +41,22 @@ Latest update:
 - Verified: `pnpm test` still passes with 46 tests; `astro check` and showcase build remain clean.
 - Consolidated: Generated build/acceptance/verify/a11y reports moved to `reports/generated/` and ignored by git; stale root-level `BUILD_REPORT.md` and temporary `verify_split*.js` files removed; color-contrast findings from the old acceptance report merged into this audit.
 
+## Next Actions
+
+These are the immediate follow-ups after the current Ready-batch promotion and audit consolidation. Pick from the top; details and per-component notes are in the Priority Findings and Component Checklist tables below.
+
+1. **Visual baseline** — `tests/visual/specs/button.spec.ts` currently times out on mobile for `.nb-btn-primary`. Generate/update the Playwright baseline so `pnpm test:visual` passes.
+2. **Linting setup** — Add an ESLint flat config (`eslint.config.(js|mjs|cjs)`) so `pnpm lint:ts` works again.
+3. **Promote next Ready candidates** (vet against Ready gates: API docs, CSS complete, demo wiring, a11y, RTL, responsive, tests):
+   - `Drawer` — closest; add edge/disabled-state handling if applicable.
+   - `Button` — fix loading-spinner alignment and icon-only accessible-name docs.
+   - `Card` — finish media/interactive variants.
+   - `Checkbox` — add indeterminate examples.
+   - `Modal` — resolve div fallback focus trap and color-contrast warnings.
+4. **Wire interactive demos** — `MenuDemo`, `RatingDemo`, and `CarouselDemo` have interaction modules and tests but the showcase demos do not initialize them yet.
+5. **Split remaining dense demos** — `DatePickerDemo`, `CommandPaletteDemo`, `PricingCardDemo`, `FeatureGridDemo` may still need multiple `.nb-component-card__demo` blocks.
+6. **Color contrast** — fix the WCAG AA warnings from the old acceptance report (Badge primary/info/error; Modal primary/danger headers).
+
 ## Summary
 
 - Total catalog components: 59
