@@ -34,11 +34,16 @@ Latest update:
 - Verified: `pnpm test` passes with 46 tests (interactions 43 / core 2 / theme 1).
 - Split: Dense showcase demos for **Calendar**, **Table**, and **List** into multiple `.nb-component-card__demo` blocks with grouped headings.
 - Verified: Showcase build and responsive/RTL Playwright checks still pass after demo refactoring.
+- Fixed: `TabsDemo.astro` now initializes `createTabs()` and uses the markup structure expected by the tabs interaction module (`data-nb-tabs`, `aria-controls`, panel IDs).
+- Fixed: `ToastDemo.astro` now initializes `createToastManager()` and provides buttons to create live toasts via the JS module.
+- Promoted: **Accordion, Collapse, Dropdown, Tabs, Toast, Tooltip** from `beta` to `ready` in `apps/showcase/src/data/components.ts`.
+- Added: Changeset `.changeset/promote-ready-components.md` for the first stable Ready batch.
+- Verified: `pnpm test` still passes with 46 tests; `astro check` and showcase build remain clean.
 
 ## Summary
 
 - Total catalog components: 59
-- Status split: 38 beta, 21 in-progress, 0 ready, 0 planned, 0 experimental
+- Status split: 32 beta, 21 in-progress, 6 ready, 0 planned, 0 experimental
 - Demos present by import name: 59 / 59
 - Core CSS coverage: 59 / 59 direct or aliased; `input.css` is a thin entrypoint that imports `field.css`
 - Interaction modules present for: accordion, carousel, collapse, code-block, command-palette, date-picker, dialog/modal, drawer, dropdown, menu, otp, rating, segmented-control, tabs, toast, tooltip
@@ -82,17 +87,17 @@ Latest update:
 | Loading | in-progress | `loading.css` | yes | no | yes | docs added | Screen-reader strategy and size variants remain open. |
 | Skeleton | in-progress | `skeleton.css` | yes | no | yes | docs added | Avatar/card skeleton patterns remain open. |
 | Modal | in-progress | `modal.css` | yes | dialog module | yes | needs JS polish | Known issue: div fallback focus trap. |
-| Tabs | beta | `tabs.css` | yes | tabs module | yes | docs added | Confirm JS is active in demo before Ready. |
-| Dropdown | beta | `dropdown.css` | yes | dropdown module | yes | docs added | Add interaction tests if not already covered. |
-| Tooltip | beta | `tooltip.css` | yes | tooltip module | yes | docs added | CSS focus/hover trigger pattern now documented. |
+| Tabs | ready | `tabs.css` | yes | tabs module | yes | ready | Demo now initializes `createTabs`; keyboard navigation and ARIA sync verified. |
+| Dropdown | ready | `dropdown.css` | yes | dropdown module | yes | ready | Interaction tests cover open/close, Escape, and outside click. |
+| Tooltip | ready | `tooltip.css` | yes | tooltip module | yes | ready | Focus/hover trigger pattern documented and behavior tested. |
 | Table | beta | `table.css` | yes | no | yes | docs added | Confirm responsive wrapper pattern before Ready. |
 | List | beta | `list.css` | yes | no | yes | docs added | Now full-width; split variants later if still too long. |
 | Description List | beta | `description-list.css` | yes | no | yes | docs added | Full-width showcase works. |
 | Navbar | in-progress | `navbar.css` | yes | no | yes | docs added | Collapse behavior requires optional JS but no module exists. |
 | Drawer | beta | `drawer.css` | yes | drawer module | yes | docs added | Add disabled/edge-case states if applicable. |
-| Toast | beta | `toast.css` | yes | toast module | yes | docs added | Confirm JS behavior before Ready. |
-| Accordion | beta | `accordion.css` | yes | accordion module | yes | docs added | Good CSS/JS coverage; API docs now present. |
-| Collapse | beta | `collapse.css` | yes | collapse module | yes | docs added | Good coverage; API docs now present. |
+| Toast | ready | `toast.css` | yes | toast module | yes | ready | Demo now initializes `createToastManager`; stacking and auto-dismiss verified. |
+| Accordion | ready | `accordion.css` | yes | accordion module | yes | ready | Single/multi-open, keyboard navigation, and event cancellation tested. |
+| Collapse | ready | `collapse.css` | yes | collapse module | yes | ready | Click and keyboard toggle behavior tested; markup auto-discovery verified. |
 | Progress | beta | `progress.css` | yes | no | yes | docs added | Define native vs div-based API clearly before Ready. |
 | Avatar | beta | `avatar.css` | yes | no | yes | docs added | Static component; focus/disabled not applicable. |
 | Stat | beta | `stat.css` | yes | no | yes | docs added | Wide layout helps. |
@@ -170,4 +175,4 @@ Latest update:
 
 7. ✅ **Fixed pre-existing Showcase TypeScript errors** in `apps/showcase/src/pages/playground.astro` and `theme-generator.astro`; `astro check` now passes cleanly.
 
-8. **Promote vetted components to `ready`** and create changesets for the first stable release.
+8. ✅ **Promoted six vetted components to `ready`** (Accordion, Collapse, Dropdown, Tabs, Toast, Tooltip) and created changeset `.changeset/promote-ready-components.md`.

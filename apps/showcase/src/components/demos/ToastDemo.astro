@@ -41,7 +41,36 @@
     </div>
   </div>
 
+  <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-2);">
+    <button id="toast-show-info" class="nb-btn nb-btn-sm nb-btn-info" type="button">Show info toast</button>
+    <button id="toast-show-success" class="nb-btn nb-btn-sm nb-btn-success" type="button">Show success toast</button>
+  </div>
+
   <p style="margin: 0; font-size: var(--nb-text-sm); color: var(--nb-base-content-muted);">
     Toast notifications appear in a fixed container. Close buttons and progress bars are available via optional JavaScript.
   </p>
 </div>
+
+<script>
+  import { createToastManager } from "@neo-brutal-ui/interactions/toast";
+
+  const toast = createToastManager();
+
+  document.getElementById("toast-show-info")?.addEventListener("click", () => {
+    toast.show({
+      type: "info",
+      title: "Info",
+      message: "A new info toast was created by the JS module.",
+      duration: 4000,
+    });
+  });
+
+  document.getElementById("toast-show-success")?.addEventListener("click", () => {
+    toast.show({
+      type: "success",
+      title: "Success",
+      message: "A new success toast was created by the JS module.",
+      duration: 4000,
+    });
+  });
+</script>

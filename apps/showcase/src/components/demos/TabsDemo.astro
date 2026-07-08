@@ -1,37 +1,57 @@
 <div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-6);">
   <!-- Horizontal Tabs -->
-  <div>
+  <div data-nb-tabs>
     <div class="nb-tabs" role="tablist" aria-label="Horizontal Tabs">
-      <button class="nb-tab nb-tab-active" role="tab" aria-selected="true" type="button">
+      <button id="tab-general" class="nb-tab nb-tab-active" role="tab" aria-selected="true" aria-controls="panel-general" type="button">
         General
       </button>
-      <button class="nb-tab" role="tab" aria-selected="false" type="button">
+      <button id="tab-security" class="nb-tab" role="tab" aria-selected="false" aria-controls="panel-security" type="button">
         Security
       </button>
-      <button class="nb-tab nb-tab-disabled" role="tab" aria-selected="false" disabled type="button">
+      <button id="tab-billing" class="nb-tab nb-tab-disabled" role="tab" aria-selected="false" aria-controls="panel-billing" disabled type="button">
         Billing
       </button>
     </div>
-    <div class="nb-tab-panel" role="tabpanel">
+    <div id="panel-general" class="nb-tab-panel" role="tabpanel" aria-labelledby="tab-general">
       <p style="margin: 0; font-size: var(--nb-text-sm);">General settings panel content.</p>
+    </div>
+    <div id="panel-security" class="nb-tab-panel" role="tabpanel" aria-labelledby="tab-security" hidden>
+      <p style="margin: 0; font-size: var(--nb-text-sm);">Security settings panel content.</p>
+    </div>
+    <div id="panel-billing" class="nb-tab-panel" role="tabpanel" aria-labelledby="tab-billing" hidden>
+      <p style="margin: 0; font-size: var(--nb-text-sm);">Billing settings panel content.</p>
     </div>
   </div>
 
   <!-- Vertical Tabs -->
-  <div>
+  <div data-nb-tabs>
     <div class="nb-tabs-vertical" role="tablist" aria-label="Vertical Tabs">
-      <button class="nb-tab nb-tab-active" role="tab" aria-selected="true" type="button">
+      <button id="tab-profile" class="nb-tab nb-tab-active" role="tab" aria-selected="true" aria-controls="panel-profile" type="button">
         Profile
       </button>
-      <button class="nb-tab" role="tab" aria-selected="false" type="button">
+      <button id="tab-notifications" class="nb-tab" role="tab" aria-selected="false" aria-controls="panel-notifications" type="button">
         Notifications
       </button>
-      <button class="nb-tab" role="tab" aria-selected="false" type="button">
+      <button id="tab-integrations" class="nb-tab" role="tab" aria-selected="false" aria-controls="panel-integrations" type="button">
         Integrations
       </button>
     </div>
-    <div class="nb-tab-panel" role="tabpanel">
+    <div id="panel-profile" class="nb-tab-panel" role="tabpanel" aria-labelledby="tab-profile">
       <p style="margin: 0; font-size: var(--nb-text-sm);">Profile panel content.</p>
+    </div>
+    <div id="panel-notifications" class="nb-tab-panel" role="tabpanel" aria-labelledby="tab-notifications" hidden>
+      <p style="margin: 0; font-size: var(--nb-text-sm);">Notifications panel content.</p>
+    </div>
+    <div id="panel-integrations" class="nb-tab-panel" role="tabpanel" aria-labelledby="tab-integrations" hidden>
+      <p style="margin: 0; font-size: var(--nb-text-sm);">Integrations panel content.</p>
     </div>
   </div>
 </div>
+
+<script>
+  import { createTabs } from "@neo-brutal-ui/interactions/tabs";
+
+  document.querySelectorAll<HTMLElement>("[data-nb-tabs]").forEach((el) => {
+    createTabs(el);
+  });
+</script>

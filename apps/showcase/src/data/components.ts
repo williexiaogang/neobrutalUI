@@ -4,9 +4,10 @@ import type { ShowcaseComponent } from "@/types/component";
  * Component catalog for the showcase site.
  *
  * This data must reflect the *actual* implementation status of the library.
- * As of this preview build, no component has reached the Ready threshold
- * (full variants, accessibility, mobile, RTL, docs, and stable API). Beta
- * means the current CSS/demo is usable; In Progress means a documented visual,
+ * Components reach Ready when they pass all acceptance gates: API docs, CSS
+ * completeness, demo wiring (including JS for interactive components),
+ * accessibility, RTL, responsive behavior, and test coverage. Beta means the
+ * current CSS/demo is usable; In Progress means a documented visual,
  * responsive, accessibility, or interaction gap remains.
  */
 export const components: ShowcaseComponent[] = [
@@ -216,7 +217,7 @@ export const components: ShowcaseComponent[] = [
     name: "Tabs",
     slug: "tabs",
     category: "navigation",
-    status: "beta",
+    status: "ready",
     description: "Horizontal and vertical tab panels with keyboard navigation.",
     available: true,
     demo: "TabsDemo",
@@ -229,7 +230,7 @@ export const components: ShowcaseComponent[] = [
     name: "Dropdown",
     slug: "dropdown",
     category: "overlay",
-    status: "beta",
+    status: "ready",
     description: "Trigger-controlled menu panels with item groups and dividers.",
     available: true,
     demo: "DropdownDemo",
@@ -243,7 +244,7 @@ export const components: ShowcaseComponent[] = [
     name: "Tooltip",
     slug: "tooltip",
     category: "overlay",
-    status: "beta",
+    status: "ready",
     description: "Hover and focus triggered helper text.",
     available: true,
     demo: "TooltipDemo",
@@ -317,7 +318,7 @@ export const components: ShowcaseComponent[] = [
     name: "Toast",
     slug: "toast",
     category: "feedback",
-    status: "beta",
+    status: "ready",
     description: "Temporary feedback messages for application events.",
     available: true,
     demo: "ToastDemo",
@@ -330,7 +331,7 @@ export const components: ShowcaseComponent[] = [
     name: "Accordion",
     slug: "accordion",
     category: "layout",
-    status: "beta",
+    status: "ready",
     description: "Collapsible content sections with keyboard support.",
     available: true,
     demo: "AccordionDemo",
@@ -343,7 +344,7 @@ export const components: ShowcaseComponent[] = [
     name: "Collapse",
     slug: "collapse",
     category: "layout",
-    status: "beta",
+    status: "ready",
     description: "Single-panel disclosure for standalone expandable sections.",
     available: true,
     demo: "CollapseDemo",
