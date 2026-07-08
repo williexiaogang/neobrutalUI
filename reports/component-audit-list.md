@@ -30,6 +30,8 @@ Latest update:
 - Added: Runtime responsive-overflow and RTL structural Playwright spec in `tests/visual/specs/responsive-rtl.spec.ts`; 16 checks pass across desktop and mobile viewports.
 - Fixed: `package.json` `test:visual` script now points to `tests/visual/playwright.config.ts` so `pnpm test:visual` resolves `baseURL` correctly.
 - Added: `@playwright/test` dev dependency (was missing, blocking existing `button.spec.ts` and new visual specs).
+- Added: Reduced-motion behavior tests for `reveal`, `countUp`, and `stagger` in `packages/interactions/tests/animations.test.mjs`.
+- Verified: `pnpm test` passes with 46 tests (interactions 43 / core 2 / theme 1).
 
 ## Summary
 
@@ -156,7 +158,8 @@ Latest update:
    - ✅ Added behavior tests for **Accordion** and **Collapse** in `packages/interactions/tests/disclosure.test.mjs`.
    - ✅ Added behavior tests for **Rating**, **Menu**, and **Carousel** in `packages/interactions/tests/navigation.test.mjs`.
    - ✅ Added runtime RTL layout and responsive overflow checks in `tests/visual/specs/responsive-rtl.spec.ts`.
-   - ⏳ Reduced-motion behavior tests and visual baseline screenshots remain open.
+   - ✅ Added reduced-motion behavior tests for `reveal`, `countUp`, and `stagger` in `packages/interactions/tests/animations.test.mjs`.
+   - ⏳ Visual baseline screenshots for `button.spec.ts` remain open.
 
 7. ✅ **Fixed pre-existing Showcase TypeScript errors** in `apps/showcase/src/pages/playground.astro` and `theme-generator.astro`; `astro check` now passes cleanly.
 
