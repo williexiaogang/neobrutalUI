@@ -19,6 +19,12 @@ Latest update:
 - Fixed: Added API docs for all 59 components in `docs/components/api/`.
 - Fixed: Added interaction modules for Date Picker, Command Palette, OTP Input, Segmented Control, and Code Block copy in `packages/interactions/src/`.
 - Fixed: Restored `interactive: true` for Date Picker and Command Palette in the showcase catalog.
+- Fixed: TypeScript errors in `apps/showcase/src/pages/playground.astro` by adding explicit element casts and null checks.
+- Fixed: TypeScript errors in `apps/showcase/src/pages/theme-generator.astro` by extracting the inline OKLCH math and UI wiring to `apps/showcase/src/scripts/theme-generator.ts` with full type annotations.
+- Fixed: TypeScript error in `CollapseDemo.astro` by removing unsupported `{ trigger }` option from `createCollapse()`.
+- Fixed: TypeScript error in `StepsDemo.astro` by replacing invalid `disabled` attribute on `<span>` with `aria-disabled="true"`.
+- Verified: `astro check` now reports 0 errors across the showcase package.
+- Verified: `pnpm --filter @neo-brutal-ui/showcase build` completes successfully.
 
 ## Summary
 
@@ -142,6 +148,6 @@ Latest update:
 
 6. **Add targeted tests** for responsive overflow, RTL rendering, reduced-motion behavior, and interaction modules.
 
-7. **Fix pre-existing Showcase TypeScript errors** in `apps/showcase/src/pages/playground.astro` and `theme-generator.astro` so `astro check` passes cleanly.
+7. ✅ **Fixed pre-existing Showcase TypeScript errors** in `apps/showcase/src/pages/playground.astro` and `theme-generator.astro`; `astro check` now passes cleanly.
 
 8. **Promote vetted components to `ready`** and create changesets for the first stable release.

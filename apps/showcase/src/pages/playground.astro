@@ -490,20 +490,20 @@ const initialMarkup = `<!-- Button variants -->
 
 <script>
   (function () {
-    const frame = document.getElementById('preview-frame');
-    const themeBtn = document.querySelector('[data-control="theme"]');
-    const rtlBtn = document.querySelector('[data-control="rtl"]');
-    const motionBtn = document.querySelector('[data-control="motion"]');
-    const viewportSelect = document.querySelector('[data-control="viewport"]');
-    const tokenInputs = document.querySelectorAll('[data-control="token"]');
-    const copyBtn = document.querySelector('[data-action="copy"]');
-    const resetBtn = document.querySelector('[data-action="reset"]');
-    const copyStatus = document.querySelector('[data-copy-status]');
-    const viewportLabel = document.querySelector('[data-viewport-size-label]');
+    const frame = document.getElementById('preview-frame') as HTMLElement;
+    const themeBtn = document.querySelector('[data-control="theme"]') as HTMLButtonElement;
+    const rtlBtn = document.querySelector('[data-control="rtl"]') as HTMLButtonElement;
+    const motionBtn = document.querySelector('[data-control="motion"]') as HTMLButtonElement;
+    const viewportSelect = document.querySelector('[data-control="viewport"]') as HTMLSelectElement;
+    const tokenInputs = document.querySelectorAll('[data-control="token"]') as NodeListOf<HTMLInputElement>;
+    const copyBtn = document.querySelector('[data-action="copy"]') as HTMLButtonElement;
+    const resetBtn = document.querySelector('[data-action="reset"]') as HTMLButtonElement;
+    const copyStatus = document.querySelector('[data-copy-status]') as HTMLElement;
+    const viewportLabel = document.querySelector('[data-viewport-size-label]') as HTMLElement;
 
-    const themeLabel = document.querySelector('[data-theme-label]');
-    const rtlLabel = document.querySelector('[data-rtl-label]');
-    const motionLabel = document.querySelector('[data-motion-label]');
+    const themeLabel = document.querySelector('[data-theme-label]') as HTMLElement;
+    const rtlLabel = document.querySelector('[data-rtl-label]') as HTMLElement;
+    const motionLabel = document.querySelector('[data-motion-label]') as HTMLElement;
 
     const defaults = {
       theme: 'neo-brutal',
@@ -549,8 +549,9 @@ const initialMarkup = `<!-- Button variants -->
       viewportLabel.textContent = option.text;
     }
 
-    function updateToken(input) {
+    function updateToken(input: HTMLInputElement) {
       const token = input.getAttribute('data-token');
+      if (!token) return;
       const value = input.value;
       const unit = input.type === 'range' ? 'px' : '';
       const formatted = input.type === 'color' ? value : value + unit;
@@ -602,8 +603,9 @@ const initialMarkup = `<!-- Button variants -->
 
       tokenInputs.forEach((input) => {
         const token = input.getAttribute('data-token');
-        const defaultValue = defaults.tokens[token] || input.getAttribute('value');
-        input.value = parseFloat(defaultValue) || defaultValue;
+        if (!token) return;
+        const defaultValue = defaults.tokens[token as keyof typeof defaults.tokens] || input.getAttribute('value') || '';
+        input.value = String(parseFloat(defaultValue) || defaultValue);
         const valueDisplay = document.querySelector('[data-token-value="' + token + '"]');
         if (valueDisplay) {
           const unit = input.type === 'range' ? 'px' : '';
@@ -654,9 +656,9 @@ const initialMarkup = `<!-- Button variants -->
       }
       if (saved.tokens) {
         Object.entries(saved.tokens).forEach(([token, value]) => {
-          const input = document.querySelector('[data-token="' + token + '"]');
+          const input = document.querySelector('[data-token="' + token + '"]') as HTMLInputElement | null;
           if (input) {
-            input.value = parseFloat(value) || value;
+            input.value = String(parseFloat(value as string) || value);
             updateToken(input);
           }
         });
@@ -665,7 +667,13 @@ const initialMarkup = `<!-- Button variants -->
 
     // Persist state
     function persist() {
-      const state = {
+      const state: {
+        theme: string | null;
+        rtl: boolean;
+        reducedMotion: boolean;
+        viewport: string | null;
+        tokens: Record<string, string>;
+      } = {
         theme: frame.getAttribute('data-theme'),
         rtl: frame.getAttribute('dir') === 'rtl',
         reducedMotion: frame.getAttribute('data-reduced-motion') === 'true',
@@ -673,12 +681,16 @@ const initialMarkup = `<!-- Button variants -->
         tokens: {},
       };
       tokenInputs.forEach((input) => {
-        state.tokens[input.getAttribute('data-token')] = input.value;
+        const token = input.getAttribute('data-token');
+        if (token) {
+          state.tokens[token] = input.value;
+        }
       });
       localStorage.setItem('nb-playground', JSON.stringify(state));
     }
 
     [themeBtn, rtlBtn, motionBtn, viewportSelect].forEach((el) => {
+      if (!el) return;
       el.addEventListener('change', persist);
       el.addEventListener('click', () => setTimeout(persist, 0));
     });
