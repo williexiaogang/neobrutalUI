@@ -48,6 +48,9 @@ coverage
 test-results/
 tests/report/
 
+# Generated audit/build reports
+reports/generated/
+
 # Temporary files
 .tmp
 tmp

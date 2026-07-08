@@ -333,7 +333,7 @@ async function checkComponentPrefixes(files) {
  * Report generation
  * ------------------------------------------------------------------ */
 async function generateReport(results, files, totalDefined, passed) {
-  const reportDir = resolve(root, "reports");
+  const reportDir = resolve(root, "reports", "generated");
   await mkdir(reportDir, { recursive: true });
   const reportPath = resolve(reportDir, "verify-report.md");
 

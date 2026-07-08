@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
@@ -40,7 +40,9 @@ for (const pkg of packages) {
   }
 }
 
-const reportPath = resolve(root, "BUILD_REPORT.md");
+const generatedDir = resolve(root, "reports", "generated");
+await mkdir(generatedDir, { recursive: true });
+const reportPath = resolve(generatedDir, "build-report.md");
 const lines = [
   "# Neo-Brutal UI — Build Report",
   "",

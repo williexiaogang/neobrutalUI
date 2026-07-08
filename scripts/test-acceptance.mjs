@@ -16,7 +16,7 @@ import { resolve, relative, dirname } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const coreSrc = resolve(root, "packages/core/src");
-const reportsDir = resolve(root, "reports");
+const reportsDir = resolve(root, "reports", "generated");
 
 const pathSep = /\\/g;
 function normalizePath(p) {
@@ -794,7 +794,7 @@ async function main() {
   const report = generateReport(results);
   await mkdir(reportsDir, { recursive: true });
   await writeFile(resolve(reportsDir, "acceptance-report.md"), report, "utf-8");
-  console.log(`📝 报告已保存: reports/acceptance-report.md`);
+  console.log(`📝 报告已保存: reports/generated/acceptance-report.md`);
 
   // Exit with error if serious issues found
   if (seriousCount > 0) {

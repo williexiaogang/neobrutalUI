@@ -24,7 +24,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const rootDir = resolve(__dirname, "..");
 const distDir = resolve(rootDir, "apps", "showcase", "dist");
-const reportsDir = resolve(rootDir, "reports");
+const reportsDir = resolve(rootDir, "reports", "generated");
 
 const args = process.argv.slice(2);
 const staticOnly = args.includes("--static-only");
