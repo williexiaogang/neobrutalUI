@@ -141,6 +141,13 @@
     gap: var(--nb-space-3);
   }
 
+  @media (max-width: 640px) {
+    .nb-field-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
   .nb-field-inline {
     display: flex;
     flex-direction: row;

@@ -3,7 +3,7 @@
 > **Component**: Field  
 > **Category**: Forms  
 > **Base class**: `.nb-field`  
-> **Status**: Beta (CSS visual layer implemented; wrapper, group, row, and inline layouts available)
+> **Status**: Ready
 
 ---
 
@@ -134,6 +134,24 @@
   display: flex;
   flex-direction: column;
   gap: var(--nb-space-1);
+}
+```
+
+`.nb-field-row` lays out fields side by side and stacks them vertically on narrow viewports:
+
+```css
+.nb-field-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--nb-space-3);
+}
+
+@media (max-width: 640px) {
+  .nb-field-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 ```
 

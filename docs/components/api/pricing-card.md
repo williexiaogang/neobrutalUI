@@ -3,7 +3,7 @@
 > **Component**: Pricing Card  
 > **Category**: Layout  
 > **Base class**: `.nb-pricing-card`  
-> **Status**: Beta (color, featured, and size variants implemented; hover lift animation included)
+> **Status**: Ready
 
 ---
 
@@ -246,10 +246,3 @@ Uses logical properties; no special RTL overrides needed.
 ```
 
 ---
-
-## Known Issues
-
-- The showcase demo uses several class names that do not exist in the current CSS build:
-  - `.nb-pricing-card-plan` (use `.nb-pricing-card-name` instead).
-  - `.nb-pricing-card-feature-included` and `.nb-pricing-card-feature-excluded` (use `.nb-pricing-card-feature` and `.nb-pricing-card-feature-muted` instead).
-  - `.nb-pricing-card-action` (use `.nb-pricing-card-cta` instead).

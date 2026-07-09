@@ -3,7 +3,7 @@
 > **Component**: Feature Grid  
 > **Category**: Layout  
 > **Base class**: `.nb-feature-grid`  
-> **Status**: Beta (responsive column, color, size, and gap variants implemented; hover lift animation included)
+> **Status**: Ready
 
 ---
 
