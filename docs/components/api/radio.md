@@ -3,7 +3,7 @@
 > **Component**: Radio  
 > **Category**: Forms  
 > **Base class**: `.nb-radio`  
-> **Status**: In Progress (visual styling for checked and disabled implemented; radio group documentation in progress)
+> **Status**: Ready
 
 ---
 

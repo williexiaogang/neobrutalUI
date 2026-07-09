@@ -92,7 +92,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .nb-toggle {
+    .nb-toggle,
+    .nb-toggle::after {
       transition: none;
     }
   }

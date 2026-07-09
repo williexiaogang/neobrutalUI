@@ -3,7 +3,7 @@
 > **Component**: Toggle  
 > **Category**: Forms  
 > **Base class**: `.nb-toggle`  
-> **Status**: In Progress (base switch styling and animation implemented; reduced-motion handling and RTL positioning in progress)
+> **Status**: Ready
 
 ---
 

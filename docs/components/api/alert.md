@@ -3,7 +3,7 @@
 > **Component**: Alert  
 > **Category**: Feedback  
 > **Base class**: `.nb-alert`  
-> **Status**: In Progress (info, success, warning, and error accents implemented; dismissible behavior in progress)
+> **Status**: Ready
 
 ---
 
@@ -200,4 +200,4 @@ Uses logical properties (`border-inline-start-width`, `border-inline-start-color
 
 ## Known Issues
 
-- Dismissible behavior is in progress; no `.nb-alert-dismissible` or close-button styles exist in the current CSS build.
+- Dismissible behavior is planned; no `.nb-alert-dismissible` or close-button styles exist in the current CSS build.
