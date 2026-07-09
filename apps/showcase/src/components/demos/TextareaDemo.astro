@@ -4,3 +4,32 @@
     <textarea class="nb-textarea" rows="2">Looks great so far!</textarea>
   </label>
 </div>
+
+<div class="nb-component-card__demo" style="flex-direction: column;">
+  <label class="nb-field" style="inline-size: 100%;">
+    <span class="nb-field-label">Small</span>
+    <textarea class="nb-textarea nb-textarea-sm" rows="2">Small</textarea>
+  </label>
+  <label class="nb-field" style="inline-size: 100%;">
+    <span class="nb-field-label">Default</span>
+    <textarea class="nb-textarea" rows="3">Default</textarea>
+  </label>
+  <label class="nb-field" style="inline-size: 100%;">
+    <span class="nb-field-label">Large</span>
+    <textarea class="nb-textarea nb-textarea-lg" rows="4">Large</textarea>
+  </label>
+</div>
+
+<div class="nb-component-card__demo" style="flex-direction: column;">
+  <div class="nb-field" style="inline-size: 100%;">
+    <label class="nb-field-label" for="textarea-bio">Bio</label>
+    <textarea
+      class="nb-textarea"
+      id="textarea-bio"
+      rows="4"
+      maxlength="200"
+      aria-describedby="textarea-counter"
+    ></textarea>
+    <span class="nb-field-hint" id="textarea-counter" aria-live="polite">0 / 200</span>
+  </div>
+</div>

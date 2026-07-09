@@ -3,7 +3,7 @@
 > **Component**: Select  
 > **Category**: Forms  
 > **Base class**: `.nb-select`  
-> **Status**: In Progress (visual styling and custom arrow implemented; RTL arrow placement and forced-colors review in progress)
+> **Status**: Ready
 
 ---
 
@@ -166,6 +166,10 @@ The arrow position flips for right-to-left layouts:
   padding-inline-start: var(--nb-space-8);
 }
 ```
+
+### Forced Colors
+
+Under `forced-colors: active`, `.nb-select` inherits the same treatment as `.nb-input`: a 2px `CanvasText` border, `forced-color-adjust: none`, and a 2px `Highlight` outline on focus. The custom arrow is drawn with `currentColor`, so it remains visible in the active forced-color palette.
 
 ---
 

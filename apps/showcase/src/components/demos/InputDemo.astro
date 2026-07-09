@@ -9,3 +9,37 @@
     <span class="nb-field-error">Password is too short.</span>
   </label>
 </div>
+
+<div class="nb-component-card__demo" style="flex-direction: column;">
+  <label class="nb-field" style="inline-size: 100%;">
+    <span class="nb-field-label">Small</span>
+    <input class="nb-input nb-input-sm" type="text" placeholder="Small input" />
+  </label>
+  <label class="nb-field" style="inline-size: 100%;">
+    <span class="nb-field-label">Default</span>
+    <input class="nb-input" type="text" placeholder="Default input" />
+  </label>
+  <label class="nb-field" style="inline-size: 100%;">
+    <span class="nb-field-label">Large</span>
+    <input class="nb-input nb-input-lg" type="text" placeholder="Large input" />
+  </label>
+</div>
+
+<div class="nb-component-card__demo" style="flex-direction: column;">
+  <label class="nb-field" style="inline-size: 100%;">
+    <span class="nb-field-label">Disabled</span>
+    <input class="nb-input" type="text" value="Disabled value" disabled />
+  </label>
+  <div class="nb-field" style="inline-size: 100%;">
+    <label class="nb-field-label" for="input-search">Search</label>
+    <div style="display: flex; align-items: stretch;">
+      <span
+        style="display: inline-flex; align-items: center; padding-inline: var(--nb-space-3); border: var(--nb-border-width) solid var(--nb-border); border-inline-end-width: 0; background: var(--nb-base-200);"
+        aria-hidden="true"
+      >
+        🔍
+      </span>
+      <input class="nb-input" id="input-search" type="search" style="flex: 1 1 auto;" placeholder="Search..." />
+    </div>
+  </div>
+</div>

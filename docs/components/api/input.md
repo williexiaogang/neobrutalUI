@@ -3,7 +3,7 @@
 > **Component**: Input  
 > **Category**: Forms  
 > **Base class**: `.nb-input`  
-> **Status**: Beta (focus, disabled, invalid implemented; readonly, valid pending)
+> **Status**: Ready
 
 ---
 
@@ -12,6 +12,8 @@
 | Class Name | Category | Description |
 |------------|----------|-------------|
 | `.nb-input` | Component | Base text input class. Required. |
+| `.nb-input-sm` | Size | Smaller padding and font size. |
+| `.nb-input-lg` | Size | Larger padding and font size. |
 | `.nb-textarea` | Component | Multi-line text input. Shares most styles with `.nb-input`. |
 | `.nb-select` | Component | Native select dropdown. Shares most styles with `.nb-input`. |
 | `.nb-field` | Component | Wrapper for label + control + helper text. |
@@ -19,7 +21,7 @@
 | `.nb-field-description` | Part | Helper text below a control. Muted color. |
 | `.nb-field-error` | Part | Error message below a control. Error color, bold. |
 
-> **Note**: Size variants (`nb-input-sm`, `nb-input-lg`) and color variants (`nb-input-primary`, etc.) are **not implemented** in the current CSS build. Only the base `.nb-input` size exists.
+> **Note**: Color accent variants (e.g., `.nb-input-primary`) are **not implemented**. Use the base `.nb-input` with the standard semantic border/focus colors.
 
 ### Class Combination Examples
 
@@ -114,6 +116,27 @@
 | `Tab` | Moves focus into/out of the field. |
 | `Enter` | Submits the enclosing form (for `<input>`). Inserts newline (for `<textarea>`). |
 | Standard typing | All standard text entry keys function normally. |
+
+### Prefix / Suffix Alignment
+
+Neo-Brutal UI does not ship dedicated affix classes. To add a leading icon or trailing text inside an input, wrap the control and affix in a flex container and align the affix with the input border:
+
+```html
+<div class="nb-field">
+  <label class="nb-field-label" for="search">Search</label>
+  <div style="display: flex; align-items: stretch;">
+    <span
+      style="display: inline-flex; align-items: center; padding-inline: var(--nb-space-3); border: var(--nb-border-width) solid var(--nb-border); border-inline-end: 0; background: var(--nb-base-200);"
+      aria-hidden="true"
+    >
+      🔍
+    </span>
+    <input class="nb-input" id="search" type="search" style="flex: 1 1 auto;" />
+  </div>
+</div>
+```
+
+The affix should share the control's `border` width, use `display: inline-flex` with `align-items: center`, and remove the inner border edge so the control and affix read as one continuous field.
 
 ---
 
@@ -215,6 +238,28 @@
 }
 ```
 
+### Autofill
+
+Browser autofill backgrounds are normalized to match the theme so the yellow default fill does not clash with the component palette:
+
+```css
+.nb-input:autofill,
+.nb-input:-webkit-autofill,
+.nb-textarea:autofill,
+.nb-textarea:-webkit-autofill,
+.nb-select:autofill,
+.nb-select:-webkit-autofill {
+  box-shadow: inset 0 0 0 1000px var(--nb-base-100);
+  -webkit-text-fill-color: var(--nb-base-content);
+}
+```
+
+When the control is focused, the focus shadow is layered on top of the autofill fill.
+
+### Forced Colors
+
+Under `forced-colors: active`, `.nb-input`, `.nb-textarea`, and `.nb-select` render a 2px `CanvasText` border with `forced-color-adjust: none`. Focus is shown with a 2px `Highlight` outline.
+
 ---
 
 ## Examples
@@ -294,7 +339,5 @@
 
 ## Known Issues
 
-- Browser autofill styling still needs refinement.
-- Prefix/suffix containers for icons or text inside inputs are not yet styled.
-- Size variants (`nb-input-sm`, `nb-input-lg`) are not implemented.
 - Readonly state has no custom visual treatment.
+- Color accent variants are not implemented.

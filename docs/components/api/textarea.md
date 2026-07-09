@@ -3,7 +3,7 @@
 > **Component**: Textarea  
 > **Category**: Forms  
 > **Base class**: `.nb-textarea`  
-> **Status**: In Progress (base styling implemented; character counter and size variants in progress)
+> **Status**: Ready
 
 ---
 
@@ -15,7 +15,7 @@
 | `.nb-textarea-sm` | Size | Smaller padding and font size. |
 | `.nb-textarea-lg` | Size | Larger padding and font size. |
 
-> **Note**: `.nb-textarea` shares base styles with `.nb-input` and `.nb-select` from `field.css`.
+> **Note**: `.nb-textarea` shares base styles with `.nb-input` and `.nb-select` from `field.css`. Size variants `.nb-textarea-sm` and `.nb-textarea-lg` are implemented.
 
 ### Class Combination Examples
 
@@ -78,6 +78,20 @@
 | `Tab` | Moves focus into/out of the textarea. |
 | `Enter` | Inserts a newline. |
 | Standard typing | All standard text entry keys function normally. |
+
+### Character Counter
+
+There is no dedicated counter class. Use `.nb-field-hint` or `.nb-field-description` with `aria-live="polite"` so screen readers announce changes as the user types:
+
+```html
+<div class="nb-field">
+  <label class="nb-field-label" for="bio">Bio</label>
+  <textarea class="nb-textarea" id="bio" rows="4" maxlength="200" aria-describedby="bio-counter"></textarea>
+  <span class="nb-field-hint" id="bio-counter" aria-live="polite">0 / 200</span>
+</div>
+```
+
+Keep the counter visible and update it from JavaScript. The counter text should not replace the label or error message.
 
 ---
 
@@ -142,6 +156,10 @@ Textarea-specific overrides:
 ### RTL
 
 Uses logical properties; no special RTL overrides needed.
+
+### Forced Colors
+
+Under `forced-colors: active`, `.nb-textarea` inherits the same forced-colors treatment as `.nb-input`: a 2px `CanvasText` border, `forced-color-adjust: none`, and a 2px `Highlight` outline on focus.
 
 ---
 
