@@ -3,7 +3,7 @@
 > **Component**: Window Mockup  
 > **Category**: Data Display  
 > **Base class**: `.nb-window`  
-> **Status**: Beta (size and color header variants implemented; interactive control buttons and footer bar included)
+> **Status**: Ready (size and color header variants implemented; interactive control buttons and footer bar included; reduced-motion and disabled states on the frame are N/A)
 
 ---
 
@@ -172,14 +172,7 @@ Control glyphs are rendered with `::before` content. The close button uses `--nb
 
 ### Reduced Motion
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  .nb-window,
-  .nb-window-control {
-    transition: none;
-  }
-}
-```
+Control button transitions are suppressed when the user prefers reduced motion. The frame itself is static; no other motion is applicable.
 
 ### RTL
 
@@ -280,8 +273,3 @@ Uses logical properties; no special RTL overrides needed.
 </div>
 ```
 
----
-
-## Known Issues
-
-- The showcase demo uses `.nb-window-titlebar` and `.nb-window-icon`, which do not exist in the current CSS build. The CSS expects `.nb-window-header` for the title bar, `.nb-window-title` as the title wrapper, and `.nb-window-title-icon` for the icon. Demo markup should be updated to use the CSS-defined classes.

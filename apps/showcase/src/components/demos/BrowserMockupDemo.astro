@@ -1,15 +1,17 @@
 <div class="nb-component-card__demo" style="flex-wrap: wrap; gap: var(--nb-space-6); align-items: flex-start; justify-content: center;">
   <!-- Default Browser Mockup -->
-  <div class="nb-browser" data-theme="neo-brutal">
-    <div class="nb-browser-toolbar">
+  <div class="nb-browser" data-theme="neo-brutal" aria-label="Browser preview">
+    <div class="nb-browser-header">
       <div class="nb-browser-dots">
-        <span class="nb-browser-dot"></span>
-        <span class="nb-browser-dot"></span>
-        <span class="nb-browser-dot"></span>
+        <span class="nb-browser-dot nb-browser-dot-red" aria-hidden="true"></span>
+        <span class="nb-browser-dot nb-browser-dot-yellow" aria-hidden="true"></span>
+        <span class="nb-browser-dot nb-browser-dot-green" aria-hidden="true"></span>
       </div>
-      <div class="nb-browser-address">neo-brutal-ui.dev</div>
+      <div class="nb-browser-address">
+        <span class="nb-browser-address-text">neo-brutal-ui.dev</span>
+      </div>
     </div>
-    <div class="nb-browser-content">
+    <div class="nb-browser-body">
       <div style="padding: var(--nb-space-4); text-align: center;">
         <h4 style="margin: 0 0 var(--nb-space-2);">Welcome</h4>
         <p style="margin: 0; font-size: var(--nb-text-sm);">A brutalist component library showcase.</p>
@@ -18,16 +20,18 @@
   </div>
 
   <!-- Large Browser Mockup -->
-  <div class="nb-browser nb-browser-lg nb-browser-primary" data-theme="neo-brutal">
-    <div class="nb-browser-toolbar">
+  <div class="nb-browser nb-browser-lg nb-browser-primary" data-theme="neo-brutal" aria-label="Dashboard preview">
+    <div class="nb-browser-header">
       <div class="nb-browser-dots">
-        <span class="nb-browser-dot"></span>
-        <span class="nb-browser-dot"></span>
-        <span class="nb-browser-dot"></span>
+        <span class="nb-browser-dot" aria-hidden="true"></span>
+        <span class="nb-browser-dot" aria-hidden="true"></span>
+        <span class="nb-browser-dot" aria-hidden="true"></span>
       </div>
-      <div class="nb-browser-address">dashboard.example.com/overview</div>
+      <div class="nb-browser-address">
+        <span class="nb-browser-address-text">dashboard.example.com/overview</span>
+      </div>
     </div>
-    <div class="nb-browser-content">
+    <div class="nb-browser-body">
       <div style="padding: var(--nb-space-4);">
         <div style="display: flex; gap: var(--nb-space-3); margin-bottom: var(--nb-space-3);">
           <div style="flex: 1; padding: var(--nb-space-3); border: 2px solid; background: var(--nb-color-white);">
@@ -47,16 +51,18 @@
   </div>
 
   <!-- Dark Browser Mockup -->
-  <div class="nb-browser nb-browser-dark nb-browser-accent" data-theme="neo-brutal">
-    <div class="nb-browser-toolbar">
+  <div class="nb-browser nb-browser-dark nb-browser-accent" data-theme="neo-brutal" aria-label="API docs preview">
+    <div class="nb-browser-header">
       <div class="nb-browser-dots">
-        <span class="nb-browser-dot"></span>
-        <span class="nb-browser-dot"></span>
-        <span class="nb-browser-dot"></span>
+        <span class="nb-browser-dot" aria-hidden="true"></span>
+        <span class="nb-browser-dot" aria-hidden="true"></span>
+        <span class="nb-browser-dot" aria-hidden="true"></span>
       </div>
-      <div class="nb-browser-address">api.docs.example.com</div>
+      <div class="nb-browser-address">
+        <span class="nb-browser-address-text">api.docs.example.com</span>
+      </div>
     </div>
-    <div class="nb-browser-content">
+    <div class="nb-browser-body">
       <div style="padding: var(--nb-space-4); font-family: monospace; font-size: var(--nb-text-sm);">
         <div style="opacity: 0.7;">GET /v1/users</div>
         <div style="margin-top: var(--nb-space-2);">200 OK</div>

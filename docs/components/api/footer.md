@@ -3,7 +3,7 @@
 > **Component**: Footer  
 > **Category**: Layout  
 > **Base class**: `.nb-footer`  
-> **Status**: Beta (brand, link groups, and bottom bar implemented; compact and color variants available)
+> **Status**: Ready (brand, link groups, and bottom bar implemented; compact and color variants available; disabled state is N/A)
 
 ---
 
@@ -162,6 +162,8 @@ Color variants override `--_bg`, `--_fg`, and link/title colors. Compact reduces
   }
 }
 ```
+
+Link color transitions are suppressed when the user prefers reduced motion.
 
 ### RTL
 

@@ -3,7 +3,7 @@
 > **Component**: Phone Mockup  
 > **Category**: Data Display  
 > **Base class**: `.nb-phone`  
-> **Status**: Beta (size and color frame variants implemented; dark screen fill available)
+> **Status**: Ready (size and color frame variants implemented; dark screen fill available; reduced-motion and disabled states are N/A)
 
 ---
 
@@ -142,15 +142,7 @@ The screen renders a subtle striped placeholder when empty via `:empty::before`.
 
 ### Reduced Motion
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  .nb-phone {
-    transition: none;
-  }
-}
-```
-
-> **Note**: The base phone does not define any transitions; this rule is present for forward compatibility.
+No transitions or animations; reduced-motion is not applicable.
 
 ### RTL
 
@@ -233,9 +225,3 @@ Uses logical properties; no special RTL overrides needed.
 </div>
 ```
 
----
-
-## Known Issues
-
-- The showcase demo uses `.nb-phone-home`, which does not exist in the current CSS build. Use `.nb-phone-indicator` and `.nb-phone-indicator-bar` for the home indicator, or `.nb-phone-button` for a circular home button.
-- The demo does not include `.nb-phone-notch-bar`, `.nb-phone-screen-content`, `.nb-phone-indicator`, or `.nb-phone-indicator-bar`, so the current CSS will not fully render the demo markup as intended.

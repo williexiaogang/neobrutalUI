@@ -3,7 +3,7 @@
 > **Component**: Hero  
 > **Category**: Layout  
 > **Base class**: `.nb-hero`  
-> **Status**: Beta (size, alignment, and color variants implemented; JS interactions optional)
+> **Status**: Ready (size, alignment, and color variants implemented; JS interactions optional; reduced-motion and disabled states are N/A)
 
 ---
 
@@ -138,15 +138,7 @@ Color variants override `--_bg` and `--_fg` and adjust subtitle/description opac
 
 ### Reduced Motion
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  .nb-hero {
-    transition: none;
-  }
-}
-```
-
-> **Note**: The base hero does not define any transitions; this rule is present for forward compatibility.
+No transitions or animations; reduced-motion is not applicable.
 
 ### RTL
 

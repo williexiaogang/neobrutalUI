@@ -3,7 +3,7 @@
 > **Component**: Diff Viewer  
 > **Category**: Data Display  
 > **Base class**: `.nb-diff`  
-> **Status**: Beta (file header, hunk markers, added/removed/unchanged line styling, gutters, sizes, plain/full variants, reduced-motion, and forced-colors support are implemented)
+> **Status**: Ready (file header, hunk markers, added/removed/unchanged line styling, gutters, sizes, plain/full variants, forced-colors support, and reduced-motion/disabled N/A guidance included)
 
 ---
 
@@ -141,13 +141,7 @@
 
 ### Reduced Motion
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  .nb-diff {
-    transition: none;
-  }
-}
-```
+No transitions or animations; reduced-motion is not applicable.
 
 ### RTL
 

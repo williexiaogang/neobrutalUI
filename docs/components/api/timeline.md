@@ -3,7 +3,7 @@
 > **Component**: Timeline  
 > **Category**: Data Display  
 > **Base class**: `.nb-timeline`  
-> **Status**: Beta (vertical, horizontal, alternate, opposite, dashed connector, marker colors, sizes, reduced-motion, and forced-colors support are implemented)
+> **Status**: Ready (vertical, horizontal, alternate, opposite, dashed connector, marker colors, sizes, RTL logical layout, forced-colors support, and reduced-motion/disabled N/A guidance included)
 
 ---
 
@@ -144,13 +144,7 @@
 
 ### Reduced Motion
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  .nb-timeline-marker {
-    transition: none;
-  }
-}
-```
+No transitions or animations; reduced-motion is not applicable.
 
 ### RTL
 

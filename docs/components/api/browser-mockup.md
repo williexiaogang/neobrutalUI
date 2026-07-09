@@ -3,7 +3,7 @@
 > **Component**: Browser Mockup  
 > **Category**: Data Display  
 > **Base class**: `.nb-browser`  
-> **Status**: Beta (size and color header variants implemented; dark content fill available)
+> **Status**: Ready (size and color header variants implemented; dark content fill available; reduced-motion and disabled states are N/A)
 
 ---
 
@@ -147,15 +147,7 @@ The body renders a subtle striped placeholder when empty via `:empty::before`.
 
 ### Reduced Motion
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  .nb-browser {
-    transition: none;
-  }
-}
-```
-
-> **Note**: The base browser does not define any transitions; this rule is present for forward compatibility.
+No transitions or animations; reduced-motion is not applicable.
 
 ### RTL
 
@@ -246,8 +238,3 @@ Uses logical properties; no special RTL overrides needed.
 </div>
 ```
 
----
-
-## Known Issues
-
-- The showcase demo uses `.nb-browser-toolbar` and `.nb-browser-content` class names that do not match the current CSS build. The CSS expects `.nb-browser-header` for the top bar and `.nb-browser-body` for the content area. Demo markup should be updated to use the CSS-defined classes.
