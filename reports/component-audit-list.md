@@ -59,13 +59,14 @@ Latest update:
 - Fixed: Badge now includes removable tag control styling, demo coverage, and API docs.
 - Fixed: Rating API docs now match the implemented `data-nb-rating` radiogroup contract.
 - Promoted: **Badge, Menu, Rating, and Carousel** to `ready`.
+- Fixed: Progress API docs now clarify native `<progress>`, custom linear, circular, determinate, and indeterminate contracts; demo variants are split into focused blocks.
+- Promoted: **Progress** from `beta` to `ready`.
 
 ## Next Actions
 
 These are the immediate follow-ups after the current Ready-batch promotion and audit consolidation. Pick from the top; details and per-component notes are in the Priority Findings and Component Checklist tables below.
 
 1. **Promote next Ready candidates** (vet against Ready gates: API docs, CSS complete, demo wiring, a11y, RTL, responsive, tests):
-   - `Progress` — visual states are broad; clarify native vs div-based API before Ready.
    - `Avatar`, `Stat`, `Steps`, `Breadcrumbs`, `Pagination`, `Button Group`, `Link`, `Empty State`, `Form Summary`, `Range`, `Hero`, `Footer`, `Timeline`, `Kbd`, `Diff Viewer`, and mockups — mostly presentational; verify responsive/RTL details and mark disabled/reduced-motion as N/A where appropriate.
    - `File Input`, `Table`, and `List` — focus on wrapper guidance and long-content behavior before Ready.
 2. **Visual coverage** — keep expanding component-specific Playwright baselines beyond Button once component cards stabilize.
@@ -74,7 +75,7 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 ## Summary
 
 - Total catalog components: 59
-- Status split: 28 beta, 16 in-progress, 15 ready, 0 planned, 0 experimental
+- Status split: 27 beta, 16 in-progress, 16 ready, 0 planned, 0 experimental
 - Demos present by import name: 59 / 59
 - Core CSS coverage: 59 / 59 direct or aliased; `input.css` is a thin entrypoint that imports `field.css`
 - Interaction modules present for: accordion, carousel, collapse, code-block, command-palette, date-picker, dialog/modal, drawer, dropdown, menu, otp, rating, segmented-control, tabs, toast, tooltip
@@ -85,7 +86,7 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 
 | Priority | Area | Components | Issue | Recommended action |
 | --- | --- | --- | --- | --- |
-| P1 | Status model | All 59 | Fixed in current pass. Ready acceptance gates are now defined; fifteen components (Accordion, Badge, Button, Card, Carousel, Checkbox, Collapse, Drawer, Dropdown, Menu, Modal, Rating, Tabs, Toast, Tooltip) have been promoted to `ready`. Remaining components with explicit gaps stay `in-progress` or `beta`. | Continue vetting remaining Ready candidates against the defined gates. |
+| P1 | Status model | All 59 | Fixed in current pass. Ready acceptance gates are now defined; sixteen components (Accordion, Badge, Button, Card, Carousel, Checkbox, Collapse, Drawer, Dropdown, Menu, Modal, Progress, Rating, Tabs, Toast, Tooltip) have been promoted to `ready`. Remaining components with explicit gaps stay `in-progress` or `beta`. | Continue vetting remaining Ready candidates against the defined gates. |
 | P1 | Docs | All 59 components | ✅ Resolved. API docs now exist for every catalog component in `docs/components/api/`. | Keep docs in sync with future CSS/API changes. |
 | P1 | Showcase demo structure | Card, Alert | Fixed in current pass. Demos now use `.nb-component-card__demo`. | Re-run rendered audit after future demo edits. |
 | P1 | Showcase demo mapping | Color Picker | Fixed in current pass. The demo file had a wrapper, but the gallery map omitted `ColorPickerDemo`. | Re-run rendered audit after future catalog additions. |
@@ -130,7 +131,7 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 | Toast | ready | `toast.css` | yes | toast module | yes | ready | Demo now initializes `createToastManager`; stacking and auto-dismiss verified. |
 | Accordion | ready | `accordion.css` | yes | accordion module | yes | ready | Single/multi-open, keyboard navigation, and event cancellation tested. |
 | Collapse | ready | `collapse.css` | yes | collapse module | yes | ready | Click and keyboard toggle behavior tested; markup auto-discovery verified. |
-| Progress | beta | `progress.css` | yes | no | yes | docs added | Define native vs div-based API clearly before Ready. |
+| Progress | ready | `progress.css` | yes | no | yes | ready | Native linear, custom linear, circular, striped, indeterminate, color, size, reduced-motion, forced-colors, ARIA contracts, and split demos are in place. |
 | Avatar | beta | `avatar.css` | yes | no | yes | docs added | Static component; focus/disabled not applicable. |
 | Stat | beta | `stat.css` | yes | no | yes | docs added | Wide layout helps. |
 | Steps | beta | `steps.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
@@ -188,7 +189,7 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
    | Responsive | No overflow or overlap down to the narrowest supported viewport |
    | Tests | Unit or visual tests cover the component’s core behavior and edge cases |
 
-   Current Ready batch: **Accordion, Badge, Button, Card, Carousel, Checkbox, Collapse, Drawer, Dropdown, Menu, Modal, Rating, Tabs, Toast, Tooltip**.
+   Current Ready batch: **Accordion, Badge, Button, Card, Carousel, Checkbox, Collapse, Drawer, Dropdown, Menu, Modal, Progress, Rating, Tabs, Toast, Tooltip**.
 
 5. **Split any remaining dense showcase demos** if wide/full layout still feels too long. Priority candidates: `CalendarDemo`, `DatePickerDemo`, `TableDemo`, `ListDemo`, `CommandPaletteDemo`, `PricingCardDemo`, `FeatureGridDemo`.
 
@@ -210,4 +211,4 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 
 7. ✅ **Fixed pre-existing Showcase TypeScript errors** in `apps/showcase/src/pages/playground.astro` and `theme-generator.astro`; `astro check` now passes cleanly.
 
-8. ✅ **Promoted fifteen vetted components to `ready`** (Accordion, Badge, Button, Card, Carousel, Checkbox, Collapse, Drawer, Dropdown, Menu, Modal, Rating, Tabs, Toast, Tooltip) and updated changeset `.changeset/promote-ready-components.md`.
+8. ✅ **Promoted sixteen vetted components to `ready`** (Accordion, Badge, Button, Card, Carousel, Checkbox, Collapse, Drawer, Dropdown, Menu, Modal, Progress, Rating, Tabs, Toast, Tooltip) and updated changeset `.changeset/promote-ready-components.md`.
