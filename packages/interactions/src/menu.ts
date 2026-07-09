@@ -121,7 +121,7 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
   }
 
   function getSubmenuTrigger(submenu: HTMLElement): HTMLElement | null {
-    const parentItem = submenu.parentElement as HTMLElement | null;
+    const parentItem = submenu.parentElement;
     if (parentItem?.classList.contains('nb-menu-item') || parentItem?.getAttribute('role') === 'menuitem') {
       return parentItem;
     }
@@ -293,7 +293,7 @@ export function createMenu(element: HTMLElement, options: MenuOptions = {}): Com
         // Close current submenu and return to parent
         const focused = document.activeElement as HTMLElement | null;
         if (focused) {
-          const parentSubmenu = focused.closest('.nb-menu-submenu') as HTMLElement | null;
+          const parentSubmenu = focused.closest<HTMLElement>('.nb-menu-submenu');
           if (parentSubmenu) {
             e.preventDefault();
             closeSubmenu(parentSubmenu);

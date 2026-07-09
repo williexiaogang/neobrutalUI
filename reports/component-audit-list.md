@@ -40,22 +40,24 @@ Latest update:
 - Added: Changeset `.changeset/promote-ready-components.md` for the first stable Ready batch.
 - Verified: `pnpm test` still passes with 46 tests; `astro check` and showcase build remain clean.
 - Consolidated: Generated build/acceptance/verify/a11y reports moved to `reports/generated/` and ignored by git; stale root-level `BUILD_REPORT.md` and temporary `verify_split*.js` files removed; color-contrast findings from the old acceptance report merged into this audit.
+- Fixed: Added ESLint 9 flat config at `eslint.config.mjs` and removed the obsolete `.eslintrc.cjs`; `packages/interactions/src/**/*.ts` now lints cleanly.
+- Fixed: Type-aware lint findings in Code Block, Collapse, Date Picker, and Menu interaction modules.
+- Verified: Interactions TypeScript check passes with `tsc --noEmit`; direct `node --test` interaction suite passes with 43 tests.
+- Corrected: Menu, Rating, and Carousel showcase demos already initialize their matching interaction modules; the audit checklist now reflects the current demo wiring.
 
 ## Next Actions
 
 These are the immediate follow-ups after the current Ready-batch promotion and audit consolidation. Pick from the top; details and per-component notes are in the Priority Findings and Component Checklist tables below.
 
 1. **Visual baseline** — `tests/visual/specs/button.spec.ts` currently times out on mobile for `.nb-btn-primary`. Generate/update the Playwright baseline so `pnpm test:visual` passes.
-2. **Linting setup** — Add an ESLint flat config (`eslint.config.(js|mjs|cjs)`) so `pnpm lint:ts` works again.
-3. **Promote next Ready candidates** (vet against Ready gates: API docs, CSS complete, demo wiring, a11y, RTL, responsive, tests):
+2. **Promote next Ready candidates** (vet against Ready gates: API docs, CSS complete, demo wiring, a11y, RTL, responsive, tests):
    - `Drawer` — closest; add edge/disabled-state handling if applicable.
    - `Button` — fix loading-spinner alignment and icon-only accessible-name docs.
    - `Card` — finish media/interactive variants.
    - `Checkbox` — add indeterminate examples.
    - `Modal` — resolve div fallback focus trap and color-contrast warnings.
-4. **Wire interactive demos** — `MenuDemo`, `RatingDemo`, and `CarouselDemo` have interaction modules and tests but the showcase demos do not initialize them yet.
-5. **Split remaining dense demos** — `DatePickerDemo`, `CommandPaletteDemo`, `PricingCardDemo`, `FeatureGridDemo` may still need multiple `.nb-component-card__demo` blocks.
-6. **Color contrast** — fix the WCAG AA warnings from the old acceptance report (Badge primary/info/error; Modal primary/danger headers).
+3. **Split remaining dense demos** — `DatePickerDemo`, `CommandPaletteDemo`, `PricingCardDemo`, `FeatureGridDemo` may still need multiple `.nb-component-card__demo` blocks.
+4. **Color contrast** — fix the WCAG AA warnings from the old acceptance report (Badge primary/info/error; Modal primary/danger headers).
 
 ## Summary
 
@@ -124,7 +126,7 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 | Pagination | beta | `pagination.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
 | Button Group | beta | `button-group.css` | yes | no | yes | docs added | Purely presentational; no JS required. |
 | Link | beta | `link.css` | yes | no | yes | docs added | Reduced-motion/disabled applicability now documented as N/A. |
-| Menu | beta | `menu.css` | yes | menu module | yes | docs added | Interaction module exists, but the Showcase demo does not initialize it. |
+| Menu | beta | `menu.css` | yes | menu module | yes | demo wired | Showcase demo initializes `createMenu()`; continue vetting a11y/RTL/responsive behavior before Ready. |
 | Empty State | beta | `empty-state.css` | yes | no | yes | docs added | Now wide; split variants later if needed. |
 | Form Summary | beta | `form-summary.css` | yes | no | yes | docs added | Reduced-motion not applicable (no transitions). |
 | File Input | beta | `file-input.css` | yes | no | yes | docs added | Now wide; document drag/drop limits before Ready. |
@@ -135,9 +137,9 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 | Hero | beta | `hero.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
 | Footer | beta | `footer.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
 | Timeline | beta | `timeline.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
-| Rating | beta | `rating.css` | yes | rating module | yes | docs added | Interaction module and tests exist, but the Showcase demo does not initialize it. |
+| Rating | beta | `rating.css` | yes | rating module | yes | demo wired | Showcase demo initializes `createRating()`; continue vetting keyboard/a11y polish before Ready. |
 | Chat | beta | `chat-bubble.css` | yes | no | yes | docs added | Catalog slug maps to `chat-bubble.css`; naming now documented. |
-| Carousel | beta | `carousel.css` | yes | carousel module | yes | docs added | Interaction module and tests exist, but the Showcase demo does not initialize it. |
+| Carousel | beta | `carousel.css` | yes | carousel module | yes | demo wired | Showcase demo initializes `createCarousel()`; continue vetting responsive/visual behavior before Ready. |
 | Kbd | beta | `kbd.css` | yes | no | yes | docs added | Static component; focus/disabled not applicable. |
 | Code Block | in-progress | `code-block.css` | yes | code-block module | yes | module added | Copy-to-clipboard JS module added. |
 | Diff Viewer | beta | `diff-viewer.css` | yes | no | yes | docs added | Full-width demo is appropriate. |

@@ -62,7 +62,7 @@ export function createCollapse(element: HTMLElement, options: DisclosureOptions 
     throw new Error(`[${NAMESPACE}] No [data-nb-collapse-trigger] found inside the provided element.`);
   }
 
-  const triggerEl = trigger as HTMLElement;
+  const triggerEl: HTMLElement = trigger;
 
   const events = createEventManager();
   const state = createStateManager(false);

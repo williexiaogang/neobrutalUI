@@ -128,7 +128,9 @@ export function createCodeBlock(element: HTMLElement, options: CodeBlockOptions 
   }
 
   buttons.forEach((button) => {
-    events.add(button, 'click', () => handleCopy(button));
+    events.add(button, 'click', () => {
+      void handleCopy(button);
+    });
   });
 
   const instance: CodeBlockInstance = {

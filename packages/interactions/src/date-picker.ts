@@ -376,7 +376,7 @@ export function createDatePicker(element: HTMLElement, options: DatePickerOption
 
   if (grid) {
     events.add(grid, 'click', (e: MouseEvent) => {
-      const day = (e.target as HTMLElement).closest('.nb-calendar-day') as HTMLElement | null;
+      const day = (e.target as HTMLElement).closest<HTMLElement>('.nb-calendar-day');
       if (!day) return;
       const dateValue = day.getAttribute('data-date');
       if (!dateValue) return;
