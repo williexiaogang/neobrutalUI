@@ -3,7 +3,7 @@
 > **Component**: Skeleton  
 > **Category**: Feedback  
 > **Base class**: `.nb-skeleton`  
-> **Status**: In Progress (base pulse animation and reduced-motion fallback implemented; avatar and card skeleton patterns in progress)
+> **Status**: Ready
 
 ---
 
@@ -126,6 +126,10 @@ Skeleton is a **non-interactive placeholder**. It is not focusable. Keyboard use
 
 Shape classes set dimensions and aspect ratios; size classes only adjust `block-size`. Text-width classes control inline size for paragraph placeholders.
 
+### Pulse Animation
+
+The default `.nb-skeleton` uses a `1.5s` opacity pulse (`nb-skeleton-pulse`) to indicate activity. The `.nb-skeleton-wave` variant replaces the pulse with a horizontal shimmer gradient (`nb-skeleton-wave`). Both animations are removed under `prefers-reduced-motion: reduce`, leaving a solid background placeholder.
+
 ### Reduced Motion
 
 ```css
@@ -156,6 +160,12 @@ No directional properties; no special RTL overrides needed.
 ```
 
 ---
+
+## Common Patterns
+
+- **Text line**: Combine `.nb-skeleton-text` with `.nb-skeleton-text-1` through `.nb-skeleton-text-4` to build paragraph placeholders of varying widths.
+- **Avatar**: Use `.nb-skeleton-circle` for circular user/entity placeholders; pair with `.nb-skeleton-group-horizontal` and text lines for an avatar-with-meta pattern.
+- **Card**: Apply `.nb-skeleton-card` for a rectangular card-shaped placeholder, optionally stacked with text lines inside a `.nb-skeleton-group`.
 
 ## Examples
 

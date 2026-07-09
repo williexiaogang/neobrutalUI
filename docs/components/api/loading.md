@@ -3,7 +3,7 @@
 > **Component**: Loading  
 > **Category**: Feedback  
 > **Base class**: `.nb-loading`  
-> **Status**: In Progress (base spinner animation and reduced-motion fallback implemented; size variants and screen-reader strategy in progress)
+> **Status**: Ready
 
 ---
 
@@ -56,9 +56,24 @@
 | `aria-busy="true"` | On a parent region or button while content is loading. |
 | `role="status"` | On a wrapper when the loading state should be announced as a status update. |
 
+### Screen-reader Strategy
+
+Standalone spinners should carry an accessible name via `aria-label` or `aria-labelledby`. When the loading state represents a page-level or region-level update, wrap the spinner and descriptive text in a live region so screen readers announce the change:
+
+```html
+<div role="status" aria-live="polite" aria-label="Loading results">
+  <span class="nb-loading" aria-hidden="true"></span>
+  <span>Loading results…</span>
+</div>
+```
+
 ### Keyboard Behavior
 
 Loading is a **non-interactive visual indicator**. It is not focusable. When paired with a button, that button should be `disabled` and use `aria-busy="true"`.
+
+### Size Variants
+
+The core CSS currently ships with a single base spinner size (`1.5rem`). Additional sizes are not implemented as modifier classes; use inline `inline-size`, `block-size`, and `border-width` styles for custom dimensions (see the inline-button example above).
 
 ---
 

@@ -1,7 +1,17 @@
 <div class="nb-component-card__demo">
   <span class="nb-loading" aria-label="Loading"></span>
-  <button class="nb-btn nb-btn-primary" type="button" disabled>
+</div>
+
+<div class="nb-component-card__demo">
+  <button class="nb-btn nb-btn-primary" type="button" disabled aria-busy="true">
     <span class="nb-loading" aria-hidden="true" style="inline-size: 1rem; block-size: 1rem; border-width: 2px;"></span>
     Saving
   </button>
+</div>
+
+<div class="nb-component-card__demo">
+  <div role="status" aria-live="polite" aria-label="Loading results" style="display: flex; align-items: center; gap: var(--nb-space-3);">
+    <span class="nb-loading" aria-hidden="true"></span>
+    <span>Loading results…</span>
+  </div>
 </div>

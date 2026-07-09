@@ -3,7 +3,7 @@
 > **Component**: Divider  
 > **Category**: Layout  
 > **Base class**: `.nb-divider`  
-> **Status**: In Progress (horizontal divider with text implemented; vertical orientation in progress)
+> **Status**: Ready
 
 ---
 
