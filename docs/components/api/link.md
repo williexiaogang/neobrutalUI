@@ -3,7 +3,7 @@
 > **Component**: Link  
 > **Category**: Navigation  
 > **Base class**: `.nb-link`  
-> **Status**: Beta (underline, hover background, focus-visible, and forced-colors support included)
+> **Status**: Ready (valid link semantics, underline, hover background, focus-visible, forced-colors, and reduced-motion N/A guidance included)
 
 ---
 
@@ -118,4 +118,3 @@ Uses text-decoration and background properties; no special RTL overrides needed.
   External URL
 </a>
 ```
-

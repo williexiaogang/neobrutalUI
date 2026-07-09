@@ -3,7 +3,7 @@
 > **Component**: Button Group  
 > **Category**: Actions  
 > **Base class**: `.nb-btn-group`  
-> **Status**: Beta (horizontal, vertical, block layouts, hover/active/disabled states, and forced-colors support included)
+> **Status**: Ready (horizontal, vertical, block layouts, hover/active/disabled states, focus-visible, group ARIA guidance, reduced-motion, and forced-colors support included)
 
 ---
 
@@ -171,4 +171,3 @@ Uses logical properties (`border-inline-end`, `border-block-end`, `inline-size`)
   <button class="nb-btn nb-btn-secondary" type="button">Normal</button>
 </div>
 ```
-

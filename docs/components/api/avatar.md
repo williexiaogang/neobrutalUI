@@ -3,7 +3,7 @@
 > **Component**: Avatar  
 > **Category**: Data Display  
 > **Base class**: `.nb-avatar`  
-> **Status**: Beta (image, initials, status dots, grouped avatars, sizes, reduced-motion, and forced-colors support are implemented)
+> **Status**: Ready (image, initials, status dots, grouped avatars, sizes, ARIA guidance, and forced-colors support are implemented; reduced-motion is not applicable)
 
 ---
 

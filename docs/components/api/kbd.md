@@ -3,7 +3,7 @@
 > **Component**: Kbd  
 > **Category**: Data Display  
 > **Base class**: `.nb-kbd`  
-> **Status**: Beta (sizes, colors, pressed/active state, grouping, reduced-motion, and forced-colors support are implemented)
+> **Status**: Ready (sizes, colors, pressed/active state, grouping, ARIA labels, reduced-motion, and forced-colors support are implemented)
 
 ---
 
