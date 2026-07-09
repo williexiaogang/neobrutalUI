@@ -724,7 +724,7 @@ export const components: ShowcaseComponent[] = [
     name: "Date Picker",
     slug: "date-picker",
     category: "forms",
-    status: "in-progress",
+    status: "ready",
     description: "Date input with dropdown calendar panel, footer actions, and range mode.",
     available: true,
     demo: "DatePickerDemo",
@@ -732,14 +732,14 @@ export const components: ShowcaseComponent[] = [
     interactive: true,
     tags: ["form", "date", "calendar", "input"],
     notes:
-      "CSS visual layer implemented. Supports input trigger, dropdown panel with embedded calendar, footer with Today/Clear buttons, range mode with dual calendars, inline always-visible variant, sm/lg size variants, and primary/secondary/accent/neutral/info/success/warning/error color variants. Reduced-motion and forced-colors support included. JS interaction module added for panel toggle, single date selection, and footer actions.",
+      "Ready: input trigger, dropdown panel with embedded calendar, footer actions (Today/Clear), range mode with dual calendars, inline variant, sm/lg sizes, color variants, reduced-motion, forced-colors, panel toggle, date selection, API docs, demo wiring, and interaction tests are implemented.",
     knownIssues: [],
   },
   {
     name: "Command Palette",
     slug: "command-palette",
     category: "overlay",
-    status: "in-progress",
+    status: "ready",
     description: "Searchable command overlay with grouped results, keyboard shortcuts, and active-item highlighting.",
     available: true,
     demo: "CommandPaletteDemo",
@@ -747,7 +747,7 @@ export const components: ShowcaseComponent[] = [
     interactive: true,
     tags: ["command", "search", "overlay"],
     notes:
-      "CSS visual layer implemented. Supports backdrop, search input, grouped results, keyboard shortcuts, active item highlighting, empty state, size variants (sm/lg), and mobile fullscreen mode. Reduced-motion and forced-colors support included. JS interaction module added for search filtering, keyboard navigation, selection, and Cmd/Ctrl+K shortcut.",
+      "Ready: backdrop, search input, grouped results, keyboard shortcuts, active item highlighting, empty state, sm/lg sizes, mobile fullscreen mode, reduced-motion, forced-colors, search filtering, keyboard navigation, selection, Cmd/Ctrl+K shortcut, API docs, demo wiring, and interaction tests are implemented.",
     knownIssues: [],
   },
   {

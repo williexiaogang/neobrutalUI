@@ -3,7 +3,7 @@
 > **Component**: Date Picker  
 > **Category**: Forms  
 > **Base class**: `.nb-date-picker`  
-> **Status**: In Progress (CSS visual layer implemented; JS for panel toggle, date selection, and range handling is planned)
+> **Status**: Ready
 
 ---
 

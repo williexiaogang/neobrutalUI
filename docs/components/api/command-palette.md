@@ -3,7 +3,7 @@
 > **Component**: Command Palette  
 > **Category**: Overlay  
 > **Base classes**: `.nb-command-palette-backdrop`, `.nb-command-palette`  
-> **Status**: In Progress (CSS visual layer implemented; JS search, keyboard navigation, and selection are planned)
+> **Status**: Ready
 
 ---
 
