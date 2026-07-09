@@ -3,7 +3,7 @@
 > **Component**: Table  
 > **Category**: Data Display  
 > **Base class**: `.nb-table`  
-> **Status**: Beta (base styling, zebra, hover, and compact variants are implemented)
+> **Status**: Ready
 
 ---
 
@@ -99,6 +99,7 @@
 | **current** | ❌ Not applicable | — | Row selection state is not styled; use custom classes or JS. |
 | **selected** | ❌ Not applicable | — | No selected-row styles are provided. |
 | **read-only** | ❌ Not applicable | — | Tables are inherently read-only. |
+| **reduced-motion** | ❌ Not applicable | — | Tables are static data displays; no component-level motion. |
 
 ---
 
@@ -110,13 +111,11 @@
 
 ### Reduced Motion
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  .nb-table tbody tr {
-    transition: none;
-  }
-}
-```
+No component-level transitions or animations; reduced-motion is not applicable.
+
+### Responsive Behavior
+
+Wrap tables in `.nb-table-wrapper` (`overflow-x: auto; inline-size: 100%`) to prevent wide tables from breaking narrow viewports. Long cell content is not truncated by default; use custom `max-inline-size`, `white-space: nowrap`, or `text-overflow: ellipsis` classes as needed.
 
 ### RTL
 

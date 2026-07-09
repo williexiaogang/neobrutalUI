@@ -3,7 +3,7 @@
 > **Component**: File Input  
 > **Category**: Forms  
 > **Base class**: `.nb-file-input`  
-> **Status**: Beta (CSS visual layer implemented; drag area, file list, and remove button styling available)
+> **Status**: Ready
 
 ---
 
@@ -114,6 +114,10 @@
 | `Tab` | Focus moves to the hidden file input (focus ring shown on `.nb-file-input-area` via `:focus-within`). |
 | `Enter` / `Space` | Opens the native file picker when focus is on the input/label. |
 | `Tab` | Moves to `.nb-file-item-remove` buttons when a file list is present. |
+
+### Limitations
+
+The CSS provides the `.is-dragover` visual state, but it does **not** implement drag-and-drop file handling. Consumers must wire their own `dragenter`, `dragover`, `dragleave`, and `drop` event handlers (or a file-input library) to toggle `.is-dragover`, read `dataTransfer.files`, and populate `.nb-file-list`.
 
 ---
 

@@ -3,7 +3,7 @@
 > **Component**: List  
 > **Category**: Data Display  
 > **Base class**: `.nb-list`  
-> **Status**: Beta (base styling, numbered, bulleted, striped, divided, bordered, inline, compact, size, and color variants are implemented)
+> **Status**: Ready
 
 ---
 
@@ -103,6 +103,8 @@
 | **current** | ❌ Not applicable | — | No current-item styles. |
 | **selected** | ❌ Not applicable | — | No selected-item styles. |
 | **read-only** | ❌ Not applicable | — | Lists are inherently read-only. |
+| **reduced-motion** | ❌ Not applicable | — | Lists are static data displays; no component-level motion. |
+| **disabled** | ❌ Not applicable | — | List items are not interactive by default. |
 
 ---
 
@@ -114,16 +116,11 @@
 
 ### Reduced Motion
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  .nb-list-item,
-  .nb-list li,
-  .nb-list-inline .nb-list-item,
-  .nb-list-inline li {
-    transition: none;
-  }
-}
-```
+No component-level transitions or animations; reduced-motion is not applicable.
+
+### Responsive Behavior
+
+Vertical lists are block containers that fill the available inline size and allow long content to wrap. The inline variant uses `flex-wrap: wrap` so chips flow to new lines on narrow viewports. For constrained layouts, apply `min-inline-size: 0` or custom truncation classes to `.nb-list-item`.
 
 ### RTL
 

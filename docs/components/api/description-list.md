@@ -3,7 +3,7 @@
 > **Component**: Description List  
 > **Category**: Data Display  
 > **Base class**: `.nb-description-list`  
-> **Status**: Beta (base styling, horizontal, bordered, divided, compact, size, and color variants are implemented)
+> **Status**: Ready
 
 ---
 
@@ -114,6 +114,8 @@ When multiple term/description pairs are grouped, wrap each pair in a `<div>` to
 | **current** | ❌ Not applicable | — | No current-item styles. |
 | **selected** | ❌ Not applicable | — | No selected-item styles. |
 | **read-only** | ❌ Not applicable | — | Description lists are inherently read-only. |
+| **reduced-motion** | ❌ Not applicable | — | Description lists are static data displays; no component-level motion. |
+| **disabled** | ❌ Not applicable | — | Description lists are not interactive. |
 
 ---
 
@@ -125,14 +127,11 @@ When multiple term/description pairs are grouped, wrap each pair in a `<div>` to
 
 ### Reduced Motion
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  .nb-description-list-term,
-  .nb-description-list dt {
-    transition: none;
-  }
-}
-```
+No component-level transitions or animations; reduced-motion is not applicable.
+
+### Responsive Behavior
+
+The horizontal variant uses `grid-template-columns: minmax(8rem, 1fr) 2fr`, so the term column can shrink to `8rem` on narrow viewports while the description column wraps long content. For very narrow containers, consider switching to the default stacked layout. Long descriptions wrap by default; apply custom truncation only when needed.
 
 ### RTL
 

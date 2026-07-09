@@ -3,7 +3,7 @@
 > **Component**: Chat  
 > **Category**: Data Display  
 > **Base class**: `.nb-chat-bubble`  
-> **Status**: Beta (sent/received directional variants, semantic colors, sizes, avatar, meta timestamp, tail pointers, reduced-motion, and forced-colors support are implemented)
+> **Status**: Ready
 
 > **Note**: The catalog slug is `chat`, but the CSS file is `packages/core/src/components/chat-bubble.css` and the base bubble class is `.nb-chat-bubble`.
 
@@ -129,6 +129,8 @@
 | **current** | ❌ Not applicable | — | No current state. |
 | **selected** | ❌ Not applicable | — | No selected state. |
 | **read-only** | ❌ Not applicable | — | Chat is inherently read-only. |
+| **reduced-motion** | ❌ Not applicable | — | Chat bubbles are static content; no component-level motion. |
+| **disabled** | ❌ Not applicable | — | Chat bubbles are not interactive. |
 
 ---
 
@@ -140,13 +142,7 @@
 
 ### Reduced Motion
 
-```css
-@media (prefers-reduced-motion: reduce) {
-  .nb-chat-bubble {
-    transition: none;
-  }
-}
-```
+No component-level transitions or animations; reduced-motion is not applicable.
 
 ### RTL
 

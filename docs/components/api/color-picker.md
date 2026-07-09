@@ -3,7 +3,7 @@
 > **Component**: Color Picker  
 > **Category**: Forms  
 > **Base class**: `.nb-color-picker`  
-> **Status**: Beta (CSS visual layer implemented; native color input styling, swatch display, and size variants available)
+> **Status**: Ready
 
 ---
 
@@ -83,6 +83,10 @@
 | `Tab` | Moves focus to the color input. |
 | `Enter` / `Space` | Opens the native color picker dialog. |
 | Standard typing | Inside the native color dialog. |
+
+### Limitations
+
+The component styles the native `<input type="color">` swatch and wrapper only. The color dialog/palette that opens on activation is rendered by the browser and cannot be fully customized with CSS. Value syncing (e.g., updating `.nb-color-picker-value` when the input changes) requires consumer JS.
 
 ---
 
