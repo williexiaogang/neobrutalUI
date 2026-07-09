@@ -3,7 +3,7 @@
 > **Component**: Card  
 > **Category**: Layout  
 > **Base class**: `.nb-card`  
-> **Status**: Beta (structure and shadow implemented; interactive behavior pending)
+> **Status**: Ready
 
 ---
 
@@ -12,6 +12,8 @@
 | Class Name | Category | Description |
 |------------|----------|-------------|
 | `.nb-card` | Component | Base card container. Required. |
+| `.nb-card-interactive` | State | Adds hover, focus-visible, and active lift/press feedback for clickable cards. |
+| `.nb-card-media` | Part | Media slot for image, video, or SVG content. Adds a bottom divider and overflow clipping. |
 | `.nb-card-header` | Part | Header section with bottom border and bold text. |
 | `.nb-card-body` | Part | Main content area with standard padding. |
 | `.nb-card-footer` | Part | Footer section with top border. |
@@ -27,6 +29,9 @@
 
 <!-- Full card with all parts -->
 <article class="nb-card">
+  <div class="nb-card-media">
+    <img src="/preview.png" alt="" />
+  </div>
   <header class="nb-card-header">
     <h2 class="nb-card-title">Card Title</h2>
   </header>
@@ -67,6 +72,7 @@
 
 | Part | Required? | Notes |
 |------|-----------|-------|
+| `.nb-card-media` | No | Place before header/body for image, video, or SVG previews. Provide `alt` text for meaningful media; use empty `alt=""` for decorative media. |
 | `.nb-card-header` | No | Omit if the card has no title or header content. |
 | `.nb-card-body` | No | If omitted, place content directly inside `.nb-card` (flex column layout handles spacing). |
 | `.nb-card-footer` | No | Omit if no footer actions or metadata. |
@@ -81,7 +87,7 @@
 
 ### Keyboard Behavior
 
-Card is a **non-interactive container**. Keyboard navigation flows through its child elements (buttons, links, form controls). No card-level keyboard handlers required.
+Card is a **non-interactive container** by default. Keyboard navigation flows through its child elements (buttons, links, form controls). If `.nb-card-interactive` is used on the card itself, make the element focusable (`tabindex="0"`) and provide role/keyboard activation semantics appropriate to the action.
 
 ---
 
@@ -89,13 +95,13 @@ Card is a **non-interactive container**. Keyboard navigation flows through its c
 
 | State | Support | CSS Selector / Class | Visual Effect |
 |-------|---------|---------------------|---------------|
-| **hover** | ❌ Not implemented | — | No hover styles in current CSS. |
-| **active** | ❌ Not implemented | — | No active styles in current CSS. |
-| **focus-visible** | ❌ Not implemented | — | Card is not focusable by default. |
+| **hover** | ✅ | `.nb-card-interactive:hover` | Shadow elevates to `--nb-shadow-lg`, `translate(-2px, -2px)`. |
+| **active** | ✅ | `.nb-card-interactive:active` | Shadow drops to `--nb-shadow-xs`, `translate(2px, 2px)`. |
+| **focus-visible** | ✅ | `.nb-card-interactive:focus-visible` | Focus outline uses `--nb-focus`. |
 | **disabled** | — N/A | — | Card is not an interactive element. |
 | **loading** | ❌ Not implemented | — | No `.nb-card-loading` or `.is-loading` styles. |
 
-> **Note**: Future versions may add `.nb-card-interactive` for clickable cards with hover/active states, or `.nb-card-loading` for skeleton overlay behavior. These are not in the current CSS build.
+> **Note**: Loading is intentionally handled by composing Card with Skeleton rather than a card-level loading state.
 
 ---
 
@@ -111,6 +117,27 @@ Card is a **non-interactive container**. Keyboard navigation flows through its c
   border-radius: var(--nb-radius-box);    /* 0px */
   background: var(--nb-base-100);
   box-shadow: var(--nb-shadow-md);
+}
+```
+
+### Interactive State
+
+```css
+.nb-card-interactive:hover {
+  box-shadow: var(--nb-shadow-lg);
+  transform: translate(-2px, -2px);
+}
+```
+
+### Media Part
+
+```css
+.nb-card-media {
+  display: block;
+  inline-size: 100%;
+  border-block-end: var(--nb-border-width) solid var(--nb-border);
+  background: var(--nb-base-200);
+  overflow: hidden;
 }
 ```
 
@@ -192,9 +219,37 @@ Card is a **non-interactive container**. Keyboard navigation flows through its c
 </article>
 ```
 
+### Media Card
+
+```html
+<article class="nb-card">
+  <div class="nb-card-media">
+    <img src="/preview.png" alt="Dashboard preview" />
+  </div>
+  <div class="nb-card-body">
+    <p>Media content follows the same hard-bordered card structure.</p>
+  </div>
+</article>
+```
+
+### Interactive Card
+
+```html
+<article
+  class="nb-card nb-card-interactive"
+  tabindex="0"
+  role="button"
+  aria-labelledby="project-card-title"
+>
+  <header class="nb-card-header">
+    <h3 class="nb-card-title" id="project-card-title">Open project</h3>
+  </header>
+  <div class="nb-card-body">Project summary.</div>
+</article>
+```
+
 ---
 
 ## Known Issues
 
-- Interactive card behavior (clickable cards with hover/active) is in progress.
-- Media variants (image header, video embed) are not yet styled.
+- None listed in component catalog.

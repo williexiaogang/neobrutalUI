@@ -1,5 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const showcaseUrl = process.env.SHOWCASE_URL || "http://localhost:4321";
+
 /**
  * Neo-Brutal UI — Visual Regression Configuration
  *
@@ -9,7 +11,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./specs",
-  snapshotDir: "../screenshots",
+  snapshotDir: "./screenshots",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -19,7 +21,7 @@ export default defineConfig({
     ["html", { outputFolder: "../report", open: "never" }],
   ],
   use: {
-    baseURL: process.env.SHOWCASE_URL || "http://localhost:4321",
+    baseURL: showcaseUrl,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
   },
@@ -40,7 +42,7 @@ export default defineConfig({
   ],
   webServer: {
     command: "pnpm --filter @neo-brutal-ui/showcase preview",
-    url: "http://localhost:4321",
+    url: showcaseUrl,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },

@@ -3,7 +3,7 @@
 > **Component**: Drawer  
 > **Category**: Overlay  
 > **Base classes**: `.nb-drawer-backdrop`, `.nb-drawer`  
-> **Status**: Beta (CSS visual layer and JS interaction implemented)
+> **Status**: Ready (CSS visual layer and JS interaction implemented, documented, and tested)
 
 ---
 

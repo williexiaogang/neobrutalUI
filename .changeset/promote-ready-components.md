@@ -3,7 +3,7 @@
 "@neo-brutal-ui/interactions": minor
 ---
 
-Promote six components to `ready` status: Accordion, Collapse, Dropdown, Tabs, Toast, and Tooltip.
+Promote eleven components to `ready` status: Accordion, Button, Card, Checkbox, Collapse, Drawer, Dropdown, Modal, Tabs, Toast, and Tooltip.
 
 These components now pass the Ready acceptance gates:
 - API docs match the current CSS and behavior

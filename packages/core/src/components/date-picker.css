@@ -12,6 +12,7 @@
     --_panel-shadow: var(--nb-shadow-xl);
     --_panel-bg: var(--nb-base-100);
     --_accent: var(--nb-primary);
+    --_accent-content: var(--nb-primary-content);
 
     position: relative;
     display: inline-flex;
@@ -145,7 +146,7 @@
 
   .nb-date-picker-footer-btn-primary {
     background: var(--_accent);
-    color: var(--nb-primary-content);
+    color: var(--_accent-content);
   }
 
   /* Range mode: two calendars side by side */
@@ -204,34 +205,42 @@
   /* Color variants */
   .nb-date-picker-primary {
     --_accent: var(--nb-primary);
+    --_accent-content: var(--nb-primary-content);
   }
 
   .nb-date-picker-secondary {
     --_accent: var(--nb-secondary);
+    --_accent-content: var(--nb-secondary-content);
   }
 
   .nb-date-picker-accent {
     --_accent: var(--nb-accent);
+    --_accent-content: var(--nb-accent-content);
   }
 
   .nb-date-picker-neutral {
     --_accent: var(--nb-neutral);
+    --_accent-content: var(--nb-neutral-content);
   }
 
   .nb-date-picker-info {
     --_accent: var(--nb-info);
+    --_accent-content: var(--nb-info-content);
   }
 
   .nb-date-picker-success {
     --_accent: var(--nb-success);
+    --_accent-content: var(--nb-success-content);
   }
 
   .nb-date-picker-warning {
     --_accent: var(--nb-warning);
+    --_accent-content: var(--nb-warning-content);
   }
 
   .nb-date-picker-error {
     --_accent: var(--nb-error);
+    --_accent-content: var(--nb-error-content);
   }
 
   @media (prefers-reduced-motion: reduce) {

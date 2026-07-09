@@ -3,7 +3,7 @@
 > **Component**: Checkbox  
 > **Category**: Forms  
 > **Base class**: `.nb-checkbox`  
-> **Status**: Beta (checked and disabled implemented; indeterminate pending)
+> **Status**: Ready
 
 ---
 
@@ -43,6 +43,19 @@
   <label for="newsletter">Subscribe to newsletter</label>
   <span id="newsletter-desc">Receive weekly updates about our products.</span>
 </div>
+```
+
+### Recommended Structure (Indeterminate)
+
+```html
+<label>
+  <input class="nb-checkbox" type="checkbox" id="projects" />
+  <span>Some projects selected</span>
+</label>
+
+<script>
+  document.getElementById("projects").indeterminate = true;
+</script>
 ```
 
 ### Recommended Structure (Radio Group)
@@ -123,7 +136,7 @@
 | **focus-visible** | ✅ | `:focus-visible` (global) | `outline: 3px solid var(--nb-focus); outline-offset: 2px;` |
 | **disabled** | ✅ | `.nb-checkbox:disabled` | `opacity: 0.5`, `cursor: not-allowed`. |
 | **checked** | ✅ | `.nb-checkbox:checked` | Background fills with `--nb-primary`, border changes. Pseudo-element renders a checkmark. |
-| **indeterminate** | ❌ Not implemented | `:indeterminate` | No styles for indeterminate state. |
+| **indeterminate** | ✅ | `.nb-checkbox:indeterminate` | Background fills with `--nb-primary`; pseudo-element renders a horizontal mixed-state mark. |
 | **invalid** | ❌ Not styled | `:invalid` / `[aria-invalid="true"]` | No custom invalid styling. |
 
 ### Radio
@@ -192,6 +205,17 @@
   border: solid var(--nb-primary-content);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg) translate(-1px, -1px);
+}
+```
+
+### Indeterminate Mark (Checkbox)
+
+```css
+.nb-checkbox:indeterminate::after {
+  content: "";
+  inline-size: 0.75rem;
+  block-size: 0.1875rem;
+  background: var(--nb-primary-content);
 }
 ```
 

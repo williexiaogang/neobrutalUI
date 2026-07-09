@@ -19,31 +19,28 @@ export const components: ShowcaseComponent[] = [
     name: "Button",
     slug: "button",
     category: "actions",
-    status: "in-progress",
+    status: "ready",
     description: "Bold actions with tactile press feedback.",
     available: true,
     featured: true,
     demo: "ButtonDemo",
     tags: ["action"],
     notes:
-      "Base visual styles, variants, sizes, hover/active states, and disabled state are implemented. Supports dark theme via data-theme='neo-brutal-dark'. Loading state and full ARIA keyboard behavior are in progress.",
-    knownIssues: [
-      "Loading state spinner alignment needs refinement.",
-      "Icon-only button accessible name pattern not documented yet.",
-    ],
+      "Ready: base visual styles, color variants, outline/ghost variants, sizes, block layout, icon-only sizing, loading spinner, hover/active/focus/disabled states, reduced-motion, forced-colors, accessible icon-only guidance, and visual baselines are implemented.",
+    knownIssues: [],
   },
   {
     name: "Card",
     slug: "card",
     category: "layout",
-    status: "in-progress",
+    status: "ready",
     description: "Structured surfaces with header, body, and footer areas.",
     available: true,
     featured: true,
     demo: "CardDemo",
     tags: ["surface"],
     notes:
-      "Basic card structure and shadow styling are available. Interactive card behavior and media variants are in progress.",
+      "Ready: card structure, header/body/footer parts, media part, interactive hover/focus/active states, reduced-motion, forced-colors, API docs, and showcase demos are implemented.",
   },
   {
     name: "Input",
@@ -100,13 +97,13 @@ export const components: ShowcaseComponent[] = [
     name: "Checkbox",
     slug: "checkbox",
     category: "forms",
-    status: "in-progress",
+    status: "ready",
     description: "Binary selectors with clear checked and disabled states.",
     available: true,
     demo: "CheckboxDemo",
     tags: ["form", "selector"],
     notes:
-      "Base checked and disabled visuals are implemented. Indeterminate state and label association examples are in progress.",
+      "Ready: native checkbox styling includes checked, indeterminate, disabled, focus-visible, reduced-motion, forced-colors, and label association examples.",
   },
   {
     name: "Radio",
@@ -195,7 +192,7 @@ export const components: ShowcaseComponent[] = [
     name: "Modal",
     slug: "modal",
     category: "overlay",
-    status: "in-progress",
+    status: "ready",
     description: "Dialog overlays with focus trapping and keyboard dismissal.",
     available: true,
     demo: "ModalDemo",
@@ -203,10 +200,8 @@ export const components: ShowcaseComponent[] = [
     interactive: true,
     tags: ["dialog"],
     notes:
-      "CSS implementation is complete: backdrop, dialog, header/body/footer, size variants (xs/sm/md/lg/xl/full), color variants (primary/danger/warning/success), mobile sheet variant, open/close animations, reduced-motion, and forced-colors support. JS interactions are optional.",
-    knownIssues: [
-      "JS focus trap for div fallback is planned.",
-    ],
+      "Ready: backdrop, dialog panel, header/body/footer, size variants, color variants, mobile sheet, reduced-motion, forced-colors, native dialog support, div fallback focus trap, backdrop click, Escape close, focus restore, API docs, and tests are implemented.",
+    knownIssues: [],
   },
 
 
@@ -305,14 +300,15 @@ export const components: ShowcaseComponent[] = [
     name: "Drawer",
     slug: "drawer",
     category: "overlay",
-    status: "beta",
+    status: "ready",
     description: "Slide-in side panel for navigation or forms.",
     available: true,
     demo: "DrawerDemo",
     size: "wide",
     interactive: true,
     tags: ["panel"],
-    notes: "CSS visual layer and JS interaction are implemented.",
+    notes:
+      "Ready: CSS visual layer, start/end/top/bottom placement classes, reduced-motion, forced-colors, RTL logical positioning, API docs, demo wiring, and JS focus-trap/backdrop/Escape behavior are implemented and tested.",
   },
   {
     name: "Toast",

@@ -1,13 +1,19 @@
-<div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-6);">
-  <!-- Trigger Button -->
+<!-- Trigger Button -->
+<div class="nb-component-card__demo" style="flex-direction: column; align-items: flex-start;">
   <div style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: center;">
     <button class="nb-btn nb-btn-sm nb-btn-primary" type="button" data-command-palette-toggle>
       Open Command Palette
     </button>
   </div>
+</div>
 
-  <!-- Command Palette Backdrop -->
-  <div class="nb-command-palette-backdrop" data-nb-command-palette>
+<!-- Command Palette Preview -->
+<div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch;">
+  <div
+    class="nb-command-palette-backdrop is-open"
+    data-nb-command-palette
+    style="position: relative; inset: auto; padding-block-start: 0; padding-inline: 0; background: transparent; z-index: auto; opacity: 1; visibility: visible;"
+  >
     <div class="nb-command-palette" role="dialog" aria-modal="true" aria-label="Command palette">
       <div class="nb-command-palette-input">
         <span class="nb-command-palette-input-icon" aria-hidden="true">🔍</span>

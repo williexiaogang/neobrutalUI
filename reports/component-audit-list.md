@@ -44,25 +44,33 @@ Latest update:
 - Fixed: Type-aware lint findings in Code Block, Collapse, Date Picker, and Menu interaction modules.
 - Verified: Interactions TypeScript check passes with `tsc --noEmit`; direct `node --test` interaction suite passes with 43 tests.
 - Corrected: Menu, Rating, and Carousel showcase demos already initialize their matching interaction modules; the audit checklist now reflects the current demo wiring.
+- Fixed: Button visual spec now targets the real showcase component card instead of a non-existent `/components/button` route; desktop and mobile Playwright baselines were generated in `tests/visual/screenshots/`.
+- Fixed: `tests/visual/playwright.config.ts` now uses the same `SHOWCASE_URL` for `baseURL` and `webServer.url`, and snapshot output is aligned with `tests/visual/screenshots/`.
+- Fixed: Semantic content tokens now pass acceptance contrast checks; primary/info/success/secondary use dark foregrounds, while error uses a darker red with white foreground.
+- Split: Dense showcase demos for **Date Picker**, **Command Palette**, **Pricing Card**, and **Feature Grid** into multiple `.nb-component-card__demo` blocks.
+- Promoted: **Drawer** from `beta` to `ready`; its API doc status and changeset entry now match the catalog.
+- Fixed: Acceptance color-contrast findings are now clear (`0` contrast issues) after semantic token and targeted component updates.
+- Fixed: Button now includes loading and icon-only states in CSS, demo, API docs, and visual baselines.
+- Fixed: Checkbox now includes indeterminate state styling, demo wiring, and API docs.
+- Fixed: Modal `createDialog()` now supports div fallback focus trap/open state in addition to native `<dialog>`, with behavior test coverage.
+- Fixed: Card now includes media and interactive variants in CSS, demo, and API docs.
+- Promoted: **Button, Card, Checkbox, and Modal** from `in-progress` to `ready`.
+- Updated: API snapshot now reflects the expanded CSS/token surface (698 classes, 225 tokens).
 
 ## Next Actions
 
 These are the immediate follow-ups after the current Ready-batch promotion and audit consolidation. Pick from the top; details and per-component notes are in the Priority Findings and Component Checklist tables below.
 
-1. **Visual baseline** — `tests/visual/specs/button.spec.ts` currently times out on mobile for `.nb-btn-primary`. Generate/update the Playwright baseline so `pnpm test:visual` passes.
-2. **Promote next Ready candidates** (vet against Ready gates: API docs, CSS complete, demo wiring, a11y, RTL, responsive, tests):
-   - `Drawer` — closest; add edge/disabled-state handling if applicable.
-   - `Button` — fix loading-spinner alignment and icon-only accessible-name docs.
-   - `Card` — finish media/interactive variants.
-   - `Checkbox` — add indeterminate examples.
-   - `Modal` — resolve div fallback focus trap and color-contrast warnings.
-3. **Split remaining dense demos** — `DatePickerDemo`, `CommandPaletteDemo`, `PricingCardDemo`, `FeatureGridDemo` may still need multiple `.nb-component-card__demo` blocks.
-4. **Color contrast** — fix the WCAG AA warnings from the old acceptance report (Badge primary/info/error; Modal primary/danger headers).
+1. **Promote next Ready candidates** (vet against Ready gates: API docs, CSS complete, demo wiring, a11y, RTL, responsive, tests):
+   - `Menu`, `Rating`, and `Carousel` — demos are wired and modules are tested; run focused a11y/responsive review before Ready.
+   - `Badge` — color contrast is fixed; removable tag behavior remains the main open contract question.
+2. **Visual coverage** — keep expanding component-specific Playwright baselines beyond Button once component cards stabilize.
+3. **Acceptance warnings** — remaining warnings are 200% zoom and long-text heuristics; prioritize components with real rendered overflow before changing CSS broadly.
 
 ## Summary
 
 - Total catalog components: 59
-- Status split: 32 beta, 21 in-progress, 6 ready, 0 planned, 0 experimental
+- Status split: 31 beta, 17 in-progress, 11 ready, 0 planned, 0 experimental
 - Demos present by import name: 59 / 59
 - Core CSS coverage: 59 / 59 direct or aliased; `input.css` is a thin entrypoint that imports `field.css`
 - Interaction modules present for: accordion, carousel, collapse, code-block, command-palette, date-picker, dialog/modal, drawer, dropdown, menu, otp, rating, segmented-control, tabs, toast, tooltip
@@ -73,7 +81,7 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 
 | Priority | Area | Components | Issue | Recommended action |
 | --- | --- | --- | --- | --- |
-| P1 | Status model | All 59 | Fixed in current pass. Ready acceptance gates are now defined; six components (Accordion, Collapse, Dropdown, Tabs, Toast, Tooltip) have been promoted to `ready`. Remaining components with explicit gaps stay `in-progress` or `beta`. | Continue vetting remaining Ready candidates against the defined gates. |
+| P1 | Status model | All 59 | Fixed in current pass. Ready acceptance gates are now defined; eleven components (Accordion, Button, Card, Checkbox, Collapse, Drawer, Dropdown, Modal, Tabs, Toast, Tooltip) have been promoted to `ready`. Remaining components with explicit gaps stay `in-progress` or `beta`. | Continue vetting remaining Ready candidates against the defined gates. |
 | P1 | Docs | All 59 components | ✅ Resolved. API docs now exist for every catalog component in `docs/components/api/`. | Keep docs in sync with future CSS/API changes. |
 | P1 | Showcase demo structure | Card, Alert | Fixed in current pass. Demos now use `.nb-component-card__demo`. | Re-run rendered audit after future demo edits. |
 | P1 | Showcase demo mapping | Color Picker | Fixed in current pass. The demo file had a wrapper, but the gallery map omitted `ColorPickerDemo`. | Re-run rendered audit after future catalog additions. |
@@ -82,9 +90,9 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 | P1 | Interaction metadata | Tabs, Toast | Fixed in current pass: demos now initialize `createTabs()` and `createToastManager()`. | Confirm remaining interactive components (Menu, Rating, Carousel) wire their JS modules in demos before Ready. |
 | P1 | Interaction metadata | Date Picker, Command Palette | ✅ Resolved. Interaction modules added and `interactive: true` restored. | Confirm JS behavior is active in demos before Ready. |
 | P1 | CSS ownership | Input | ✅ Resolved. Added `packages/core/src/components/input.css` as a thin entrypoint that imports `field.css`. | No further action required. |
-| P1 | Color contrast | Badge, Modal | MVP acceptance test flagged contrast warnings: `.nb-badge-primary` (3.59:1), `.nb-badge-info` (2.91:1), `.nb-badge-error` (4.06:1), `.nb-modal-primary .nb-modal-header` (3.59:1), `.nb-modal-danger .nb-modal-header` (4.06:1). All fall below WCAG AA thresholds. | Tune `*-content` tokens or darken backgrounds before promoting Badge/Modal variants to `ready`. |
+| P1 | Color contrast | Badge, Modal and related semantic variants | ✅ Resolved in current pass. Acceptance color-contrast findings are now `0` after semantic token and targeted component updates. | Keep acceptance contrast at `0` before future Ready promotions. |
 | P2 | Showcase layout | Browser Mockup, Phone Mockup, Window Mockup, File Input, Range, Empty State | Fixed in current pass by promoting to wide cards. | Split demos later if any card still feels too dense. |
-| P2 | Reduced motion consistency | Alert, Avatar, Badge, Card, Divider, Empty State, Form Summary, Link | These files lack `prefers-reduced-motion`. All listed components are purely static with no transitions or animations, so reduced-motion is **not applicable**. | Mark as N/A in the audit and document the rationale. No CSS changes required. |
+| P2 | Reduced motion consistency | Alert, Avatar, Badge, Divider, Empty State, Form Summary, Link | These files lack `prefers-reduced-motion`. All listed components are purely static with no transitions or animations, so reduced-motion is **not applicable**. Card now has interactive motion and includes reduced-motion handling. | Mark static components as N/A in docs/tests; add reduced-motion handling only when a component introduces transitions or animations. |
 | P2 | Disabled-state consistency | Link, Drawer, Modal, Navbar, Rating, Toast, Timeline, File Input and static display components | Static display components (Avatar, Badge, Card, Chat, Code Block, Diff Viewer, Divider, Empty State, Feature Grid, Footer, Hero, Kbd, List, Loading, Skeleton, Stat, Table, Timeline, mockups, etc.) do not support or require disabled states. Interactive components already have disabled selectors where applicable. | Mark static components as N/A in docs/tests; add disabled selectors only to components that are genuinely interactive and currently missing them. |
 | P2 | RTL claims | Button, Collapse, Link, List, Loading, Modal, Pagination, Progress, Table | Some files may still need RTL visual checks, but the following physical-direction issues were fixed: `toast.css` now uses `transform-origin: inline-start`; `timeline.css` horizontal dashed connector has an RTL override; `field.css` group legend uses `margin-block-end`. | Run RTL visual checks on remaining components and add targeted fixes only where layout changes under `dir=rtl`. |
 
@@ -92,21 +100,21 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 
 | Component | Status | CSS | Demo | JS | API doc | Audit state | Optimization notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Button | in-progress | `button.css` | yes | no | yes | needs polish | Loading spinner alignment and icon-only accessible-name docs remain open. |
-| Card | in-progress | `card.css` | yes | no | yes | docs added | Media/interactive variants remain in progress. |
+| Button | ready | `button.css` | yes | no | yes | ready | Loading, icon-only sizing, accessible-name docs, visual baselines, reduced-motion, and forced-colors are in place. |
+| Card | ready | `card.css` | yes | no | yes | ready | Media and interactive variants, API docs, reduced-motion, and forced-colors are in place. |
 | Input | in-progress | `input.css` (imports `field.css`) | yes | no | yes | ownership fixed | Thin `input.css` entrypoint added. Autofill and prefix/suffix alignment remain open. |
 | Field | beta | `field.css` | yes | no | yes | docs added | Minor demo overflow in narrow card; consider responsive tweaks. |
 | Textarea | in-progress | shared `field.css` | yes | no | yes | docs added | Character counter and size variants remain open. |
 | Select | in-progress | shared `field.css` | yes | no | yes | docs added | RTL arrow and forced-colors review should be captured in tests. |
-| Checkbox | in-progress | `selector.css` | yes | no | yes | docs added | Add indeterminate examples before Ready. |
+| Checkbox | ready | `selector.css` | yes | no | yes | ready | Checked, indeterminate, disabled, focus-visible, reduced-motion, forced-colors, demo, and docs are in place. |
 | Radio | in-progress | `selector.css` | yes | no | yes | docs added | Radio group anatomy and keyboard expectations now documented. |
 | Toggle | in-progress | `selector.css` | yes | no | yes | docs added | Reduced-motion and RTL thumb positioning now documented. |
-| Badge | in-progress | `badge.css` | yes | no | yes | docs added | Removable tag behavior remains undefined. Acceptance test flagged primary/info/error contrast ratios below WCAG AA. |
+| Badge | in-progress | `badge.css` | yes | no | yes | contrast fixed | Removable tag behavior remains undefined. Acceptance contrast warnings are cleared. |
 | Alert | in-progress | `alert.css` | yes | no | yes | docs added | Dismissible behavior/API remains open. |
 | Divider | in-progress | `divider.css` | yes | no | yes | docs added | Vertical orientation still noted as in progress. |
 | Loading | in-progress | `loading.css` | yes | no | yes | docs added | Screen-reader strategy and size variants remain open. |
 | Skeleton | in-progress | `skeleton.css` | yes | no | yes | docs added | Avatar/card skeleton patterns remain open. |
-| Modal | in-progress | `modal.css` | yes | dialog module | yes | needs JS polish | Known issue: div fallback focus trap. Acceptance test flagged primary/danger header contrast ratios below WCAG AA. |
+| Modal | ready | `modal.css` | yes | dialog module | yes | ready | Native dialog and div fallback focus trap, Escape/backdrop close, focus restore, contrast, docs, and tests are in place. |
 | Tabs | ready | `tabs.css` | yes | tabs module | yes | ready | Demo now initializes `createTabs`; keyboard navigation and ARIA sync verified. |
 | Dropdown | ready | `dropdown.css` | yes | dropdown module | yes | ready | Interaction tests cover open/close, Escape, and outside click. |
 | Tooltip | ready | `tooltip.css` | yes | tooltip module | yes | ready | Focus/hover trigger pattern documented and behavior tested. |
@@ -114,7 +122,7 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 | List | beta | `list.css` | yes | no | yes | docs added | Now full-width; split variants later if still too long. |
 | Description List | beta | `description-list.css` | yes | no | yes | docs added | Full-width showcase works. |
 | Navbar | in-progress | `navbar.css` | yes | no | yes | docs added | Collapse behavior requires optional JS but no module exists. |
-| Drawer | beta | `drawer.css` | yes | drawer module | yes | docs added | Add disabled/edge-case states if applicable. |
+| Drawer | ready | `drawer.css` | yes | drawer module | yes | ready | Focus trap, Escape, backdrop close, focus restore, placements, reduced-motion, forced-colors, RTL logical positioning, docs, and tests are in place. Disabled/loading states are N/A. |
 | Toast | ready | `toast.css` | yes | toast module | yes | ready | Demo now initializes `createToastManager`; stacking and auto-dismiss verified. |
 | Accordion | ready | `accordion.css` | yes | accordion module | yes | ready | Single/multi-open, keyboard navigation, and event cancellation tested. |
 | Collapse | ready | `collapse.css` | yes | collapse module | yes | ready | Click and keyboard toggle behavior tested; markup auto-discovery verified. |
@@ -143,11 +151,11 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 | Kbd | beta | `kbd.css` | yes | no | yes | docs added | Static component; focus/disabled not applicable. |
 | Code Block | in-progress | `code-block.css` | yes | code-block module | yes | module added | Copy-to-clipboard JS module added. |
 | Diff Viewer | beta | `diff-viewer.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
-| Pricing Card | beta | `pricing-card.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
-| Feature Grid | beta | `feature-grid.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
+| Pricing Card | beta | `pricing-card.css` | yes | no | yes | demo split | Demo variants split into separate showcase blocks. |
+| Feature Grid | beta | `feature-grid.css` | yes | no | yes | demo split | Demo variants split into separate showcase blocks. |
 | Calendar | in-progress | `calendar.css` | yes | no | yes | docs added | Now full-width; month navigation/date selection JS remains optional/planned. |
-| Date Picker | in-progress | `date-picker.css` | yes | date-picker module | yes | module added | `interactive` restored; JS module added for panel toggle and single-date selection. |
-| Command Palette | in-progress | `command-palette.css` | yes | command-palette module | yes | module added | `interactive` restored; JS module added for search, navigation, and selection. |
+| Date Picker | in-progress | `date-picker.css` | yes | date-picker module | yes | demo split | `interactive` restored; JS module added for panel toggle and single-date selection. Demo variants split into separate showcase blocks. |
+| Command Palette | in-progress | `command-palette.css` | yes | command-palette module | yes | demo split | `interactive` restored; JS module added for search, navigation, and selection. Demo now separates trigger and palette preview blocks. |
 | Browser Mockup | beta | `browser.css` | yes | no | yes | docs added | Now wide. |
 | Phone Mockup | beta | `phone.css` | yes | no | yes | docs added | Now wide. |
 | Window Mockup | beta | `window.css` | yes | no | yes | docs added | Now wide. |
@@ -183,7 +191,10 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
    - ✅ Split **CalendarDemo** into 2 blocks: Default Calendar, Compact Accent.
    - ✅ Split **TableDemo** into 3 blocks: Basic Table, Zebra Striping, Compact Density.
    - ✅ Split **ListDemo** into 3 blocks: Markers, Row Styles, Inline & Sizes.
-   - ⏳ `DatePickerDemo`, `CommandPaletteDemo`, `PricingCardDemo`, and `FeatureGridDemo` remain as candidates if they still feel too dense.
+   - ✅ Split **DatePickerDemo** into 3 blocks: Single, Inline, Range.
+   - ✅ Split **CommandPaletteDemo** into 2 blocks: Trigger, Palette Preview.
+   - ✅ Split **PricingCardDemo** into 3 blocks: Starter, Pro, Enterprise.
+   - ✅ Split **FeatureGridDemo** into 3 blocks: Default, Large Accent, Compact Neutral.
 
 6. **Add targeted tests** for responsive overflow, RTL rendering, reduced-motion behavior, and interaction modules.
 
@@ -191,8 +202,8 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
    - ✅ Added behavior tests for **Rating**, **Menu**, and **Carousel** in `packages/interactions/tests/navigation.test.mjs`.
    - ✅ Added runtime RTL layout and responsive overflow checks in `tests/visual/specs/responsive-rtl.spec.ts`.
    - ✅ Added reduced-motion behavior tests for `reveal`, `countUp`, and `stagger` in `packages/interactions/tests/animations.test.mjs`.
-   - ⏳ Visual baseline screenshots for `button.spec.ts` remain open.
+   - ✅ Visual baseline screenshots for `button.spec.ts` generated for desktop and mobile.
 
 7. ✅ **Fixed pre-existing Showcase TypeScript errors** in `apps/showcase/src/pages/playground.astro` and `theme-generator.astro`; `astro check` now passes cleanly.
 
-8. ✅ **Promoted six vetted components to `ready`** (Accordion, Collapse, Dropdown, Tabs, Toast, Tooltip) and created changeset `.changeset/promote-ready-components.md`.
+8. ✅ **Promoted eleven vetted components to `ready`** (Accordion, Button, Card, Checkbox, Collapse, Drawer, Dropdown, Modal, Tabs, Toast, Tooltip) and updated changeset `.changeset/promote-ready-components.md`.

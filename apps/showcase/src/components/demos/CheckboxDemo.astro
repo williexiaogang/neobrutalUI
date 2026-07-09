@@ -4,7 +4,17 @@
     <span>Enable notifications</span>
   </label>
   <label class="nb-cluster">
+    <input class="nb-checkbox" type="checkbox" data-demo-indeterminate aria-label="Select some projects" />
+    <span>Some projects selected</span>
+  </label>
+  <label class="nb-cluster">
     <input class="nb-checkbox" type="checkbox" disabled />
     <span>Admin mode (disabled)</span>
   </label>
 </div>
+
+<script>
+  document.querySelectorAll<HTMLInputElement>("[data-demo-indeterminate]").forEach((checkbox) => {
+    checkbox.indeterminate = true;
+  });
+</script>

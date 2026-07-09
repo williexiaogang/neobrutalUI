@@ -22,11 +22,11 @@ const EVENT_OPEN = `${NAMESPACE}:open`;
 const EVENT_CLOSE = `${NAMESPACE}:close`;
 const EVENT_TOGGLE = `${NAMESPACE}:toggle`;
 
-/** Create a dialog interaction instance for the given <dialog> element */
-export function createDialog(element: HTMLDialogElement, options: DialogOptions = {}): ComponentInstance {
-  if (!element || !(element instanceof HTMLDialogElement)) {
+/** Create a dialog interaction instance for a native <dialog> or fallback dialog element */
+export function createDialog(element: HTMLElement, options: DialogOptions = {}): ComponentInstance {
+  if (!element || !(element instanceof HTMLElement)) {
     throw new TypeError(
-      `[${NAMESPACE}] createDialog requires a valid <dialog> element. Received: ${typeof element}`
+      `[${NAMESPACE}] createDialog requires a valid HTMLElement. Received: ${typeof element}`
     );
   }
 
@@ -47,6 +47,8 @@ export function createDialog(element: HTMLDialogElement, options: DialogOptions 
 
   const events = createEventManager();
   const state = createStateManager(false);
+  const isNativeDialog =
+    typeof HTMLDialogElement !== 'undefined' && element instanceof HTMLDialogElement;
   let lastFocusedElement: Element | null = null;
   let cleanupState: (() => void) | undefined;
 
@@ -87,7 +89,7 @@ export function createDialog(element: HTMLDialogElement, options: DialogOptions 
 
     lastFocusedElement = saveActiveElement();
 
-    if (element.showModal) {
+    if (isNativeDialog && element.showModal) {
       element.showModal();
     } else {
       element.setAttribute('open', '');
@@ -96,6 +98,8 @@ export function createDialog(element: HTMLDialogElement, options: DialogOptions 
     }
 
     state.set(true);
+    element.classList.add('is-open');
+    element.setAttribute('aria-hidden', 'false');
     element.classList.add('nb-dialog--open');
 
     // Move focus to first focusable element inside dialog
@@ -120,7 +124,7 @@ export function createDialog(element: HTMLDialogElement, options: DialogOptions 
     const allowed = dispatchNamespacedEvent(element, EVENT_CLOSE);
     if (!allowed) return;
 
-    if (element.close) {
+    if (isNativeDialog && element.close) {
       element.close();
     } else {
       element.removeAttribute('open');
@@ -128,6 +132,8 @@ export function createDialog(element: HTMLDialogElement, options: DialogOptions 
     }
 
     state.set(false);
+    element.classList.remove('is-open');
+    element.setAttribute('aria-hidden', 'true');
     element.classList.remove('nb-dialog--open');
 
     if (returnFocus) {
@@ -199,8 +205,7 @@ export function createDialog(element: HTMLDialogElement, options: DialogOptions 
     close,
     toggle,
     destroy() {
-      if (!state.value) return;
-      close();
+      if (state.value) close();
       events.destroy();
       cleanupState?.();
       state.clear();

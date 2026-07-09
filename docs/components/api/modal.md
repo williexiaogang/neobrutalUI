@@ -3,7 +3,7 @@
 > **Component**: Modal  
 > **Category**: Overlay  
 > **Base classes**: `.nb-modal-backdrop`, `.nb-modal`  
-> **Status**: In Progress (visual CSS implemented; focus trap JS pending)
+> **Status**: Ready
 
 ---
 
@@ -133,7 +133,7 @@
 | Element | Recommendation |
 |---------|---------------|
 | `<dialog>` | **Preferred.** Provides native `::backdrop`, `[open]` attribute, `Escape` key dismissal, and focus trapping without JS. |
-| `<div>` | Fallback when `<dialog>` support is insufficient. Requires JS for focus trapping, backdrop click, and `Escape` dismissal. Add `role="dialog"` and `aria-modal="true"`. |
+| `<div>` | Fallback when `<dialog>` support is insufficient. `createDialog()` manages focus trapping, backdrop click, `Escape` dismissal, and open state attributes/classes. Add `role="dialog"` and `aria-modal="true"` when rendering open without JS. |
 
 ### Part Usage Rules
 

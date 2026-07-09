@@ -3,7 +3,7 @@
 > **Component**: Button  
 > **Category**: Actions  
 > **Base class**: `.nb-btn`  
-> **Status**: Beta (CSS implemented; loading state pending)
+> **Status**: Ready
 
 ---
 
@@ -21,6 +21,8 @@
 | `.nb-btn-sm` | Size | Small padding and font size. |
 | `.nb-btn-lg` | Size | Large padding and font size. |
 | `.nb-btn-block` | Layout | Full-width (`display: flex; inline-size: 100%`). |
+| `.nb-btn-icon` | Layout | Square icon-only button sizing. Requires an accessible name. |
+| `.nb-btn-loading` | State | Adds a leading spinner and disables pointer interaction. Pair with `aria-busy="true"`. |
 
 ### Class Combination Examples
 
@@ -36,6 +38,16 @@
 
 <!-- Ghost + block -->
 <button class="nb-btn nb-btn-ghost nb-btn-block">Full-width Ghost</button>
+
+<!-- Icon-only -->
+<button class="nb-btn nb-btn-icon" type="button" aria-label="Close">
+  <span aria-hidden="true">×</span>
+</button>
+
+<!-- Loading -->
+<button class="nb-btn nb-btn-primary nb-btn-loading" type="button" aria-busy="true">
+  Saving
+</button>
 ```
 
 ---
@@ -90,7 +102,7 @@
 | **active** | ✅ | `.nb-btn:active:not(:disabled)` | Shadow drops to `--nb-shadow-xs`, `translate(2px, 2px)`. |
 | **focus-visible** | ✅ | `:focus-visible` (global) | `outline: 3px solid var(--nb-focus); outline-offset: 2px;` |
 | **disabled** | ✅ | `.nb-btn:disabled` | `opacity: 0.6`, `cursor: not-allowed`, shadow reset, `translate(2px, 2px)`. |
-| **loading** | ❌ Not implemented | — | `.nb-btn-loading` does not exist in current CSS. Use `[aria-busy="true"]` with a spinner child or wait for future implementation. |
+| **loading** | ✅ | `.nb-btn-loading`, `.nb-btn[aria-busy="true"]` | Leading spinner, `cursor: progress`, pointer interaction disabled. |
 
 ### State Priority
 
@@ -122,6 +134,7 @@ Button follows the standard interactive surface pattern:
 ```css
 @media (prefers-reduced-motion: reduce) {
   .nb-btn { transition: none; }
+  .nb-btn-loading::before { animation: none; }
 }
 ```
 
@@ -170,15 +183,25 @@ Button follows the standard interactive surface pattern:
 ### Icon-Only Button (Accessible)
 
 ```html
-<button class="nb-btn" aria-label="Close dialog">
-  <svg aria-hidden="true"><!-- icon --></svg>
+<button class="nb-btn nb-btn-icon" type="button" aria-label="Close dialog">
+  <svg aria-hidden="true" focusable="false"><!-- icon --></svg>
 </button>
 ```
+
+Icon-only buttons must have an accessible name via `aria-label`, `aria-labelledby`, or visually hidden text. The icon itself should be hidden from assistive tech with `aria-hidden="true"` unless it is the accessible label.
+
+### Loading State
+
+```html
+<button class="nb-btn nb-btn-primary nb-btn-loading" type="button" aria-busy="true">
+  Saving
+</button>
+```
+
+Use `disabled` in addition to `aria-busy="true"` when the action must be removed from the tab order during async work.
 
 ---
 
 ## Known Issues
 
-- Loading state spinner alignment needs refinement (tracked in `apps/showcase/src/data/components.ts`).
-- Icon-only button accessible name pattern is not yet fully documented.
-- `.nb-btn-loading` class does not exist in the current CSS build.
+- None listed in component catalog.

@@ -166,6 +166,47 @@ test("dialog opens, traps tab focus, and restores focus on close", async () => {
   assert.equal(document.activeElement, launcher);
 });
 
+test("dialog supports div fallback focus trap and open state classes", async () => {
+  installDom(`
+    <button id="launcher" type="button">Open fallback</button>
+    <div id="dialog" class="nb-modal-backdrop" aria-hidden="true">
+      <div class="nb-modal">
+        <button id="first" type="button">First</button>
+        <button id="last" type="button">Last</button>
+      </div>
+    </div>
+  `);
+
+  const launcher = document.getElementById("launcher");
+  const dialogElement = document.getElementById("dialog");
+  const first = document.getElementById("first");
+  const last = document.getElementById("last");
+  const { createDialog } = await import(`../dist/dialog.js?test=${Date.now()}-dialog-fallback`);
+
+  launcher.focus();
+  const dialog = createDialog(dialogElement);
+
+  dialog.open();
+
+  assert.equal(dialog.isOpen, true);
+  assert.equal(dialogElement.hasAttribute("open"), true);
+  assert.equal(dialogElement.classList.contains("is-open"), true);
+  assert.equal(dialogElement.getAttribute("aria-hidden"), "false");
+  assert.equal(dialogElement.getAttribute("role"), "dialog");
+  assert.equal(document.activeElement, first);
+
+  first.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab", shiftKey: true, bubbles: true }));
+  assert.equal(document.activeElement, last);
+
+  dialog.close();
+
+  assert.equal(dialog.isOpen, false);
+  assert.equal(dialogElement.hasAttribute("open"), false);
+  assert.equal(dialogElement.classList.contains("is-open"), false);
+  assert.equal(dialogElement.getAttribute("aria-hidden"), "true");
+  assert.equal(document.activeElement, launcher);
+});
+
 test("drawer opens, traps focus, closes on backdrop click, and restores focus", async () => {
   installDom(`
     <button id="launcher" type="button">Open drawer</button>

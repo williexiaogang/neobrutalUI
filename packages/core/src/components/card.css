@@ -12,6 +12,42 @@
     border-radius: var(--nb-radius-box);
     background: var(--nb-base-100);
     box-shadow: var(--nb-shadow-md);
+    transform: translate(0, 0);
+  }
+
+  .nb-card-interactive {
+    cursor: pointer;
+    transition: transform var(--nb-duration-fast) var(--nb-ease-out),
+      box-shadow var(--nb-duration-fast) var(--nb-ease-out);
+  }
+
+  .nb-card-interactive:hover {
+    box-shadow: var(--nb-shadow-lg);
+    transform: translate(-2px, -2px);
+  }
+
+  .nb-card-interactive:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
+  .nb-card-interactive:active {
+    box-shadow: var(--nb-shadow-xs);
+    transform: translate(2px, 2px);
+  }
+
+  .nb-card-media {
+    display: block;
+    inline-size: 100%;
+    border-block-end: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-200);
+    overflow: hidden;
+  }
+
+  .nb-card-media > :is(img, video, svg) {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
   }
 
   .nb-card-header,
@@ -35,6 +71,12 @@
     line-height: var(--nb-leading-tight);
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .nb-card-interactive {
+      transition: none;
+    }
+  }
+
   /* Forced colors */
   @media (forced-colors: active) {
     .nb-card {
@@ -43,6 +85,7 @@
     }
 
     .nb-card-header,
+    .nb-card-media,
     .nb-card-footer {
       border-color: CanvasText;
     }

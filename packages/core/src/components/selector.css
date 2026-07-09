@@ -42,6 +42,7 @@
   }
 
   .nb-checkbox:checked,
+  .nb-checkbox:indeterminate,
   .nb-radio:checked {
     background: var(--nb-primary);
     border-color: var(--nb-border);
@@ -54,6 +55,13 @@
     border: solid var(--nb-primary-content);
     border-width: 0 2px 2px 0;
     transform: rotate(45deg) translate(-1px, -1px);
+  }
+
+  .nb-checkbox:indeterminate::after {
+    content: "";
+    inline-size: 0.75rem;
+    block-size: 0.1875rem;
+    background: var(--nb-primary-content);
   }
 
   .nb-radio:checked::after {
@@ -135,6 +143,7 @@
     }
 
     .nb-checkbox:checked,
+    .nb-checkbox:indeterminate,
     .nb-radio:checked {
       background: Highlight;
       border-color: Highlight;
@@ -142,6 +151,10 @@
 
     .nb-checkbox:checked::after {
       border-color: HighlightText;
+    }
+
+    .nb-checkbox:indeterminate::after {
+      background: HighlightText;
     }
 
     .nb-radio:checked::after {
