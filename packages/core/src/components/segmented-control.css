@@ -38,7 +38,7 @@
       transform var(--nb-duration-fast) var(--nb-ease-out);
   }
 
-  .nb-segmented-item:hover:not(:checked):not(:disabled) {
+  .nb-segmented-item:hover:not(:has(:checked)):not(:has(:disabled)) {
     background: var(--nb-base-300);
   }
 
@@ -47,14 +47,14 @@
     outline-offset: 2px;
   }
 
-  .nb-segmented-item:checked {
+  .nb-segmented-item:has(:checked) {
     background: var(--nb-base-100);
     border-color: var(--nb-border);
     box-shadow: var(--nb-shadow-sm);
     transform: translate(-1px, -1px);
   }
 
-  .nb-segmented-item:disabled {
+  .nb-segmented-item:has(:disabled) {
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -86,19 +86,19 @@
   }
 
   /* Color accent on checked state */
-  .nb-segmented-primary .nb-segmented-item:checked {
+  .nb-segmented-primary .nb-segmented-item:has(:checked) {
     background: var(--nb-primary);
     color: var(--nb-primary-content);
     border-color: var(--nb-border);
   }
 
-  .nb-segmented-secondary .nb-segmented-item:checked {
+  .nb-segmented-secondary .nb-segmented-item:has(:checked) {
     background: var(--nb-secondary);
     color: var(--nb-secondary-content);
     border-color: var(--nb-border);
   }
 
-  .nb-segmented-accent .nb-segmented-item:checked {
+  .nb-segmented-accent .nb-segmented-item:has(:checked) {
     background: var(--nb-accent);
     color: var(--nb-accent-content);
     border-color: var(--nb-border);

@@ -3,7 +3,7 @@
 > **Component**: Code Block  
 > **Category**: Data Display  
 > **Base class**: `.nb-code-block`  
-> **Status**: In Progress (header, line numbers, sizes, colors, plain/full variants, reduced-motion, and forced-colors support are implemented; JS copy-to-clipboard is optional)
+> **Status**: Ready
 
 ---
 

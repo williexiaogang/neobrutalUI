@@ -3,7 +3,7 @@
 > **Component**: Segmented Control  
 > **Category**: Forms  
 > **Base class**: `.nb-segmented`  
-> **Status**: In Progress (CSS visual layer implemented; JS keyboard navigation optional)
+> **Status**: Ready
 
 ---
 

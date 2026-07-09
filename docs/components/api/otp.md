@@ -3,7 +3,7 @@
 > **Component**: OTP Input  
 > **Category**: Forms  
 > **Base class**: `.nb-otp`  
-> **Status**: In Progress (CSS visual layer implemented; JS auto-focus chaining and paste handling optional)
+> **Status**: Ready
 
 ---
 
