@@ -3,7 +3,7 @@
 > **Component**: Breadcrumbs  
 > **Category**: Navigation  
 > **Base class**: `.nb-breadcrumb`  
-> **Status**: Beta (CSS visual layer implemented; reduced-motion and forced-colors support included)
+> **Status**: Ready (CSS visual layer, semantic markup guidance, collapsed mobile variant, reduced-motion, and forced-colors support included)
 
 > **Note**: The catalog slug is `breadcrumbs`, while the CSS source file is named `breadcrumb.css`.
 

@@ -3,7 +3,7 @@
 > **Component**: Stat  
 > **Category**: Data Display  
 > **Base class**: `.nb-stat`  
-> **Status**: Beta (vertical/horizontal layouts, trend arrows, color variants, sizes, compact, ghost, reduced-motion, and forced-colors support are implemented)
+> **Status**: Ready (vertical/horizontal layouts, trend arrows, color variants, sizes, compact, ghost, reduced-motion, and forced-colors support are implemented)
 
 ---
 

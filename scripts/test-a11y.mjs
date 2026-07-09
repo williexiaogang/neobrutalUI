@@ -101,13 +101,13 @@ function runStaticChecks(htmlFiles, baseDir) {
     const checks = [
       {
         name: "missing-lang",
-        pattern: /<html[^>]*>/i,
+        pattern: /<html[^>]*>/gi,
         test: (m) => !m[0].includes("lang="),
         msg: "<html> missing lang attribute",
       },
       {
         name: "missing-title",
-        pattern: /<title>([^<]*)<\/title>/i,
+        pattern: /<title>([^<]*)<\/title>/gi,
         test: (m) => !m[1] || m[1].trim().length < 2,
         msg: "<title> missing or empty",
       },
@@ -151,7 +151,7 @@ function runStaticChecks(htmlFiles, baseDir) {
       },
       {
         name: "missing-main-landmark",
-        pattern: /<main|<div[^>]*role=["']main["']/i,
+        pattern: /<main|<div[^>]*role=["']main["']/gi,
         test: (m) => !m,
         msg: "No <main> or role=main landmark found",
       },
@@ -178,9 +178,11 @@ function runStaticChecks(htmlFiles, baseDir) {
           // Find approximate line number
           let lineNum = 1;
           let pos = 0;
-          while (pos < match.index && pos !== -1) {
-            pos = html.indexOf("\n", pos) + 1;
-            if (pos > 0 && pos <= match.index) lineNum++;
+          while (true) {
+            const nextNewline = html.indexOf("\n", pos);
+            if (nextNewline === -1 || nextNewline >= match.index) break;
+            lineNum++;
+            pos = nextNewline + 1;
           }
           staticIssues.push({
             page: pageLabel,

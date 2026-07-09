@@ -3,7 +3,7 @@
 > **Component**: Form Summary  
 > **Category**: Forms  
 > **Base class**: `.nb-form-summary`  
-> **Status**: Beta (CSS visual layer implemented; error and warning variants, message list, and dismissible state available)
+> **Status**: Ready (CSS visual layer, error and warning variants, message list, field links, compact variant, RTL logical border, and forced-colors support included)
 
 ---
 

@@ -3,7 +3,7 @@
 > **Component**: Empty State  
 > **Category**: Layout  
 > **Base class**: `.nb-empty`  
-> **Status**: Beta (CSS visual layer implemented; compact and bordered variants available)
+> **Status**: Ready (CSS visual layer, compact and bordered variants, ARIA guidance, and forced-colors support included)
 
 ---
 
@@ -197,7 +197,3 @@ Uses logical properties and centered text alignment; no special RTL overrides ne
 ```
 
 ---
-
-## Known Issues
-
-- The component catalog notes mention a center-aligned variant, but `.nb-empty-center` does not exist in the current CSS build; the base `.nb-empty` is already center-aligned.

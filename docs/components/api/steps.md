@@ -3,7 +3,7 @@
 > **Component**: Steps  
 > **Category**: Navigation  
 > **Base class**: `.nb-steps`  
-> **Status**: Beta (horizontal/vertical layouts, completed/active/disabled states, color/size variants, responsive scroll, and forced-colors support included)
+> **Status**: Ready (horizontal/vertical layouts, completed/active/disabled states, color/size variants, responsive scroll, reduced-motion, and forced-colors support included)
 
 ---
 

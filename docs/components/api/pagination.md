@@ -3,7 +3,7 @@
 > **Component**: Pagination  
 > **Category**: Navigation  
 > **Base class**: `.nb-pagination`  
-> **Status**: Beta (numbered pages, previous/next, active, disabled, sizes, and forced-colors support included)
+> **Status**: Ready (numbered pages, previous/next, active, disabled, size variants, reduced-motion, and forced-colors support included)
 
 ---
 

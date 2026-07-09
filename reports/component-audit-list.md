@@ -1,11 +1,13 @@
 # Component Audit List
 
-Date: 2026-07-07
+Date: 2026-07-09
 
 Scope: 59 components from `apps/showcase/src/data/components.ts`, cross-checked against core CSS, showcase demos, interaction modules, API docs, and rendered showcase layout at `http://localhost:4321/#components`.
 
 Latest update:
 
+- Promoted: **Stat**, **Steps**, **Breadcrumbs**, **Pagination**, **Empty State**, **Form Summary**, and **Range** from `beta` to `ready` in `apps/showcase/src/data/components.ts` and updated their API docs and the component audit list.
+- Fixed: Empty State API docs no longer reference a non-existent `.nb-empty-center` variant; the base `.nb-empty` is already center-aligned.
 - Fixed: Card and Alert demos now use `.nb-component-card__demo`.
 - Fixed: Tabs, Menu, Rating, Carousel, and Toast are marked `interactive`.
 - Fixed: List, Calendar, and Date Picker are promoted to full-width showcase cards.
@@ -69,7 +71,7 @@ Latest update:
 These are the immediate follow-ups after the current Ready-batch promotion and audit consolidation. Pick from the top; details and per-component notes are in the Priority Findings and Component Checklist tables below.
 
 1. **Promote next Ready candidates** (vet against Ready gates: API docs, CSS complete, demo wiring, a11y, RTL, responsive, tests):
-   - `Stat`, `Steps`, `Breadcrumbs`, `Pagination`, `Empty State`, `Form Summary`, `Range`, `Hero`, `Footer`, `Timeline`, `Diff Viewer`, and mockups — mostly presentational; verify responsive/RTL details and mark disabled/reduced-motion as N/A where appropriate.
+   - `Hero`, `Footer`, `Timeline`, `Diff Viewer`, and mockups — mostly presentational; verify responsive/RTL details and mark disabled/reduced-motion as N/A where appropriate.
    - `File Input`, `Table`, and `List` — focus on wrapper guidance and long-content behavior before Ready.
 2. **Visual coverage** — keep expanding component-specific Playwright baselines beyond Button once component cards stabilize.
 3. **Acceptance warnings** — remaining warnings are 200% zoom and long-text heuristics; prioritize components with real rendered overflow before changing CSS broadly.
@@ -77,7 +79,7 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 ## Summary
 
 - Total catalog components: 59
-- Status split: 23 beta, 16 in-progress, 20 ready, 0 planned, 0 experimental
+- Status split: 16 beta, 16 in-progress, 27 ready, 0 planned, 0 experimental
 - Demos present by import name: 59 / 59
 - Core CSS coverage: 59 / 59 direct or aliased; `input.css` is a thin entrypoint that imports `field.css`
 - Interaction modules present for: accordion, carousel, collapse, code-block, command-palette, date-picker, dialog/modal, drawer, dropdown, menu, otp, rating, segmented-control, tabs, toast, tooltip
@@ -135,17 +137,17 @@ These are the immediate follow-ups after the current Ready-batch promotion and a
 | Collapse | ready | `collapse.css` | yes | collapse module | yes | ready | Click and keyboard toggle behavior tested; markup auto-discovery verified. |
 | Progress | ready | `progress.css` | yes | no | yes | ready | Native linear, custom linear, circular, striped, indeterminate, color, size, reduced-motion, forced-colors, ARIA contracts, and split demos are in place. |
 | Avatar | ready | `avatar.css` | yes | no | yes | ready | Image, initials fallback, status dots, sizes, grouped avatars, ARIA guidance, RTL logical positioning, and forced-colors are in place; reduced-motion/disabled are N/A. |
-| Stat | beta | `stat.css` | yes | no | yes | docs added | Wide layout helps. |
-| Steps | beta | `steps.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
-| Breadcrumbs | beta | `breadcrumb.css` | yes | no | yes | docs added | Slug plural maps to singular CSS; naming now documented. |
-| Pagination | beta | `pagination.css` | yes | no | yes | docs added | Full-width demo is appropriate. |
+| Stat | ready | `stat.css` | yes | no | yes | ready | Vertical/horizontal layouts, trend arrows, color/size variants, compact, ghost, reduced-motion, forced-colors, API docs, and demo are in place. |
+| Steps | ready | `steps.css` | yes | no | yes | ready | Horizontal/vertical layouts, completed/active/disabled states, color/size variants, responsive scroll, reduced-motion, forced-colors, API docs, and demo are in place. |
+| Breadcrumbs | ready | `breadcrumb.css` | yes | no | yes | ready | Semantic nav+ol markup, links, current page marker, separators, collapsed mobile variant, reduced-motion, forced-colors, API docs, and demo are in place. |
+| Pagination | ready | `pagination.css` | yes | no | yes | ready | Numbered pages, prev/next, active/disabled states, ellipsis, size variants, reduced-motion, forced-colors, API docs, and demo are in place. |
 | Button Group | ready | `button-group.css` | yes | no | yes | ready | Horizontal, vertical, block layouts, hover/active/disabled states, focus-visible, group ARIA labels, reduced-motion, and forced-colors are in place. |
 | Link | ready | `link.css` | yes | no | yes | ready | Valid link semantics, hover, focus-visible, forced-colors, and reduced-motion/disabled N/A guidance are in place. |
 | Menu | ready | `menu.css` | yes | menu module | yes | ready | Vertical/horizontal layouts, submenus, group labels, disabled items, roving keyboard behavior, demo wiring, docs, reduced-motion, and forced-colors are in place. |
-| Empty State | beta | `empty-state.css` | yes | no | yes | docs added | Now wide; split variants later if needed. |
-| Form Summary | beta | `form-summary.css` | yes | no | yes | docs added | Reduced-motion not applicable (no transitions). |
+| Empty State | ready | `empty-state.css` | yes | no | yes | ready | Icon, title, message, action areas, compact and bordered variants, forced-colors, API docs, and demo are in place; reduced-motion is N/A. |
+| Form Summary | ready | `form-summary.css` | yes | no | yes | ready | Error/warning variants, message list, field links, compact variant, RTL logical border, forced-colors, API docs, and demo are in place; reduced-motion is N/A. |
 | File Input | beta | `file-input.css` | yes | no | yes | docs added | Now wide; document drag/drop limits before Ready. |
-| Range | beta | `range.css` | yes | no | yes | docs added | Now wide; split variants later if needed. |
+| Range | ready | `range.css` | yes | no | yes | ready | Track, thumb, fill, color variants, vertical layout, tick marks, disabled state, reduced-motion, forced-colors, API docs, and demo are in place. |
 | OTP Input | in-progress | `otp.css` | yes | otp module | yes | module added | Auto-focus/paste JS module added. |
 | Segmented Control | in-progress | `segmented-control.css` | yes | segmented-control module | yes | module added | Keyboard navigation JS module added. |
 | Color Picker | beta | `color-picker.css` | yes | no | yes | docs added | Native input limitations now documented. |

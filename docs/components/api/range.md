@@ -3,7 +3,7 @@
 > **Component**: Range  
 > **Category**: Forms  
 > **Base class**: `.nb-range`  
-> **Status**: Beta (CSS visual layer implemented; track, thumb, fill, color variants, sizes, and disabled state available)
+> **Status**: Ready (CSS visual layer, track, thumb, fill, color variants, vertical layout, tick marks, disabled state, reduced-motion, and forced-colors support included)
 
 ---
 
