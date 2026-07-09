@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-07-09T07:58:47.460Z",
+    "generatedAt": "2026-07-09T08:45:12.163Z",
     "version": "0.0.2"
   },
   "css": {
-    "classCount": 698,
+    "classCount": 699,
     "classes": [
       "nb-accordion",
       "nb-accordion-content",
@@ -43,6 +43,7 @@
       "nb-badge-info",
       "nb-badge-outline",
       "nb-badge-primary",
+      "nb-badge-remove",
       "nb-badge-secondary",
       "nb-badge-success",
       "nb-badge-warning",
@@ -705,7 +706,7 @@
       "nb-window-title-icon",
       "nb-window-title-text"
     ],
-    "hash": "35471fe1e2edfafc"
+    "hash": "fb1aff3c13795277"
   },
   "tokens": {
     "tokenCount": 225,

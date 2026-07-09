@@ -3,7 +3,7 @@
 > **Component**: Badge  
 > **Category**: Data Display  
 > **Base class**: `.nb-badge`  
-> **Status**: In Progress (base visuals implemented; removable tag behavior is planned)
+> **Status**: Ready (base visuals, semantic colors, outline variant, and removable tag control styling implemented)
 
 ---
 
@@ -20,6 +20,7 @@
 | `.nb-badge-warning` | Color | Warning background with warning-content text. |
 | `.nb-badge-error` | Color | Error background with error-content text. |
 | `.nb-badge-outline` | Variant | Transparent background with border and content color. |
+| `.nb-badge-remove` | Part | Small inline remove button for removable tags. |
 
 ### Class Combination Examples
 
@@ -35,6 +36,12 @@
 
 <!-- Color + outline -->
 <span class="nb-badge nb-badge-error nb-badge-outline">Error Outline</span>
+
+<!-- Removable tag -->
+<span class="nb-badge nb-badge-secondary">
+  Filter
+  <button class="nb-badge-remove" type="button" aria-label="Remove Filter">&times;</button>
+</span>
 ```
 
 ---
@@ -47,16 +54,28 @@
 <span class="nb-badge nb-badge-primary">New</span>
 ```
 
+### Recommended Structure (Removable Tag)
+
+```html
+<span class="nb-badge nb-badge-secondary">
+  Filter
+  <button class="nb-badge-remove" type="button" aria-label="Remove Filter">&times;</button>
+</span>
+```
+
 ### Semantic Element
 
 - **Preferred**: `<span>` for static labels.
 - **For status with meaning**: `<span>` with a descriptive `title` or visually-hidden text.
+- **For removable tags**: Keep the badge wrapper as a `<span>` and place a real `<button type="button">` inside it.
 
 ### Required Attributes
 
 | Attribute | Required? | Value | Notes |
 |-----------|-----------|-------|-------|
 | — | — | — | No required attributes for the base badge. |
+| `type` | Yes (remove button) | `"button"` | Prevents form submission when the badge is rendered inside a form. |
+| `aria-label` | Yes (remove button) | Action text | Gives the icon-only remove control an accessible name. |
 
 ### Recommended ARIA
 
@@ -64,10 +83,11 @@
 |-----------|-------------|
 | `title` | To expose the full label on hover when text is truncated. |
 | visually hidden text | When the badge conveys important status (e.g., "Unread messages: 3"). |
+| `aria-label` | On `.nb-badge-remove` buttons to identify the removed item. |
 
 ### Keyboard Behavior
 
-Badges are static display elements and do not receive keyboard focus.
+Static badges do not receive keyboard focus. Removable badges expose the nested `.nb-badge-remove` button in the tab order.
 
 ---
 
@@ -80,6 +100,8 @@ Badges are static display elements and do not receive keyboard focus.
 | **disabled** | ❌ Not applicable | — | Badges are non-interactive. |
 | **color variants** | ✅ | `.nb-badge-primary`, `.nb-badge-secondary`, etc. | Changes background and text color. |
 | **outline** | ✅ | `.nb-badge-outline` | Transparent background with border. |
+| **remove hover** | ✅ | `.nb-badge-remove:hover` | Adds a subtle current-color fill to the remove button. |
+| **remove focus** | ✅ | `.nb-badge-remove:focus-visible` | Shows the shared focus outline. |
 
 ---
 
@@ -106,6 +128,8 @@ Badges are `inline-flex` pills with a large border radius (`9999px`), uppercase 
   letter-spacing: 0.025em;
 }
 ```
+
+Remove buttons inherit the badge color, use a 1rem circular hit target, and keep a visible focus outline.
 
 ### Reduced Motion
 
@@ -156,8 +180,17 @@ Uses logical properties; no special RTL overrides needed.
 <span class="nb-badge nb-badge-error nb-badge-outline">Error Outline</span>
 ```
 
+### Removable Tag
+
+```html
+<span class="nb-badge nb-badge-secondary">
+  Filter
+  <button class="nb-badge-remove" type="button" aria-label="Remove Filter">&times;</button>
+</span>
+```
+
 ---
 
 ## Known Issues
 
-- Removable tag behavior (dismiss button, animation, and ARIA pattern) is planned but not yet implemented.
+- None.

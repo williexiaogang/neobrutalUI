@@ -3,7 +3,7 @@
 > **Component**: Carousel  
 > **Category**: Data Display  
 > **Base class**: `.nb-carousel`  
-> **Status**: Beta (scroll-snap, size variants, color accent borders, overlay/inline nav modes, multi-slide visible modes, keyboard navigation, auto-play, and reduced-motion support are implemented)
+> **Status**: Ready (scroll-snap, size variants, color accent borders, overlay/inline nav modes, multi-slide visible modes, keyboard navigation, autoplay, loop mode, dot/arrow sync, and reduced-motion support are implemented)
 
 ---
 
@@ -130,7 +130,7 @@
 |-----|----------|
 | `Tab` | Moves focus to nav buttons / dot indicators. |
 | `Enter` / `Space` | Activates focused nav or dot button. |
-| `←` / `→` | Moves to previous / next slide (requires JS). |
+| `←` / `→` | Moves to previous / next slide. |
 
 ---
 
@@ -154,6 +154,8 @@
 ### Layout / Shadow / Motion
 
 `.nb-carousel` lays out a viewport, a horizontal scroll-snap track, nav buttons, dots, and an optional caption. The track hides scrollbars and uses smooth scroll. Nav buttons follow the standard interactive surface pattern (hover lift, active press, disabled state). Color variants only recolor the viewport border.
+
+`createCarousel()` manages previous/next buttons, active dots, `aria-selected`, disabled nav state, keyboard navigation, optional autoplay, optional loop mode, and teardown cleanup.
 
 ### Reduced Motion
 

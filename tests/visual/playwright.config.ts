@@ -1,6 +1,14 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const showcaseUrl = process.env.SHOWCASE_URL || "http://localhost:4321";
+const webServer = process.env.PLAYWRIGHT_NO_WEBSERVER
+  ? undefined
+  : {
+      command: "pnpm --filter @neo-brutal-ui/showcase preview",
+      url: showcaseUrl,
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
+    };
 
 /**
  * Neo-Brutal UI — Visual Regression Configuration
@@ -40,10 +48,5 @@ export default defineConfig({
       },
     },
   ],
-  webServer: {
-    command: "pnpm --filter @neo-brutal-ui/showcase preview",
-    url: showcaseUrl,
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-  },
+  webServer,
 });

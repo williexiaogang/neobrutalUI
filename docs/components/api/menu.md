@@ -3,7 +3,7 @@
 > **Component**: Menu  
 > **Category**: Navigation  
 > **Base class**: `.nb-menu`  
-> **Status**: Beta (vertical menu, horizontal menubar, submenus, disabled items, dividers, group labels, sizes, and forced-colors support included)
+> **Status**: Ready (vertical menu, horizontal menubar, submenus, disabled items, dividers, group labels, keyboard interaction, sizes, reduced-motion, and forced-colors support included)
 
 ---
 
@@ -102,11 +102,11 @@
 | Key | Behavior |
 |-----|----------|
 | `Tab` | Moves focus into/out of the menu. |
-| `ArrowDown` / `ArrowUp` | Moves focus between vertical menu items (recommended JS behavior). |
-| `ArrowLeft` / `ArrowRight` | Moves focus between menubar items; opens/closes submenus (recommended JS behavior). |
-| `Enter` / `Space` | Activates a menu item or opens a submenu (recommended JS behavior). |
-| `Esc` | Closes the current submenu or menu (recommended JS behavior). |
-| `Home` / `End` | Moves focus to first/last item (recommended JS behavior). |
+| `ArrowDown` / `ArrowUp` | Moves focus between vertical menu items. |
+| `ArrowLeft` / `ArrowRight` | Moves focus between menubar items; opens/closes submenus. |
+| `Enter` / `Space` | Activates a menu item or opens a submenu. |
+| `Esc` | Closes the current submenu or menu. |
+| `Home` / `End` | Moves focus to first/last item. |
 
 ---
 
@@ -130,6 +130,7 @@
 - Horizontal menubars are transparent, borderless, and scroll horizontally if needed.
 - Submenus are hidden by default and shown with `.is-open`; horizontal submenus are absolutely positioned.
 - Menu items have a fast background transition on hover/focus.
+- `createMenu()` manages roving focus, submenu `aria-expanded`, Escape handling, outside-click closing, and optional `onSelect` callbacks.
 
 ### Reduced Motion
 
@@ -217,4 +218,3 @@ Uses logical properties (`margin-inline-start`, `padding-inline-start`, `inset-i
   <li class="nb-menu-item nb-menu-item-disabled" role="menuitem" aria-disabled="true">Actual Size</li>
 </ul>
 ```
-

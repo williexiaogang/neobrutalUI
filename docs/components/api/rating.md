@@ -3,7 +3,7 @@
 > **Component**: Rating  
 > **Category**: Forms  
 > **Base class**: `.nb-rating`  
-> **Status**: Beta (CSS visual layer implemented; supports filled, half-filled, read-only, interactive hover, size, and color variants)
+> **Status**: Ready (filled, half-filled, read-only, interactive radiogroup behavior, keyboard selection, size, and color variants implemented)
 
 ---
 
@@ -52,12 +52,12 @@
 </div>
 
 <!-- Interactive -->
-<div class="nb-rating nb-rating-interactive nb-rating-primary" role="group" aria-label="Rate this product">
-  <span class="nb-rating-item" aria-label="1 star"></span>
-  <span class="nb-rating-item" aria-label="2 stars"></span>
-  <span class="nb-rating-item" aria-label="3 stars"></span>
-  <span class="nb-rating-item" aria-label="4 stars"></span>
-  <span class="nb-rating-item" aria-label="5 stars"></span>
+<div class="nb-rating nb-rating-interactive nb-rating-primary" data-nb-rating role="radiogroup" aria-label="Rate this product">
+  <span class="nb-rating-item" data-nb-rating-item data-value="1" role="radio" aria-checked="false" tabindex="0" aria-label="1 star"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="2" role="radio" aria-checked="false" tabindex="-1" aria-label="2 stars"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="3" role="radio" aria-checked="false" tabindex="-1" aria-label="3 stars"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="4" role="radio" aria-checked="false" tabindex="-1" aria-label="4 stars"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="5" role="radio" aria-checked="false" tabindex="-1" aria-label="5 stars"></span>
 </div>
 ```
 
@@ -80,45 +80,51 @@
 ### Recommended Structure (Interactive)
 
 ```html
-<div class="nb-rating nb-rating-interactive nb-rating-primary" role="group" aria-label="Rate this product">
-  <button class="nb-rating-item" type="button" aria-label="1 star"></button>
-  <button class="nb-rating-item" type="button" aria-label="2 stars"></button>
-  <button class="nb-rating-item" type="button" aria-label="3 stars"></button>
-  <button class="nb-rating-item" type="button" aria-label="4 stars"></button>
-  <button class="nb-rating-item" type="button" aria-label="5 stars"></button>
+<div class="nb-rating nb-rating-interactive nb-rating-primary" data-nb-rating role="radiogroup" aria-label="Rate this product">
+  <span class="nb-rating-item" data-nb-rating-item data-value="1" role="radio" aria-checked="false" tabindex="0" aria-label="1 star"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="2" role="radio" aria-checked="false" tabindex="-1" aria-label="2 stars"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="3" role="radio" aria-checked="false" tabindex="-1" aria-label="3 stars"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="4" role="radio" aria-checked="false" tabindex="-1" aria-label="4 stars"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="5" role="radio" aria-checked="false" tabindex="-1" aria-label="5 stars"></span>
 </div>
 ```
 
 ### Semantic Element
 
 - **Read-only**: Use a `<div>` or `<span>` with `role="img"` and a concise `aria-label` describing the rating value.
-- **Interactive**: Use a `<div>` or `<span>` with `role="group"` and `aria-label`. Individual stars can be `<button type="button">` elements with `aria-label` values.
+- **Interactive**: Use a `<div>` or `<span>` with `data-nb-rating`, `role="radiogroup"`, and `aria-label`. Individual stars use `data-nb-rating-item`, `data-value`, `role="radio"`, `aria-checked`, `tabindex`, and `aria-label`.
 
 ### Required Attributes
 
 | Attribute | Required? | Value | Notes |
 |-----------|-----------|-------|-------|
-| `role` | Recommended | `"img"` or `"group"` | Exposes the rating as an image or group to assistive tech. |
+| `role` | Recommended | `"img"` or `"radiogroup"` | Exposes the rating as an image or interactive radio group. |
 | `aria-label` | Recommended | Descriptive text | Required when no visible label is present. |
 | `aria-hidden` | Recommended | `"true"` | Use on decorative star icons in read-only mode. |
-| `type` | Yes (interactive buttons) | `"button"` | Prevents form submission for star buttons. |
+| `data-nb-rating-item` | Yes (interactive items) | empty | Lets `createRating()` discover rating items. |
+| `data-value` | Yes (interactive items) | numeric value | Defines the value selected by each item. |
+| `aria-checked` | Yes (interactive items) | `"true"` / `"false"` | Mirrors the selected value. |
+| `tabindex` | Yes (interactive items) | `"0"` / `"-1"` | Supports roving focus. |
 
 ### Recommended ARIA
 
 | Attribute | When to Use |
 |-----------|-------------|
 | `role="img"` | Read-only rating to expose the visual value as a single image. |
-| `role="group"` | Interactive rating to group star buttons. |
+| `role="radiogroup"` | Interactive rating to group radio-like star items. |
 | `aria-label` | On the root to describe the rating purpose or value. |
-| `aria-label` | On each interactive star button to label its value. |
+| `aria-label` | On each interactive star item to label its value. |
+| `aria-checked` | On each interactive star item to expose selection state. |
 
 ### Keyboard Behavior
 
 | Key | Behavior |
 |-----|----------|
 | `Tab` | Moves focus into/out of the interactive rating group. |
-| `ArrowLeft` / `ArrowRight` | Changes the selected value (JS optional). |
-| `Enter` / `Space` | Selects the focused star value (JS optional). |
+| `ArrowLeft` / `ArrowRight` | Changes the selected value. |
+| `ArrowUp` / `ArrowDown` | Changes the selected value. |
+| `Home` / `End` | Moves to the minimum / maximum value. |
+| `Enter` / `Space` | Selects the focused star value. |
 
 ---
 
@@ -154,6 +160,8 @@ Rating uses an inline flex container with a gap between stars. Each star is size
 ```
 
 Half-filled stars render a second glyph layered with `clip-path: inset(0 50% 0 0)`.
+
+`createRating()` manages `.nb-rating-item-filled`, `.nb-rating-item-half`, roving `tabindex`, `aria-checked`, pointer selection, keyboard selection, optional half values, and `onChange` callbacks.
 
 ### Reduced Motion
 
@@ -200,12 +208,12 @@ Uses logical properties (`margin-inline-start`, `inline-size`); no special RTL o
 ### Interactive Rating
 
 ```html
-<div class="nb-rating nb-rating-interactive nb-rating-primary" role="group" aria-label="Rate this product">
-  <button class="nb-rating-item" type="button" aria-label="1 star"></button>
-  <button class="nb-rating-item" type="button" aria-label="2 stars"></button>
-  <button class="nb-rating-item" type="button" aria-label="3 stars"></button>
-  <button class="nb-rating-item" type="button" aria-label="4 stars"></button>
-  <button class="nb-rating-item" type="button" aria-label="5 stars"></button>
+<div class="nb-rating nb-rating-interactive nb-rating-primary" data-nb-rating role="radiogroup" aria-label="Rate this product">
+  <span class="nb-rating-item" data-nb-rating-item data-value="1" role="radio" aria-checked="false" tabindex="0" aria-label="1 star"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="2" role="radio" aria-checked="false" tabindex="-1" aria-label="2 stars"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="3" role="radio" aria-checked="false" tabindex="-1" aria-label="3 stars"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="4" role="radio" aria-checked="false" tabindex="-1" aria-label="4 stars"></span>
+  <span class="nb-rating-item" data-nb-rating-item data-value="5" role="radio" aria-checked="false" tabindex="-1" aria-label="5 stars"></span>
 </div>
 ```
 
