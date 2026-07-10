@@ -3,7 +3,7 @@
 > **Component**: Tooltip  
 > **Category**: Overlay  
 > **Base class**: `.nb-tooltip`  
-> **Status**: Beta (CSS visual layer and JS interaction implemented)
+> **Status**: Ready (CSS visual layer and JS interaction implemented)
 
 ---
 

@@ -3,7 +3,7 @@
 > **Component**: Dropdown  
 > **Category**: Overlay  
 > **Base class**: `.nb-dropdown`  
-> **Status**: Beta (CSS visual layer and JS interaction implemented)
+> **Status**: Ready (CSS visual layer and JS interaction implemented)
 
 ---
 

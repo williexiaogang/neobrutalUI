@@ -3,7 +3,7 @@
 > **Component**: Accordion  
 > **Category**: Layout  
 > **Base class**: `.nb-accordion`  
-> **Status**: Beta (CSS visual layer and JS interaction implemented; supports single/multi-open, flush, and size variants)
+> **Status**: Ready (CSS visual layer and JS interaction implemented; supports single/multi-open, flush, and size variants)
 
 ---
 

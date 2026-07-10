@@ -3,7 +3,7 @@
 > **Component**: Tabs  
 > **Category**: Navigation  
 > **Base class**: `.nb-tabs`  
-> **Status**: Beta (CSS visual layer implemented; JS tab switching is optional)
+> **Status**: Ready (CSS visual layer implemented; JS tab switching is optional)
 
 ---
 

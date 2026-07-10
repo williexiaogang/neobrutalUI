@@ -3,7 +3,7 @@
 > **Component**: Collapse  
 > **Category**: Layout  
 > **Base class**: `.nb-collapse`  
-> **Status**: Beta (CSS visual layer and JS interaction implemented; supports smooth transitions, disabled state, and sm/lg sizes)
+> **Status**: Ready (CSS visual layer and JS interaction implemented; supports smooth transitions, disabled state, and sm/lg sizes)
 
 ---
 

@@ -3,7 +3,7 @@
 > **Component**: Toast  
 > **Category**: Feedback  
 > **Base class**: `.nb-toast`  
-> **Status**: Beta (CSS visual layer and JS interaction implemented)
+> **Status**: Ready (CSS visual layer and JS interaction implemented)
 
 ---
 
