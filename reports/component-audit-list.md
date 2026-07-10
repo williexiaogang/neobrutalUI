@@ -10,6 +10,7 @@ Scope: 59 components from `apps/showcase/src/data/components.ts`, cross-checked 
 - **Fixed**: Synchronized API doc status for **Accordion, Collapse, Dropdown, Tabs, Toast, Tooltip** from `beta` to `ready` in `docs/components/api/*.md`. These components had already been promoted in `apps/showcase/src/data/components.ts` and in changeset `.changeset/promote-ready-components.md`.
 - **Added**: Implemented `createNavbar()` interaction module in `packages/interactions/src/navbar.ts`, wired it in `NavbarDemo.astro`, added behavior tests, and promoted **Navbar** from `in-progress` to `ready`.
 - **Added**: Implemented `createCalendar()` interaction module in `packages/interactions/src/calendar.ts`, wired it in `CalendarDemo.astro`, added behavior tests, and promoted **Calendar** from `in-progress` to `ready`.
+- **Added**: Created `docs/components/README.md` as a landing page for the component documentation, listing all 59 components by category with links to their API docs.
 - **Updated**: Regenerated this audit report to reflect the current catalog state (59 ready / 0 beta / 0 in-progress).
 
 ## Next Actions
