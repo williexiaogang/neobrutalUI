@@ -3,7 +3,7 @@
 > **Component**: Calendar  
 > **Category**: Data Display  
 > **Base class**: `.nb-calendar`  
-> **Status**: In Progress (CSS visual layer implemented; JS for month navigation and date selection is optional)
+> **Status**: Ready (CSS visual layer and JS interaction implemented)
 
 ---
 
@@ -122,11 +122,11 @@
 | Key | Behavior |
 |-----|----------|
 | `Tab` | Moves focus into/out of the calendar grid. |
-| `ArrowLeft` / `ArrowRight` | Moves focus between days (JS optional). |
-| `ArrowUp` / `ArrowDown` | Moves focus by one week (JS optional). |
-| `Enter` / `Space` | Selects the focused day (JS optional). |
-| `PageUp` / `PageDown` | Navigates to previous/next month (JS optional). |
-| `Home` / `End` | Moves to start/end of the current week (JS optional). |
+| `ArrowLeft` / `ArrowRight` | Moves focus between days. |
+| `ArrowUp` / `ArrowDown` | Moves focus by one week. |
+| `Enter` / `Space` | Selects the focused day. |
+| `PageUp` / `PageDown` | Navigates to previous/next month. |
+| `Home` / `End` | Moves to start/end of the current week. |
 
 ---
 
@@ -196,10 +196,10 @@ The calendar uses logical properties for layout and text alignment. Range endpoi
 ### Basic Calendar
 
 ```html
-<div class="nb-calendar">
+<div class="nb-calendar" data-nb-calendar data-year="2025" data-month="6" role="application" aria-label="Calendar">
   <div class="nb-calendar-header">
     <button class="nb-calendar-nav-btn" type="button" aria-label="Previous month">‹</button>
-    <span class="nb-calendar-title">June 2025</span>
+    <span class="nb-calendar-title" aria-live="polite" aria-atomic="true">June 2025</span>
     <button class="nb-calendar-nav-btn" type="button" aria-label="Next month">›</button>
   </div>
   <div class="nb-calendar-weekdays" aria-hidden="true">
@@ -211,13 +211,7 @@ The calendar uses logical properties for layout and text alignment. Range endpoi
     <div class="nb-calendar-weekday">Fr</div>
     <div class="nb-calendar-weekday">Sa</div>
   </div>
-  <div class="nb-calendar-grid">
-    <div class="nb-calendar-day">1</div>
-    <div class="nb-calendar-day">2</div>
-    <div class="nb-calendar-day nb-calendar-day-today">6</div>
-    <div class="nb-calendar-day nb-calendar-day-selected">11</div>
-    <div class="nb-calendar-day nb-calendar-day-disabled">13</div>
-  </div>
+  <div class="nb-calendar-grid" role="grid"></div>
 </div>
 ```
 
@@ -258,3 +252,52 @@ The calendar uses logical properties for layout and text alignment. Range endpoi
   <div class="nb-calendar-grid">...</div>
 </div>
 ```
+
+
+---
+
+## JavaScript Interaction
+
+The optional interaction module renders the month grid, wires month navigation, and adds date selection and keyboard support.
+
+### Initialization
+
+```ts
+import { createCalendar } from "@neo-brutal-ui/interactions/calendar";
+
+document.querySelectorAll<HTMLElement>("[data-nb-calendar]").forEach((calendar) => {
+  createCalendar(calendar, { mode: "single" });
+});
+```
+
+### Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `mode` | `'single' \| 'range'` | `'single'` | Selection mode. |
+| `defaultDate` | `Date \| string` | — | Initially selected date (`YYYY-MM-DD` or `Date`). |
+| `minDate` | `Date \| string` | — | Earliest selectable date. |
+| `maxDate` | `Date \| string` | — | Latest selectable date. |
+| `firstDayOfWeek` | `number` | `0` | First day of the week (`0` = Sunday). |
+| `locale` | `string` | `'en-US'` | Locale for month/weekday labels. |
+| `today` | `Date \| string` | current date | Override for the current date highlight. |
+
+### API
+
+| Method | Description |
+|--------|-------------|
+| `open()` | Focus the currently selected or today's cell. |
+| `close()` | Blur focus if it is inside the calendar. |
+| `toggle()` | Toggle focus on the calendar grid. |
+| `setDate(value)` | Select a date programmatically and navigate to its month. |
+| `clear()` | Clear the current selection. |
+| `goToMonth(year, month)` | Navigate to a month (`month` is 0-based). |
+| `destroy()` | Remove all listeners and clean up state. |
+
+### Events
+
+The module dispatches bubbling, cancellable custom events:
+
+- `nb:calendar:select` — single date selected; detail: `{ date }`
+- `nb:calendar:range` — range completed; detail: `{ start, end }`
+- `nb:calendar:month-change` — view month changed; detail: `{ year, month }`

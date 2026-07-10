@@ -9,23 +9,23 @@ Scope: 59 components from `apps/showcase/src/data/components.ts`, cross-checked 
 - **Fixed**: Added missing `@import` statements for `chat-bubble.css` and `kbd.css` in `packages/core/src/index.css`. Both components were already marked `ready` in showcase and had complete CSS files, but their styles were not exported through the package entry point.
 - **Fixed**: Synchronized API doc status for **Accordion, Collapse, Dropdown, Tabs, Toast, Tooltip** from `beta` to `ready` in `docs/components/api/*.md`. These components had already been promoted in `apps/showcase/src/data/components.ts` and in changeset `.changeset/promote-ready-components.md`.
 - **Added**: Implemented `createNavbar()` interaction module in `packages/interactions/src/navbar.ts`, wired it in `NavbarDemo.astro`, added behavior tests, and promoted **Navbar** from `in-progress` to `ready`.
-- **Updated**: Regenerated this audit report to reflect the current catalog state (58 ready / 0 beta / 1 in-progress).
+- **Added**: Implemented `createCalendar()` interaction module in `packages/interactions/src/calendar.ts`, wired it in `CalendarDemo.astro`, added behavior tests, and promoted **Calendar** from `in-progress` to `ready`.
+- **Updated**: Regenerated this audit report to reflect the current catalog state (59 ready / 0 beta / 0 in-progress).
 
 ## Next Actions
 
-1. **Calendar** — add the optional month navigation / date selection JS module and promote to `ready`.
-2. **Visual regression** — expand component-specific Playwright baselines beyond Button once cards are stable.
-3. **Acceptance warnings** — address remaining 200% zoom and long-text heuristics for components with real rendered overflow.
+1. **Visual regression** — expand component-specific Playwright baselines beyond Button once cards are stable.
+2. **Acceptance warnings** — address remaining 200% zoom and long-text heuristics for components with real rendered overflow.
 
 ## Summary
 
 | Metric | Value |
 | --- | --- |
 | Total catalog components | 59 |
-| Status split | 58 ready, 0 beta, 1 in-progress, 0 planned, 0 experimental |
+| Status split | 59 ready, 0 beta, 0 in-progress, 0 planned, 0 experimental |
 | Demos present | 59 / 59 |
 | Core CSS coverage | 59 / 59 (direct or aliased via shared files) |
-| Interaction modules | 17 / 59 |
+| Interaction modules | 18 / 59 |
 | API docs | 59 / 59 |
 | Wide cards | 13 |
 | Full-width cards | 5 |
@@ -56,7 +56,7 @@ Scope: 59 components from `apps/showcase/src/data/components.ts`, cross-checked 
 | --- | --- | --- | --- | --- |
 | P1 | CSS exports | Chat, Kbd | `packages/core/src/index.css` was missing `@import` for `chat-bubble.css` and `kbd.css`. | ✅ Fixed in this pass. |
 | P1 | Docs status | Accordion, Collapse, Dropdown, Tabs, Toast, Tooltip | API docs still marked `beta` while showcase and changesets already promoted them to `ready`. | ✅ Fixed in this pass. |
-| P2 | Interaction gap | Calendar | `calendar.css` is complete, but month navigation / date selection JS is optional and not yet implemented. | Add `createCalendar()` interaction module. |
+| — | — | — | All catalog components are now `ready`. | Continue visual regression coverage and acceptance warning cleanup. |
 | P2 | Feature gap | Loading | No size variants implemented. | Documented as acceptable via inline sizing; optionally add `.nb-loading-sm` / `.nb-loading-lg`. |
 | P2 | Feature gap | Alert | No dismissible close-button style. | Documented as planned and requiring consumer JS; optionally add `.nb-alert-dismissible` styles. |
 
@@ -117,7 +117,7 @@ Scope: 59 components from `apps/showcase/src/data/components.ts`, cross-checked 
 | Diff Viewer | ready | `diff-viewer.css` | yes | no | yes | — | File header, hunks, added/removed/unchanged lines, sizes, forced-colors. |
 | Pricing Card | ready | `pricing-card.css` | yes | no | yes | — | Plan header, price, features, CTA, colors, sizes, hover lift, reduced-motion. |
 | Feature Grid | ready | `feature-grid.css` | yes | no | yes | — | Responsive grid, icon/title/description, colors, sizes, hover lift. |
-| Calendar | in-progress | `calendar.css` | yes | no | yes | full | Month grid, day states, range selection, sizes, colors, reduced-motion, forced-colors. Month nav / date selection JS optional. |
+| Calendar | ready | `calendar.css` | yes | calendar | yes | full | Month grid generation, navigation, single/range selection, keyboard nav, min/max limits, ARIA, tests. |
 | Date Picker | ready | `date-picker.css` | yes | date-picker | yes | full | Trigger, dropdown panel, range mode, inline variant, sizes, colors, tests. |
 | Command Palette | ready | `command-palette.css` | yes | command-palette | yes | wide | Backdrop, search, grouped results, shortcuts, active item, mobile fullscreen, tests. |
 | Browser Mockup | ready | `browser.css` | yes | no | yes | wide | Frame, toolbar, address bar, content, sizes, colors, forced-colors. |

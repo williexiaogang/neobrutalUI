@@ -713,14 +713,15 @@ export const components: ShowcaseComponent[] = [
     name: "Calendar",
     slug: "calendar",
     category: "data-display",
-    status: "in-progress",
+    status: "ready",
     description: "Month-view calendar grid with navigation, day states, and range selection.",
     available: true,
     demo: "CalendarDemo",
     size: "full",
+    interactive: true,
     tags: ["calendar", "date", "grid"],
     notes:
-      "CSS visual layer implemented. Supports header navigation, weekday row, day cell states (today, selected, disabled, outside-month), range selection (start/mid/end), sm/lg/compact size variants, and primary/secondary/accent/neutral/info/success/warning/error color variants. Reduced-motion and forced-colors support included. JS interaction for month navigation and date selection is optional.",
+      "Ready: month grid generation, previous/next month navigation, single and range date selection, keyboard navigation (arrows, PageUp/PageDown, Home/End, Enter/Space), min/max date limits, today highlighting, ARIA attributes, reduced-motion, forced-colors, size/color/compact variants, API docs, demo wiring, and behavior tests are implemented.",
     knownIssues: [],
   },
   {

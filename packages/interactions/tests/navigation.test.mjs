@@ -332,3 +332,141 @@ test("navbar initializes from markup when aria-expanded is true", async () => {
   assert.equal(navbar.isOpen, true);
   assert.equal(collapse.classList.contains("is-open"), true);
 });
+
+test("calendar renders grid and navigates months", async () => {
+  installDom(`
+    <div id="cal" class="nb-calendar" data-nb-calendar data-year="2025" data-month="6" role="application" aria-label="Calendar">
+      <div class="nb-calendar-header">
+        <button class="nb-calendar-nav-btn" type="button" aria-label="Previous month">‹</button>
+        <span class="nb-calendar-title" aria-live="polite">June 2025</span>
+        <button class="nb-calendar-nav-btn" type="button" aria-label="Next month">›</button>
+      </div>
+      <div class="nb-calendar-weekdays" aria-hidden="true"></div>
+      <div class="nb-calendar-grid" role="grid"></div>
+    </div>
+  `);
+
+  const root = document.getElementById("cal");
+  const title = root.querySelector(".nb-calendar-title");
+
+  const { createCalendar } = await import(`../dist/calendar.js?test=${Date.now()}-calendar-nav`);
+  const calendar = createCalendar(root);
+
+  const days = root.querySelectorAll(".nb-calendar-day");
+  assert.equal(days.length > 0, true);
+  assert.equal(title.textContent, "June 2025");
+
+  const nextBtn = root.querySelectorAll(".nb-calendar-nav-btn")[1];
+  nextBtn.click();
+  assert.equal(title.textContent, "July 2025");
+
+  const prevBtn = root.querySelectorAll(".nb-calendar-nav-btn")[0];
+  prevBtn.click();
+  assert.equal(title.textContent, "June 2025");
+});
+
+test("calendar selects a single date", async () => {
+  installDom(`
+    <div id="cal" class="nb-calendar" data-nb-calendar data-year="2025" data-month="6" role="application" aria-label="Calendar">
+      <div class="nb-calendar-header">
+        <button class="nb-calendar-nav-btn" type="button" aria-label="Previous month">‹</button>
+        <span class="nb-calendar-title" aria-live="polite">June 2025</span>
+        <button class="nb-calendar-nav-btn" type="button" aria-label="Next month">›</button>
+      </div>
+      <div class="nb-calendar-weekdays" aria-hidden="true"></div>
+      <div class="nb-calendar-grid" role="grid"></div>
+    </div>
+  `);
+
+  const root = document.getElementById("cal");
+
+  const { createCalendar } = await import(`../dist/calendar.js?test=${Date.now()}-calendar-select`);
+  const calendar = createCalendar(root, { today: "2025-06-06" });
+
+  const day = root.querySelector('[data-date="2025-06-15"]');
+  day.click();
+
+  assert.equal(calendar.value.getDate(), 15);
+  assert.equal(day.classList.contains("nb-calendar-day-selected"), true);
+  assert.equal(day.getAttribute("aria-selected"), "true");
+});
+
+test("calendar selects a range", async () => {
+  installDom(`
+    <div id="cal" class="nb-calendar" data-nb-calendar data-year="2025" data-month="6" role="application" aria-label="Calendar">
+      <div class="nb-calendar-header">
+        <button class="nb-calendar-nav-btn" type="button" aria-label="Previous month">‹</button>
+        <span class="nb-calendar-title" aria-live="polite">June 2025</span>
+        <button class="nb-calendar-nav-btn" type="button" aria-label="Next month">›</button>
+      </div>
+      <div class="nb-calendar-weekdays" aria-hidden="true"></div>
+      <div class="nb-calendar-grid" role="grid"></div>
+    </div>
+  `);
+
+  const root = document.getElementById("cal");
+
+  const { createCalendar } = await import(`../dist/calendar.js?test=${Date.now()}-calendar-range`);
+  const calendar = createCalendar(root, { mode: "range", today: "2025-06-06" });
+
+  root.querySelector('[data-date="2025-06-10"]').click();
+  root.querySelector('[data-date="2025-06-14"]').click();
+
+  assert.equal(calendar.range.start.getDate(), 10);
+  assert.equal(calendar.range.end.getDate(), 14);
+  assert.equal(root.querySelector('[data-date="2025-06-10"]').classList.contains("nb-calendar-day-range-start"), true);
+  assert.equal(root.querySelector('[data-date="2025-06-14"]').classList.contains("nb-calendar-day-range-end"), true);
+  assert.equal(root.querySelector('[data-date="2025-06-12"]').classList.contains("nb-calendar-day-range-mid"), true);
+});
+
+test("calendar disables dates outside min and max", async () => {
+  installDom(`
+    <div id="cal" class="nb-calendar" data-nb-calendar data-year="2025" data-month="6" role="application" aria-label="Calendar">
+      <div class="nb-calendar-header">
+        <button class="nb-calendar-nav-btn" type="button" aria-label="Previous month">‹</button>
+        <span class="nb-calendar-title" aria-live="polite">June 2025</span>
+        <button class="nb-calendar-nav-btn" type="button" aria-label="Next month">›</button>
+      </div>
+      <div class="nb-calendar-weekdays" aria-hidden="true"></div>
+      <div class="nb-calendar-grid" role="grid"></div>
+    </div>
+  `);
+
+  const root = document.getElementById("cal");
+
+  const { createCalendar } = await import(`../dist/calendar.js?test=${Date.now()}-calendar-disabled`);
+  createCalendar(root, { minDate: "2025-06-05", maxDate: "2025-06-25", today: "2025-06-06" });
+
+  assert.equal(root.querySelector('[data-date="2025-06-04"]').classList.contains("nb-calendar-day-disabled"), true);
+  assert.equal(root.querySelector('[data-date="2025-06-26"]').classList.contains("nb-calendar-day-disabled"), true);
+  assert.equal(root.querySelector('[data-date="2025-06-10"]').classList.contains("nb-calendar-day-disabled"), false);
+});
+
+test("calendar keyboard navigation moves focus", async () => {
+  installDom(`
+    <div id="cal" class="nb-calendar" data-nb-calendar data-year="2025" data-month="6" role="application" aria-label="Calendar">
+      <div class="nb-calendar-header">
+        <button class="nb-calendar-nav-btn" type="button" aria-label="Previous month">‹</button>
+        <span class="nb-calendar-title" aria-live="polite">June 2025</span>
+        <button class="nb-calendar-nav-btn" type="button" aria-label="Next month">›</button>
+      </div>
+      <div class="nb-calendar-weekdays" aria-hidden="true"></div>
+      <div class="nb-calendar-grid" role="grid"></div>
+    </div>
+  `);
+
+  const root = document.getElementById("cal");
+
+  const { createCalendar } = await import(`../dist/calendar.js?test=${Date.now()}-calendar-keyboard`);
+  const calendar = createCalendar(root, { today: "2025-06-10" });
+
+  const day10 = root.querySelector('[data-date="2025-06-10"]');
+  day10.focus();
+  assert.equal(document.activeElement, day10);
+
+  day10.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true }));
+  assert.equal(document.activeElement.getAttribute("data-date"), "2025-06-11");
+
+  document.activeElement.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown", bubbles: true }));
+  assert.equal(document.activeElement.getAttribute("data-date"), "2025-06-18");
+});

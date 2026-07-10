@@ -2,13 +2,20 @@
   <h4 class="nb-text-sm nb-font-bold nb-mb-2">Default Calendar</h4>
 
   <!-- Standard Calendar -->
-  <div class="nb-calendar">
+  <div
+    class="nb-calendar"
+    data-nb-calendar
+    data-year="2025"
+    data-month="6"
+    role="application"
+    aria-label="Event calendar"
+  >
     <div class="nb-calendar-header">
       <button class="nb-calendar-nav-btn" type="button" aria-label="Previous month">‹</button>
-      <span>June 2025</span>
+      <span class="nb-calendar-title" aria-live="polite" aria-atomic="true">June 2025</span>
       <button class="nb-calendar-nav-btn" type="button" aria-label="Next month">›</button>
     </div>
-    <div class="nb-calendar-weekdays">
+    <div class="nb-calendar-weekdays" aria-hidden="true">
       <div class="nb-calendar-weekday">Su</div>
       <div class="nb-calendar-weekday">Mo</div>
       <div class="nb-calendar-weekday">Tu</div>
@@ -17,64 +24,29 @@
       <div class="nb-calendar-weekday">Fr</div>
       <div class="nb-calendar-weekday">Sa</div>
     </div>
-    <div class="nb-calendar-grid">
-      <div class="nb-calendar-day">1</div>
-      <div class="nb-calendar-day">2</div>
-      <div class="nb-calendar-day">3</div>
-      <div class="nb-calendar-day">4</div>
-      <div class="nb-calendar-day">5</div>
-      <div class="nb-calendar-day nb-calendar-day-today">6</div>
-      <div class="nb-calendar-day">7</div>
-      <div class="nb-calendar-day">8</div>
-      <div class="nb-calendar-day">9</div>
-      <div class="nb-calendar-day">10</div>
-      <div class="nb-calendar-day nb-calendar-day-selected">11</div>
-      <div class="nb-calendar-day">12</div>
-      <div class="nb-calendar-day nb-calendar-day-disabled">13</div>
-      <div class="nb-calendar-day">14</div>
-      <div class="nb-calendar-day">15</div>
-      <div class="nb-calendar-day nb-calendar-day-range-start">16</div>
-      <div class="nb-calendar-day nb-calendar-day-range-mid">17</div>
-      <div class="nb-calendar-day nb-calendar-day-range-mid">18</div>
-      <div class="nb-calendar-day nb-calendar-day-range-end">19</div>
-      <div class="nb-calendar-day">20</div>
-      <div class="nb-calendar-day">21</div>
-      <div class="nb-calendar-day">22</div>
-      <div class="nb-calendar-day">23</div>
-      <div class="nb-calendar-day">24</div>
-      <div class="nb-calendar-day">25</div>
-      <div class="nb-calendar-day">26</div>
-      <div class="nb-calendar-day">27</div>
-      <div class="nb-calendar-day">28</div>
-      <div class="nb-calendar-day">29</div>
-      <div class="nb-calendar-day">30</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">1</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">2</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">3</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">4</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">5</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">6</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">7</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">8</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">9</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">10</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">11</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">12</div>
-    </div>
+    <div class="nb-calendar-grid" role="grid"></div>
   </div>
 </div>
 
 <div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-2);">
-  <h4 class="nb-text-sm nb-font-bold nb-mb-2">Compact Accent</h4>
+  <h4 class="nb-text-sm nb-font-bold nb-mb-2">Compact Accent (Range)</h4>
 
   <!-- Compact Accent Calendar -->
-  <div class="nb-calendar nb-calendar-compact nb-calendar-accent">
+  <div
+    class="nb-calendar nb-calendar-compact nb-calendar-accent"
+    data-nb-calendar
+    data-calendar-mode="range"
+    data-year="2025"
+    data-month="7"
+    role="application"
+    aria-label="Range calendar"
+  >
     <div class="nb-calendar-header">
       <button class="nb-calendar-nav-btn" type="button" aria-label="Previous month">‹</button>
-      <span>July 2025</span>
+      <span class="nb-calendar-title" aria-live="polite" aria-atomic="true">July 2025</span>
       <button class="nb-calendar-nav-btn" type="button" aria-label="Next month">›</button>
     </div>
-    <div class="nb-calendar-weekdays">
+    <div class="nb-calendar-weekdays" aria-hidden="true">
       <div class="nb-calendar-weekday">S</div>
       <div class="nb-calendar-weekday">M</div>
       <div class="nb-calendar-weekday">T</div>
@@ -83,49 +55,15 @@
       <div class="nb-calendar-weekday">F</div>
       <div class="nb-calendar-weekday">S</div>
     </div>
-    <div class="nb-calendar-grid">
-      <div class="nb-calendar-day nb-calendar-day-outside">29</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">30</div>
-      <div class="nb-calendar-day">1</div>
-      <div class="nb-calendar-day">2</div>
-      <div class="nb-calendar-day">3</div>
-      <div class="nb-calendar-day">4</div>
-      <div class="nb-calendar-day">5</div>
-      <div class="nb-calendar-day">6</div>
-      <div class="nb-calendar-day">7</div>
-      <div class="nb-calendar-day">8</div>
-      <div class="nb-calendar-day">9</div>
-      <div class="nb-calendar-day nb-calendar-day-today">10</div>
-      <div class="nb-calendar-day">11</div>
-      <div class="nb-calendar-day nb-calendar-day-selected">12</div>
-      <div class="nb-calendar-day">13</div>
-      <div class="nb-calendar-day">14</div>
-      <div class="nb-calendar-day">15</div>
-      <div class="nb-calendar-day">16</div>
-      <div class="nb-calendar-day">17</div>
-      <div class="nb-calendar-day">18</div>
-      <div class="nb-calendar-day">19</div>
-      <div class="nb-calendar-day">20</div>
-      <div class="nb-calendar-day">21</div>
-      <div class="nb-calendar-day">22</div>
-      <div class="nb-calendar-day">23</div>
-      <div class="nb-calendar-day">24</div>
-      <div class="nb-calendar-day">25</div>
-      <div class="nb-calendar-day">26</div>
-      <div class="nb-calendar-day">27</div>
-      <div class="nb-calendar-day">28</div>
-      <div class="nb-calendar-day">29</div>
-      <div class="nb-calendar-day">30</div>
-      <div class="nb-calendar-day">31</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">1</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">2</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">3</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">4</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">5</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">6</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">7</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">8</div>
-      <div class="nb-calendar-day nb-calendar-day-outside">9</div>
-    </div>
+    <div class="nb-calendar-grid" role="grid"></div>
   </div>
 </div>
+
+<script>
+  import { createCalendar } from "@neo-brutal-ui/interactions/calendar";
+
+  document.querySelectorAll<HTMLElement>("[data-nb-calendar]").forEach((calendar) => {
+    const mode = calendar.dataset.calendarMode === "range" ? "range" : "single";
+    createCalendar(calendar, { mode });
+  });
+</script>
