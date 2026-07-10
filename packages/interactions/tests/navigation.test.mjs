@@ -226,3 +226,109 @@ test("carousel loops when enabled", async () => {
   nextBtn.click();
   assert.equal(carousel.activeIndex, 0);
 });
+
+test("navbar toggles collapse on click and keyboard", async () => {
+  installDom(`
+    <nav id="navbar" class="nb-navbar" data-nb-navbar aria-label="Main navigation">
+      <a href="#" class="nb-navbar-brand">NeoBrand</a>
+      <div id="collapse" class="nb-navbar-collapse">
+        <ul class="nb-navbar-nav">
+          <li><a href="#">Home</a></li>
+        </ul>
+      </div>
+      <button id="toggle" class="nb-navbar-toggle" type="button" aria-expanded="false" aria-controls="collapse">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </nav>
+  `);
+
+  const root = document.getElementById("navbar");
+  const toggle = document.getElementById("toggle");
+  const collapse = document.getElementById("collapse");
+
+  const { createNavbar } = await import(`../dist/navbar.js?test=${Date.now()}-navbar`);
+  const navbar = createNavbar(root);
+
+  assert.equal(navbar.isOpen, false);
+  assert.equal(toggle.getAttribute("aria-expanded"), "false");
+  assert.equal(collapse.classList.contains("is-open"), false);
+
+  toggle.click();
+  assert.equal(navbar.isOpen, true);
+  assert.equal(toggle.getAttribute("aria-expanded"), "true");
+  assert.equal(collapse.classList.contains("is-open"), true);
+
+  toggle.click();
+  assert.equal(navbar.isOpen, false);
+  assert.equal(toggle.getAttribute("aria-expanded"), "false");
+  assert.equal(collapse.classList.contains("is-open"), false);
+
+  toggle.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
+  assert.equal(navbar.isOpen, true);
+
+  toggle.dispatchEvent(new KeyboardEvent("keydown", { key: " ", bubbles: true }));
+  assert.equal(navbar.isOpen, false);
+});
+
+test("navbar closes on Escape and destroys cleanly", async () => {
+  installDom(`
+    <nav id="navbar" class="nb-navbar" data-nb-navbar aria-label="Main navigation">
+      <a href="#" class="nb-navbar-brand">NeoBrand</a>
+      <div id="collapse" class="nb-navbar-collapse">
+        <ul class="nb-navbar-nav">
+          <li><a id="link" href="#">Home</a></li>
+        </ul>
+      </div>
+      <button id="toggle" class="nb-navbar-toggle" type="button" aria-expanded="false" aria-controls="collapse">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </nav>
+  `);
+
+  const root = document.getElementById("navbar");
+  const toggle = document.getElementById("toggle");
+
+  const { createNavbar } = await import(`../dist/navbar.js?test=${Date.now()}-navbar-escape`);
+  const navbar = createNavbar(root);
+
+  navbar.open();
+  assert.equal(navbar.isOpen, true);
+
+  document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+  assert.equal(navbar.isOpen, false);
+  assert.equal(toggle.getAttribute("aria-expanded"), "false");
+
+  navbar.open();
+  navbar.destroy();
+
+  // After destroy, clicking toggle should no longer toggle the state.
+  toggle.click();
+  assert.equal(root.querySelector("#collapse").classList.contains("is-open"), true);
+  // The class was set by the initial open() call; since we destroyed the instance,
+  // the click should not have closed it again.
+});
+
+test("navbar initializes from markup when aria-expanded is true", async () => {
+  installDom(`
+    <nav id="navbar" class="nb-navbar" data-nb-navbar aria-label="Main navigation">
+      <a href="#" class="nb-navbar-brand">NeoBrand</a>
+      <div id="collapse" class="nb-navbar-collapse">
+        <ul class="nb-navbar-nav">
+          <li><a href="#">Home</a></li>
+        </ul>
+      </div>
+      <button id="toggle" class="nb-navbar-toggle" type="button" aria-expanded="true" aria-controls="collapse">
+        <span aria-hidden="true">☰</span>
+      </button>
+    </nav>
+  `);
+
+  const root = document.getElementById("navbar");
+  const collapse = document.getElementById("collapse");
+
+  const { createNavbar } = await import(`../dist/navbar.js?test=${Date.now()}-navbar-init`);
+  const navbar = createNavbar(root);
+
+  assert.equal(navbar.isOpen, true);
+  assert.equal(collapse.classList.contains("is-open"), true);
+});

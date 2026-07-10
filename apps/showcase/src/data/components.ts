@@ -298,13 +298,16 @@ export const components: ShowcaseComponent[] = [
     name: "Navbar",
     slug: "navbar",
     category: "navigation",
-    status: "in-progress",
+    status: "ready",
     description: "Top navigation with brand, links, and mobile collapse.",
     available: true,
     demo: "NavbarDemo",
     size: "full",
+    interactive: true,
     tags: ["navigation"],
-    notes: "Visual structure and responsive mobile layout are implemented. Collapse behavior requires optional JS.",
+    notes:
+      "Ready: brand, nav links, actions, responsive mobile layout, collapse toggle, Escape close, aria-expanded sync, focus management, reduced-motion, forced-colors, RTL logical properties, API docs, demo wiring, and behavior tests are implemented.",
+    knownIssues: [],
   },
   {
     name: "Drawer",

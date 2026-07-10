@@ -96,6 +96,9 @@ export { createDatePicker } from './date-picker.js';
 
 export { createCommandPalette } from './command-palette.js';
 
+export { createNavbar } from './navbar.js';
+export type { NavbarInstance, NavbarOptions } from './navbar.js';
+
 export function createDisclosure(element: HTMLElement, options: DisclosureOptions = {}): CollapseInstance {
   return createCollapse(element, options);
 }

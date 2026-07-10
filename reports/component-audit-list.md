@@ -8,24 +8,24 @@ Scope: 59 components from `apps/showcase/src/data/components.ts`, cross-checked 
 
 - **Fixed**: Added missing `@import` statements for `chat-bubble.css` and `kbd.css` in `packages/core/src/index.css`. Both components were already marked `ready` in showcase and had complete CSS files, but their styles were not exported through the package entry point.
 - **Fixed**: Synchronized API doc status for **Accordion, Collapse, Dropdown, Tabs, Toast, Tooltip** from `beta` to `ready` in `docs/components/api/*.md`. These components had already been promoted in `apps/showcase/src/data/components.ts` and in changeset `.changeset/promote-ready-components.md`.
-- **Updated**: Regenerated this audit report to reflect the current catalog state (57 ready / 0 beta / 2 in-progress).
+- **Added**: Implemented `createNavbar()` interaction module in `packages/interactions/src/navbar.ts`, wired it in `NavbarDemo.astro`, added behavior tests, and promoted **Navbar** from `in-progress` to `ready`.
+- **Updated**: Regenerated this audit report to reflect the current catalog state (58 ready / 0 beta / 1 in-progress).
 
 ## Next Actions
 
-1. **Navbar** — add the optional collapse JS interaction module (`packages/interactions/src/navbar.ts` or similar) and promote to `ready`.
-2. **Calendar** — add the optional month navigation / date selection JS module and promote to `ready`.
-3. **Visual regression** — expand component-specific Playwright baselines beyond Button once cards are stable.
-4. **Acceptance warnings** — address remaining 200% zoom and long-text heuristics for components with real rendered overflow.
+1. **Calendar** — add the optional month navigation / date selection JS module and promote to `ready`.
+2. **Visual regression** — expand component-specific Playwright baselines beyond Button once cards are stable.
+3. **Acceptance warnings** — address remaining 200% zoom and long-text heuristics for components with real rendered overflow.
 
 ## Summary
 
 | Metric | Value |
 | --- | --- |
 | Total catalog components | 59 |
-| Status split | 57 ready, 0 beta, 2 in-progress, 0 planned, 0 experimental |
+| Status split | 58 ready, 0 beta, 1 in-progress, 0 planned, 0 experimental |
 | Demos present | 59 / 59 |
 | Core CSS coverage | 59 / 59 (direct or aliased via shared files) |
-| Interaction modules | 16 / 59 |
+| Interaction modules | 17 / 59 |
 | API docs | 59 / 59 |
 | Wide cards | 13 |
 | Full-width cards | 5 |
@@ -56,7 +56,6 @@ Scope: 59 components from `apps/showcase/src/data/components.ts`, cross-checked 
 | --- | --- | --- | --- | --- |
 | P1 | CSS exports | Chat, Kbd | `packages/core/src/index.css` was missing `@import` for `chat-bubble.css` and `kbd.css`. | ✅ Fixed in this pass. |
 | P1 | Docs status | Accordion, Collapse, Dropdown, Tabs, Toast, Tooltip | API docs still marked `beta` while showcase and changesets already promoted them to `ready`. | ✅ Fixed in this pass. |
-| P2 | Interaction gap | Navbar | `navbar.css` is complete, but collapse behavior requires an optional JS module that does not yet exist. | Add `createNavbar()` or equivalent interaction module. |
 | P2 | Interaction gap | Calendar | `calendar.css` is complete, but month navigation / date selection JS is optional and not yet implemented. | Add `createCalendar()` interaction module. |
 | P2 | Feature gap | Loading | No size variants implemented. | Documented as acceptable via inline sizing; optionally add `.nb-loading-sm` / `.nb-loading-lg`. |
 | P2 | Feature gap | Alert | No dismissible close-button style. | Documented as planned and requiring consumer JS; optionally add `.nb-alert-dismissible` styles. |
@@ -86,7 +85,7 @@ Scope: 59 components from `apps/showcase/src/data/components.ts`, cross-checked 
 | Table | ready | `table.css` | yes | no | yes | full | Responsive wrapper pattern, zebra, hover, compact, sticky header option. |
 | List | ready | `list.css` | yes | no | yes | full | Numbered, bulleted, striped, divided, bordered, inline, compact. |
 | Description List | ready | `description-list.css` | yes | no | yes | — | Horizontal, bordered, divided, compact, RTL. |
-| Navbar | in-progress | `navbar.css` | yes | no | yes | full | Visual structure and responsive mobile layout done; collapse JS missing. |
+| Navbar | ready | `navbar.css` | yes | navbar | yes | full | Collapse toggle, Escape close, aria-expanded sync, focus management, reduced-motion, forced-colors, RTL, tests. |
 | Drawer | ready | `drawer.css` | yes | drawer | yes | wide | Focus trap, Escape, backdrop, placements, RTL, reduced-motion, forced-colors. |
 | Toast | ready | `toast.css` | yes | toast | yes | wide | `createToastManager()` wired; stacking, auto-dismiss, positions, reduced-motion. |
 | Accordion | ready | `accordion.css` | yes | accordion | yes | — | Single/multi-open, flush, sizes, keyboard navigation, disabled items. |

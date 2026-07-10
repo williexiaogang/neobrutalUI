@@ -3,7 +3,7 @@
 > **Component**: Navbar  
 > **Category**: Navigation  
 > **Base class**: `.nb-navbar`  
-> **Status**: In Progress (visual structure and responsive layout implemented; collapse behavior requires optional JS)
+> **Status**: Ready (visual structure, responsive layout, and collapse interaction implemented)
 
 ---
 
@@ -95,7 +95,8 @@
 | Key | Behavior |
 |-----|----------|
 | `Tab` | Moves focus through brand, toggle (on mobile), nav links, and actions. |
-| `Enter` / `Space` | Activates the toggle button to open/close the mobile menu (requires JS). |
+| `Enter` / `Space` | Activates the toggle button to open/close the mobile menu. |
+| `Escape` | Closes an open mobile menu. |
 | Standard link keys | Nav links follow native anchor behavior. |
 
 ---
@@ -144,7 +145,7 @@ Uses logical properties (`border-block-end`, `border-block-start`, `padding-bloc
 ### Basic Navbar
 
 ```html
-<nav class="nb-navbar" aria-label="Main navigation">
+<nav class="nb-navbar" data-nb-navbar aria-label="Main navigation">
   <a href="#" class="nb-navbar-brand">NeoBrand</a>
   <div class="nb-navbar-collapse is-open" id="navbar-collapse">
     <ul class="nb-navbar-nav">
@@ -166,7 +167,7 @@ Uses logical properties (`border-block-end`, `border-block-start`, `padding-bloc
 ### Collapsed Mobile Navbar
 
 ```html
-<nav class="nb-navbar" aria-label="Mobile navigation preview">
+<nav class="nb-navbar" data-nb-navbar aria-label="Mobile navigation preview">
   <a href="#" class="nb-navbar-brand">NeoBrand</a>
   <div class="nb-navbar-collapse" id="navbar-collapse-closed">
     <ul class="nb-navbar-nav">
@@ -179,4 +180,38 @@ Uses logical properties (`border-block-end`, `border-block-start`, `padding-bloc
   </button>
 </nav>
 ```
+
+---
+
+## JavaScript Interaction
+
+The optional interaction module adds toggle behavior, keyboard support, and ARIA synchronization.
+
+### Initialization
+
+```ts
+import { createNavbar } from "@neo-brutal-ui/interactions/navbar";
+
+document.querySelectorAll<HTMLElement>("[data-nb-navbar]").forEach((navbar) => {
+  createNavbar(navbar);
+});
+```
+
+### API
+
+| Method | Description |
+|--------|-------------|
+| `open()` | Opens the collapse menu and focuses the first nav link. |
+| `close()` | Closes the collapse menu and returns focus to the toggle. |
+| `toggle()` | Opens if closed, closes if open. |
+| `destroy()` | Removes all event listeners and cleans up state. |
+| `isOpen` | Read-only boolean state. |
+
+### Events
+
+The module dispatches bubbling, cancellable custom events:
+
+- `nb:navbar:open`
+- `nb:navbar:close`
+- `nb:navbar:toggle`
 

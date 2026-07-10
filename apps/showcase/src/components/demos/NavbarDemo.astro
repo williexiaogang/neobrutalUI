@@ -1,7 +1,7 @@
 <div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-4);">
   <!-- Default Navbar -->
   <div>
-    <nav class="nb-navbar" aria-label="Main navigation">
+    <nav class="nb-navbar" data-nb-navbar aria-label="Main navigation">
       <a href="#" class="nb-navbar-brand">NeoBrand</a>
       <div class="nb-navbar-collapse is-open" id="navbar-collapse-demo">
         <ul class="nb-navbar-nav">
@@ -26,9 +26,9 @@
     </nav>
   </div>
 
-  <!-- Collapsed Navbar (mobile preview) -->
-  <div>
-    <nav class="nb-navbar" aria-label="Mobile navigation preview">
+  <!-- Mobile Collapse Preview -->
+  <div class="nb-navbar-mobile-preview">
+    <nav class="nb-navbar" data-nb-navbar aria-label="Mobile navigation preview">
       <a href="#" class="nb-navbar-brand">NeoBrand</a>
       <div class="nb-navbar-collapse" id="navbar-collapse-demo-closed">
         <ul class="nb-navbar-nav">
@@ -45,10 +45,65 @@
         aria-label="Toggle navigation"
         aria-expanded="false"
         aria-controls="navbar-collapse-demo-closed"
-        style="display: inline-flex;"
       >
         <span aria-hidden="true">☰</span>
       </button>
     </nav>
   </div>
 </div>
+
+<style>
+  /* Demo-only preview class that forces the mobile collapse layout
+     regardless of viewport width so the toggle interaction is visible. */
+  .nb-navbar-mobile-preview .nb-navbar {
+    flex-wrap: wrap;
+  }
+
+  .nb-navbar-mobile-preview .nb-navbar-toggle {
+    display: inline-flex;
+  }
+
+  .nb-navbar-mobile-preview .nb-navbar-collapse {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    inline-size: 100%;
+    padding-block-start: var(--nb-space-3);
+    border-block-start: var(--nb-border-width) solid var(--nb-border);
+    margin-block-start: var(--nb-space-3);
+  }
+
+  .nb-navbar-mobile-preview .nb-navbar-collapse.is-open {
+    display: flex;
+  }
+
+  .nb-navbar-mobile-preview .nb-navbar-nav {
+    flex-direction: column;
+    gap: 0;
+    inline-size: 100%;
+  }
+
+  .nb-navbar-mobile-preview .nb-navbar-nav a {
+    padding: var(--nb-space-3) var(--nb-space-2);
+    border-block-end: 1px solid var(--nb-border);
+  }
+
+  .nb-navbar-mobile-preview .nb-navbar-nav a:last-child {
+    border-block-end: none;
+  }
+
+  .nb-navbar-mobile-preview .nb-navbar-actions {
+    flex-direction: column;
+    inline-size: 100%;
+    gap: var(--nb-space-2);
+    padding-block-start: var(--nb-space-3);
+  }
+</style>
+
+<script>
+  import { createNavbar } from "@neo-brutal-ui/interactions/navbar";
+
+  document.querySelectorAll<HTMLElement>("[data-nb-navbar]").forEach((navbar) => {
+    createNavbar(navbar);
+  });
+</script>
