@@ -58,8 +58,8 @@ Scope: 59 components from `apps/showcase/src/data/components.ts`, cross-checked 
 | P1 | CSS exports | Chat, Kbd | `packages/core/src/index.css` was missing `@import` for `chat-bubble.css` and `kbd.css`. | ✅ Fixed in this pass. |
 | P1 | Docs status | Accordion, Collapse, Dropdown, Tabs, Toast, Tooltip | API docs still marked `beta` while showcase and changesets already promoted them to `ready`. | ✅ Fixed in this pass. |
 | — | — | — | All catalog components are now `ready`. | Continue visual regression coverage and acceptance warning cleanup. |
-| P2 | Feature gap | Loading | No size variants implemented. | Documented as acceptable via inline sizing; optionally add `.nb-loading-sm` / `.nb-loading-lg`. |
-| P2 | Feature gap | Alert | No dismissible close-button style. | Documented as planned and requiring consumer JS; optionally add `.nb-alert-dismissible` styles. |
+| P2 | Feature gap | Loading | No size variants implemented. | ✅ Fixed: added `.nb-loading-xs`, `.nb-loading-sm`, `.nb-loading-lg`, `.nb-loading-xl` with proportional border widths. |
+| P2 | Feature gap | Alert | No dismissible close-button style. | ✅ Fixed: added `.nb-alert-dismissible` and `.nb-alert-close` with hover/active/focus-visible states. |
 
 ## Component Checklist
 

@@ -15,6 +15,31 @@
     animation: nb-spin 0.8s linear infinite;
   }
 
+  /* Size variants */
+  .nb-loading-xs {
+    inline-size: 0.75rem;
+    block-size: 0.75rem;
+    border-width: 2px;
+  }
+
+  .nb-loading-sm {
+    inline-size: 1rem;
+    block-size: 1rem;
+    border-width: 2px;
+  }
+
+  .nb-loading-lg {
+    inline-size: 2rem;
+    block-size: 2rem;
+    border-width: 4px;
+  }
+
+  .nb-loading-xl {
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    border-width: 4px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .nb-loading {
       animation: none;

@@ -53,6 +53,48 @@
     color: var(--nb-base-content-muted);
   }
 
+  /* Dismissible */
+  .nb-alert-dismissible {
+    position: relative;
+    padding-inline-end: var(--nb-space-8);
+  }
+
+  .nb-alert-close {
+    position: absolute;
+    inset-inline-end: var(--nb-space-2);
+    inset-block-start: var(--nb-space-2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    padding: 0;
+    border: var(--nb-border-width) solid var(--nb-border);
+    border-radius: var(--nb-radius-selector);
+    background: var(--nb-base-100);
+    color: var(--nb-base-content-muted);
+    cursor: pointer;
+    transition: background var(--nb-duration-fast), color var(--nb-duration-fast), box-shadow var(--nb-duration-fast);
+  }
+
+  .nb-alert-close:hover {
+    background: var(--nb-error);
+    color: var(--nb-error-content);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-alert-close:active {
+    background: var(--nb-error);
+    color: var(--nb-error-content);
+    box-shadow: none;
+    transform: translate(2px, 2px);
+  }
+
+  .nb-alert-close:focus-visible {
+    outline: 2px solid var(--nb-focus);
+    outline-offset: 2px;
+  }
+
   /* Forced colors */
   @media (forced-colors: active) {
     .nb-alert {
