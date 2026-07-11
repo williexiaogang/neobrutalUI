@@ -153,7 +153,7 @@ export const components: ShowcaseComponent[] = [
     demo: "AlertDemo",
     tags: ["message"],
     notes:
-      "Ready: info, success, warning, and error accent variants, icon/title/body structure, role=alert semantics, forced-colors, RTL logical properties, and API docs are implemented. Dismissible behavior is documented as planned and requires consumer JS.",
+      "Ready: info, success, warning, and error accent variants, icon/title/body structure, role=alert semantics, forced-colors, RTL logical properties, and API docs are implemented. Dismissible close-button styles (.nb-alert-dismissible, .nb-alert-close) are now implemented.",
   },
   {
     name: "Divider",
@@ -178,7 +178,7 @@ export const components: ShowcaseComponent[] = [
     demo: "LoadingDemo",
     tags: ["spinner"],
     notes:
-      'Ready: base spinner animation, reduced-motion dashed-ring fallback, forced-colors, screen-reader strategy (role="status", aria-live="polite"), and disabled N/A guidance. Size variants are not implemented; use inline sizing for custom dimensions.',
+      'Ready: base spinner animation, reduced-motion dashed-ring fallback, forced-colors, screen-reader strategy (role="status", aria-live="polite"), and disabled N/A guidance. Size variants (xs, sm, lg, xl) are now implemented.',
     knownIssues: [],
   },
   {
