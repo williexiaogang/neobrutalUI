@@ -6,7 +6,9 @@
 
 @layer nb.theme {
   [data-theme="neo-brutal"],
-  [data-theme="neo-brutal-dark"] {
+  [data-theme="neo-brutal-dark"],
+  [data-theme="emerald"],
+  [data-theme="emerald-dark"] {
     /* Z-index */
     --nb-z-sticky: 100;
     --nb-z-dropdown: 200;

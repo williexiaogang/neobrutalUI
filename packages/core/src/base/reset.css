@@ -6,7 +6,9 @@
 
 @layer nb.base {
   [data-theme="neo-brutal"],
-  [data-theme="neo-brutal-dark"] {
+  [data-theme="neo-brutal-dark"],
+  [data-theme="emerald"],
+  [data-theme="emerald-dark"] {
     color: var(--nb-base-content);
     font-family: var(--nb-font-sans);
     line-height: var(--nb-leading-normal);
@@ -17,18 +19,28 @@
   [data-theme="neo-brutal"] *::after,
   [data-theme="neo-brutal-dark"] *,
   [data-theme="neo-brutal-dark"] *::before,
-  [data-theme="neo-brutal-dark"] *::after {
+  [data-theme="neo-brutal-dark"] *::after,
+  [data-theme="emerald"] *,
+  [data-theme="emerald"] *::before,
+  [data-theme="emerald"] *::after,
+  [data-theme="emerald-dark"] *,
+  [data-theme="emerald-dark"] *::before,
+  [data-theme="emerald-dark"] *::after {
     box-sizing: border-box;
   }
 
   [data-theme="neo-brutal"] :focus-visible,
-  [data-theme="neo-brutal-dark"] :focus-visible {
+  [data-theme="neo-brutal-dark"] :focus-visible,
+  [data-theme="emerald"] :focus-visible,
+  [data-theme="emerald-dark"] :focus-visible {
     outline: 3px solid var(--nb-focus);
     outline-offset: 2px;
   }
 
   [data-theme="neo-brutal"] ::selection,
-  [data-theme="neo-brutal-dark"] ::selection {
+  [data-theme="neo-brutal-dark"] ::selection,
+  [data-theme="emerald"] ::selection,
+  [data-theme="emerald-dark"] ::selection {
     background: var(--nb-accent);
     color: var(--nb-accent-content);
   }

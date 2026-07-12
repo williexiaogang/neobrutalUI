@@ -14,7 +14,9 @@
 
 @layer nb.theme {
   [data-theme="neo-brutal"],
-  [data-theme="neo-brutal-dark"] {
+  [data-theme="neo-brutal-dark"],
+  [data-theme="emerald"],
+  [data-theme="emerald-dark"] {
     /* Button */
     --nb-btn-border-width: var(--nb-border-width);
     --nb-btn-shadow: var(--nb-shadow-md);

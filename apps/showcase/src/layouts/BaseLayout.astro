@@ -55,7 +55,12 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url).toString();
       (function () {
         var saved = localStorage.getItem("nb-theme");
         var html = document.documentElement;
-        if (saved === "neo-brutal-dark" || saved === "neo-brutal") {
+        if (
+          saved === "neo-brutal" ||
+          saved === "neo-brutal-dark" ||
+          saved === "emerald" ||
+          saved === "emerald-dark"
+        ) {
           html.setAttribute("data-theme", saved);
         }
       })();
