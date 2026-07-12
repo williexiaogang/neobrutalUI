@@ -1,0 +1,31 @@
+{
+  "name": "neo-brutal-ui",
+  "version": "1.0.0",
+  "description": "Official Neo-Brutal UI component library skill. A bold, accessible UI library for Tailwind CSS v4+.",
+  "author": {
+    "name": "Neo-Brutal UI Team",
+    "url": "https://github.com/williexiaogang/neobrutalUI"
+  },
+  "homepage": "https://github.com/williexiaogang/neobrutalUI#readme",
+  "repository": "https://github.com/williexiaogang/neobrutalUI",
+  "license": "MIT",
+  "keywords": ["ui", "tailwind", "components", "css", "neo-brutal-ui", "neo-brutalism"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Neo-Brutal UI",
+    "shortDescription": "Neo-Brutal UI component library skill.",
+    "longDescription": "Use Neo-Brutal UI component classes, themes, configuration, and usage guidance when building Tailwind CSS v4+ interfaces.",
+    "developerName": "Neo-Brutal UI Team",
+    "category": "Developer Tools",
+    "capabilities": ["Read"],
+    "websiteURL": "https://github.com/williexiaogang/neobrutalUI#readme",
+    "defaultPrompt": [
+      "Create a login form with Neo-Brutal UI",
+      "Convert this page to use Neo-Brutal UI components"
+    ],
+    "brandColor": "#FFE600",
+    "composerIcon": "https://raw.githubusercontent.com/williexiaogang/neobrutalUI/main/apps/showcase/public/favicon.svg",
+    "logo": "https://raw.githubusercontent.com/williexiaogang/neobrutalUI/main/apps/showcase/public/favicon.svg",
+    "screenshots": []
+  }
+}

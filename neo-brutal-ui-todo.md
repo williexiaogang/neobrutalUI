@@ -1083,7 +1083,23 @@ createTooltip(element, options)
 - [x] Date / Time Input 增强。
 - [x] Form Validation Summary。
 
-## 8.5 组件加入条件
+## 8.5 P5：对标 daisyUI 的补充组件（候选池）
+
+> 来源：对比 daisyUI 5 组件清单后，我们已覆盖大部分基础组件，但以下组件仍缺失或仅有部分替代方案。此列表作为后续迭代的候选池，不阻塞当前版本。
+
+- [ ] **FAB (Floating Action Button)** — 悬浮操作按钮。
+- [ ] **radial-progress** — 环形/径向进度条（现有 `progress` 为线性）。
+- [ ] **dock (app bar)** — 底部应用停靠栏。
+- [ ] **indicator** — 状态指示点/角标（与 `badge` 不同，更轻量）。
+- [ ] **status** — 在线/离线/忙碌等状态标识。
+- [ ] **stack** — 堆叠布局组件。
+- [ ] **swap** — 内容切换/翻转动画容器。
+- [ ] **theme-controller** — 主题切换控制器组件（含可访问标签）。
+- [ ] **countdown** — 倒计时数字显示。
+
+> 备注：`hover-3d`、`hover-gallery`、`text-rotate`、`aura`、`mask`、`megamenu`、`filter` 等特效或营销组件暂不作为高优先级，待核心组件完善后再评估。
+
+## 8.6 组件加入条件
 
 新增组件前必须回答：
 
@@ -1604,6 +1620,7 @@ dist/
 | Node.js 最低版本 | ✅ 已确定 (>=20) |
 | 浏览器基线最终确认 | ✅ 已确定 |
 | 包体积门槛 | ✅ 已确定 (CSS ≤30KB gzip, JS ≤15KB gzip) |
+| AI skill 包 | ✅ 已创建 (skills/neo-brutal-ui + IDE plugin manifests) |
 
 ---
 
@@ -1622,7 +1639,7 @@ dist/
 
 ---
 
-*最后更新：2026-07-08*  
+*最后更新：2026-07-12*  
 *说明：`plan.md` 已合并到本文档并删除，当前组件状态请查看 `reports/component-audit-list.md`。*  
 *项目类型：独立 Neo-Brutal Tailwind CSS v4+ UI 组件库*  
 *发布目标：npm*
