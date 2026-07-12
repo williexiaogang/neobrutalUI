@@ -198,6 +198,17 @@ Uses logical properties (`border-inline-start-width`, `border-inline-start-color
 
 ---
 
-## Known Issues
+## Dismissible Alerts
 
-- Dismissible behavior is planned; no `.nb-alert-dismissible` or close-button styles exist in the current CSS build.
+Add `.nb-alert-dismissible` and a `.nb-alert-close` button to make an alert dismissible. The close button styles include hover, active, and focus-visible states. Actual dismissal behavior (removing the alert from the DOM or hiding it) requires consumer JavaScript.
+
+```html
+<div class="nb-alert nb-alert-info nb-alert-dismissible" role="alert">
+  <span class="nb-alert-icon" aria-hidden="true">ℹ</span>
+  <div>
+    <p class="nb-alert-title">Heads up</p>
+    <p class="nb-alert-body">This alert can be dismissed.</p>
+  </div>
+  <button class="nb-alert-close" aria-label="Dismiss alert">&times;</button>
+</div>
+```

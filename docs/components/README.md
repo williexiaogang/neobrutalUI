@@ -150,7 +150,7 @@ Each API doc includes the exact markup contract and initialization example for t
 - **Status classes**: interactive states are expressed with native HTML attributes (`disabled`, `checked`, `open`) where possible; public state classes are added only when native attributes cannot express the state.
 - **RTL**: components use logical CSS properties and do not require separate RTL overrides.
 - **Accessibility**: keyboard focus, `focus-visible`, color contrast, ARIA roles, and screen-reader attributes are built into both CSS and JS layers.
-- **Theming**: colors are driven by CSS custom properties scoped to `[data-theme="neo-brutal"]`. See [API Tokens](../api-tokens.md) and [Dark Theme](../dark-theme.md) for details.
+- **Theming**: colors are driven by CSS custom properties scoped to `[data-theme]`. Built-in themes include `neo-brutal`, `neo-brutal-dark`, `emerald`, and `emerald-dark`. See [API Tokens](../api-tokens.md) and [Dark Theme](../dark-theme.md) for details.
 
 ---
 

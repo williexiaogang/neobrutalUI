@@ -2,14 +2,14 @@
 
 Neo-Brutal UI is a bold, accessible component library for Tailwind CSS v4 and modern CSS pipelines. The core package is CSS-first and framework-agnostic; optional JavaScript interactions are published separately so apps can import only what they need.
 
-**48 CSS components** and **11 JS interactions** — zero runtime, fully themeable, and built for modern browsers.
+**59 CSS components** and **18 JS interactions** — zero runtime, fully themeable, and built for modern browsers.
 
 ## Packages
 
 | Package | Purpose |
 | --- | --- |
 | `@neo-brutal-ui/core` | Core CSS tokens, reset, components, and utilities. |
-| `@neo-brutal-ui/theme-neo-brutal` | Default theme entry for `neo-brutal` and `neo-brutal-dark`. |
+| `@neo-brutal-ui/theme-neo-brutal` | Default theme entry for `neo-brutal`, `neo-brutal-dark`, and `emerald`. |
 | `@neo-brutal-ui/interactions` | Optional native JavaScript interactions. |
 
 ## Install
@@ -55,6 +55,14 @@ Switch to the dark theme with `data-theme`:
 ```html
 <main data-theme="neo-brutal-dark">
   <button class="nb-btn nb-btn-primary">Dark action</button>
+</main>
+```
+
+Use the built-in `emerald` theme:
+
+```html
+<main data-theme="emerald">
+  <button class="nb-btn nb-btn-primary">Emerald action</button>
 </main>
 ```
 
@@ -112,9 +120,9 @@ Use `@neo-brutal-ui/theme-neo-brutal/css` for the normal themed import. Use the 
 ```js
 function toggleTheme() {
   const html = document.documentElement;
-  const next = html.getAttribute("data-theme") === "neo-brutal"
-    ? "neo-brutal-dark"
-    : "neo-brutal";
+  const themes = ["neo-brutal", "neo-brutal-dark", "emerald", "emerald-dark"];
+  const current = html.getAttribute("data-theme") || "neo-brutal";
+  const next = themes[(themes.indexOf(current) + 1) % themes.length];
   html.setAttribute("data-theme", next);
   localStorage.setItem("nb-theme", next);
 }

@@ -1,10 +1,17 @@
-# Dark Theme
+# Themes
 
-Neo-Brutal UI provides a complete dark theme out of the box. Switching is a single attribute change — no extra CSS classes or component overrides are required.
+Neo-Brutal UI provides multiple built-in themes out of the box. Switching is a single attribute change — no extra CSS classes or component overrides are required.
+
+Built-in themes:
+
+- `neo-brutal` — default light theme
+- `neo-brutal-dark` — dark variant
+- `emerald` — emerald-green accented light theme
+- `emerald-dark` — emerald dark variant
 
 ## Usage
 
-Apply the dark theme by setting `data-theme="neo-brutal-dark"` on the `<html>` element (or any ancestor container):
+Apply a theme by setting `data-theme` on the `<html>` element (or any ancestor container):
 
 ```html
 <html data-theme="neo-brutal-dark">
@@ -18,10 +25,16 @@ You can also nest themes for side-by-side comparison:
 
 ```html
 <div data-theme="neo-brutal">
-  <!-- Light-mode components -->
+  <!-- Default light components -->
 </div>
 <div data-theme="neo-brutal-dark">
-  <!-- Dark-mode components -->
+  <!-- Dark components -->
+</div>
+<div data-theme="emerald">
+  <!-- Emerald light components -->
+</div>
+<div data-theme="emerald-dark">
+  <!-- Emerald dark components -->
 </div>
 ```
 
@@ -87,17 +100,20 @@ All dark-theme color combinations are designed to meet WCAG 2.1 AA standards (4.
 4. **Shadow visibility**: Shadows use the same offset structure but reference `--nb-border`, which is lighter in dark mode, so shadows remain crisp and visible.
 5. **Secondary & accent adjustments**: `--nb-secondary` and `--nb-accent` are slightly darkened in dark mode to maintain visual weight without becoming garish.
 
-## Customizing the Dark Theme
+## Customizing a Theme
 
-Override any semantic token inside the `[data-theme="neo-brutal-dark"]` selector:
+Override any semantic token inside the theme selector:
 
 ```css
 @layer nb.theme {
-  [data-theme="neo-brutal-dark"],
-  [data-theme="neo-brutal-dark"] * {
+  [data-theme="neo-brutal-dark"] {
     --nb-primary: oklch(70% 0.25 350);   /* Brighter pink */
     --nb-base-100: oklch(15% 0.02 260); /* Deeper background */
     --nb-border: oklch(50% 0.03 260);    /* Softer borders */
+  }
+
+  [data-theme="emerald"] {
+    --nb-primary: oklch(55% 0.2 155);    /* Deeper emerald */
   }
 }
 ```
@@ -106,20 +122,22 @@ Always ensure your custom colors maintain adequate contrast ratios.
 
 ## JavaScript Toggle
 
-A minimal theme toggle implementation:
+A minimal theme toggle implementation that cycles through all built-in themes:
 
 ```javascript
+const themes = ["neo-brutal", "neo-brutal-dark", "emerald", "emerald-dark"];
+
 function toggleTheme() {
   const html = document.documentElement;
   const current = html.getAttribute("data-theme") || "neo-brutal";
-  const next = current === "neo-brutal" ? "neo-brutal-dark" : "neo-brutal";
+  const next = themes[(themes.indexOf(current) + 1) % themes.length];
   html.setAttribute("data-theme", next);
   localStorage.setItem("nb-theme", next);
 }
 
-// Restore on load
+// Restore on load (whitelist only known themes)
 const saved = localStorage.getItem("nb-theme");
-if (saved) {
+if (themes.includes(saved)) {
   document.documentElement.setAttribute("data-theme", saved);
 }
 ```

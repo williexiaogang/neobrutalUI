@@ -27,8 +27,8 @@ Neo-Brutal UI uses a three-layer token architecture:
 
 | Token Prefix | Scope | Overridable | Where Defined |
 |-------------|-------|-------------|---------------|
-| `--nb-*` | Public | ✅ Yes | `tokens/*.css` |
-| `--nb-{component}-*` | Public | ✅ Yes | `tokens/component.css` |
+| `--nb-*` | Public | ✅ Yes | `packages/core/src/tokens/*.css` |
+| `--nb-{component}-*` | Public | ✅ Yes | `packages/core/src/tokens/component.css` |
 | `--_*` | Internal | ❌ No | Component CSS files |
 
 **Rule:** Component CSS files (`components/*.css`) should only define `--_*` private variables. They may reference `--nb-*` public tokens via `var()`, but must never define new `--nb-*` tokens.

@@ -16,8 +16,9 @@
 | **类名前缀** | `nb-` | 已确认。所有公共类名必须以 `nb-` 开头，如 `nb-btn`、`nb-card`。私有工具类使用 `nbu-`（保留，暂未启用）。 |
 | **npm 包正式名称** | `neo-brutal-ui` | 发布到 npm 的正式包名。短横线连接，全小写，符合 npm 命名规范。 |
 | **组件库展示名称** | `Neo-Brutal UI` | 对外展示、文档站标题、README 标题使用的名称。空格分隔，首字母大写。 |
-| **主题名称** | `neo-brutal` | Tailwind CSS 插件注册时的主题标识名，配置对象 key。 |
-| **Dark Theme 预留名称** | `neo-brutal-dark` | 暗色模式主题标识，与 `neo-brutal` 成对出现。当前版本预留，默认主题仅提供 `neo-brutal`。 |
+| **主题名称** | `neo-brutal` | 默认浅色主题标识名。 |
+| **Dark Theme 名称** | `neo-brutal-dark` | 默认暗色主题标识，与 `neo-brutal` 成对出现。 |
+| **扩展主题** | `emerald` / `emerald-dark` | 以 emerald 绿为主色的浅色/暗色主题。 |
 
 ### 2.1.2 命名理由与使用场景
 
@@ -56,10 +57,15 @@
   }
   ```
 
-#### `neo-brutal-dark`（暗色主题预留名）
+#### `neo-brutal-dark`（暗色主题名）
 
-- **理由**：与 `neo-brutal` 形成对称命名，`-dark` 后缀是 Tailwind 生态和 daisyUI 的暗色模式惯例。当前版本仅作为预留 Token，不实现具体配色。
-- **使用场景**：未来暗色模式切换开关、CSS 变量 `@media (prefers-color-scheme: dark)` 下的主题命名。
+- **理由**：与 `neo-brutal` 形成对称命名，`-dark` 后缀是 Tailwind 生态和 daisyUI 的暗色模式惯例。
+- **使用场景**：暗色模式切换开关、`data-theme="neo-brutal-dark"` 主题容器。
+
+#### `emerald` / `emerald-dark`（扩展主题名）
+
+- **理由**：以 emerald 绿（OKLCH 155°）为主色，搭配 teal、lime、sky blue 等辅助色，提供一组与默认主题不同的品牌配色。`-dark` 提供对应的暗色版本。
+- **使用场景**：`data-theme="emerald"` 或 `data-theme="emerald-dark"` 主题容器。
 
 ---
 

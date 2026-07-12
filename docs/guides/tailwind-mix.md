@@ -95,6 +95,9 @@ If you want Neo-Brutal UI to use Tailwind's theme values instead of its own, ove
     --nb-space-4: 1.5rem; /* Override spacing token */
     --nb-radius-box: 0.5rem; /* Rounder corners */
   }
+  [data-theme="emerald"] {
+    --nb-primary: #10b981; /* Example emerald override */
+  }
 }
 ```
 

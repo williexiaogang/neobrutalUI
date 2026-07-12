@@ -53,7 +53,7 @@ Both libraries define CSS custom properties for theming. The risk is low because
 
 ### The only overlap: `data-theme`
 
-Both libraries use the `data-theme` HTML attribute. If you set `data-theme="light"` for daisyUI, it will not affect Neo-Brutal UI because Neo-Brutal UI only responds to `neo-brutal` and `neo-brutal-dark`.
+Both libraries use the `data-theme` HTML attribute. If you set `data-theme="light"` for daisyUI, it will not affect Neo-Brutal UI because Neo-Brutal UI only responds to `neo-brutal`, `neo-brutal-dark`, `emerald`, and `emerald-dark`.
 
 ### Safe dual-theme setup
 
@@ -201,6 +201,6 @@ If bundle size is critical, consider:
 | Neo-Brutal UI styles missing | CSS not imported | Add `@import "@neo-brutal-ui/theme-neo-brutal/css";`. |
 | daisyUI overrides Neo-Brutal UI | Unlayered CSS wins | Use explicit layer ordering or `!important` for migration targets. |
 | Theme colors look wrong | Token mapping mismatch | Map daisyUI tokens to Neo-Brutal UI tokens in a custom layer. |
-| `data-theme` affects both | Using generic theme name | Use `neo-brutal` / `neo-brutal-dark` for Neo-Brutal UI, `light` / `dark` for daisyUI. |
+| `data-theme` affects both | Using generic theme name | Use `neo-brutal`, `neo-brutal-dark`, `emerald`, or `emerald-dark` for Neo-Brutal UI; `light` / `dark` for daisyUI. |
 | JS interactions conflict | Both libraries attach listeners | Only initialize one library's JS per component. |
 

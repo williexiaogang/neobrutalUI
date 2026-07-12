@@ -2,7 +2,7 @@
  * Neo-Brutal UI — Color Tokens
  *
  * Primitive OKLCH colors and semantic color tokens for the theme.
- * Supports both light (neo-brutal) and dark (neo-brutal-dark) modes.
+ * Supports neo-brutal, neo-brutal-dark, emerald, and emerald-dark themes.
  */
 
 @layer nb.theme {

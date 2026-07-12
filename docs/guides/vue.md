@@ -189,6 +189,7 @@ onMounted(() => {
 
 function toggleTheme() {
   const html = document.documentElement;
+  // Available themes: neo-brutal, neo-brutal-dark, emerald, emerald-dark
   const next = html.getAttribute("data-theme") === "neo-brutal"
     ? "neo-brutal-dark"
     : "neo-brutal";

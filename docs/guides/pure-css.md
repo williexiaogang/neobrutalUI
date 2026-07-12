@@ -98,9 +98,11 @@ Switch themes by changing the `data-theme` attribute on `<html>` or any ancestor
 
 ```html
 <html data-theme="neo-brutal-dark">
+<!-- or -->
+<html data-theme="emerald">
 ```
 
-No additional CSS files are needed — both themes are included in the single CSS bundle.
+No additional CSS files are needed — all themes are included in the single CSS bundle.
 
 ---
 

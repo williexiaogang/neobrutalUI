@@ -2,7 +2,7 @@
 
 > **Version:** 0.0.2-alpha  
 > **Last updated:** 2026-07-05  
-> **Scope:** 48 CSS components + 11 JS interactions  
+> **Scope:** 59 CSS components + 18 JS interactions  
 > **Standard targets:** WCAG 2.2 AA, EN 301 549, Section 508
 
 ---

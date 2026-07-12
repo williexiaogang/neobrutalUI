@@ -184,7 +184,7 @@ Create a theme toggle with an inline script to prevent FOUC, plus a client-side 
     <script is:inline>
       (function () {
         var saved = localStorage.getItem("nb-theme");
-        if (saved === "neo-brutal-dark" || saved === "neo-brutal") {
+        if (["neo-brutal", "neo-brutal-dark", "emerald", "emerald-dark"].includes(saved)) {
           document.documentElement.setAttribute("data-theme", saved);
         }
       })();
@@ -196,6 +196,7 @@ Create a theme toggle with an inline script to prevent FOUC, plus a client-side 
     <script>
       document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
         const html = document.documentElement;
+        // Available themes: neo-brutal, neo-brutal-dark, emerald, emerald-dark
         const next = html.getAttribute("data-theme") === "neo-brutal"
           ? "neo-brutal-dark"
           : "neo-brutal";

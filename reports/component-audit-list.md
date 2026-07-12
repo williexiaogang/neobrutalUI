@@ -75,9 +75,9 @@ Scope: 59 components from `apps/showcase/src/data/components.ts`, cross-checked 
 | Radio | ready | `selector.css` | yes | no | yes | — | Circular selector, radio group anatomy, keyboard expectations, RTL. |
 | Toggle | ready | `selector.css` | yes | no | yes | — | Pill switch, animated thumb, reduced-motion, RTL thumb position. |
 | Badge | ready | `badge.css` | yes | no | yes | — | Semantic colors, outline, removable tag control. |
-| Alert | ready | `alert.css` | yes | no | yes | — | Info/success/warning/error variants, inline-start accent border. Dismissible behavior requires consumer JS. |
+| Alert | ready | `alert.css` | yes | no | yes | — | Info/success/warning/error variants, inline-start accent border. `.nb-alert-dismissible` and `.nb-alert-close` styles provided; dismissal behavior requires consumer JS. |
 | Divider | ready | `divider.css` | yes | no | yes | — | Horizontal, vertical, with label; logical properties; reduced-motion/disabled N/A. |
-| Loading | ready | `loading.css` | yes | no | yes | — | Spinner animation, reduced-motion fallback, screen-reader strategy. No size variants. |
+| Loading | ready | `loading.css` | yes | no | yes | — | Spinner animation, reduced-motion fallback, screen-reader strategy. Size variants: `.nb-loading-xs`, `.nb-loading-sm`, `.nb-loading-lg`, `.nb-loading-xl`. |
 | Skeleton | ready | `skeleton.css` | yes | no | yes | — | Pulse/wave, text/avatar/card/button/image shapes, reduced-motion. |
 | Modal | ready | `modal.css` | yes | dialog | yes | wide | Native dialog + div fallback focus trap, Escape/backdrop, focus restore. |
 | Tabs | ready | `tabs.css` | yes | tabs | yes | wide | `createTabs()` wired; keyboard navigation and ARIA sync verified. |

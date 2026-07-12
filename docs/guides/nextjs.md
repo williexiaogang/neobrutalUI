@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `
               (function() {
                 var saved = localStorage.getItem('nb-theme');
-                if (saved === 'neo-brutal-dark' || saved === 'neo-brutal') {
+                if (['neo-brutal', 'neo-brutal-dark', 'emerald', 'emerald-dark'].includes(saved)) {
                   document.documentElement.setAttribute('data-theme', saved);
                 }
               })();
@@ -186,6 +186,7 @@ export function ThemeToggle() {
 
   const toggle = () => {
     const html = document.documentElement;
+    // Available themes: neo-brutal, neo-brutal-dark, emerald, emerald-dark
     const next =
       html.getAttribute("data-theme") === "neo-brutal"
         ? "neo-brutal-dark"
@@ -231,7 +232,7 @@ export default function Document() {
             __html: `
               (function() {
                 var saved = localStorage.getItem('nb-theme');
-                if (saved === 'neo-brutal-dark' || saved === 'neo-brutal') {
+                if (['neo-brutal', 'neo-brutal-dark', 'emerald', 'emerald-dark'].includes(saved)) {
                   document.documentElement.setAttribute('data-theme', saved);
                 }
               })();

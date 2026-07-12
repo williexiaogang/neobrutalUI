@@ -474,5 +474,3 @@ dialog.nb-modal-backdrop[open]::backdrop {
 
 - `<div>`-based fallback requires JavaScript for focus trapping.
 - Open/close animation timing may need refinement.
-- `--nb-shadow-xl` is referenced but not defined in the current theme tokens (only up to `--nb-shadow-lg`).
-- The modal component in `components.ts` is marked `status: "in-progress"` and `available: false` because JS interactivity is not yet complete, even though CSS styling is advanced.
