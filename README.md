@@ -195,6 +195,10 @@ This repository uses Changesets. See [docs/release.md](docs/release.md) for the 
 
 Neo-Brutal UI targets Tailwind CSS v4+, Node.js 20+, and modern browsers. See [docs/support-policy.md](docs/support-policy.md) for the support policy.
 
+## Acknowledgments
+
+Neo-Brutal UI is an independent project. Its architecture and developer experience are inspired by [daisyUI](https://daisyui.com/) by [Pouya Saadeghi](https://github.com/saadeghi). All code, class names, themes, and component implementations are written from scratch and are not derived from daisyUI's source.
+
 ## License
 
 MIT
