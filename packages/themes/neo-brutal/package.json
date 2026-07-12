@@ -1,6 +1,6 @@
 {
   "name": "@neo-brutal-ui/theme-neo-brutal",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "private": false,
   "publishConfig": {
     "access": "public"

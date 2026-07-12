@@ -49,7 +49,9 @@ function tarballName(packageJson) {
 }
 
 function listTarballFiles(tarball) {
-  return execFileSync("tar", ["-tf", tarball], {
+  // --force-local prevents Windows paths like X:\... from being parsed as remote hosts.
+  const args = isWindows ? ["--force-local", "-tf", tarball] : ["-tf", tarball];
+  return execFileSync("tar", args, {
     cwd: root,
     encoding: "utf8"
   })
@@ -113,6 +115,8 @@ const themeCss = await readFile(
 
 assert.match(coreCss, /@layer nb\\.theme, nb\\.base, nb\\.components, nb\\.utilities/);
 assert.match(coreCss, /\\[data-theme="neo-brutal-dark"\\]/);
+assert.match(coreCss, /\\[data-theme="emerald"\\]/);
+assert.match(coreCss, /\\[data-theme="emerald-dark"\\]/);
 assert.match(themeCss, /@neo-brutal-ui\\/theme-neo-brutal/);
 assert.match(themeCss, /@import "@neo-brutal-ui\\/core\\/css"/);
 assert.doesNotMatch(themeCss, /\\.\\.\\/\\.\\.\\/\\.\\.\\/core\\/src/);
