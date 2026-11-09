@@ -44,8 +44,8 @@
     border-inline-end: var(--nb-border-width) solid transparent;
   }
 
-  .nb-tab:hover:not(:disabled):not(.nb-tab-disabled),
-  .nb-tabs [role="tab"]:hover:not(:disabled):not(.nb-tab-disabled) {
+  .nb-tab:hover:not(:disabled, .nb-tab-disabled),
+  .nb-tabs [role="tab"]:hover:not(:disabled, .nb-tab-disabled) {
     background: var(--nb-base-200);
   }
 
@@ -76,7 +76,7 @@
   }
 
   /* Responsive: mobile < 768px — horizontal scroll for tab lists */
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .nb-tabs:not(.nb-tabs-vertical),
     .nb-tabs:not(.nb-tabs-vertical)[role="tablist"] {
       overflow-x: auto;

@@ -59,7 +59,7 @@
   }
 
   .nb-stat-trend-up .nb-stat-desc::before {
-    border-width: 0 0.3em 0.4em 0.3em;
+    border-width: 0 0.3em 0.4em;
     border-color: transparent transparent var(--_trend-up) transparent;
   }
 
@@ -68,7 +68,7 @@
   }
 
   .nb-stat-trend-down .nb-stat-desc::before {
-    border-width: 0.4em 0.3em 0 0.3em;
+    border-width: 0.4em 0.3em 0;
     border-color: var(--_trend-down) transparent transparent transparent;
   }
 
@@ -174,11 +174,11 @@
     }
 
     .nb-stat-trend-up .nb-stat-desc::before {
-      border-color: transparent transparent Highlight transparent;
+      border-color: transparent transparent Highlight;
     }
 
     .nb-stat-trend-down .nb-stat-desc::before {
-      border-color: Highlight transparent transparent transparent;
+      border-color: Highlight transparent transparent;
     }
   }
 }

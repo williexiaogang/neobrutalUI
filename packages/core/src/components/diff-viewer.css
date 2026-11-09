@@ -12,12 +12,12 @@
     --_border: var(--nb-border);
     --_gutter-bg: var(--nb-base-200);
     --_gutter-fg: var(--nb-base-content-muted);
-    --_added-bg: oklch(92% 0.08 145);
-    --_added-fg: oklch(25% 0.1 145);
-    --_added-border: oklch(72% 0.2 145);
-    --_removed-bg: oklch(92% 0.08 25);
-    --_removed-fg: oklch(25% 0.1 25);
-    --_removed-border: oklch(62% 0.22 25);
+    --_added-bg: oklch(92% 0.08 145deg);
+    --_added-fg: oklch(25% 0.1 145deg);
+    --_added-border: oklch(72% 0.2 145deg);
+    --_removed-bg: oklch(92% 0.08 25deg);
+    --_removed-fg: oklch(25% 0.1 25deg);
+    --_removed-border: oklch(62% 0.22 25deg);
     --_hunk-bg: var(--nb-base-200);
     --_hunk-fg: var(--nb-base-content-muted);
 

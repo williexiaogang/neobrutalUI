@@ -41,8 +41,7 @@
     inline-size: 100%;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: auto hidden;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE 10+ */
   }
@@ -289,6 +288,7 @@
 
   .nb-carousel-sm .nb-carousel-nav {
     --_nav-size: 2rem;
+
     font-size: var(--nb-text-base);
   }
 
@@ -299,6 +299,7 @@
 
   .nb-carousel-lg .nb-carousel-nav {
     --_nav-size: 3rem;
+
     font-size: var(--nb-text-xl);
   }
 
@@ -308,8 +309,7 @@
   .nb-carousel-vertical .nb-carousel-track {
     flex-direction: column;
     scroll-snap-type: y mandatory;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden auto;
   }
 
   .nb-carousel-vertical .nb-carousel-slide {
@@ -319,8 +319,7 @@
 
   .nb-carousel-vertical .nb-carousel-nav-overlay .nb-carousel-nav {
     inset-block-start: auto;
-    inset-inline-start: auto;
-    inset-inline-end: var(--nb-space-3);
+    inset-inline: auto var(--nb-space-3);
     transform: translateX(0);
   }
 

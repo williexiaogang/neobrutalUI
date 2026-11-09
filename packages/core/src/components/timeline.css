@@ -74,6 +74,7 @@
   /* Large marker (icon-sized) */
   .nb-timeline-marker-icon {
     --_marker-size: 2rem;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -212,10 +213,8 @@
   }
 
   .nb-timeline-horizontal .nb-timeline-connector {
-    inset-inline-start: 0;
-    inset-inline-end: 0;
-    inset-block-start: calc(var(--_marker-size) / 2 - var(--_connector-width) / 2);
-    inset-block-end: auto;
+    inset-inline: 0;
+    inset-block: calc(var(--_marker-size) / 2 - var(--_connector-width) / 2) auto;
     inline-size: auto;
     block-size: var(--_connector-width);
   }

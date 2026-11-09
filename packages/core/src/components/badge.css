@@ -27,6 +27,7 @@
   .nb-badge-primary {
     --_bg: var(--nb-primary);
     --_fg: var(--nb-primary-content);
+
     background: var(--nb-primary);
     color: var(--nb-primary-content);
   }
@@ -74,7 +75,7 @@
     block-size: 1rem;
     margin-inline-end: calc(var(--nb-space-1) * -0.5);
     padding: 0;
-    border: var(--nb-border-width) solid currentColor;
+    border: var(--nb-border-width) solid currentcolor;
     border-radius: 9999px;
     background: transparent;
     color: inherit;
@@ -84,7 +85,7 @@
   }
 
   .nb-badge-remove:hover {
-    background: color-mix(in oklch, currentColor 18%, transparent);
+    background: color-mix(in oklch, currentcolor 18%, transparent);
   }
 
   .nb-badge-remove:focus-visible {

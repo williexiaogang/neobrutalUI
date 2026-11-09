@@ -67,7 +67,7 @@
   }
 
   /* Collapsed variant (mobile) — hide middle items */
-  .nb-breadcrumb-collapsed .nb-breadcrumb-item:not(:first-child):not(:last-child):not(.nb-breadcrumb-separator-wrap) {
+  .nb-breadcrumb-collapsed .nb-breadcrumb-item:not(:first-child, :last-child, .nb-breadcrumb-separator-wrap) {
     display: none;
   }
 

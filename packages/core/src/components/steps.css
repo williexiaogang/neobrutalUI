@@ -60,10 +60,6 @@
     position: absolute;
     z-index: 0;
     background: var(--_connector-color);
-  }
-
-  /* Horizontal connector — spans from indicator centre to next indicator ---- */
-  .nb-step::after {
     top: calc(var(--nb-space-2) + var(--_indicator-size) / 2 - var(--nb-border-width) / 2);
     inset-inline-start: 50%;
     inline-size: 100%;
@@ -267,7 +263,7 @@
   /* ========================================================================
      Responsive: horizontal scroll on narrow viewports
      ======================================================================== */
-  @media (max-width: 640px) {
+  @media (width <= 640px) {
     .nb-steps:not(.nb-steps-vertical) {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;

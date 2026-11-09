@@ -97,7 +97,7 @@
   }
 
   /* Responsive: mobile < 768px */
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .nb-navbar {
       flex-wrap: wrap;
     }

@@ -11,7 +11,7 @@
     display: none;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .nb-hidden-mobile {
       display: initial;
     }
@@ -21,7 +21,7 @@
     display: initial;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .nb-hidden-desktop {
       display: none;
     }
@@ -32,7 +32,7 @@
     font-size: var(--nb-text-sm);
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .nb-text-responsive {
       font-size: var(--nb-text-base);
     }
@@ -43,7 +43,7 @@
     padding: var(--nb-space-3);
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .nb-p-responsive {
       padding: var(--nb-space-4);
     }
@@ -54,7 +54,7 @@
     gap: var(--nb-space-2);
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .nb-gap-responsive {
       gap: var(--nb-space-4);
     }

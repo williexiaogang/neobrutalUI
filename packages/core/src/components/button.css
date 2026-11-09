@@ -84,17 +84,20 @@
   .nb-btn-outline {
     --_bg: transparent;
     --_fg: var(--nb-base-content);
+
     border-width: calc(var(--nb-border-width) * 1.5);
   }
 
   .nb-btn-ghost {
     --_bg: transparent;
     --_fg: var(--nb-base-content);
+
     box-shadow: none;
   }
 
   .nb-btn-ghost:hover:not(:disabled) {
     --_bg: var(--nb-base-200);
+
     box-shadow: none;
     transform: none;
   }
@@ -141,7 +144,7 @@
     flex: 0 0 auto;
     inline-size: 1em;
     block-size: 1em;
-    border: 2px solid currentColor;
+    border: 2px solid currentcolor;
     border-inline-end-color: transparent;
     border-radius: 9999px;
     animation: nb-btn-spin var(--nb-duration-slow) linear infinite;
@@ -169,7 +172,7 @@
     .nb-btn-loading::before,
     .nb-btn[aria-busy="true"]::before {
       animation: none;
-      border-inline-end-color: currentColor;
+      border-inline-end-color: currentcolor;
       opacity: 0.65;
     }
   }

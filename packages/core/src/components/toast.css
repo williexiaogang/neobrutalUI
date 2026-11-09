@@ -28,31 +28,23 @@
   }
 
   .nb-toast-container-top-start {
-    inset-block-start: var(--nb-space-4);
-    inset-block-end: auto;
-    inset-inline-start: var(--nb-space-4);
-    inset-inline-end: auto;
+    inset-block: var(--nb-space-4) auto;
+    inset-inline: var(--nb-space-4) auto;
   }
 
   .nb-toast-container-top-end {
-    inset-block-start: var(--nb-space-4);
-    inset-block-end: auto;
-    inset-inline-end: var(--nb-space-4);
-    inset-inline-start: auto;
+    inset-block: var(--nb-space-4) auto;
+    inset-inline: auto var(--nb-space-4);
   }
 
   .nb-toast-container-bottom-start {
-    inset-block-end: var(--nb-space-4);
-    inset-block-start: auto;
-    inset-inline-start: var(--nb-space-4);
-    inset-inline-end: auto;
+    inset-block: auto var(--nb-space-4);
+    inset-inline: var(--nb-space-4) auto;
   }
 
   .nb-toast-container-bottom-end {
-    inset-block-end: var(--nb-space-4);
-    inset-block-start: auto;
-    inset-inline-end: var(--nb-space-4);
-    inset-inline-start: auto;
+    inset-block: auto var(--nb-space-4);
+    inset-inline: auto var(--nb-space-4);
   }
 
   /* Toast item */
@@ -171,8 +163,12 @@
     inline-size: 100%;
     block-size: 3px;
     background: var(--_accent);
-    transform-origin: inline-start;
+    transform-origin: left;
     transform: scaleX(1);
+  }
+
+  [dir="rtl"] .nb-toast-progress {
+    transform-origin: right;
   }
 
   .nb-toast-progress.is-animating {
@@ -183,6 +179,7 @@
     from {
       transform: scaleX(1);
     }
+
     to {
       transform: scaleX(0);
     }

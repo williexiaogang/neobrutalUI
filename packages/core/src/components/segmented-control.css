@@ -38,7 +38,7 @@
       transform var(--nb-duration-fast) var(--nb-ease-out);
   }
 
-  .nb-segmented-item:hover:not(:has(:checked)):not(:has(:disabled)) {
+  .nb-segmented-item:hover:not(:has(:checked), :has(:disabled)) {
     background: var(--nb-base-300);
   }
 

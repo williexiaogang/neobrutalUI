@@ -91,7 +91,7 @@
   }
 
   /* Responsive: allow wrapping on small screens */
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .nb-tooltip-content {
       white-space: normal;
       max-inline-size: 16rem;

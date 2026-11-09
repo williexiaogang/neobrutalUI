@@ -139,6 +139,7 @@
   /* Variants — compact */
   .nb-footer-compact {
     --_padding: var(--nb-space-4);
+
     gap: var(--nb-space-4);
   }
 

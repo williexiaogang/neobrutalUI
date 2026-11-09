@@ -89,7 +89,6 @@
   /* Masked variant (password dots) */
   .nb-otp-masked .nb-otp-field {
     -webkit-text-security: disc;
-    text-security: disc;
   }
 
   @media (prefers-reduced-motion: reduce) {

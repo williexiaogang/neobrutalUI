@@ -69,15 +69,15 @@
   }
 
   /* Hover state */
-  .nb-menu-item:hover:not(:disabled):not(.nb-menu-item-disabled),
-  .nb-menu [role="menuitem"]:hover:not(:disabled):not(.nb-menu-item-disabled),
-  .nb-menu [role="menuitemcheckbox"]:hover:not(:disabled):not(.nb-menu-item-disabled),
-  .nb-menu [role="menuitemradio"]:hover:not(:disabled):not(.nb-menu-item-disabled) {
+  .nb-menu-item:hover:not(:disabled, .nb-menu-item-disabled),
+  .nb-menu [role="menuitem"]:hover:not(:disabled, .nb-menu-item-disabled),
+  .nb-menu [role="menuitemcheckbox"]:hover:not(:disabled, .nb-menu-item-disabled),
+  .nb-menu [role="menuitemradio"]:hover:not(:disabled, .nb-menu-item-disabled) {
     background: var(--nb-base-200);
   }
 
-  .nb-menu-horizontal .nb-menu-item:hover:not(:disabled):not(.nb-menu-item-disabled),
-  .nb-menu-horizontal [role="menuitem"]:hover:not(:disabled):not(.nb-menu-item-disabled) {
+  .nb-menu-horizontal .nb-menu-item:hover:not(:disabled, .nb-menu-item-disabled),
+  .nb-menu-horizontal [role="menuitem"]:hover:not(:disabled, .nb-menu-item-disabled) {
     background: var(--nb-base-200);
   }
 
@@ -200,7 +200,7 @@
   }
 
   /* Responsive: mobile < 768px */
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     .nb-menu:not(.nb-menu-horizontal) {
       min-inline-size: 100%;
     }

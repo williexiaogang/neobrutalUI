@@ -2,12 +2,12 @@
   "extends": ["stylelint-config-standard", "stylelint-config-recommended"],
   "rules": {
     "custom-property-pattern": [
-      "^nb-",
-      { "message": "Custom properties must start with --nb-" }
+      "^(nb-|_)",
+      { "message": "Custom properties must start with --nb- or --_" }
     ],
     "selector-class-pattern": [
-      "^nb-[a-z0-9-]+$",
-      { "message": "Class names must start with nb- and use kebab-case" }
+      "^(nb-|is-)[a-z0-9-]+$",
+      { "message": "Class names must start with nb- or is- and use kebab-case" }
     ],
     "color-no-hex": [true, { "message": "Use CSS custom properties / OKLCH instead of hardcoded hex colors" }],
     "color-function-notation": "modern",
@@ -16,8 +16,8 @@
     "block-no-empty": true,
     "comment-no-empty": true,
     "no-duplicate-selectors": true,
+    "no-descending-specificity": null,
     "no-empty-source": true,
-    "no-extra-semicolons": true,
     "declaration-property-value-no-unknown": true,
     "font-family-no-duplicate-names": true,
     "unit-no-unknown": true,

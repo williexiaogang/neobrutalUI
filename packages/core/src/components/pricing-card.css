@@ -143,6 +143,7 @@
   .nb-pricing-card-featured {
     --_shadow: var(--nb-shadow-xl);
     --_border: var(--_accent);
+
     border-width: calc(var(--nb-border-width) * 2);
   }
 

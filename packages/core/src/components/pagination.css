@@ -49,16 +49,16 @@
       background var(--nb-duration-fast) var(--nb-ease-out);
   }
 
-  .nb-pagination-link:hover:not(:disabled):not(.nb-pagination-active),
-  .nb-pagination-prev:hover:not(:disabled):not([aria-disabled="true"]),
-  .nb-pagination-next:hover:not(:disabled):not([aria-disabled="true"]) {
+  .nb-pagination-link:hover:not(:disabled, .nb-pagination-active),
+  .nb-pagination-prev:hover:not(:disabled, [aria-disabled="true"]),
+  .nb-pagination-next:hover:not(:disabled, [aria-disabled="true"]) {
     box-shadow: var(--nb-shadow-md);
     transform: translate(-2px, -2px);
   }
 
-  .nb-pagination-link:active:not(:disabled):not(.nb-pagination-active),
-  .nb-pagination-prev:active:not(:disabled):not([aria-disabled="true"]),
-  .nb-pagination-next:active:not(:disabled):not([aria-disabled="true"]) {
+  .nb-pagination-link:active:not(:disabled, .nb-pagination-active),
+  .nb-pagination-prev:active:not(:disabled, [aria-disabled="true"]),
+  .nb-pagination-next:active:not(:disabled, [aria-disabled="true"]) {
     box-shadow: var(--nb-shadow-xs);
     transform: translate(2px, 2px);
   }

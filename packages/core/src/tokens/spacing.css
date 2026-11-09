@@ -23,9 +23,9 @@
     --nb-space-16: 4rem;
 
     /* Typography */
-    --nb-font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --nb-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    --nb-font-sans: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont,
+      "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif;
+    --nb-font-mono: ui-monospace, sfmono-regular, "SF Mono", menlo, consolas,
       monospace;
     --nb-text-xs: 0.75rem;
     --nb-text-sm: 0.875rem;

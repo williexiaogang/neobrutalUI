@@ -204,6 +204,7 @@
     --_header-pb: var(--nb-space-1);
     --_day-font: var(--nb-text-xs);
     --_weekday-font: var(--nb-text-xs);
+
     padding: var(--nb-space-2);
   }
 
@@ -218,6 +219,7 @@
     --_gap: var(--nb-space-2);
     --_day-font: var(--nb-text-base);
     --_weekday-font: var(--nb-text-sm);
+
     padding: var(--nb-space-6);
   }
 
@@ -271,6 +273,7 @@
   /* Compact variant: no padding, tighter shadow */
   .nb-calendar-compact {
     --_shadow: var(--nb-shadow-sm);
+
     padding: var(--nb-space-2);
   }
 
