@@ -4,16 +4,16 @@
 <div class="nb-component-card__demo" style="flex-direction: column;">
   <!-- Basic field -->
   <div class="nb-field" style="inline-size: 100%;">
-    <label class="nb-field-label">Email</label>
-    <input class="nb-input" type="email" placeholder="you@example.com" />
-    <span class="nb-field-description">We'll never share your email with anyone.</span>
+    <label class="nb-field-label" for="demo-field-email">Email</label>
+    <input class="nb-input" id="demo-field-email" type="email" placeholder="you@example.com" aria-describedby="demo-field-email-description" />
+    <span class="nb-field-description" id="demo-field-email-description">We'll never share your email with anyone.</span>
   </div>
 
   <!-- Required field with error -->
   <div class="nb-field nb-field-required" style="inline-size: 100%;">
-    <label class="nb-field-label">Password</label>
-    <input class="nb-input" type="password" value="short" aria-invalid="true" />
-    <span class="nb-field-error">Password must be at least 8 characters.</span>
+    <label class="nb-field-label" for="demo-field-password">Password</label>
+    <input class="nb-input" id="demo-field-password" type="password" value="short" aria-invalid="true" aria-describedby="demo-field-password-error" />
+    <span class="nb-field-error" id="demo-field-password-error">Password must be at least 8 characters.</span>
   </div>
 
   <!-- Field group with inline fields -->
@@ -33,12 +33,12 @@
   <!-- Row layout -->
   <div class="nb-field-row" style="inline-size: 100%;">
     <div class="nb-field" style="flex: 1;">
-      <label class="nb-field-label">First name</label>
-      <input class="nb-input" type="text" placeholder="Jane" />
+      <label class="nb-field-label" for="demo-field-first-name">First name</label>
+      <input class="nb-input" id="demo-field-first-name" type="text" placeholder="Jane" />
     </div>
     <div class="nb-field" style="flex: 1;">
-      <label class="nb-field-label">Last name</label>
-      <input class="nb-input" type="text" placeholder="Doe" />
+      <label class="nb-field-label" for="demo-field-last-name">Last name</label>
+      <input class="nb-input" id="demo-field-last-name" type="text" placeholder="Doe" />
     </div>
   </div>
 </div>

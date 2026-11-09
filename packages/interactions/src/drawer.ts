@@ -130,7 +130,7 @@ export function createDrawer(element: HTMLElement, options: DrawerOptions = {}):
 
     state.set(true);
     backdrop.classList.add('is-open');
-    drawer.setAttribute('aria-expanded', 'true');
+    drawer.removeAttribute('aria-expanded');
 
     // Move focus to first focusable element inside drawer
     if (focusTrap) {
@@ -156,7 +156,7 @@ export function createDrawer(element: HTMLElement, options: DrawerOptions = {}):
 
     state.set(false);
     backdrop.classList.remove('is-open');
-    drawer.setAttribute('aria-expanded', 'false');
+    drawer.removeAttribute('aria-expanded');
 
     if (returnFocus) {
       restoreActiveElement(lastFocusedElement);
@@ -213,7 +213,7 @@ export function createDrawer(element: HTMLElement, options: DrawerOptions = {}):
 
   drawer.setAttribute('role', 'dialog');
   drawer.setAttribute('aria-modal', 'true');
-  drawer.setAttribute('aria-expanded', 'false');
+  drawer.removeAttribute('aria-expanded');
 
   // --------------------------------------------------------------------------
   // Instance

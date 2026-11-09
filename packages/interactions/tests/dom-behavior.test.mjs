@@ -229,13 +229,13 @@ test("drawer opens, traps focus, closes on backdrop click, and restores focus", 
   const drawer = createDrawer(backdrop, { placement: "start" });
 
   assert.equal(drawerElement.classList.contains("nb-drawer-start"), true);
-  assert.equal(drawerElement.getAttribute("aria-expanded"), "false");
+  assert.equal(drawerElement.hasAttribute("aria-expanded"), false);
 
   drawer.open();
 
   assert.equal(drawer.isOpen, true);
   assert.equal(backdrop.classList.contains("is-open"), true);
-  assert.equal(drawerElement.getAttribute("aria-expanded"), "true");
+  assert.equal(drawerElement.hasAttribute("aria-expanded"), false);
   assert.equal(document.activeElement, first);
 
   first.dispatchEvent(new KeyboardEvent("keydown", { key: "Tab", shiftKey: true, bubbles: true }));
@@ -245,7 +245,7 @@ test("drawer opens, traps focus, closes on backdrop click, and restores focus", 
 
   assert.equal(drawer.isOpen, false);
   assert.equal(backdrop.classList.contains("is-open"), false);
-  assert.equal(drawerElement.getAttribute("aria-expanded"), "false");
+  assert.equal(drawerElement.hasAttribute("aria-expanded"), false);
   assert.equal(document.activeElement, launcher);
 });
 

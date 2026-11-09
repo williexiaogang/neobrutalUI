@@ -225,11 +225,15 @@ test("command palette opens, filters, and selects", async () => {
       selected = value;
     },
   });
+  const items = [...root.querySelectorAll(".nb-command-palette-item")];
 
   assert.equal(cp.isOpen, false);
+  assert.ok(items.every((item) => item.getAttribute("aria-selected") === "false"));
   cp.open();
   assert.equal(cp.isOpen, true);
   assert.equal(root.classList.contains("is-open"), true);
+  assert.equal(items[0].getAttribute("aria-selected"), "true");
+  assert.equal(items[1].getAttribute("aria-selected"), "false");
 
   input.value = "copy";
   input.dispatchEvent(new Event("input", { bubbles: true }));
@@ -239,4 +243,5 @@ test("command palette opens, filters, and selects", async () => {
   cp.select("copy");
   assert.equal(selected, "copy");
   assert.equal(cp.isOpen, false);
+  assert.ok(items.every((item) => item.getAttribute("aria-selected") === "false"));
 });

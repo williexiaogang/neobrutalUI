@@ -114,6 +114,10 @@
     cursor: not-allowed;
   }
 
+  .nb-menu-item-wrapper {
+    position: relative;
+  }
+
   /* Submenu trigger indicator */
   .nb-menu-submenu-trigger {
     display: flex;

@@ -38,7 +38,7 @@ function defaultFilter(query: string, item: HTMLElement): boolean {
  *       </div>
  *       <ul class="nb-command-palette-list" role="listbox">
  *         <li class="nb-command-palette-group" role="presentation">Preferences</li>
- *         <li class="nb-command-palette-item" role="option" data-value="toggle-dark">Toggle Dark Mode</li>
+ *         <li class="nb-command-palette-item" role="option" aria-selected="false" data-value="toggle-dark">Toggle Dark Mode</li>
  *         …
  *       </ul>
  *       <div class="nb-command-palette-empty" hidden>No results found</div>
@@ -141,7 +141,7 @@ export function createCommandPalette(
 
     for (const item of visible) {
       item.classList.remove('nb-command-palette-item-active');
-      item.removeAttribute('aria-selected');
+      item.setAttribute('aria-selected', 'false');
     }
 
     const active = visible[activeIndex];
@@ -208,7 +208,7 @@ export function createCommandPalette(
 
     for (const item of items) {
       item.classList.remove('nb-command-palette-item-active');
-      item.removeAttribute('aria-selected');
+      item.setAttribute('aria-selected', 'false');
     }
 
     dispatchNamespacedEvent(element, EVENT_TOGGLE, { isOpen: false });
@@ -316,6 +316,7 @@ export function createCommandPalette(
   // Initialize item roles
   items.forEach((item, index) => {
     item.setAttribute('role', 'option');
+    item.setAttribute('aria-selected', 'false');
     if (!item.hasAttribute('id')) {
       item.setAttribute('id', `${NAMESPACE}-item-${index}`);
     }

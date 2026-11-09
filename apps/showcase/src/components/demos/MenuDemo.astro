@@ -9,131 +9,139 @@
 
 <!-- 1. Basic Vertical Menu -->
 <div class="nb-component-card__demo">
-  <ul class="nb-menu" role="menu" aria-label="User menu">
-    <li class="nb-menu-item" role="menuitem">Profile</li>
-    <li class="nb-menu-item" role="menuitem">Settings</li>
-    <li class="nb-menu-item" role="menuitem">Messages</li>
-    <li class="nb-menu-item" role="menuitem">Logout</li>
-  </ul>
+  <div class="nb-menu" role="menu" aria-label="User menu">
+    <button class="nb-menu-item" type="button" role="menuitem">Profile</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Settings</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Messages</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Logout</button>
+  </div>
 </div>
 
 <!-- 2. Horizontal Menubar -->
 <div class="nb-component-card__demo">
-  <ul class="nb-menu nb-menu-horizontal" role="menubar" aria-label="Main navigation">
-    <li class="nb-menu-item" role="menuitem">Home</li>
-    <li class="nb-menu-item" role="menuitem">Products</li>
-    <li class="nb-menu-item nb-menu-item-active" role="menuitem" aria-selected="true">Services</li>
-    <li class="nb-menu-item" role="menuitem">About</li>
-    <li class="nb-menu-item" role="menuitem">Contact</li>
-  </ul>
+  <div class="nb-menu nb-menu-horizontal" role="menubar" aria-label="Main navigation">
+    <button class="nb-menu-item" type="button" role="menuitem">Home</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Products</button>
+    <button class="nb-menu-item nb-menu-item-active" type="button" role="menuitem" aria-current="true">Services</button>
+    <button class="nb-menu-item" type="button" role="menuitem">About</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Contact</button>
+  </div>
 </div>
 
 <!-- 3. Menu with Submenu (vertical) -->
 <div class="nb-component-card__demo" style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: flex-start;">
-  <ul class="nb-menu" role="menu" aria-label="File menu">
-    <li class="nb-menu-item" role="menuitem">New</li>
-    <li class="nb-menu-item" role="menuitem">Open</li>
-    <li class="nb-menu-item nb-menu-submenu-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
-      Save As
-      <ul class="nb-menu-submenu" role="menu" aria-label="Save As submenu">
-        <li class="nb-menu-item" role="menuitem">PDF</li>
-        <li class="nb-menu-item" role="menuitem">Word</li>
-        <li class="nb-menu-item" role="menuitem">Text</li>
-      </ul>
-    </li>
-    <li class="nb-menu-item" role="menuitem">Print</li>
-  </ul>
+  <div class="nb-menu" role="menu" aria-label="File menu">
+    <button class="nb-menu-item" type="button" role="menuitem">New</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Open</button>
+    <div class="nb-menu-item-wrapper">
+      <button class="nb-menu-item nb-menu-submenu-trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">
+        Save As
+      </button>
+      <div class="nb-menu-submenu" role="menu" aria-label="Save As submenu">
+        <button class="nb-menu-item" type="button" role="menuitem">PDF</button>
+        <button class="nb-menu-item" type="button" role="menuitem">Word</button>
+        <button class="nb-menu-item" type="button" role="menuitem">Text</button>
+      </div>
+    </div>
+    <button class="nb-menu-item" type="button" role="menuitem">Print</button>
+  </div>
 
   <!-- 4. Horizontal Menubar with Submenu -->
-  <ul class="nb-menu nb-menu-horizontal" role="menubar" aria-label="Edit menu">
-    <li class="nb-menu-item" role="menuitem">Undo</li>
-    <li class="nb-menu-item" role="menuitem">Redo</li>
-    <li class="nb-menu-item nb-menu-submenu-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
-      Preferences
-      <ul class="nb-menu-submenu" role="menu" aria-label="Preferences submenu">
-        <li class="nb-menu-item" role="menuitem">General</li>
-        <li class="nb-menu-item" role="menuitem">Appearance</li>
-        <li class="nb-menu-item" role="menuitem">Notifications</li>
-      </ul>
-    </li>
-    <li class="nb-menu-item" role="menuitem">Cut</li>
-    <li class="nb-menu-item" role="menuitem">Copy</li>
-  </ul>
+  <div class="nb-menu nb-menu-horizontal" role="menubar" aria-label="Edit menu">
+    <button class="nb-menu-item" type="button" role="menuitem">Undo</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Redo</button>
+    <div class="nb-menu-item-wrapper">
+      <button class="nb-menu-item nb-menu-submenu-trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">
+        Preferences
+      </button>
+      <div class="nb-menu-submenu" role="menu" aria-label="Preferences submenu">
+        <button class="nb-menu-item" type="button" role="menuitem">General</button>
+        <button class="nb-menu-item" type="button" role="menuitem">Appearance</button>
+        <button class="nb-menu-item" type="button" role="menuitem">Notifications</button>
+      </div>
+    </div>
+    <button class="nb-menu-item" type="button" role="menuitem">Cut</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Copy</button>
+  </div>
 </div>
 
 <!-- 5. Menu with Divider and Group Labels -->
 <div class="nb-component-card__demo">
-  <ul class="nb-menu" role="menu" aria-label="Project menu">
-    <li class="nb-menu-group-label" aria-label="Project">Project</li>
-    <li class="nb-menu-item" role="menuitem">New Project</li>
-    <li class="nb-menu-item" role="menuitem">Open Project</li>
-    <li class="nb-menu-item" role="menuitem">Recent Projects</li>
-    <li class="nb-menu-divider" role="separator"></li>
-    <li class="nb-menu-group-label" aria-label="Account">Account</li>
-    <li class="nb-menu-item" role="menuitem">Profile</li>
-    <li class="nb-menu-item" role="menuitem">Billing</li>
-    <li class="nb-menu-item" role="menuitem">Team</li>
-  </ul>
+  <div class="nb-menu" role="menu" aria-label="Project menu">
+    <div class="nb-menu-group-label">Project</div>
+    <button class="nb-menu-item" type="button" role="menuitem">New Project</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Open Project</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Recent Projects</button>
+    <div class="nb-menu-divider" role="separator"></div>
+    <div class="nb-menu-group-label">Account</div>
+    <button class="nb-menu-item" type="button" role="menuitem">Profile</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Billing</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Team</button>
+  </div>
 </div>
 
 <!-- 6. Menu with Active, Disabled, and Checkbox/Radio Items -->
 <div class="nb-component-card__demo" style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: flex-start;">
-  <ul class="nb-menu" role="menu" aria-label="View menu">
-    <li class="nb-menu-item" role="menuitem">Zoom In</li>
-    <li class="nb-menu-item" role="menuitem">Zoom Out</li>
-    <li class="nb-menu-item nb-menu-item-active" role="menuitem" aria-selected="true">Fit to Screen</li>
-    <li class="nb-menu-item nb-menu-item-disabled" role="menuitem" aria-disabled="true">Actual Size</li>
-    <li class="nb-menu-divider" role="separator"></li>
-    <li class="nb-menu-item" role="menuitemcheckbox" aria-checked="true">Show Grid</li>
-    <li class="nb-menu-item" role="menuitemcheckbox" aria-checked="false">Show Rulers</li>
-    <li class="nb-menu-item" role="menuitemradio" aria-checked="true">Light Mode</li>
-    <li class="nb-menu-item" role="menuitemradio" aria-checked="false">Dark Mode</li>
-  </ul>
+  <div class="nb-menu" role="menu" aria-label="View menu">
+    <button class="nb-menu-item" type="button" role="menuitem">Zoom In</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Zoom Out</button>
+    <button class="nb-menu-item nb-menu-item-active" type="button" role="menuitem" aria-current="true">Fit to Screen</button>
+    <button class="nb-menu-item nb-menu-item-disabled" type="button" role="menuitem" aria-disabled="true" disabled>Actual Size</button>
+    <div class="nb-menu-divider" role="separator"></div>
+    <button class="nb-menu-item" type="button" role="menuitemcheckbox" aria-checked="true">Show Grid</button>
+    <button class="nb-menu-item" type="button" role="menuitemcheckbox" aria-checked="false">Show Rulers</button>
+    <button class="nb-menu-item" type="button" role="menuitemradio" aria-checked="true">Light Mode</button>
+    <button class="nb-menu-item" type="button" role="menuitemradio" aria-checked="false">Dark Mode</button>
+  </div>
 </div>
 
 <!-- 7. Collapsed Menu (mobile / minimal) -->
 <div class="nb-component-card__demo">
-  <ul class="nb-menu nb-menu-collapsed" role="menu" aria-label="Mobile menu">
-    <li class="nb-menu-item" role="menuitem">Dashboard</li>
-    <li class="nb-menu-item" role="menuitem">Orders</li>
-    <li class="nb-menu-item nb-menu-item-active" role="menuitem" aria-selected="true">Customers</li>
-    <li class="nb-menu-item" role="menuitem">Analytics</li>
-    <li class="nb-menu-item nb-menu-item-disabled" role="menuitem" aria-disabled="true">Reports</li>
-  </ul>
+  <div class="nb-menu nb-menu-collapsed" role="menu" aria-label="Mobile menu">
+    <button class="nb-menu-item" type="button" role="menuitem">Dashboard</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Orders</button>
+    <button class="nb-menu-item nb-menu-item-active" type="button" role="menuitem" aria-current="true">Customers</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Analytics</button>
+    <button class="nb-menu-item nb-menu-item-disabled" type="button" role="menuitem" aria-disabled="true" disabled>Reports</button>
+  </div>
 </div>
 
 <!-- 8. Responsive Horizontal Menu (shows vertical on mobile) -->
 <div class="nb-component-card__demo">
-  <ul class="nb-menu nb-menu-horizontal nb-menu-responsive" role="menubar" aria-label="Responsive nav">
-    <li class="nb-menu-item" role="menuitem">Home</li>
-    <li class="nb-menu-item" role="menuitem">Features</li>
-    <li class="nb-menu-item nb-menu-item-active" role="menuitem" aria-selected="true">Pricing</li>
-    <li class="nb-menu-item" role="menuitem">Blog</li>
-    <li class="nb-menu-item" role="menuitem">Contact</li>
-  </ul>
+  <div class="nb-menu nb-menu-horizontal nb-menu-responsive" role="menubar" aria-label="Responsive nav">
+    <button class="nb-menu-item" type="button" role="menuitem">Home</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Features</button>
+    <button class="nb-menu-item nb-menu-item-active" type="button" role="menuitem" aria-current="true">Pricing</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Blog</button>
+    <button class="nb-menu-item" type="button" role="menuitem">Contact</button>
+  </div>
 </div>
 
 <!-- 9. Nested Submenus (flyout) -->
 <div class="nb-component-card__demo">
-  <ul class="nb-menu" role="menu" aria-label="Settings menu">
-    <li class="nb-menu-item" role="menuitem">General</li>
-    <li class="nb-menu-item nb-menu-submenu-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
-      Appearance
-      <ul class="nb-menu-submenu" role="menu" aria-label="Appearance submenu">
-        <li class="nb-menu-item" role="menuitem">Theme</li>
-        <li class="nb-menu-item nb-menu-submenu-trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">
-          Font
-          <ul class="nb-menu-submenu" role="menu" aria-label="Font submenu">
-            <li class="nb-menu-item" role="menuitem">Sans</li>
-            <li class="nb-menu-item" role="menuitem">Serif</li>
-            <li class="nb-menu-item" role="menuitem">Mono</li>
-          </ul>
-        </li>
-        <li class="nb-menu-item" role="menuitem">Density</li>
-      </ul>
-    </li>
-    <li class="nb-menu-item" role="menuitem">Notifications</li>
-  </ul>
+  <div class="nb-menu" role="menu" aria-label="Settings menu">
+    <button class="nb-menu-item" type="button" role="menuitem">General</button>
+    <div class="nb-menu-item-wrapper">
+      <button class="nb-menu-item nb-menu-submenu-trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">
+        Appearance
+      </button>
+      <div class="nb-menu-submenu" role="menu" aria-label="Appearance submenu">
+        <button class="nb-menu-item" type="button" role="menuitem">Theme</button>
+        <div class="nb-menu-item-wrapper">
+          <button class="nb-menu-item nb-menu-submenu-trigger" type="button" role="menuitem" aria-haspopup="true" aria-expanded="false">
+            Font
+          </button>
+          <div class="nb-menu-submenu" role="menu" aria-label="Font submenu">
+            <button class="nb-menu-item" type="button" role="menuitem">Sans</button>
+            <button class="nb-menu-item" type="button" role="menuitem">Serif</button>
+            <button class="nb-menu-item" type="button" role="menuitem">Mono</button>
+          </div>
+        </div>
+        <button class="nb-menu-item" type="button" role="menuitem">Density</button>
+      </div>
+    </div>
+    <button class="nb-menu-item" type="button" role="menuitem">Notifications</button>
+  </div>
 </div>
 
 <script>
