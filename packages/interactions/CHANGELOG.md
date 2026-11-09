@@ -1,5 +1,14 @@
 # @neo-brutal-ui/interactions
 
+## 1.0.1
+
+### Patch Changes
+
+- cc50af3: Support native-button menu markup, keep command palette selection states valid, and remove unsupported dialog expansion attributes.
+- Updated dependencies [cc50af3]
+- Updated dependencies [38ec673]
+  - @neo-brutal-ui/core@1.0.1
+
 ## 1.0.0
 
 ### Minor Changes

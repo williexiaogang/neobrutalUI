@@ -1,5 +1,12 @@
 # @neo-brutal-ui/core
 
+## 1.0.1
+
+### Patch Changes
+
+- cc50af3: Support native-button menu markup, keep command palette selection states valid, and remove unsupported dialog expansion attributes.
+- 38ec673: Align CSS with Stylelint conventions, remove invalid declarations, and preserve RTL toast progress behavior.
+
 ## 1.0.0
 
 ### Minor Changes

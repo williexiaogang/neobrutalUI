@@ -1,5 +1,13 @@
 # @neo-brutal-ui/theme-neo-brutal
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [cc50af3]
+- Updated dependencies [38ec673]
+  - @neo-brutal-ui/core@1.0.1
+
 ## 1.0.0
 
 ### Minor Changes
