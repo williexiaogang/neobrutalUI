@@ -25,7 +25,7 @@
     margin: 0;
     font-size: var(--nb-text-base);
     font-weight: 800;
-    color: var(--nb-error);
+    color: var(--nb-error-ink);
   }
 
   .nb-form-summary-list {
@@ -56,7 +56,7 @@
   }
 
   .nb-form-summary-link {
-    color: var(--nb-error);
+    color: var(--nb-error-ink);
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 2px;
@@ -84,7 +84,7 @@
   }
 
   .nb-form-summary-warning .nb-form-summary-title {
-    color: var(--nb-warning);
+    color: var(--nb-warning-ink);
   }
 
   .nb-form-summary-warning .nb-form-summary-item::before {
@@ -92,7 +92,7 @@
   }
 
   .nb-form-summary-warning .nb-form-summary-link {
-    color: var(--nb-warning);
+    color: var(--nb-warning-ink);
   }
 
   /* Compact */

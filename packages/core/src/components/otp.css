@@ -35,13 +35,13 @@
   .nb-otp-field:focus {
     border-color: var(--nb-focus);
     box-shadow: var(--nb-shadow-md);
-    outline: none;
   }
 
   .nb-otp-field:focus-visible {
     border-color: var(--nb-focus);
     box-shadow: var(--nb-shadow-md);
-    outline: none;
+    outline: 3px solid var(--nb-focus);
+    outline-offset: 2px;
   }
 
   .nb-otp-field:disabled {
@@ -82,7 +82,7 @@
 
   .nb-otp-error {
     font-size: var(--nb-text-sm);
-    color: var(--nb-error);
+    color: var(--nb-error-ink);
     font-weight: 700;
   }
 

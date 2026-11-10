@@ -26,18 +26,18 @@ const navItems = [
       </nav>
 
       <div class="nb-header__actions">
-        <button
-          class="nb-btn nb-btn-sm nb-header__theme-toggle"
-          type="button"
-          aria-label="Toggle dark theme"
-          aria-pressed="false"
-          data-theme-toggle
-        >
-          <span aria-hidden="true">☾</span>
-        </button>
+        <label class="nb-header__theme">
+          <span class="nb-visually-hidden">Color theme</span>
+          <select class="nb-select nb-select-sm nb-header__theme-select" data-theme-select>
+            <option value="neo-brutal">Neo-Brutal</option>
+            <option value="neo-brutal-dark">Brutal Dark</option>
+            <option value="emerald">Emerald</option>
+            <option value="emerald-dark">Emerald Dark</option>
+          </select>
+        </label>
 
-        <span class="nb-badge nb-badge-accent" aria-label={`Version status: ${site.versionLabel}`}>
-          {site.versionLabel}
+        <span class="nb-badge nb-badge-accent" title="Library release channel, not component status">
+          {site.versionLabel} release
         </span>
 
         <a
@@ -96,51 +96,38 @@ const navItems = [
       toggle.textContent = isOpen ? "Close" : "Menu";
     });
 
+    function closeMenu(restoreFocus: boolean) {
+      mobileNav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "Menu";
+      if (restoreFocus) toggle.focus();
+    }
+
     // Close menu when a link is clicked.
     mobileNav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        mobileNav.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.textContent = "Menu";
+        closeMenu(false);
       });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || !mobileNav.classList.contains("is-open")) return;
+      event.preventDefault();
+      closeMenu(true);
     });
   }
 
-  // Theme toggle — cycles through all available themes
-  const themeToggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
-  if (themeToggle) {
+  const themeSelect = document.querySelector<HTMLSelectElement>("[data-theme-select]");
+  if (themeSelect) {
     const html = document.documentElement;
-    const sun = "☀";
-    const moon = "☾";
-    const toggle = themeToggle;
     const themes = ["neo-brutal", "neo-brutal-dark", "emerald", "emerald-dark"];
+    const current = html.getAttribute("data-theme") || "neo-brutal";
+    themeSelect.value = themes.includes(current) ? current : "neo-brutal";
 
-    function isDarkTheme(name: string) {
-      return name.endsWith("-dark");
-    }
-
-    function updateThemeIcon() {
-      const current = html.getAttribute("data-theme") || "neo-brutal";
-      const iconSpan = toggle.querySelector("span");
-      if (iconSpan) {
-        iconSpan.textContent = isDarkTheme(current) ? sun : moon;
-      }
-      toggle.setAttribute("aria-pressed", String(isDarkTheme(current)));
-      toggle.setAttribute(
-        "aria-label",
-        `Current theme: ${current}. Click to switch theme.`
-      );
-    }
-
-    updateThemeIcon();
-
-    toggle.addEventListener("click", () => {
-      const current = html.getAttribute("data-theme") || "neo-brutal";
-      const index = themes.indexOf(current);
-      const next = themes[(index + 1) % themes.length];
+    themeSelect.addEventListener("change", () => {
+      const next = themeSelect.value;
       html.setAttribute("data-theme", next);
       localStorage.setItem("nb-theme", next);
-      updateThemeIcon();
     });
   }
 </script>

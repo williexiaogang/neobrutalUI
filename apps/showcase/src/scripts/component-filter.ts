@@ -113,11 +113,6 @@ function initComponentFilter() {
       activeCategory = chip.dataset.categoryChip ?? "all";
       updateFilter();
 
-      // Move focus to the category filter bar for keyboard users.
-      const firstCategoryButton = document.querySelector<HTMLButtonElement>(
-        "[data-category-filter][aria-pressed='true']"
-      );
-      firstCategoryButton?.focus();
     });
   });
 

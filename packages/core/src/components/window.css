@@ -66,8 +66,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    inline-size: 1.25rem;
-    block-size: 1.25rem;
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
     border: var(--nb-border-width) solid var(--_border);
     border-radius: var(--nb-radius-field);
     background: var(--nb-base-100);

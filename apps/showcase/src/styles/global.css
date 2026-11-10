@@ -18,11 +18,35 @@
   }
 }
 
+/* Keep anchored headings and focused controls clear of the sticky header. */
+html {
+  scroll-padding-top: calc(4.25rem + var(--nb-space-4));
+}
+
 /* Smooth scrolling for anchor links (when motion is allowed) */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
+}
+
+.nb-skip-link {
+  position: absolute;
+  inset-inline-start: var(--nb-space-4);
+  inset-block-start: var(--nb-space-4);
+  z-index: calc(var(--nb-z-sticky) + 1);
+  padding: var(--nb-space-2) var(--nb-space-4);
+  border: var(--nb-border-width) solid var(--nb-border);
+  background: var(--nb-accent);
+  color: var(--nb-accent-content);
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: var(--nb-shadow-md);
+  transform: translateY(-200%);
+}
+
+.nb-skip-link:focus {
+  transform: none;
 }
 
 /* Base typography */

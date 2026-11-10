@@ -13,6 +13,7 @@
     --nb-duration-fast: 120ms;
     --nb-duration-normal: 180ms;
     --nb-duration-slow: 300ms;
+    --nb-duration-spin: 800ms;
     --nb-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     --nb-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   }

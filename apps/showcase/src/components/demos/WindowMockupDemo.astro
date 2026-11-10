@@ -1,9 +1,12 @@
+---
+import Icon from "@components/showcase/Icon.astro";
+---
+
 <div class="nb-component-card__demo" style="flex-wrap: wrap; gap: var(--nb-space-6); align-items: flex-start; justify-content: center;">
-  <!-- Default Window Mockup -->
-  <div class="nb-window" data-theme="neo-brutal" aria-label="File manager preview">
+  <div class="nb-window">
     <div class="nb-window-header">
       <div class="nb-window-title">
-        <span class="nb-window-title-icon" aria-hidden="true">📁</span>
+        <span class="nb-window-title-icon" aria-hidden="true"><Icon name="folder" /></span>
         <span class="nb-window-title-text">project/</span>
       </div>
       <div class="nb-window-controls">
@@ -13,21 +16,20 @@
       </div>
     </div>
     <div class="nb-window-body">
-      <div style="padding: var(--nb-space-3); font-size: var(--nb-text-sm);">
-        <p style="margin: 0 0 var(--nb-space-2);">📄 README.md</p>
-        <p style="margin: 0 0 var(--nb-space-2);">📁 src/</p>
-        <p style="margin: 0 0 var(--nb-space-2); padding-inline-start: var(--nb-space-4);">📁 components/</p>
-        <p style="margin: 0 0 var(--nb-space-2); padding-inline-start: var(--nb-space-4);">📁 pages/</p>
-        <p style="margin: 0;">📄 package.json</p>
+      <div style="padding: var(--nb-space-3); font-size: var(--nb-text-sm); display: flex; flex-direction: column; gap: var(--nb-space-2);">
+        <p style="margin: 0; display: flex; align-items: center; gap: var(--nb-space-2);"><Icon name="file" /> README.md</p>
+        <p style="margin: 0; display: flex; align-items: center; gap: var(--nb-space-2);"><Icon name="folder" /> src/</p>
+        <p style="margin: 0; display: flex; align-items: center; gap: var(--nb-space-2); padding-inline-start: var(--nb-space-4);"><Icon name="folder" /> components/</p>
+        <p style="margin: 0; display: flex; align-items: center; gap: var(--nb-space-2); padding-inline-start: var(--nb-space-4);"><Icon name="folder" /> pages/</p>
+        <p style="margin: 0; display: flex; align-items: center; gap: var(--nb-space-2);"><Icon name="file" /> package.json</p>
       </div>
     </div>
   </div>
 
-  <!-- Large Window Mockup -->
-  <div class="nb-window nb-window-lg nb-window-primary" data-theme="neo-brutal" aria-label="Text editor preview">
+  <div class="nb-window nb-window-lg nb-window-primary">
     <div class="nb-window-header">
       <div class="nb-window-title">
-        <span class="nb-window-title-icon" aria-hidden="true">📝</span>
+        <span class="nb-window-title-icon" aria-hidden="true"><Icon name="file" /></span>
         <span class="nb-window-title-text">notes.txt</span>
       </div>
       <div class="nb-window-controls">
@@ -37,7 +39,7 @@
       </div>
     </div>
     <div class="nb-window-body">
-      <div style="padding: var(--nb-space-3); font-size: var(--nb-text-sm); font-family: monospace;">
+      <div style="padding: var(--nb-space-3); font-size: var(--nb-text-sm); font-family: var(--nb-font-mono);">
         <p style="margin: 0 0 var(--nb-space-2);">// TODO</p>
         <p style="margin: 0 0 var(--nb-space-2);">- [x] Build component library</p>
         <p style="margin: 0 0 var(--nb-space-2);">- [x] Add showcase demos</p>
@@ -46,15 +48,14 @@
       </div>
     </div>
     <div class="nb-window-footer">
-      <span style="font-size: var(--nb-text-xs);">UTF-8 • 5 lines</span>
+      <span style="font-size: var(--nb-text-sm);">UTF-8, 5 lines</span>
     </div>
   </div>
 
-  <!-- Dark Window Mockup -->
-  <div class="nb-window nb-window-dark nb-window-secondary" data-theme="neo-brutal" aria-label="Terminal preview">
+  <div class="nb-window nb-window-secondary">
     <div class="nb-window-header">
       <div class="nb-window-title">
-        <span class="nb-window-title-icon" aria-hidden="true">⚡</span>
+        <span class="nb-window-title-icon" aria-hidden="true"><Icon name="bolt" /></span>
         <span class="nb-window-title-text">Terminal</span>
       </div>
       <div class="nb-window-controls">
@@ -64,11 +65,11 @@
       </div>
     </div>
     <div class="nb-window-body">
-      <div style="padding: var(--nb-space-3); font-family: monospace; font-size: var(--nb-text-sm); color: var(--nb-color-white);">
-        <p style="margin: 0 0 var(--nb-space-1);"><span style="opacity: 0.7;">$</span> npm run build</p>
-        <p style="margin: 0 0 var(--nb-space-1);"><span style="color: var(--nb-color-success);">✔</span> Building 24 components</p>
-        <p style="margin: 0 0 var(--nb-space-1);"><span style="color: var(--nb-color-success);">✔</span> Generating CSS bundle</p>
-        <p style="margin: 0;"><span style="opacity: 0.7;">$</span> <span style="opacity: 0.6;">_</span></p>
+      <div style="padding: var(--nb-space-3); font-family: var(--nb-font-mono); font-size: var(--nb-text-sm); color: var(--nb-base-content);">
+        <p style="margin: 0 0 var(--nb-space-1);"><span style="color: var(--nb-base-content-muted);">$</span> npm run build</p>
+        <p style="margin: 0 0 var(--nb-space-1);"><span style="color: var(--nb-success-ink);">OK</span> Building 24 components</p>
+        <p style="margin: 0 0 var(--nb-space-1);"><span style="color: var(--nb-success-ink);">OK</span> Generating CSS bundle</p>
+        <p style="margin: 0;"><span style="color: var(--nb-base-content-muted);">$</span> _</p>
       </div>
     </div>
   </div>

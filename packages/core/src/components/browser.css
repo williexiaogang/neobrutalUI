@@ -41,7 +41,7 @@
     inline-size: 0.75rem;
     block-size: 0.75rem;
     border: var(--nb-border-width) solid var(--nb-border);
-    border-radius: 9999px;
+    border-radius: var(--nb-radius-pill);
     background: var(--nb-base-300);
   }
 

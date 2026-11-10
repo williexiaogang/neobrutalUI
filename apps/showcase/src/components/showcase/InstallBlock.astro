@@ -14,11 +14,12 @@ const jsImport = site.jsImport;
     pure CSS; interactions are optional and tree-shakeable.
   </p>
 
+  <p class="nb-visually-hidden" data-copy-status aria-live="polite"></p>
   <div class="nb-install">
     <div class="nb-install__block">
       <span class="nb-install__label">Install with npm</span>
-      <div class="nb-code-block">
-        <code>{npmCommand}</code>
+      <div class="nb-install-code">
+        <code tabindex="0">{npmCommand}</code>
         <button
           class="nb-copy-btn"
           type="button"
@@ -35,8 +36,8 @@ const jsImport = site.jsImport;
 
     <div class="nb-install__block">
       <span class="nb-install__label">Import CSS</span>
-      <div class="nb-code-block">
-        <code>{cssImport}</code>
+      <div class="nb-install-code">
+        <code tabindex="0">{cssImport}</code>
         <button
           class="nb-copy-btn"
           type="button"
@@ -53,8 +54,8 @@ const jsImport = site.jsImport;
 
     <div class="nb-install__block">
       <span class="nb-install__label">Optional interactions</span>
-      <div class="nb-code-block">
-        <code>{jsImport}</code>
+      <div class="nb-install-code">
+        <code tabindex="0">{jsImport}</code>
         <button
           class="nb-copy-btn"
           type="button"

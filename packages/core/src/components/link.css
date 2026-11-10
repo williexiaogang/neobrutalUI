@@ -6,7 +6,7 @@
 
 @layer nb.components {
   .nb-link {
-    color: var(--nb-primary);
+    color: var(--nb-primary-ink);
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;

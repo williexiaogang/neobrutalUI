@@ -44,7 +44,7 @@
     inline-size: var(--_status-size);
     block-size: var(--_status-size);
     border: 2px solid var(--nb-base-100);
-    border-radius: 9999px;
+    border-radius: var(--nb-radius-pill);
     background: var(--nb-neutral);
   }
 

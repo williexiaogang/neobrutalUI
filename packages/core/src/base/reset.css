@@ -10,6 +10,7 @@
   [data-theme="emerald"],
   [data-theme="emerald-dark"] {
     color: var(--nb-base-content);
+    background: var(--nb-base-100);
     font-family: var(--nb-font-sans);
     line-height: var(--nb-leading-normal);
   }

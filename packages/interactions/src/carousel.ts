@@ -31,10 +31,10 @@ const EVENT_CHANGE = `${NAMESPACE}:change`;
  *     </div>
  *     <button class="nb-carousel-nav nb-carousel-nav-prev" aria-controls="track-id">‹</button>
  *     <button class="nb-carousel-nav nb-carousel-nav-next" aria-controls="track-id">›</button>
- *     <ol class="nb-carousel-dots" role="tablist">
- *       <li><button class="nb-carousel-dot nb-carousel-dot-active" role="tab" aria-selected="true" aria-label="Slide 1" aria-controls="track-id"></button></li>
- *       <li><button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2" aria-controls="track-id"></button></li>
- *     </ol>
+ *     <div class="nb-carousel-dots" role="tablist" aria-label="Slides">
+ *       <button class="nb-carousel-dot nb-carousel-dot-active" role="tab" aria-selected="true" aria-label="Slide 1" aria-controls="track-id"></button>
+ *       <button class="nb-carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2" aria-controls="track-id"></button>
+ *     </div>
  *   </div>
  */
 export function createCarousel(element: HTMLElement, options: CarouselOptions = {}): CarouselInstance {
@@ -158,6 +158,7 @@ export function createCarousel(element: HTMLElement, options: CarouselOptions = 
 
   function startAutoPlay(): void {
     if (autoPlay <= 0 || autoPlayTimer) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
     autoPlayTimer = setInterval(() => {
       next();
     }, autoPlay);

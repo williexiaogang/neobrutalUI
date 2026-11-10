@@ -10,8 +10,8 @@
     --_value-color: var(--nb-base-content);
     --_label-color: var(--nb-base-content-muted);
     --_desc-color: var(--nb-base-content-muted);
-    --_trend-up: var(--nb-success);
-    --_trend-down: var(--nb-error);
+    --_trend-up: var(--nb-success-ink);
+    --_trend-down: var(--nb-error-ink);
 
     display: flex;
     flex-direction: column;
@@ -110,31 +110,31 @@
 
   /* ── Color variants ── */
   .nb-stat-primary .nb-stat-value {
-    --_value-color: var(--nb-primary);
+    --_value-color: var(--nb-primary-ink);
   }
 
   .nb-stat-secondary .nb-stat-value {
-    --_value-color: var(--nb-secondary);
+    --_value-color: var(--nb-secondary-ink);
   }
 
   .nb-stat-accent .nb-stat-value {
-    --_value-color: var(--nb-accent);
+    --_value-color: var(--nb-accent-ink);
   }
 
   .nb-stat-success .nb-stat-value {
-    --_value-color: var(--nb-success);
+    --_value-color: var(--nb-success-ink);
   }
 
   .nb-stat-info .nb-stat-value {
-    --_value-color: var(--nb-info);
+    --_value-color: var(--nb-info-ink);
   }
 
   .nb-stat-warning .nb-stat-value {
-    --_value-color: var(--nb-warning);
+    --_value-color: var(--nb-warning-ink);
   }
 
   .nb-stat-error .nb-stat-value {
-    --_value-color: var(--nb-error);
+    --_value-color: var(--nb-error-ink);
   }
 
   /* ── Size variants ── */

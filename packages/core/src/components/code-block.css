@@ -119,31 +119,31 @@
 
   /* Color variants (accent the header/lang) */
   .nb-code-block-primary {
-    --_accent: var(--nb-primary);
+    --_accent: var(--nb-primary-ink);
   }
 
   .nb-code-block-secondary {
-    --_accent: var(--nb-secondary);
+    --_accent: var(--nb-secondary-ink);
   }
 
   .nb-code-block-accent {
-    --_accent: var(--nb-accent);
+    --_accent: var(--nb-accent-ink);
   }
 
   .nb-code-block-info {
-    --_accent: var(--nb-info);
+    --_accent: var(--nb-info-ink);
   }
 
   .nb-code-block-success {
-    --_accent: var(--nb-success);
+    --_accent: var(--nb-success-ink);
   }
 
   .nb-code-block-warning {
-    --_accent: var(--nb-warning);
+    --_accent: var(--nb-warning-ink);
   }
 
   .nb-code-block-error {
-    --_accent: var(--nb-error);
+    --_accent: var(--nb-error-ink);
   }
 
   /* Size variants */

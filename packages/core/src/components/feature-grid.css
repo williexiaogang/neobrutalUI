@@ -13,6 +13,7 @@
     --_item-border: var(--nb-border);
     --_item-shadow: var(--nb-shadow-sm);
     --_accent: var(--nb-primary);
+    --_accent-fg: var(--nb-primary-content);
 
     display: grid;
     grid-template-columns: repeat(var(--_grid-cols), minmax(0, 1fr));
@@ -54,10 +55,15 @@
     border: var(--nb-border-width) solid var(--_accent);
     border-radius: var(--nb-radius-box);
     background: var(--_accent);
-    color: var(--nb-base-100);
+    color: var(--_accent-fg);
     font-size: var(--nb-text-lg);
     font-weight: 700;
     flex-shrink: 0;
+  }
+
+  .nb-feature-grid-icon svg {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
   }
 
   .nb-feature-grid-title {
@@ -105,18 +111,22 @@
   /* Color accent variants */
   .nb-feature-grid-primary {
     --_accent: var(--nb-primary);
+    --_accent-fg: var(--nb-primary-content);
   }
 
   .nb-feature-grid-secondary {
     --_accent: var(--nb-secondary);
+    --_accent-fg: var(--nb-secondary-content);
   }
 
   .nb-feature-grid-accent {
     --_accent: var(--nb-accent);
+    --_accent-fg: var(--nb-accent-content);
   }
 
   .nb-feature-grid-neutral {
     --_accent: var(--nb-neutral);
+    --_accent-fg: var(--nb-neutral-content);
   }
 
   /* Size variants */

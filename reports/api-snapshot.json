@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generatedAt": "2026-07-09T11:11:08.602Z",
+    "generatedAt": "2026-11-10T04:35:03.275Z",
     "version": "0.0.2"
   },
   "css": {
-    "classCount": 699,
+    "classCount": 707,
     "classes": [
       "nb-accordion",
       "nb-accordion-content",
@@ -19,6 +19,8 @@
       "nb-accordion-trigger-disabled",
       "nb-alert",
       "nb-alert-body",
+      "nb-alert-close",
+      "nb-alert-dismissible",
       "nb-alert-error",
       "nb-alert-icon",
       "nb-alert-info",
@@ -107,6 +109,7 @@
       "nb-calendar-nav-btn",
       "nb-calendar-neutral",
       "nb-calendar-primary",
+      "nb-calendar-row",
       "nb-calendar-secondary",
       "nb-calendar-sm",
       "nb-calendar-success",
@@ -425,6 +428,10 @@
       "nb-list-success",
       "nb-list-warning",
       "nb-loading",
+      "nb-loading-lg",
+      "nb-loading-sm",
+      "nb-loading-xl",
+      "nb-loading-xs",
       "nb-menu",
       "nb-menu-collapsed",
       "nb-menu-divider",
@@ -433,6 +440,7 @@
       "nb-menu-item",
       "nb-menu-item-active",
       "nb-menu-item-disabled",
+      "nb-menu-item-wrapper",
       "nb-menu-responsive",
       "nb-menu-submenu",
       "nb-menu-submenu-trigger",
@@ -706,13 +714,14 @@
       "nb-window-title-icon",
       "nb-window-title-text"
     ],
-    "hash": "fb1aff3c13795277"
+    "hash": "d6d97d168f004f01"
   },
   "tokens": {
-    "tokenCount": 225,
+    "tokenCount": 235,
     "tokens": [
       "--nb-accent",
       "--nb-accent-content",
+      "--nb-accent-ink",
       "--nb-alert-accent-width",
       "--nb-avatar-size",
       "--nb-avatar-status-size",
@@ -786,6 +795,7 @@
       "--nb-duration-fast",
       "--nb-duration-normal",
       "--nb-duration-slow",
+      "--nb-duration-spin",
       "--nb-ease-in-out",
       "--nb-ease-out",
       "--nb-empty-gap",
@@ -793,6 +803,8 @@
       "--nb-empty-icon-size",
       "--nb-error",
       "--nb-error-content",
+      "--nb-error-ink",
+      "--nb-error-text",
       "--nb-feature-grid-gap",
       "--nb-feature-grid-icon-size",
       "--nb-feature-grid-item-padding",
@@ -813,6 +825,7 @@
       "--nb-hero-title-size",
       "--nb-info",
       "--nb-info-content",
+      "--nb-info-ink",
       "--nb-input-border-color",
       "--nb-input-shadow",
       "--nb-input-shadow-focus",
@@ -856,6 +869,7 @@
       "--nb-pricing-card-shadow-hover",
       "--nb-primary",
       "--nb-primary-content",
+      "--nb-primary-ink",
       "--nb-progress-circular-size",
       "--nb-progress-circular-stroke",
       "--nb-progress-fill-bg",
@@ -864,6 +878,7 @@
       "--nb-radius-box",
       "--nb-radius-field",
       "--nb-radius-overlay",
+      "--nb-radius-pill",
       "--nb-radius-selector",
       "--nb-range-thumb-size",
       "--nb-range-track-height",
@@ -873,6 +888,7 @@
       "--nb-rating-star-size",
       "--nb-secondary",
       "--nb-secondary-content",
+      "--nb-secondary-ink",
       "--nb-segmented-padding",
       "--nb-shadow-",
       "--nb-shadow-lg",
@@ -906,6 +922,7 @@
       "--nb-steps-indicator-size",
       "--nb-success",
       "--nb-success-content",
+      "--nb-success-ink",
       "--nb-tab-active-border-color",
       "--nb-tab-padding",
       "--nb-table-header-bg",
@@ -927,6 +944,7 @@
       "--nb-tooltip-max-width",
       "--nb-warning",
       "--nb-warning-content",
+      "--nb-warning-ink",
       "--nb-window-body-min-height",
       "--nb-window-header-bg",
       "--nb-window-shadow",
@@ -937,12 +955,13 @@
       "--nb-z-toast",
       "--nb-z-tooltip"
     ],
-    "hash": "a7f4b3f1967b2f05"
+    "hash": "06b335ca1ce85b68"
   },
   "js": {
-    "namedExportCount": 28,
+    "namedExportCount": 30,
     "namedExports": [
       "countUp",
+      "createCalendar",
       "createCarousel",
       "createCodeBlock",
       "createCollapse",
@@ -953,6 +972,7 @@
       "createDrawer",
       "createDropdown",
       "createEventManager",
+      "createNavbar",
       "createOtp",
       "createRating",
       "createSegmentedControl",
@@ -971,10 +991,12 @@
       "saveActiveElement",
       "stagger"
     ],
-    "typeExportCount": 30,
+    "typeExportCount": 34,
     "typeExports": [
       "AccordionInstance",
       "BaseOptions",
+      "CalendarInstance",
+      "CalendarOptions",
       "CarouselInstance",
       "CarouselOptions",
       "CodeBlockInstance",
@@ -991,6 +1013,8 @@
       "DrawerOptions",
       "DropdownOptions",
       "MenuOptions",
+      "NavbarInstance",
+      "NavbarOptions",
       "OtpInstance",
       "OtpOptions",
       "RatingInstance",
@@ -1004,6 +1028,6 @@
       "ToastOptions",
       "TooltipOptions"
     ],
-    "hash": "00ccb291bef5a3ab"
+    "hash": "6c06e95e0c1f3a90"
   }
 }

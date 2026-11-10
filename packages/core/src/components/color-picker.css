@@ -25,7 +25,8 @@
   .nb-color-picker:focus-within {
     border-color: var(--nb-focus);
     box-shadow: var(--nb-shadow-md);
-    outline: none;
+    outline: 3px solid var(--nb-focus);
+    outline-offset: 2px;
   }
 
   .nb-color-picker-input {

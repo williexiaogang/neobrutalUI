@@ -13,6 +13,7 @@
   .nb-list,
   .nb-list[role="list"] {
     --_list-accent: var(--nb-neutral);
+    --_list-accent-fg: var(--nb-neutral-content);
     --_list-bg: var(--nb-base-100);
 
     list-style: none;
@@ -70,7 +71,7 @@
     min-block-size: var(--nb-list-marker-size, 1.5rem);
     padding: 0 var(--nb-space-1);
     background: var(--_list-accent);
-    color: var(--nb-base-100);
+    color: var(--_list-accent-fg);
     font-size: var(--nb-text-sm);
     font-weight: 700;
     border: var(--nb-border-width) solid var(--nb-border);
@@ -187,14 +188,45 @@
   /* ------------------------------------------------------------------------
    * Color variants — accent marker color
    * ------------------------------------------------------------------------ */
-  .nb-list-primary   { --_list-accent: var(--nb-primary); }
-  .nb-list-secondary { --_list-accent: var(--nb-secondary); }
-  .nb-list-accent    { --_list-accent: var(--nb-accent); }
-  .nb-list-info      { --_list-accent: var(--nb-info); }
-  .nb-list-success   { --_list-accent: var(--nb-success); }
-  .nb-list-warning   { --_list-accent: var(--nb-warning); }
-  .nb-list-error     { --_list-accent: var(--nb-error); }
-  .nb-list-neutral   { --_list-accent: var(--nb-neutral); }
+  .nb-list-primary {
+    --_list-accent: var(--nb-primary);
+    --_list-accent-fg: var(--nb-primary-content);
+  }
+
+  .nb-list-secondary {
+    --_list-accent: var(--nb-secondary);
+    --_list-accent-fg: var(--nb-secondary-content);
+  }
+
+  .nb-list-accent {
+    --_list-accent: var(--nb-accent);
+    --_list-accent-fg: var(--nb-accent-content);
+  }
+
+  .nb-list-info {
+    --_list-accent: var(--nb-info);
+    --_list-accent-fg: var(--nb-info-content);
+  }
+
+  .nb-list-success {
+    --_list-accent: var(--nb-success);
+    --_list-accent-fg: var(--nb-success-content);
+  }
+
+  .nb-list-warning {
+    --_list-accent: var(--nb-warning);
+    --_list-accent-fg: var(--nb-warning-content);
+  }
+
+  .nb-list-error {
+    --_list-accent: var(--nb-error);
+    --_list-accent-fg: var(--nb-error-content);
+  }
+
+  .nb-list-neutral {
+    --_list-accent: var(--nb-neutral);
+    --_list-accent-fg: var(--nb-neutral-content);
+  }
 
   /* ------------------------------------------------------------------------
    * Reduced motion

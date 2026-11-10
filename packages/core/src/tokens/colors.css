@@ -51,8 +51,18 @@
     --nb-error: oklch(50% 0.22 25deg);
     --nb-error-content: oklch(100% 0 0deg);
 
+    /* Text on base surfaces. Fill tokens above stay saturated. */
+    --nb-primary-ink: oklch(55% 0.2 350deg);
+    --nb-secondary-ink: oklch(52.5% 0.15 255deg);
+    --nb-accent-ink: oklch(52% 0.105 95deg);
+    --nb-info-ink: oklch(52.5% 0.17 255deg);
+    --nb-success-ink: oklch(50.5% 0.16 145deg);
+    --nb-warning-ink: oklch(52.5% 0.11 75deg);
+    --nb-error-ink: oklch(50% 0.22 25deg);
+    --nb-error-text: var(--nb-error-ink);
+
     --nb-border: var(--nb-base-content);
-    --nb-focus: var(--nb-primary);
+    --nb-focus: var(--nb-primary-ink);
     --nb-overlay: oklch(25% 0.03 260deg / 60%);
   }
 
@@ -101,8 +111,18 @@
     --nb-error: oklch(48% 0.22 25deg);
     --nb-error-content: oklch(100% 0 0deg);
 
+    /* Text on base surfaces. Error fill stays dark; error text is lighter. */
+    --nb-primary-ink: oklch(67% 0.2 350deg);
+    --nb-secondary-ink: oklch(64% 0.15 255deg);
+    --nb-accent-ink: oklch(75% 0.17 95deg);
+    --nb-info-ink: oklch(64% 0.18 255deg);
+    --nb-success-ink: oklch(65% 0.2 145deg);
+    --nb-warning-ink: oklch(70% 0.17 75deg);
+    --nb-error-ink: oklch(67% 0.2 25deg);
+    --nb-error-text: var(--nb-error-ink);
+
     --nb-border: oklch(60% 0.03 260deg);
-    --nb-focus: var(--nb-primary);
+    --nb-focus: var(--nb-primary-ink);
     --nb-overlay: oklch(0% 0 0deg / 70%);
   }
 
@@ -151,8 +171,18 @@
     --nb-error: oklch(55% 0.2 25deg);
     --nb-error-content: oklch(100% 0 0deg);
 
+    /* Text on base surfaces. Fill tokens above stay saturated. */
+    --nb-primary-ink: oklch(50% 0.125 155deg);
+    --nb-secondary-ink: oklch(50% 0.085 185deg);
+    --nb-accent-ink: oklch(50.5% 0.12 120deg);
+    --nb-info-ink: oklch(51% 0.13 245deg);
+    --nb-success-ink: oklch(49.5% 0.15 145deg);
+    --nb-warning-ink: oklch(51.5% 0.11 75deg);
+    --nb-error-ink: oklch(54% 0.2 25deg);
+    --nb-error-text: var(--nb-error-ink);
+
     --nb-border: var(--nb-base-content);
-    --nb-focus: var(--nb-primary);
+    --nb-focus: var(--nb-primary-ink);
     --nb-overlay: oklch(25% 0.03 150deg / 60%);
   }
 
@@ -201,8 +231,18 @@
     --nb-error: oklch(52% 0.2 25deg);
     --nb-error-content: oklch(100% 0 0deg);
 
+    /* Text on base surfaces. Error fill stays dark; error text is lighter. */
+    --nb-primary-ink: oklch(65% 0.18 155deg);
+    --nb-secondary-ink: oklch(64% 0.11 185deg);
+    --nb-accent-ink: oklch(70% 0.17 120deg);
+    --nb-info-ink: oklch(64% 0.15 245deg);
+    --nb-success-ink: oklch(65% 0.18 145deg);
+    --nb-warning-ink: oklch(70% 0.16 75deg);
+    --nb-error-ink: oklch(67% 0.19 25deg);
+    --nb-error-text: var(--nb-error-ink);
+
     --nb-border: oklch(60% 0.03 150deg);
-    --nb-focus: var(--nb-primary);
+    --nb-focus: var(--nb-primary-ink);
     --nb-overlay: oklch(0% 0 0deg / 70%);
   }
 }

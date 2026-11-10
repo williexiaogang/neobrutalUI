@@ -10,6 +10,7 @@
     --_bg: var(--nb-base-100);
     --_fg: var(--nb-base-content);
     --_accent: var(--nb-primary);
+    --_accent-ink: var(--nb-primary-ink);
     --_border: var(--nb-border);
     --_shadow: var(--nb-shadow-md);
 
@@ -48,7 +49,7 @@
     font-size: var(--nb-text-lg);
     font-weight: 700;
     line-height: var(--nb-leading-tight);
-    color: var(--_accent);
+    color: var(--_accent-ink);
   }
 
   .nb-pricing-card-description {
@@ -104,7 +105,7 @@
     block-size: 1.25rem;
     flex-shrink: 0;
     font-weight: 700;
-    color: var(--_accent);
+    color: var(--_accent-ink);
   }
 
   .nb-pricing-card-feature-muted {
@@ -125,18 +126,22 @@
   /* Color variants */
   .nb-pricing-card-primary {
     --_accent: var(--nb-primary);
+    --_accent-ink: var(--nb-primary-ink);
   }
 
   .nb-pricing-card-secondary {
     --_accent: var(--nb-secondary);
+    --_accent-ink: var(--nb-secondary-ink);
   }
 
   .nb-pricing-card-accent {
     --_accent: var(--nb-accent);
+    --_accent-ink: var(--nb-accent-ink);
   }
 
   .nb-pricing-card-neutral {
     --_accent: var(--nb-neutral);
+    --_accent-ink: var(--nb-neutral-content);
   }
 
   /* Featured variant */

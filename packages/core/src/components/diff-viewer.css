@@ -12,12 +12,12 @@
     --_border: var(--nb-border);
     --_gutter-bg: var(--nb-base-200);
     --_gutter-fg: var(--nb-base-content-muted);
-    --_added-bg: oklch(92% 0.08 145deg);
-    --_added-fg: oklch(25% 0.1 145deg);
-    --_added-border: oklch(72% 0.2 145deg);
-    --_removed-bg: oklch(92% 0.08 25deg);
-    --_removed-fg: oklch(25% 0.1 25deg);
-    --_removed-border: oklch(62% 0.22 25deg);
+    --_added-bg: color-mix(in oklch, var(--nb-success) 16%, var(--nb-base-100));
+    --_added-fg: var(--nb-base-content);
+    --_added-border: var(--nb-success);
+    --_removed-bg: color-mix(in oklch, var(--nb-error) 16%, var(--nb-base-100));
+    --_removed-fg: var(--nb-base-content);
+    --_removed-border: var(--nb-error);
     --_hunk-bg: var(--nb-base-200);
     --_hunk-fg: var(--nb-base-content-muted);
 
@@ -48,12 +48,12 @@
   }
 
   .nb-diff-file-old {
-    color: var(--nb-error);
+    color: var(--nb-error-ink);
     text-decoration: line-through;
   }
 
   .nb-diff-file-new {
-    color: var(--nb-success);
+    color: var(--nb-success-ink);
   }
 
   .nb-diff-stats {
@@ -64,11 +64,11 @@
   }
 
   .nb-diff-stat-added {
-    color: var(--nb-success);
+    color: var(--nb-success-ink);
   }
 
   .nb-diff-stat-removed {
-    color: var(--nb-error);
+    color: var(--nb-error-ink);
   }
 
   .nb-diff-body {
@@ -177,12 +177,9 @@
     user-select: none;
   }
 
-  .nb-diff-added .nb-diff-sign {
-    color: var(--nb-success);
-  }
-
+  .nb-diff-added .nb-diff-sign,
   .nb-diff-removed .nb-diff-sign {
-    color: var(--nb-error);
+    color: inherit;
   }
 
   .nb-diff-unchanged .nb-diff-sign {

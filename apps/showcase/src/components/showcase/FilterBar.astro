@@ -1,6 +1,8 @@
 ---
-import { categories } from "@data/components";
+import { categories, getStatusCounts } from "@data/components";
 import { statusLabels, statusOrder } from "@data/statuses";
+
+const counts = getStatusCounts();
 ---
 
 <div class="nb-filter-bar">
@@ -21,8 +23,9 @@ import { statusLabels, statusOrder } from "@data/statuses";
           type="button"
           data-status-filter={status}
           aria-pressed="false"
+          disabled={counts[status] === 0}
         >
-          {statusLabels[status]}
+          {statusLabels[status]} ({counts[status]})
         </button>
       ))
     }

@@ -1,3 +1,7 @@
+---
+import Icon from "@components/showcase/Icon.astro";
+---
+
 <div class="nb-component-card__demo" style="flex-direction: column;">
   <label class="nb-field" style="inline-size: 100%;">
     <span class="nb-field-label">Email</span>
@@ -37,7 +41,7 @@
         style="display: inline-flex; align-items: center; padding-inline: var(--nb-space-3); border: var(--nb-border-width) solid var(--nb-border); border-inline-end-width: 0; background: var(--nb-base-200);"
         aria-hidden="true"
       >
-        🔍
+        <Icon name="search" />
       </span>
       <input class="nb-input" id="input-search" type="search" style="flex: 1 1 auto;" placeholder="Search..." />
     </div>

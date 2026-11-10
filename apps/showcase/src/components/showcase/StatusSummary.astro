@@ -9,8 +9,9 @@ const counts = getStatusCounts();
 <Section id="progress" ariaLabelledby="progress-title">
   <h2 id="progress-title" class="nb-section-title">Development Progress</h2>
   <p class="nb-section-lead">
-    Real-time counts derived from the component catalog. Click a status to filter
-    the gallery below.
+    Counts come from the component catalog. “Alpha release” in the header is the
+    library’s release channel. “Ready” means that component’s CSS is implemented.
+    Statuses with nothing in them yet are disabled.
   </p>
 
   <div class="nb-status-grid" role="group" aria-label="Filter by status">
@@ -21,7 +22,7 @@ const counts = getStatusCounts();
           type="button"
           data-status-filter={status}
           aria-pressed="false"
-          aria-label={`Filter by ${statusLabels[status]}: ${counts[status]} components`}
+          disabled={counts[status] === 0}
         >
           <span class="nb-status-card__count" aria-hidden="true">
             {counts[status]}

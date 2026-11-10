@@ -20,6 +20,7 @@ const sizeClass = component.size
 
 <article
   class:list={["nb-component-card", sizeClass]}
+  id={component.slug}
   data-component-card
   data-component={component.slug}
   data-status={component.status}
@@ -50,7 +51,7 @@ const sizeClass = component.size
   </div>
 
   <div class="nb-component-card__body">
-    <p class="nb-component-card__description" title={component.description}>
+    <p class="nb-component-card__description">
       {component.description}
     </p>
 

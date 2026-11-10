@@ -66,7 +66,8 @@
   .nb-select:focus-visible {
     border-color: var(--nb-focus);
     box-shadow: var(--nb-shadow-md);
-    outline: none;
+    outline: 3px solid var(--nb-focus);
+    outline-offset: 2px;
   }
 
   .nb-input:disabled,
@@ -137,20 +138,20 @@
   }
 
   .nb-field-hint {
-    font-size: var(--nb-text-xs);
+    font-size: var(--nb-text-sm);
     color: var(--nb-base-content-muted);
     font-style: italic;
   }
 
   .nb-field-error {
     font-size: var(--nb-text-sm);
-    color: var(--nb-error);
+    color: var(--nb-error-ink);
     font-weight: 700;
   }
 
   .nb-field-required .nb-field-label::after {
     content: " *";
-    color: var(--nb-error);
+    color: var(--nb-error-ink);
   }
 
   .nb-field-row {
@@ -175,7 +176,7 @@
   }
 
   .nb-field:has(.nb-field-error) .nb-field-label {
-    color: var(--nb-error);
+    color: var(--nb-error-ink);
   }
 
   .nb-field:has([aria-invalid="true"]) {

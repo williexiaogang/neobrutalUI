@@ -7,6 +7,7 @@
 @layer nb.components {
   .nb-alert {
     --_accent: var(--nb-neutral);
+    --_accent-ink: var(--nb-base-content);
 
     display: flex;
     gap: var(--nb-space-3);
@@ -21,25 +22,29 @@
 
   .nb-alert-info {
     --_accent: var(--nb-info);
+    --_accent-ink: var(--nb-info-ink);
   }
 
   .nb-alert-success {
     --_accent: var(--nb-success);
+    --_accent-ink: var(--nb-success-ink);
   }
 
   .nb-alert-warning {
     --_accent: var(--nb-warning);
+    --_accent-ink: var(--nb-warning-ink);
   }
 
   .nb-alert-error {
     --_accent: var(--nb-error);
+    --_accent-ink: var(--nb-error-ink);
   }
 
   .nb-alert-icon {
     flex-shrink: 0;
     inline-size: 1.5rem;
     block-size: 1.5rem;
-    color: var(--_accent);
+    color: var(--_accent-ink);
   }
 
   .nb-alert-title {

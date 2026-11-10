@@ -141,7 +141,9 @@ function formatWeekdayDefault(date: Date, locale: string): string {
  *       <button class="nb-calendar-nav-btn" type="button" aria-label="Next month">›</button>
  *     </div>
  *     <div class="nb-calendar-weekdays" aria-hidden="true">…</div>
- *     <div class="nb-calendar-grid" role="grid">…</div>
+ *     <div class="nb-calendar-grid" role="grid">
+ *       <div class="nb-calendar-row" role="row">…gridcells…</div>
+ *     </div>
  *   </div>
  */
 export function createCalendar(element: HTMLElement, options: CalendarOptions = {}): CalendarInstance {
@@ -246,7 +248,16 @@ export function createCalendar(element: HTMLElement, options: CalendarOptions = 
 
     const startDate = new Date(year, month, 1 - leadingDays);
 
+    let row: HTMLElement | null = null;
+
     for (let i = 0; i < totalCells; i++) {
+      if (i % 7 === 0) {
+        row = document.createElement('div');
+        row.className = 'nb-calendar-row';
+        row.setAttribute('role', 'row');
+        calendarGrid.appendChild(row);
+      }
+
       const date = new Date(startDate);
       date.setDate(startDate.getDate() + i);
 
@@ -271,7 +282,7 @@ export function createCalendar(element: HTMLElement, options: CalendarOptions = 
         cell.setAttribute('aria-disabled', 'true');
       }
 
-      calendarGrid.appendChild(cell);
+      row?.appendChild(cell);
     }
 
     syncSelectionClasses();
