@@ -1,20 +1,44 @@
-<div class="nb-component-card__demo" style="flex-direction: column;">
-  <label class="nb-field" style="inline-size: 100%;">
-    <span class="nb-field-label">Priority</span>
-    <select class="nb-select">
-      <option>Low</option>
-      <option selected>Medium</option>
-      <option>High</option>
-    </select>
-  </label>
+<div class="nb-component-card__demo nb-select-demo__custom" data-custom-select-demo>
   <p class="nb-select-demo__note">
-    The trigger is fully styled; the open option list stays native for reliable
-    keyboard and mobile behavior. Use <a href="#dropdown">Dropdown</a> for a
-    fully custom menu.
+    Fully custom listbox with keyboard navigation and a styled popup.
   </p>
+  <div class="nb-field" style="inline-size: 100%;">
+    <span class="nb-field-label" id="select-priority-label">Priority</span>
+    <div class="nb-dropdown nb-select-demo__dropdown" data-nb-select-dropdown>
+      <button
+        class="nb-select nb-dropdown-trigger nb-select-demo__trigger"
+        type="button"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby="select-priority-label select-priority-value"
+      >
+        <span id="select-priority-value" data-select-value>Medium</span>
+      </button>
+      <div
+        class="nb-dropdown-panel nb-select-demo__panel"
+        role="listbox"
+        aria-labelledby="select-priority-label"
+      >
+        <button class="nb-dropdown-item nb-select-demo__option" type="button" role="option" aria-selected="false" data-value="Low">
+          <span>Low</span>
+          <span class="nb-select-demo__check" aria-hidden="true">✓</span>
+        </button>
+        <button class="nb-dropdown-item nb-select-demo__option" type="button" role="option" aria-selected="true" data-value="Medium">
+          <span>Medium</span>
+          <span class="nb-select-demo__check" aria-hidden="true">✓</span>
+        </button>
+        <button class="nb-dropdown-item nb-select-demo__option" type="button" role="option" aria-selected="false" data-value="High">
+          <span>High</span>
+          <span class="nb-select-demo__check" aria-hidden="true">✓</span>
+        </button>
+      </div>
+      <input type="hidden" name="priority" value="Medium" data-select-input />
+    </div>
+  </div>
 </div>
 
 <div class="nb-component-card__demo" style="flex-direction: column;">
+  <p class="nb-select-demo__note">Native select sizes for standard form integration.</p>
   <label class="nb-field" style="inline-size: 100%;">
     <span class="nb-field-label">Small</span>
     <select class="nb-select nb-select-sm">
@@ -50,17 +74,75 @@
   </label>
 </div>
 
+<script>
+  import { createDropdown } from "@neo-brutal-ui/interactions/dropdown";
+
+  const customSelect = document.querySelector<HTMLElement>("[data-nb-select-dropdown]");
+  if (customSelect) {
+    const selectedValue = customSelect.querySelector<HTMLElement>("[data-select-value]");
+    const hiddenInput = customSelect.querySelector<HTMLInputElement>("[data-select-input]");
+    const options = customSelect.querySelectorAll<HTMLButtonElement>("[role='option']");
+
+    createDropdown(customSelect);
+
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        const value = option.dataset.value ?? "";
+        options.forEach((item) => item.setAttribute("aria-selected", String(item === option)));
+        if (selectedValue) selectedValue.textContent = value;
+        if (hiddenInput) hiddenInput.value = value;
+      });
+    });
+  }
+</script>
+
 <style>
+  .nb-select-demo__custom {
+    align-content: flex-start;
+    min-block-size: 19rem;
+  }
+
+  :global([data-nb-density="compact"]) .nb-select-demo__custom {
+    min-block-size: 18rem;
+  }
+
+  .nb-select-demo__dropdown,
+  .nb-select-demo__panel {
+    inline-size: 100%;
+  }
+
+  .nb-select-demo__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: start;
+  }
+
+  .nb-select-demo__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-3);
+  }
+
+  .nb-select-demo__option[aria-selected="true"] {
+    background: var(--nb-primary);
+    color: var(--nb-primary-content);
+  }
+
+  .nb-select-demo__check {
+    visibility: hidden;
+    font-weight: 800;
+  }
+
+  .nb-select-demo__option[aria-selected="true"] .nb-select-demo__check {
+    visibility: visible;
+  }
+
   .nb-select-demo__note {
     margin: 0;
     color: var(--nb-base-content-muted);
     font-size: var(--nb-text-sm);
     line-height: var(--nb-leading-normal);
-  }
-
-  .nb-select-demo__note a {
-    color: var(--nb-base-content);
-    font-weight: 700;
-    text-decoration-thickness: 2px;
   }
 </style>

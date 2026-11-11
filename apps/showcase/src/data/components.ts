@@ -86,12 +86,13 @@ export const components: ShowcaseComponent[] = [
     slug: "select",
     category: "forms",
     status: "ready",
-    description: "Brutalist native selects with a custom arrow affordance.",
+    description: "Custom listbox preview and brutalist native select controls.",
     available: true,
     demo: "SelectDemo",
+    interactive: true,
     tags: ["form", "field"],
     notes:
-      "Ready: custom trigger and arrow tile, native option popup, hover, focus, disabled, invalid, sm/lg sizes, RTL, and forced-colors support. Use Dropdown for a fully custom menu.",
+      "Ready: interactive custom listbox with styled popup, keyboard navigation, selection sync, and native select size/state variants. Native selects keep their platform option popup; use the custom listbox for fully styled menus.",
     knownIssues: [],
   },
   {
