@@ -36,7 +36,7 @@
     --nb-input-shadow-focus: var(--nb-shadow-md);
 
     /* Badge */
-    --nb-badge-border-radius: 9999px;
+    --nb-badge-border-radius: var(--nb-radius-pill);
 
     /* Alert */
     --nb-alert-accent-width: 6px;
@@ -79,7 +79,7 @@
 
     /* Breadcrumb */
     --nb-breadcrumb-separator-color: var(--nb-base-content-muted);
-    --nb-breadcrumb-link-color: var(--nb-primary);
+    --nb-breadcrumb-link-color: var(--nb-primary-ink);
 
     /* Pagination */
     --nb-pagination-shadow: var(--nb-shadow-sm);

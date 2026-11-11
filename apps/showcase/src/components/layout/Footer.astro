@@ -9,7 +9,8 @@ const year = new Date().getFullYear();
     <div class="nb-footer__inner">
       <div>
         <strong>{site.name}</strong>
-        <span class="nb-badge nb-badge-outline" aria-label={`Current version ${site.version}`}>
+        <span class="nb-visually-hidden">Version</span>
+        <span class="nb-badge nb-badge-outline">
           {site.version}
         </span>
         <p class="nb-footer__copyright">
@@ -27,6 +28,10 @@ const year = new Date().getFullYear();
           </a>
         )}
         <a href="#top">Back to top</a>
+        <a href="/playground">Playground</a>
+        <a href="/theme-generator">Theme generator</a>
+        <a href="/rtl">RTL</a>
+        <a href="/stress-test">Stress test</a>
       </div>
     </div>
   </div>

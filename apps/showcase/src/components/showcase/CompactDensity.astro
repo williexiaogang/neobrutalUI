@@ -1,0 +1,321 @@
+---
+import Section from "@components/layout/Section.astro";
+---
+
+<Section id="compact" ariaLabelledby="compact-title">
+  <div class="nb-compact-demo__intro">
+    <div>
+      <h2 id="compact-title" class="nb-section-title">Compact density</h2>
+      <p class="nb-section-lead">
+        Tighten spacing, gaps, and shadows without sacrificing readable text or
+        accessible targets. Use the switch below, or the Compact button in the
+        header, to update the whole page.
+      </p>
+    </div>
+
+    <div class="nb-compact-demo__switch" role="group" aria-label="Page density">
+      <button
+        class="nb-btn nb-btn-sm"
+        type="button"
+        aria-pressed="true"
+        data-density-option="default"
+      >
+        Default
+      </button>
+      <button
+        class="nb-btn nb-btn-sm"
+        type="button"
+        aria-pressed="false"
+        data-density-option="compact"
+      >
+        Compact
+      </button>
+    </div>
+  </div>
+
+  <div class="nb-compact-demo" data-compact-preview data-preview-density="default">
+    <div class="nb-compact-demo__toolbar">
+      <div>
+        <p class="nb-compact-demo__eyebrow">Workspace overview</p>
+        <h3 class="nb-compact-demo__title">Project pulse</h3>
+      </div>
+      <span class="nb-badge nb-badge-accent" data-density-preview-label>
+        Default density
+      </span>
+    </div>
+
+    <div class="nb-compact-demo__stats">
+      <div class="nb-stat">
+        <p class="nb-stat-title">Tasks</p>
+        <p class="nb-stat-value">24</p>
+        <p class="nb-stat-desc">8 completed</p>
+      </div>
+      <div class="nb-stat nb-stat-success">
+        <p class="nb-stat-title">Uptime</p>
+        <p class="nb-stat-value">98%</p>
+        <p class="nb-stat-desc">Last 30 days</p>
+      </div>
+      <div class="nb-stat nb-stat-info">
+        <p class="nb-stat-title">Open</p>
+        <p class="nb-stat-value">12</p>
+        <p class="nb-stat-desc">4 due today</p>
+      </div>
+    </div>
+
+    <div class="nb-compact-demo__form">
+      <label class="nb-field">
+        <span class="nb-field-label">Find a task</span>
+        <input class="nb-input" type="search" placeholder="Search this project" />
+      </label>
+      <button class="nb-btn nb-btn-primary" type="button">Add task</button>
+    </div>
+
+    <ul class="nb-list nb-list-divided nb-compact-demo__list">
+      <li>
+        <span class="nb-compact-demo__task">
+          <strong>Review compact spacing</strong>
+          <small>Design system · Today</small>
+        </span>
+        <span class="nb-badge nb-badge-warning">In review</span>
+      </li>
+      <li>
+        <span class="nb-compact-demo__task">
+          <strong>Verify keyboard navigation</strong>
+          <small>Accessibility · Tomorrow</small>
+        </span>
+        <span class="nb-badge nb-badge-info">To do</span>
+      </li>
+      <li>
+        <span class="nb-compact-demo__task">
+          <strong>Publish theme tokens</strong>
+          <small>Release · Completed</small>
+        </span>
+        <span class="nb-badge nb-badge-success">Done</span>
+      </li>
+    </ul>
+
+    <div class="nb-compact-demo__footer">
+      <p class="nb-compact-demo__summary" aria-live="polite" data-density-summary>
+        Default density uses the full spacing scale and harder shadows.
+      </p>
+      <div class="nb-cluster">
+        <button class="nb-btn nb-btn-sm" type="button">Cancel</button>
+        <button class="nb-btn nb-btn-sm nb-btn-secondary" type="button">Save changes</button>
+      </div>
+    </div>
+  </div>
+
+  <ul class="nb-compact-demo__notes" aria-label="Compact density API and limits">
+    <li><code>nb-compact</code> on a component or parent</li>
+    <li><code>data-nb-density="compact"</code> on a region</li>
+    <li>14px text · 24px targets · 44px on touch</li>
+  </ul>
+</Section>
+
+<script>
+  const densityOptions = document.querySelectorAll<HTMLButtonElement>("[data-density-option]");
+  const preview = document.querySelector<HTMLElement>("[data-compact-preview]");
+  const previewLabel = document.querySelector<HTMLElement>("[data-density-preview-label]");
+  const summary = document.querySelector<HTMLElement>("[data-density-summary]");
+
+  function syncPreview() {
+    const compact = document.documentElement.getAttribute("data-nb-density") === "compact";
+
+    densityOptions.forEach((option) => {
+      option.setAttribute("aria-pressed", String((option.dataset.densityOption === "compact") === compact));
+    });
+
+    if (preview) preview.dataset.previewDensity = compact ? "compact" : "default";
+    if (previewLabel) previewLabel.textContent = compact ? "Compact density" : "Default density";
+    if (summary) {
+      summary.textContent = compact
+        ? "Compact density tightens the layout while preserving text and target floors."
+        : "Default density uses the full spacing scale and harder shadows.";
+    }
+  }
+
+  densityOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      const compact = option.dataset.densityOption === "compact";
+      const html = document.documentElement;
+
+      if (compact) {
+        html.setAttribute("data-nb-density", "compact");
+        localStorage.setItem("nb-density", "compact");
+      } else {
+        html.removeAttribute("data-nb-density");
+        localStorage.removeItem("nb-density");
+      }
+
+      window.dispatchEvent(new CustomEvent("nb:densitychange"));
+    });
+  });
+
+  window.addEventListener("nb:densitychange", syncPreview);
+  syncPreview();
+</script>
+
+<style>
+  .nb-compact-demo__intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--nb-space-4);
+    margin-block-end: var(--nb-space-6);
+  }
+
+  .nb-compact-demo__intro > div:first-child {
+    flex: 1 1 32rem;
+  }
+
+  .nb-compact-demo__intro .nb-section-title,
+  .nb-compact-demo__intro .nb-section-lead {
+    margin-block-end: 0;
+  }
+
+  .nb-compact-demo__intro .nb-section-title {
+    margin-block-end: var(--nb-space-4);
+  }
+
+  .nb-compact-demo__switch {
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: var(--nb-space-2);
+    padding: var(--nb-space-1);
+    border: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-sm);
+  }
+
+  .nb-compact-demo__switch .nb-btn {
+    box-shadow: none;
+  }
+
+  .nb-compact-demo__switch .nb-btn[aria-pressed="true"] {
+    background: var(--nb-primary);
+    color: var(--nb-primary-content);
+  }
+
+  .nb-compact-demo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-4);
+    max-inline-size: 56rem;
+    margin-inline: auto;
+    padding: var(--nb-space-5);
+    border: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-lg);
+  }
+
+  .nb-compact-demo__toolbar,
+  .nb-compact-demo__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nb-space-3);
+  }
+
+  .nb-compact-demo__eyebrow {
+    margin-block-end: var(--nb-space-1);
+    color: var(--nb-base-content-muted);
+    font-size: var(--nb-text-sm);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .nb-compact-demo__title {
+    margin: 0;
+    font-size: var(--nb-text-2xl);
+    line-height: var(--nb-leading-tight);
+  }
+
+  .nb-compact-demo__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--nb-space-3);
+  }
+
+  .nb-compact-demo__stats .nb-stat {
+    min-inline-size: 0;
+  }
+
+  .nb-compact-demo__form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: var(--nb-space-3);
+  }
+
+  .nb-compact-demo__list {
+    inline-size: 100%;
+  }
+
+  .nb-compact-demo__list li {
+    flex-wrap: wrap;
+  }
+
+  .nb-compact-demo__task {
+    display: flex;
+    flex: 1 1 12rem;
+    flex-direction: column;
+    gap: var(--nb-space-1);
+    min-inline-size: 0;
+  }
+
+  .nb-compact-demo__task small {
+    color: var(--nb-base-content-muted);
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-compact-demo__footer {
+    padding-block-start: var(--nb-space-3);
+    border-block-start: var(--nb-border-width) solid var(--nb-border);
+  }
+
+  .nb-compact-demo__summary {
+    flex: 1 1 20rem;
+    margin: 0;
+    color: var(--nb-base-content-muted);
+    font-size: var(--nb-text-sm);
+  }
+
+  .nb-compact-demo__notes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--nb-space-2) var(--nb-space-5);
+    max-inline-size: 56rem;
+    margin: var(--nb-space-4) auto 0;
+    padding: 0;
+    color: var(--nb-base-content-muted);
+    font-size: var(--nb-text-sm);
+    list-style: none;
+  }
+
+  .nb-compact-demo__notes code {
+    color: var(--nb-base-content);
+    font-weight: 700;
+  }
+
+  @media (width <= 520px) {
+    .nb-compact-demo__form {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .nb-compact-demo__form .nb-btn {
+      inline-size: 100%;
+    }
+
+    .nb-compact-demo__stats {
+      gap: var(--nb-space-2);
+    }
+
+    .nb-compact-demo__stats .nb-stat-desc {
+      display: none;
+    }
+  }
+</style>

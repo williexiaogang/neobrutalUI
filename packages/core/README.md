@@ -26,6 +26,16 @@ Use the component classes in your markup:
 </div>
 ```
 
+Compact density keeps the same classes and tightens padding, gaps, and shadow offsets for small screens. Targets stay at least 24px (44px on a coarse pointer) and body text stays at least 14px:
+
+```html
+<main data-nb-density="compact">
+  <button class="nb-btn nb-btn-primary">Save</button>
+</main>
+```
+
+`class="nb-compact"` on one component does the same thing for that subtree. See `docs/guides/compact-density.md`.
+
 Dark mode is selected with a theme root:
 
 ```html

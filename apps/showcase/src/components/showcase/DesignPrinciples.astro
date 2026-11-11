@@ -1,38 +1,39 @@
 ---
 import Section from "@components/layout/Section.astro";
+import Icon from "@components/showcase/Icon.astro";
 
 const principles = [
   {
-    symbol: "▣",
+    icon: "square",
     title: "Hard Borders",
     body: "Strong outlines make structure and interaction states immediately visible.",
   },
   {
-    symbol: "▦",
+    icon: "grid",
     title: "Tactile Shadows",
     body: "Hard shadows and press states create a physical, responsive feeling.",
   },
   {
-    symbol: "⌘",
+    icon: "command",
     title: "Accessible States",
     body: "Focus, disabled, validation, and selected states remain clearly distinguishable.",
   },
   {
-    symbol: "④",
+    icon: "stack",
     title: "Tailwind CSS v4",
     body: "Built for modern Tailwind projects without legacy v3 compatibility.",
   },
   {
-    symbol: "◐",
+    icon: "contrast",
     title: "Theme Ready",
     body: "Scoped data-theme tokens allow multiple visual themes on one page.",
   },
   {
-    symbol: "Ø",
+    icon: "slash",
     title: "Zero-JS Core",
     body: "Core visual components work without JavaScript. Complex interactions are optional.",
   },
-];
+] as const;
 ---
 
 <Section id="principles" ariaLabelledby="principles-title">
@@ -43,7 +44,7 @@ const principles = [
       principles.map((principle) => (
         <article class="nb-principle-card">
           <span class="nb-principle-card__icon" aria-hidden="true">
-            {principle.symbol}
+            <Icon name={principle.icon} />
           </span>
           <h3 class="nb-principle-card__title">{principle.title}</h3>
           <p class="nb-principle-card__body">{principle.body}</p>

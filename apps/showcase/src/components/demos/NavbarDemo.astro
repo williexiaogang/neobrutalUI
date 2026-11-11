@@ -1,3 +1,7 @@
+---
+import Icon from "@components/showcase/Icon.astro";
+---
+
 <div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-4);">
   <!-- Default Navbar -->
   <div>
@@ -21,7 +25,7 @@
         aria-expanded="true"
         aria-controls="navbar-collapse-demo"
       >
-        <span aria-hidden="true">☰</span>
+        <span aria-hidden="true"><Icon name="menu" /></span>
       </button>
     </nav>
   </div>
@@ -46,7 +50,7 @@
         aria-expanded="false"
         aria-controls="navbar-collapse-demo-closed"
       >
-        <span aria-hidden="true">☰</span>
+        <span aria-hidden="true"><Icon name="menu" /></span>
       </button>
     </nav>
   </div>

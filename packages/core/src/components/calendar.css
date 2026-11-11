@@ -111,6 +111,13 @@
     gap: var(--_gap);
   }
 
+  .nb-calendar-row {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--_gap);
+  }
+
   .nb-calendar-day {
     display: flex;
     align-items: center;
@@ -187,11 +194,12 @@
 
   .nb-calendar-day-outside {
     color: var(--nb-base-content-muted);
-    opacity: 0.6;
+    background: var(--nb-base-200);
   }
 
   .nb-calendar-day-disabled {
-    opacity: 0.4;
+    color: var(--nb-base-content-muted);
+    background: var(--nb-base-200);
     cursor: not-allowed;
     box-shadow: none;
     text-decoration: line-through;

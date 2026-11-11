@@ -17,6 +17,7 @@
     --_indicator-border: var(--nb-border);
     --_active-bg: var(--nb-primary);
     --_active-fg: var(--nb-primary-content);
+    --_active-ink: var(--nb-primary-ink);
     --_connector-color: var(--nb-border);
 
     display: flex;
@@ -129,7 +130,7 @@
   }
 
   .nb-step-description {
-    font-size: var(--nb-text-xs);
+    font-size: var(--nb-text-sm);
     line-height: var(--nb-leading-normal);
     color: var(--nb-base-content-muted);
   }
@@ -162,19 +163,25 @@
   }
 
   .nb-step-active .nb-step-label {
-    color: var(--_active-bg);
+    color: var(--_active-ink);
   }
 
   /* Disabled -------------------------------------------------------------- */
   .nb-step-disabled,
   .nb-step:has(.nb-step-indicator[disabled]) {
-    opacity: 0.5;
     cursor: not-allowed;
   }
 
   .nb-step-disabled .nb-step-indicator,
   .nb-step:has(.nb-step-indicator[disabled]) .nb-step-indicator {
     box-shadow: none;
+    background: var(--nb-base-200);
+    color: var(--nb-base-content-muted);
+  }
+
+  .nb-step-disabled .nb-step-label,
+  .nb-step:has(.nb-step-indicator[disabled]) .nb-step-label {
+    color: var(--nb-base-content-muted);
   }
 
   /* ========================================================================
@@ -183,41 +190,49 @@
   .nb-step-primary {
     --_active-bg: var(--nb-primary);
     --_active-fg: var(--nb-primary-content);
+    --_active-ink: var(--nb-primary-ink);
   }
 
   .nb-step-secondary {
     --_active-bg: var(--nb-secondary);
     --_active-fg: var(--nb-secondary-content);
+    --_active-ink: var(--nb-secondary-ink);
   }
 
   .nb-step-accent {
     --_active-bg: var(--nb-accent);
     --_active-fg: var(--nb-accent-content);
+    --_active-ink: var(--nb-accent-ink);
   }
 
   .nb-step-info {
     --_active-bg: var(--nb-info);
     --_active-fg: var(--nb-info-content);
+    --_active-ink: var(--nb-info-ink);
   }
 
   .nb-step-success {
     --_active-bg: var(--nb-success);
     --_active-fg: var(--nb-success-content);
+    --_active-ink: var(--nb-success-ink);
   }
 
   .nb-step-warning {
     --_active-bg: var(--nb-warning);
     --_active-fg: var(--nb-warning-content);
+    --_active-ink: var(--nb-warning-ink);
   }
 
   .nb-step-error {
     --_active-bg: var(--nb-error);
     --_active-fg: var(--nb-error-content);
+    --_active-ink: var(--nb-error-ink);
   }
 
   .nb-step-neutral {
     --_active-bg: var(--nb-neutral);
     --_active-fg: var(--nb-neutral-content);
+    --_active-ink: var(--nb-neutral-content);
   }
 
   /* ========================================================================
@@ -232,7 +247,7 @@
   }
 
   .nb-steps-sm .nb-step-description {
-    font-size: 0.625rem;
+    font-size: var(--nb-text-xs);
   }
 
   .nb-steps-lg {

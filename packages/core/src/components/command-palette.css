@@ -88,13 +88,12 @@
     font-size: var(--nb-text-base);
     font-weight: 600;
     line-height: var(--nb-leading-none);
-    outline: none;
     box-shadow: var(--nb-shadow-sm);
   }
 
   .nb-command-palette-input-field:focus-visible {
-    outline: 2px solid var(--nb-focus);
-    outline-offset: -2px;
+    outline: 3px solid var(--nb-focus);
+    outline-offset: 2px;
   }
 
   .nb-command-palette-input-field::placeholder {
@@ -178,7 +177,7 @@
   }
 
   .nb-command-palette-item-active .nb-command-palette-item-icon {
-    color: var(--nb-primary);
+    color: var(--nb-primary-ink);
   }
 
   /* ------------------------------------------------------------------------

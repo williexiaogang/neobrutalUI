@@ -34,7 +34,8 @@
     align-items: center;
     gap: var(--nb-space-1);
     padding: var(--nb-space-1) var(--nb-space-2);
-    color: var(--nb-primary);
+    color: var(--nb-breadcrumb-link-color);
+    min-block-size: 1.5rem;
     text-decoration: none;
     border: var(--nb-border-width) solid transparent;
     transition: background var(--nb-duration-fast) var(--nb-ease-out),

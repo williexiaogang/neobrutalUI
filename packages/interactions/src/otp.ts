@@ -51,6 +51,16 @@ export function createOtp(element: HTMLElement, options: OtpOptions = {}): OtpIn
   }
 
   const resolvedLength = length ?? fields.length;
+
+  fields.forEach((field, index) => {
+    const labelled = field.labels?.length
+      || field.getAttribute('aria-label')
+      || field.getAttribute('aria-labelledby');
+    if (!labelled) {
+      field.setAttribute('aria-label', `Digit ${index + 1} of ${fields.length}`);
+    }
+  });
+
   const events = createEventManager();
   const state = createStateManager(false);
   let cleanupState: (() => void) | undefined;

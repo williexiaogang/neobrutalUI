@@ -1,9 +1,13 @@
+---
+import Icon from "@components/showcase/Icon.astro";
+---
+
 <!-- Single Date Picker -->
 <div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch;">
   <div class="nb-date-picker" data-nb-date-picker>
     <div class="nb-date-picker-input">
       <input type="text" placeholder="Select a date" value="Jun 11, 2025" readonly style="inline-size: 100%;" />
-      <button class="nb-btn nb-btn-sm" type="button" aria-label="Open calendar">📅</button>
+      <button class="nb-btn nb-btn-sm" type="button" aria-label="Open calendar"><Icon name="calendar" /></button>
     </div>
     <div class="nb-date-picker-panel">
       <div class="nb-calendar nb-calendar-sm">
@@ -147,7 +151,7 @@
       <input type="text" placeholder="Start date" value="Jun 16, 2025" readonly style="inline-size: 100%;" />
       <span style="padding: var(--nb-space-2);">→</span>
       <input type="text" placeholder="End date" value="Jun 19, 2025" readonly style="inline-size: 100%;" />
-      <button class="nb-btn nb-btn-sm" type="button" aria-label="Open calendar">📅</button>
+      <button class="nb-btn nb-btn-sm" type="button" aria-label="Open calendar"><Icon name="calendar" /></button>
     </div>
   </div>
 </div>

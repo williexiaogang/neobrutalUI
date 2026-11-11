@@ -13,7 +13,7 @@
   .nb-carousel {
     --_shadow: var(--nb-carousel-shadow, var(--nb-shadow-md));
     --_nav-size: var(--nb-carousel-nav-size, 2.5rem);
-    --_dot-size: var(--nb-carousel-dot-size, 0.75rem);
+    --_dot-size: var(--nb-carousel-dot-size, 1.5rem);
     --_gap: var(--nb-carousel-gap, var(--nb-space-4));
 
     position: relative;
@@ -190,7 +190,7 @@
     inline-size: var(--_dot-size);
     block-size: var(--_dot-size);
     border: var(--nb-border-width) solid var(--nb-border);
-    border-radius: 9999px;
+    border-radius: var(--nb-radius-pill);
     background: var(--nb-base-300);
     cursor: pointer;
     padding: 0;

@@ -37,7 +37,8 @@
   .nb-file-input-area:focus-within {
     border-color: var(--nb-focus);
     box-shadow: var(--nb-shadow-md);
-    outline: none;
+    outline: 3px solid var(--nb-focus);
+    outline-offset: 2px;
   }
 
   .nb-file-input-area.is-dragover {
@@ -155,7 +156,7 @@
 
   .nb-file-input-error {
     font-size: var(--nb-text-sm);
-    color: var(--nb-error);
+    color: var(--nb-error-ink);
     font-weight: 700;
   }
 

@@ -1,13 +1,14 @@
 ---
 // Neo-Brutal UI — Form Summary Demo
 // Showcases error, warning, compact, and combined variants.
+import Icon from "@components/showcase/Icon.astro";
 ---
 
 <div class="nb-component-card__demo" style="display: flex; flex-wrap: wrap; gap: var(--nb-space-3); align-items: flex-start;">
   <!-- 1. Default error variant -->
   <div class="nb-form-summary" role="alert" aria-labelledby="fs-title-1">
     <h3 class="nb-form-summary-title" id="fs-title-1">
-      <span aria-hidden="true">⚠️</span> There are 3 errors in your form
+      <span aria-hidden="true"><Icon name="warning" /></span> There are 3 errors in your form
     </h3>
     <ul class="nb-form-summary-list">
       <li class="nb-form-summary-item">
@@ -25,7 +26,7 @@
   <!-- 2. Warning variant -->
   <div class="nb-form-summary nb-form-summary-warning" role="alert" aria-labelledby="fs-title-2">
     <h3 class="nb-form-summary-title" id="fs-title-2">
-      <span aria-hidden="true">🔶</span> 2 fields need attention
+      <span aria-hidden="true"><Icon name="warning" /></span> 2 fields need attention
     </h3>
     <ul class="nb-form-summary-list">
       <li class="nb-form-summary-item">
@@ -40,7 +41,7 @@
   <!-- 3. Compact variant -->
   <div class="nb-form-summary nb-form-summary-compact" role="alert" aria-labelledby="fs-title-3">
     <h3 class="nb-form-summary-title" id="fs-title-3">
-      <span aria-hidden="true">⚠️</span> 1 error
+      <span aria-hidden="true"><Icon name="warning" /></span> 1 error
     </h3>
     <ul class="nb-form-summary-list">
       <li class="nb-form-summary-item">
@@ -52,7 +53,7 @@
   <!-- 4. Compact + warning combined -->
   <div class="nb-form-summary nb-form-summary-warning nb-form-summary-compact" role="alert" aria-labelledby="fs-title-4">
     <h3 class="nb-form-summary-title" id="fs-title-4">
-      <span aria-hidden="true">🔶</span> 1 notice
+      <span aria-hidden="true"><Icon name="warning" /></span> 1 notice
     </h3>
     <ul class="nb-form-summary-list">
       <li class="nb-form-summary-item">
@@ -64,7 +65,7 @@
   <!-- 5. Error without links (plain text only) -->
   <div class="nb-form-summary" role="alert" aria-labelledby="fs-title-5">
     <h3 class="nb-form-summary-title" id="fs-title-5">
-      <span aria-hidden="true">❌</span> Server-side validation failed
+      <span aria-hidden="true"><Icon name="error" /></span> Server-side validation failed
     </h3>
     <ul class="nb-form-summary-list">
       <li class="nb-form-summary-item">Invoice total exceeds account limit</li>

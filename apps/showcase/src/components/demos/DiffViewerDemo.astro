@@ -1,6 +1,6 @@
 <div class="nb-component-card__demo" style="flex-direction: column; align-items: stretch; gap: var(--nb-space-6); inline-size: 100%;">
   <!-- Diff Viewer: File Change -->
-  <div class="nb-diff" data-theme="neo-brutal">
+  <div class="nb-diff">
     <div class="nb-diff-header">
       <span class="nb-diff-file-old">src/utils/helpers.ts</span>
       <span>→</span>
@@ -10,7 +10,7 @@
         <span class="nb-diff-stat-removed">-4</span>
       </div>
     </div>
-    <div class="nb-diff-body">
+    <div class="nb-diff-body" tabindex="0" aria-label="File change diff">
       <div class="nb-diff-hunk">
         <div class="nb-diff-line nb-diff-removed">
           <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">14</span></span>
@@ -69,14 +69,14 @@
   </div>
 
   <!-- Compact Diff -->
-  <div class="nb-diff nb-diff-sm nb-diff-plain" data-theme="neo-brutal">
+  <div class="nb-diff nb-diff-sm nb-diff-plain">
     <div class="nb-diff-header">
       <span class="nb-diff-file-new">README.md</span>
       <div class="nb-diff-stats">
         <span class="nb-diff-stat-added">+3</span>
       </div>
     </div>
-    <div class="nb-diff-body">
+    <div class="nb-diff-body" tabindex="0" aria-label="Plain diff">
       <div class="nb-diff-hunk">
         <div class="nb-diff-line nb-diff-added">
           <span class="nb-diff-gutter"><span class="nb-diff-gutter-number">1</span></span>

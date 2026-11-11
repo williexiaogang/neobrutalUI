@@ -129,7 +129,22 @@ interface GenerateOptions {
   colorSpace: string;
 }
 
-function generatePreviewCSS(opts: GenerateOptions): string {
+function readableInk(color: Vec3, backgrounds: Vec3[]): Vec3 {
+  const passes = (candidate: Vec3) =>
+    backgrounds.every((bg) => contrast(candidate, bg) >= 4.6);
+  if (passes(color)) return color;
+  const lighter = backgrounds[0][0] < 0.5;
+  for (let step = 1; step <= 48; step += 1) {
+    const nextL = Math.min(0.88, Math.max(0.32, color[0] + (lighter ? 0.012 : -0.012) * step));
+    const candidate: Vec3 = [nextL, color[1], color[2]];
+    if (passes(candidate)) return candidate;
+  }
+  return lighter
+    ? [0.82, Math.min(color[1], 0.16), color[2]]
+    : [0.42, Math.min(color[1], 0.14), color[2]];
+}
+
+function generatePreviewCSS(opts: GenerateOptions, dark = false): string {
   const primary = rgbToOklch(...hexToRgb(opts.primary));
   const [pL, pC, pH] = primary;
   const I = clamp(opts.intensity);
@@ -170,12 +185,14 @@ function generatePreviewCSS(opts: GenerateOptions): string {
   const warningC: Vec3 = [0.8, 0.17 * I, 75];
   const errorC: Vec3 = [0.62, 0.22 * I, 25];
   const neutralC: Vec3 = [0.25, 0.03 * I, nh];
-  const base100: Vec3 = [1.0, 0.01, pH];
-  const base200: Vec3 = [0.95, 0.02, pH];
-  const base300: Vec3 = [0.9, 0.03, pH];
+  const base100: Vec3 = dark ? [0.18, 0.03, 260] : [1.0, 0.01, pH];
+  const base200: Vec3 = dark ? [0.25, 0.03, 260] : [0.95, 0.02, pH];
+  const base300: Vec3 = dark ? [0.35, 0.03, 260] : [0.9, 0.03, pH];
   const borderL = 0.15 + (1 - clamp(opts.borderContrast)) * 0.35;
-  const borderC: Vec3 = [borderL, 0.03, nh];
-  const overlayC: Vec4 = [0.25, 0.03, nh, 0.6];
+  const borderC: Vec3 = dark ? [0.78, 0.024, 260] : [borderL, 0.03, nh];
+  const overlayC: Vec4 = dark ? [0, 0, 0, 0.7] : [0.25, 0.03, nh, 0.6];
+  const surfaces = [base100, base200];
+  const ink = (color: Vec3) => readableInk(color, surfaces);
 
   const content = (bg: Vec3): Vec3 =>
     bg[0] > 0.68 ? [0.15, 0.05, bg[2]] : [0.98, 0.01, bg[2]];
@@ -190,7 +207,14 @@ function generatePreviewCSS(opts: GenerateOptions): string {
   };
   const shadowMap: Record<string, number> = { xs: 1, sm: 2, md: 4, lg: 6, xl: 8 };
   const sh = shadowMap[opts.shadowOffset] || 4;
-  const name = opts.name;
+  const name = dark ? `${opts.name}-dark` : opts.name;
+  const primaryInk = ink(primaryC);
+  const secondaryInk = ink(secondaryC);
+  const accentInk = ink(accentC);
+  const infoInk = ink(infoC);
+  const successInk = ink(successC);
+  const warningInk = ink(warningC);
+  const errorInk = ink(errorC);
 
   const tokens: Array<[string, string]> = [
     ['--nb-color-black', 'oklch(0% 0 0)'],
@@ -225,8 +249,16 @@ function generatePreviewCSS(opts: GenerateOptions): string {
     ['--nb-warning-content', toCss(...content(warningC))],
     ['--nb-error', toCss(...errorC)],
     ['--nb-error-content', toCss(...content(errorC))],
+    ['--nb-primary-ink', toCss(...primaryInk)],
+    ['--nb-secondary-ink', toCss(...secondaryInk)],
+    ['--nb-accent-ink', toCss(...accentInk)],
+    ['--nb-info-ink', toCss(...infoInk)],
+    ['--nb-success-ink', toCss(...successInk)],
+    ['--nb-warning-ink', toCss(...warningInk)],
+    ['--nb-error-ink', toCss(...errorInk)],
+    ['--nb-error-text', 'var(--nb-error-ink)'],
     ['--nb-border', toCss(...borderC)],
-    ['--nb-focus', toCss(...primaryC)],
+    ['--nb-focus', 'var(--nb-primary-ink)'],
     ['--nb-overlay', toCss(...overlayC)],
   ];
 
@@ -262,20 +294,7 @@ function generatePreviewCSS(opts: GenerateOptions): string {
 }
 
 function generateDarkPreviewCSS(opts: GenerateOptions): string {
-  const css = generatePreviewCSS(opts);
-  // Naive dark invert: swap base hues, darken semantic slightly, lighten border
-  return css
-    .replace(`[data-theme="${opts.name}"]`, `[data-theme="${opts.name}-dark"]`)
-    .replace(/--nb-base-100: oklch\([^)]+\);/, '--nb-base-100: oklch(18% 0.03 260);')
-    .replace(/--nb-base-200: oklch\([^)]+\);/, '--nb-base-200: oklch(25% 0.03 260);')
-    .replace(/--nb-base-300: oklch\([^)]+\);/, '--nb-base-300: oklch(35% 0.03 260);')
-    .replace(/--nb-base-content: oklch\([^)]+\);/, '--nb-base-content: oklch(98% 0.01 260);')
-    .replace(
-      /--nb-base-content-muted: oklch\([^)]+\);/,
-      '--nb-base-content-muted: oklch(65% 0.03 260);'
-    )
-    .replace(/--nb-border: oklch\([^)]+\);/, '--nb-border: oklch(78% 0.024 260);')
-    .replace(/--nb-overlay: oklch\([^)]+\);/, '--nb-overlay: oklch(0% 0 0 / 0.7);');
+  return generatePreviewCSS(opts, true);
 }
 
 // ── UI wiring ─────────────────────────────────────────────────────────────
