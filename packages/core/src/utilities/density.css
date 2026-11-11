@@ -49,7 +49,43 @@
   }
 
   /* Block controls grow to the active target floor. */
-  :is(.nb-compact, [data-nb-density="compact"]) :is(
+  :is(.nb-compact, [data-nb-density="compact"])
+    :is(
+      .nb-btn,
+      .nb-input,
+      .nb-select,
+      .nb-tab,
+      .nb-pagination-link,
+      .nb-pagination-prev,
+      .nb-pagination-next,
+      .nb-menu-item,
+      .nb-dropdown-item,
+      .nb-dropdown-trigger,
+      .nb-accordion-trigger,
+      .nb-collapse-trigger,
+      .nb-navbar-toggle,
+      .nb-calendar-day,
+      .nb-calendar-nav-btn,
+      .nb-date-picker-input,
+      .nb-date-picker-footer-btn,
+      .nb-otp-field,
+      .nb-segmented-item,
+      .nb-command-palette-item,
+      .nb-command-palette-input-field,
+      .nb-breadcrumb-link,
+      .nb-carousel-nav,
+      .nb-modal-close,
+      .nb-drawer-close,
+      .nb-alert-close,
+      .nb-toast-close,
+      .nb-file-input-btn,
+      .nb-file-item-remove,
+      .nb-color-picker-input,
+      .nb-range,
+      .nb-window-control,
+      .nb-kbd
+    ),
+  :is(
     .nb-btn,
     .nb-input,
     .nb-select,
@@ -65,6 +101,8 @@
     .nb-navbar-toggle,
     .nb-calendar-day,
     .nb-calendar-nav-btn,
+    .nb-date-picker-input,
+    .nb-date-picker-footer-btn,
     .nb-otp-field,
     .nb-segmented-item,
     .nb-command-palette-item,
@@ -75,36 +113,13 @@
     .nb-drawer-close,
     .nb-alert-close,
     .nb-toast-close,
+    .nb-file-input-btn,
     .nb-file-item-remove,
     .nb-color-picker-input,
     .nb-range,
     .nb-window-control,
     .nb-kbd
-  ),
-  :is(
-    .nb-btn,
-    .nb-input,
-    .nb-select,
-    .nb-tab,
-    .nb-pagination-link,
-    .nb-menu-item,
-    .nb-dropdown-trigger,
-    .nb-accordion-trigger,
-    .nb-collapse-trigger,
-    .nb-navbar-toggle,
-    .nb-calendar-nav-btn,
-    .nb-otp-field,
-    .nb-segmented-item,
-    .nb-carousel-nav,
-    .nb-modal-close,
-    .nb-drawer-close,
-    .nb-alert-close,
-    .nb-toast-close,
-    .nb-file-item-remove,
-    .nb-color-picker-input,
-    .nb-window-control,
-    .nb-kbd
-  ).nb-compact {
+  ):is(.nb-compact, [data-nb-density="compact"]) {
     min-block-size: var(--nb-target);
   }
 
@@ -113,11 +128,22 @@
     min-block-size: 4.5rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-btn-icon {
-    inline-size: var(--nb-target);
-  }
-
-  :is(.nb-compact, [data-nb-density="compact"]) :is(
+  :is(.nb-compact, [data-nb-density="compact"])
+    :is(
+      .nb-btn-icon,
+      .nb-navbar-toggle,
+      .nb-calendar-nav-btn,
+      .nb-carousel-nav,
+      .nb-modal-close,
+      .nb-drawer-close,
+      .nb-alert-close,
+      .nb-toast-close,
+      .nb-file-item-remove,
+      .nb-window-control,
+      .nb-otp-field,
+      .nb-color-picker-input
+    ),
+  :is(
     .nb-btn-icon,
     .nb-navbar-toggle,
     .nb-calendar-nav-btn,
@@ -130,48 +156,70 @@
     .nb-window-control,
     .nb-otp-field,
     .nb-color-picker-input
+  ):is(.nb-compact, [data-nb-density="compact"]) {
+    inline-size: var(--nb-target);
+    block-size: var(--nb-target);
+  }
+
+  :is(.nb-compact, [data-nb-density="compact"])
+    :is(.nb-pagination-link, .nb-pagination-prev, .nb-pagination-next, .nb-pagination-ellipsis, .nb-kbd),
+  :is(.nb-pagination-link, .nb-pagination-prev, .nb-pagination-next, .nb-pagination-ellipsis, .nb-kbd):is(
+    .nb-compact,
+    [data-nb-density="compact"]
   ) {
     min-inline-size: var(--nb-target);
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-btn:hover:not(:disabled) {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-pagination-ellipsis {
+    min-block-size: var(--nb-target);
+  }
+
+  :is(.nb-compact, [data-nb-density="compact"])
+    :is(.nb-input, .nb-select, .nb-textarea, .nb-date-picker-input, .nb-command-palette-input-field) {
+    font-size: var(--nb-text-base);
+  }
+
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-btn:hover:not(:disabled),
+  .nb-btn:is(.nb-compact, [data-nb-density="compact"]):hover:not(:disabled) {
     transform: translate(-1px, -1px);
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-btn:active:not(:disabled) {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-btn:active:not(:disabled),
+  .nb-btn:is(.nb-compact, [data-nb-density="compact"]):active:not(:disabled) {
     transform: translate(1px, 1px);
   }
 
   @media (prefers-reduced-motion: reduce) {
     :is(.nb-compact, [data-nb-density="compact"]) .nb-btn:hover:not(:disabled),
-    :is(.nb-compact, [data-nb-density="compact"]) .nb-btn:active:not(:disabled) {
+    :is(.nb-compact, [data-nb-density="compact"]) .nb-btn:active:not(:disabled),
+    .nb-btn:is(.nb-compact, [data-nb-density="compact"]):hover:not(:disabled),
+    .nb-btn:is(.nb-compact, [data-nb-density="compact"]):active:not(:disabled) {
       transform: none;
     }
   }
 
   /* Smaller visuals whose hit area is extended to the floor. */
-  :is(.nb-compact, [data-nb-density="compact"]) :is(
-    .nb-carousel-dot,
-    .nb-badge-remove,
-    .nb-checkbox,
-    .nb-radio,
-    .nb-toggle
+  :is(.nb-compact, [data-nb-density="compact"])
+    :is(.nb-carousel-dot, .nb-badge-remove, .nb-checkbox, .nb-radio, .nb-toggle),
+  :is(.nb-carousel-dot, .nb-badge-remove, .nb-checkbox, .nb-radio, .nb-toggle):is(
+    .nb-compact,
+    [data-nb-density="compact"]
   ) {
     position: relative;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-carousel-dot {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-carousel-dot,
+  .nb-carousel-dot:is(.nb-compact, [data-nb-density="compact"]) {
     inline-size: 1rem;
     block-size: 1rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) :is(
-    .nb-carousel-dot,
-    .nb-badge-remove,
-    .nb-checkbox,
-    .nb-radio,
-    .nb-toggle
-  )::before {
+  :is(.nb-compact, [data-nb-density="compact"])
+    :is(.nb-carousel-dot, .nb-badge-remove, .nb-checkbox, .nb-radio, .nb-toggle)::before,
+  :is(.nb-carousel-dot, .nb-badge-remove, .nb-checkbox, .nb-radio, .nb-toggle):is(
+      .nb-compact,
+      [data-nb-density="compact"]
+    )::before {
     content: "";
     position: absolute;
     z-index: 1;
@@ -182,37 +230,44 @@
     transform: translate(-50%, -50%);
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-rating {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-rating,
+  .nb-rating:is(.nb-compact, [data-nb-density="compact"]) {
     --_star-size: var(--nb-target);
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-calendar {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-calendar,
+  .nb-calendar:is(.nb-compact, [data-nb-density="compact"]) {
     --_day-size: max(1.75rem, var(--nb-target));
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-steps {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-steps,
+  .nb-steps:is(.nb-compact, [data-nb-density="compact"]) {
     --_indicator-size: 1.75rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-carousel-slide {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-carousel-slide,
+  .nb-carousel-slide:is(.nb-compact, [data-nb-density="compact"]) {
     min-block-size: 6rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-otp-field {
-    inline-size: var(--nb-target);
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-otp-field,
+  .nb-otp-field:is(.nb-compact, [data-nb-density="compact"]) {
     font-size: max(var(--nb-text-base), var(--nb-text-floor));
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-progress {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-progress,
+  .nb-progress:is(.nb-compact, [data-nb-density="compact"]) {
     --_height: 0.5rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-loading {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-loading,
+  .nb-loading:is(.nb-compact, [data-nb-density="compact"]) {
     inline-size: 1rem;
     block-size: 1rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-feature-grid-icon {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-feature-grid-icon,
+  .nb-feature-grid-icon:is(.nb-compact, [data-nb-density="compact"]) {
     inline-size: 2rem;
     block-size: 2rem;
   }
@@ -222,66 +277,151 @@
     block-size: 1rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-phone {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-phone,
+  .nb-phone:is(.nb-compact, [data-nb-density="compact"]) {
     max-inline-size: 16rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-phone-screen,
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-browser-body,
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-window-body {
+  :is(.nb-compact, [data-nb-density="compact"]) :is(.nb-phone-screen, .nb-browser-body, .nb-window-body),
+  :is(.nb-phone-screen, .nb-browser-body, .nb-window-body):is(.nb-compact, [data-nb-density="compact"]) {
     min-block-size: 6rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-hero {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-hero,
+  .nb-hero:is(.nb-compact, [data-nb-density="compact"]) {
     --_padding: var(--nb-space-6);
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-modal {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-modal,
+  .nb-modal:is(.nb-compact, [data-nb-density="compact"]) {
     max-inline-size: calc(100vw - 2rem);
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-drawer {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-drawer,
+  .nb-drawer:is(.nb-compact, [data-nb-density="compact"]) {
     max-inline-size: min(18rem, 100%);
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-tooltip {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-tooltip,
+  .nb-tooltip:is(.nb-compact, [data-nb-density="compact"]) {
     max-inline-size: 16rem;
     font-size: max(var(--nb-text-sm), var(--nb-text-floor));
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-stat-value {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-stat-value,
+  .nb-stat-value:is(.nb-compact, [data-nb-density="compact"]) {
     font-size: var(--nb-text-2xl);
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-pricing-card {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-pricing-card,
+  .nb-pricing-card:is(.nb-compact, [data-nb-density="compact"]) {
     max-inline-size: 18rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-chat-bubble {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-chat-bubble,
+  .nb-chat-bubble:is(.nb-compact, [data-nb-density="compact"]) {
     max-inline-size: 100%;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-skeleton {
+  :is(.nb-compact, [data-nb-density="compact"])
+    .nb-skeleton:not(.nb-skeleton-circle, .nb-skeleton-image, .nb-skeleton-card, .nb-skeleton-button),
+  .nb-skeleton:not(.nb-skeleton-circle, .nb-skeleton-image, .nb-skeleton-card, .nb-skeleton-button):is(
+      .nb-compact,
+      [data-nb-density="compact"]
+    ) {
     block-size: 0.75rem;
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) .nb-badge {
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-skeleton-circle,
+  .nb-skeleton-circle:is(.nb-compact, [data-nb-density="compact"]) {
+    inline-size: 2rem;
+    block-size: 2rem;
+  }
+
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-skeleton-card,
+  .nb-skeleton-card:is(.nb-compact, [data-nb-density="compact"]) {
+    block-size: 6rem;
+  }
+
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-skeleton-button,
+  .nb-skeleton-button:is(.nb-compact, [data-nb-density="compact"]) {
+    block-size: 2rem;
+  }
+
+  :is(.nb-compact, [data-nb-density="compact"]) .nb-badge,
+  .nb-badge:is(.nb-compact, [data-nb-density="compact"]) {
     font-size: var(--nb-text-badge-floor);
   }
 
-  :is(.nb-compact, [data-nb-density="compact"]) :is(
+  :is(.nb-compact, [data-nb-density="compact"])
+    :is(.nb-input, .nb-select, .nb-textarea, .nb-date-picker-input, .nb-command-palette-input-field),
+  :is(.nb-input, .nb-select, .nb-textarea, .nb-date-picker-input, .nb-command-palette-input-field):is(
+    .nb-compact,
+    [data-nb-density="compact"]
+  ) {
+    font-size: var(--nb-text-base);
+  }
+
+  :is(.nb-compact, [data-nb-density="compact"])
+    :is(
+      .nb-field-hint,
+      .nb-field-description,
+      .nb-avatar-initials,
+      .nb-stat-title,
+      .nb-stat-desc,
+      .nb-step-label,
+      .nb-step-description,
+      .nb-alert-body,
+      .nb-toast-message,
+      .nb-empty-message,
+      .nb-hero-description,
+      .nb-card-body,
+      .nb-table,
+      .nb-list-item,
+      .nb-list li,
+      .nb-description-list-term,
+      .nb-description-list dt,
+      .nb-description-list-description,
+      .nb-description-list dd,
+      .nb-calendar-day,
+      .nb-calendar-weekday,
+      .nb-command-palette-item-description,
+      .nb-command-palette-group,
+      .nb-command-palette-shortcut,
+      .nb-command-palette-footer,
+      .nb-color-picker-label,
+      .nb-color-picker-value,
+      .nb-file-item-size,
+      .nb-kbd
+    ),
+  :is(
     .nb-field-hint,
     .nb-field-description,
+    .nb-avatar-initials,
+    .nb-stat-title,
     .nb-stat-desc,
+    .nb-step-label,
     .nb-step-description,
     .nb-alert-body,
+    .nb-toast-message,
     .nb-empty-message,
     .nb-hero-description,
     .nb-card-body,
     .nb-table,
     .nb-list-item,
-    .nb-description-list-description
-  ) {
+    .nb-description-list-term,
+    .nb-description-list-description,
+    .nb-calendar-day,
+    .nb-calendar-weekday,
+    .nb-command-palette-item-description,
+    .nb-command-palette-group,
+    .nb-command-palette-shortcut,
+    .nb-command-palette-footer,
+    .nb-color-picker-label,
+    .nb-color-picker-value,
+    .nb-file-item-size,
+    .nb-kbd
+  ):is(.nb-compact, [data-nb-density="compact"]) {
     font-size: max(var(--nb-text-sm), var(--nb-text-floor));
   }
 }

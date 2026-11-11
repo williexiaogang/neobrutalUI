@@ -53,7 +53,7 @@ If a visual mark must be smaller than the target (carousel dot, badge remove, ch
 | Alert | Padding shrinks. Accent bar is 4px. Close button follows `--nb-target`. Body stays at least 14px. | 24px / 44px, text 14px |
 | Divider | Stroke stays 2px. | Not a target |
 | Loading | Spinner visual is 16px. It is not a control. | Decorative |
-| Skeleton | Bar height 12px. | Decorative |
+| Skeleton | Bars are 12px, circles 32px square, cards 96px, and button placeholders 32px. Image aspect ratios are preserved. | Decorative |
 | Modal | Width fits the viewport minus 1rem gutters. Close button follows `--nb-target`. | 24px / 44px |
 | Tabs | Tab height follows `--nb-target`. Focus outline stays 3px. | 24px / 44px |
 | Dropdown | Trigger and items follow `--nb-target`. | 24px / 44px |

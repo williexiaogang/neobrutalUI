@@ -3,4 +3,4 @@
 "@neo-brutal-ui/interactions": patch
 ---
 
-Add text-safe ink color tokens, keep focus outlines on fields, and fix calendar, carousel, and OTP accessibility markup. Add a shared compact density that shrinks chrome without going below the 24px and 44px target floors.
+Add text-safe ink color tokens, keep focus outlines on fields, and fix calendar, carousel, and OTP accessibility markup. Add a shared compact density that shrinks chrome without going below the 24px and 44px target floors. Make compact sizing consistent for fixed-size controls, preserve text floors and skeleton shapes, and support density classes on individual components.
