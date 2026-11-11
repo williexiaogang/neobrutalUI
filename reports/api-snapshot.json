@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-11-10T04:35:03.275Z",
+    "generatedAt": "2026-11-11T01:45:50.442Z",
     "version": "0.0.2"
   },
   "css": {
@@ -717,7 +717,7 @@
     "hash": "d6d97d168f004f01"
   },
   "tokens": {
-    "tokenCount": 235,
+    "tokenCount": 240,
     "tokens": [
       "--nb-accent",
       "--nb-accent-content",
@@ -927,10 +927,15 @@
       "--nb-tab-padding",
       "--nb-table-header-bg",
       "--nb-table-shadow",
+      "--nb-target",
+      "--nb-target-min",
+      "--nb-target-touch",
       "--nb-text-2xl",
       "--nb-text-3xl",
       "--nb-text-4xl",
+      "--nb-text-badge-floor",
       "--nb-text-base",
+      "--nb-text-floor",
       "--nb-text-lg",
       "--nb-text-sm",
       "--nb-text-xl",
@@ -955,7 +960,7 @@
       "--nb-z-toast",
       "--nb-z-tooltip"
     ],
-    "hash": "06b335ca1ce85b68"
+    "hash": "15311073d5855167"
   },
   "js": {
     "namedExportCount": 30,

@@ -873,6 +873,25 @@
   font-size: var(--nb-text-sm);
 }
 
+@media (width <= 480px) {
+  html {
+    scroll-padding-top: 8.5rem;
+  }
+
+  .nb-header__inner {
+    flex-wrap: wrap;
+  }
+
+  .nb-header__actions {
+    flex: 1 1 100%;
+    justify-content: flex-start;
+  }
+
+  .nb-header__theme-select {
+    max-inline-size: 9rem;
+  }
+}
+
 /* Theme preview section */
 .nb-theme-preview {
   display: grid;

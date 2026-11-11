@@ -63,6 +63,9 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url).toString();
         ) {
           html.setAttribute("data-theme", saved);
         }
+        if (localStorage.getItem("nb-density") === "compact") {
+          html.setAttribute("data-nb-density", "compact");
+        }
       })();
     </script>
   </head>

@@ -1,0 +1,48 @@
+---
+import Section from "@components/layout/Section.astro";
+---
+
+<Section id="compact" ariaLabelledby="compact-title">
+  <h2 id="compact-title" class="nb-section-title">Compact density</h2>
+  <p class="nb-section-lead">
+    Add <code>class="nb-compact"</code> to a component or any parent, or set
+    <code>data-nb-density="compact"</code> on a region. The header Compact
+    button does that for this whole page. Padding, gaps, and shadow offsets
+    shrink. Text stays at least 14px (12px only on badges) and controls stay
+    at least 24px, or 44px for a coarse pointer.
+  </p>
+
+  <div class="nb-compact nb-compact-demo" data-nb-density="compact">
+    <div class="nb-cluster">
+      <button class="nb-btn nb-btn-primary" type="button">Save</button>
+      <button class="nb-btn" type="button">Cancel</button>
+      <span class="nb-badge nb-badge-accent">Badge</span>
+    </div>
+    <label class="nb-field">
+      <span class="nb-field-label">Email</span>
+      <input class="nb-input" type="email" value="ada@example.com" />
+    </label>
+    <label class="nb-field-inline">
+      <input class="nb-checkbox" type="checkbox" checked />
+      <span>Email me</span>
+    </label>
+    <div class="nb-stat nb-stat-success">
+      <p class="nb-stat-title">Uptime</p>
+      <p class="nb-stat-value">99.9%</p>
+      <p class="nb-stat-desc">Compact stat</p>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .nb-compact-demo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nb-space-4);
+    max-inline-size: 24rem;
+    padding: var(--nb-space-4);
+    border: var(--nb-border-width) solid var(--nb-border);
+    background: var(--nb-base-100);
+    box-shadow: var(--nb-shadow-md);
+  }
+</style>

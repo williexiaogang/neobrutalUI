@@ -26,6 +26,15 @@ const navItems = [
       </nav>
 
       <div class="nb-header__actions">
+        <button
+          class="nb-btn nb-btn-sm"
+          type="button"
+          aria-pressed="false"
+          data-density-toggle
+        >
+          Compact
+        </button>
+
         <label class="nb-header__theme">
           <span class="nb-visually-hidden">Color theme</span>
           <select class="nb-select nb-select-sm nb-header__theme-select" data-theme-select>
@@ -114,6 +123,29 @@ const navItems = [
       if (event.key !== "Escape" || !mobileNav.classList.contains("is-open")) return;
       event.preventDefault();
       closeMenu(true);
+    });
+  }
+
+  const densityToggle = document.querySelector<HTMLButtonElement>("[data-density-toggle]");
+  if (densityToggle) {
+    const html = document.documentElement;
+
+    function syncDensity() {
+      const compact = html.getAttribute("data-nb-density") === "compact";
+      densityToggle.setAttribute("aria-pressed", String(compact));
+    }
+
+    syncDensity();
+    densityToggle.addEventListener("click", () => {
+      const compact = html.getAttribute("data-nb-density") === "compact";
+      if (compact) {
+        html.removeAttribute("data-nb-density");
+        localStorage.removeItem("nb-density");
+      } else {
+        html.setAttribute("data-nb-density", "compact");
+        localStorage.setItem("nb-density", "compact");
+      }
+      syncDensity();
     });
   }
 

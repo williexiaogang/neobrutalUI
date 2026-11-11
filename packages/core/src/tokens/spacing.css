@@ -47,5 +47,12 @@
     --nb-radius-box: 0px;
     --nb-radius-overlay: 0px;
     --nb-radius-pill: 9999px;
+
+    /* Target and type floors (UI UX Pro Max / WCAG 2.2). */
+    --nb-target-min: 1.5rem;
+    --nb-target-touch: 2.75rem;
+    --nb-text-floor: 0.875rem;
+    --nb-text-badge-floor: 0.75rem;
+    --nb-target: var(--nb-target-min);
   }
 }
