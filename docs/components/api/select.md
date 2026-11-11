@@ -96,18 +96,20 @@
 
 | State | Support | CSS Selector / Class | Visual Effect |
 |-------|---------|---------------------|---------------|
-| **hover** | ✅ (implicit) | Browser default | No explicit hover styles. |
+| **hover** | ✅ | `.nb-select:hover:not(:disabled)` | Accent arrow tile and `box-shadow: var(--nb-shadow-md)`. |
 | **focus** | ✅ | `.nb-select:focus` | `border-color: var(--nb-focus)`, `box-shadow: var(--nb-shadow-md)`. |
 | **focus-visible** | ✅ | `:focus-visible` (global) | `outline: 3px solid var(--nb-focus); outline-offset: 2px;` |
-| **disabled** | ✅ | `.nb-select:disabled` | `background: var(--nb-base-200)`, `opacity: 0.7`, `cursor: not-allowed`. |
+| **disabled** | ✅ | `.nb-select:disabled` | Muted arrow, `background-color: var(--nb-base-200)`, `opacity: 0.7`, `cursor: not-allowed`. |
 | **readonly** | ❌ Not styled | — | Native `<select>` does not support `readonly`. |
-| **invalid** | ✅ | `.nb-select[aria-invalid="true"]` | `border-color: var(--nb-error)`. |
+| **invalid** | ✅ | `.nb-select[aria-invalid="true"]` | Error border and error-colored arrow tile. |
 | **valid** | ❌ Not styled | `:valid` | No explicit valid styles. |
 | **active / loading** | ❌ Not applicable | — | Not applicable. |
 
 ---
 
 ## CSS Implementation Notes
+
+The closed trigger is fully styled. The open option list remains native so keyboard interaction, mobile presentation, and form semantics stay consistent across platforms. Use `.nb-dropdown` when a fully custom menu is required.
 
 ### Layout / Shadow / Motion
 
@@ -131,19 +133,7 @@
 }
 ```
 
-Select-specific overrides add a custom chevron and remove native appearance:
-
-```css
-.nb-select {
-  appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
-    linear-gradient(135deg, currentColor 50%, transparent 50%);
-  background-position: calc(100% - 1rem) center, calc(100% - 0.625rem) center;
-  background-size: 0.375rem 0.375rem, 0.375rem 0.375rem;
-  background-repeat: no-repeat;
-  padding-inline-end: var(--nb-space-8);
-}
-```
+Select-specific overrides remove the native closed-trigger appearance and draw a chevron, separator, and 2.25rem arrow tile with CSS gradients. Hover, invalid, and disabled states update the tile through internal custom properties. The logical `padding-inline-end` reserves space for the tile.
 
 ### Reduced Motion
 
@@ -157,19 +147,20 @@ Select-specific overrides add a custom chevron and remove native appearance:
 
 ### RTL
 
-The arrow position flips for right-to-left layouts:
+The arrow tile moves to the inline-start side and text padding moves to the inline-end side:
 
 ```css
 [dir="rtl"] .nb-select {
-  background-position: 0.625rem center, 1rem center;
-  padding-inline-end: var(--nb-space-3);
-  padding-inline-start: var(--nb-space-8);
+  background-position: 0.875rem center, 1.25rem center,
+    var(--_select-affordance-width) center, 0 center;
+  padding-inline: var(--nb-space-3)
+    calc(var(--_select-affordance-width) + var(--nb-space-3));
 }
 ```
 
 ### Forced Colors
 
-Under `forced-colors: active`, `.nb-select` inherits the same treatment as `.nb-input`: a 2px `CanvasText` border, `forced-color-adjust: none`, and a 2px `Highlight` outline on focus. The custom arrow is drawn with `currentColor`, so it remains visible in the active forced-color palette.
+Under `forced-colors: active`, the custom arrow tile is removed and native select appearance is restored. The control keeps a 2px `CanvasText` border and a 2px `Highlight` focus outline.
 
 ---
 

@@ -7,6 +7,11 @@
       <option>High</option>
     </select>
   </label>
+  <p class="nb-select-demo__note">
+    The trigger is fully styled; the open option list stays native for reliable
+    keyboard and mobile behavior. Use <a href="#dropdown">Dropdown</a> for a
+    fully custom menu.
+  </p>
 </div>
 
 <div class="nb-component-card__demo" style="flex-direction: column;">
@@ -44,3 +49,18 @@
     </select>
   </label>
 </div>
+
+<style>
+  .nb-select-demo__note {
+    margin: 0;
+    color: var(--nb-base-content-muted);
+    font-size: var(--nb-text-sm);
+    line-height: var(--nb-leading-normal);
+  }
+
+  .nb-select-demo__note a {
+    color: var(--nb-base-content);
+    font-weight: 700;
+    text-decoration-thickness: 2px;
+  }
+</style>

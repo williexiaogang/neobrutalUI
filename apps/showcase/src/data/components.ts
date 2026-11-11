@@ -86,12 +86,12 @@ export const components: ShowcaseComponent[] = [
     slug: "select",
     category: "forms",
     status: "ready",
-    description: "Native-styled single-select controls.",
+    description: "Brutalist native selects with a custom arrow affordance.",
     available: true,
     demo: "SelectDemo",
     tags: ["form", "field"],
     notes:
-      "Ready: native select styling with custom arrow; focus, disabled, invalid, and sm/lg size variants; RTL arrow placement; forced-colors; and API docs are implemented.",
+      "Ready: custom trigger and arrow tile, native option popup, hover, focus, disabled, invalid, sm/lg sizes, RTL, and forced-colors support. Use Dropdown for a fully custom menu.",
     knownIssues: [],
   },
   {

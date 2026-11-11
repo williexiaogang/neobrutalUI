@@ -28,10 +28,10 @@ These do not get smaller in compact density.
 | Body and control text | 14px, inputs stay 16px | Readable type. `--nb-text-base` is not reduced |
 | Badge text | 12px (`--nb-text-badge-floor`) | Short labels only |
 | Focus | 3px `--nb-focus` outline | Visible keyboard focus |
-| Border | 2px | Neo-brutal stroke |
+| Border | 1.5px (2px in default density) | Neo-brutal stroke |
 | Motion | Existing `prefers-reduced-motion` rules | Compact hover offset is removed when motion is reduced |
 
-What does shrink: padding and gaps from `--nb-space-2` upward (`--nb-space-1` stays 4px), hard shadow offsets (down to 1–4px), and display sizes from `--nb-text-lg` upward.
+What does shrink: padding and gaps from `--nb-space-2` upward (`--nb-space-1` stays 4px), hard shadow offsets (down to 1–3px), and display sizes from `--nb-text-lg` upward.
 
 If a visual mark must be smaller than the target (carousel dot, badge remove, checkbox, radio, toggle), a transparent `::before` extends the hit area to the floor. The painted box does not have to grow.
 

@@ -13,7 +13,7 @@
     gap: var(--nb-space-3);
     padding: var(--nb-space-4);
     border: var(--nb-border-width) solid var(--nb-border);
-    border-inline-start-width: 6px;
+    border-inline-start-width: var(--nb-alert-accent-width, 6px);
     border-inline-start-color: var(--_accent);
     border-radius: var(--nb-radius-box);
     background: var(--nb-base-100);

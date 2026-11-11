@@ -21,11 +21,12 @@
     --nb-space-10: 1.5rem;
     --nb-space-12: 1.75rem;
     --nb-space-16: 2.25rem;
+    --nb-border-width: 1.5px;
     --nb-shadow-xs: 1px 1px 0 var(--nb-border);
     --nb-shadow-sm: 1px 1px 0 var(--nb-border);
     --nb-shadow-md: 2px 2px 0 var(--nb-border);
-    --nb-shadow-lg: 3px 3px 0 var(--nb-border);
-    --nb-shadow-xl: 4px 4px 0 var(--nb-border);
+    --nb-shadow-lg: 2px 2px 0 var(--nb-border);
+    --nb-shadow-xl: 3px 3px 0 var(--nb-border);
     --nb-text-lg: 1rem;
     --nb-text-xl: 1.125rem;
     --nb-text-2xl: 1.25rem;
